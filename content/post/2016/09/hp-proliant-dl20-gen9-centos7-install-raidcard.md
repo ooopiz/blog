@@ -3,7 +3,7 @@ title: 'HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式'
 date: 2016-09-29T08:49:01+08:00
 draft: false
 ---
-<img desc="" src="//imagehosting.rickyfun.net/201609/A04-01.jpg">
+<img desc="" src="//fblog.loopbai.com/images/201609/A04-01.jpg">
 
 
 原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
@@ -46,11 +46,11 @@ Installation:
 7. **Press r** to refresh the drive list and choose the appropriate drive;
 8. After it unpacks, continue with the installation as usual;
 
-<img desc="" src="//imagehosting.rickyfun.net/201609/A04-02.jpg">
+<img desc="" src="//fblog.loopbai.com/images/201609/A04-02.jpg">
 
-<img desc="" src="//imagehosting.rickyfun.net/201609/A04-03.jpg">
+<img desc="" src="//fblog.loopbai.com/images/201609/A04-03.jpg">
 
-<img desc="" src="//imagehosting.rickyfun.net/201609/A04-04.jpg">
+<img desc="" src="//fblog.loopbai.com/images/201609/A04-04.jpg">
 
 
 ### 參考資料

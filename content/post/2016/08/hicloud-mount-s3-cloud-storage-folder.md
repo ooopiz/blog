@@ -13,7 +13,7 @@ draft: false
 
 示意圖：
 
-<img desc="" src="//imagehosting.rickyfun.net/201608/A01-01.png">
+<img desc="" src="//fblog.loopbai.com/images/201608/A01-01.png">
 
 Resource：
 

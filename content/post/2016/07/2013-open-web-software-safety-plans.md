@@ -38,7 +38,7 @@ https://www.owasp.org/index.php/Top_10_2013-Top_10
 #### 一. SQL 注入攻擊
 SQL Injection攻擊的方式就很像填空題，攻擊者在網頁裡任何可以輸入資料的地方試著去猜想設計者背後的語法撰寫方式，並去猜測完整的command應該會長成怎麼樣，還有推測欄位數，table的名字，SQL的版本資訊，試著去拼湊輸入一條SQL指令，輕則刪掉資料庫，重則竊取全部的個資。可以說是任何一個撰寫互動式網頁的開發者首先也必要處理的問題。
 
-<img desc="" src="//imagehosting.rickyfun.net/201607/A02-02.png" />
+<img desc="" src="//fblog.loopbai.com/images/201607/A02-02.png" />
 
 ##### 防範策略：
 1. 在設計應用程式時，完全使用參數化查詢（Parameterized Query）來設計資料存取功能。
@@ -64,7 +64,7 @@ SQL Injection攻擊的方式就很像填空題，攻擊者在網頁裡任何可�
 ### A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)：
 經常發生在使用者可以輸入的欄位，例如留言板，如下圖所示，若未加防範下次有其他人瀏覽該網站時腳本隨即開始運行
 
-<img desc="" src="//imagehosting.rickyfun.net/201607/A02-03.jpg"/ >
+<img desc="" src="//fblog.loopbai.com/images/201607/A02-03.jpg"/ >
 
 ##### 防範策略：
 1. HTML須以跳脫或編碼機制作為XSS的基本對策
@@ -172,7 +172,7 @@ http://example.com/app/userInfo?userName=Ricky
 
 利用電子郵件假造連結
 
-<img desc="" src="//imagehosting.rickyfun.net/201607/A02-01.png" />
+<img desc="" src="//fblog.loopbai.com/images/201607/A02-01.png" />
 
 ##### 防範策略：
 1. 盡量避免使用redirect或forward

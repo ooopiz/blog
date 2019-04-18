@@ -16,4 +16,4 @@ or
 #執行
 `# iftop`
 
-<img src="//imagehosting.rickyfun.net/201509/A02-01.png">
+<img src="//fblog.loopbai.com/images/201509/A02-01.png">

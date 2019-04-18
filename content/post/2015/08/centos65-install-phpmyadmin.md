@@ -29,7 +29,7 @@ $cfg['Servers'][$i]['auth_type'] = 'cookies';
 $cfg['Servers'][$i]['auth_type'] = 'http';
 ```
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-01.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-01.png">
 
 #三、查看mysql使用者,新增使用者,給予權限
 
@@ -37,20 +37,20 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 `mysql> select user, host from mysql.user;`
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-02.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-02.png">
 
 `mysql> create user 'admin'@'%' identified by 'admin';`
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-03.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-03.png">
 
 `mysql> grant all on *.* to 'admin'@'%';`
 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-04.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-04.png">
 
 #四、phpMyAdmin 高級功能啟用
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-05.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-05.png">
 
 建立使用者pma
 `mysql> create user 'pma'@'localhost' identified by 'pmapass';`
@@ -58,18 +58,18 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 給予pma表phpmyadmin權限
 `mysql> grant select, insert, update, delete on phpmyadmin.* to pma@localhost;`
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-06.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-06.png">
 
 執行create_tables.sql啟用高級功能
 `# mysql -u root -p < /usr/share/nginx/html/phpMyAdmin/examples/create_tables.sql`
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-07.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-07.png">
 
 編輯 config.inc.php 設定檔
 將下列的部分註解拿掉
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-08.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-08.png">
 
 #五、完成，即可在phpMyAdmin看到表phpmyadmin
 
-<img desc="" src="//imagehosting.rickyfun.net/201508/A01-09.png">
+<img desc="" src="//fblog.loopbai.com/images/201508/A01-09.png">

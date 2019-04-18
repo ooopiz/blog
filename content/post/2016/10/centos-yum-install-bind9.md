@@ -129,13 +129,13 @@ ftp           IN      A       192.168.0.3
 
 `# nslookup -debug -class=chaos -query=txt version.bind <NameServer IP>`
 
-<img desc="" src="//imagehosting.rickyfun.net/201609/A02-02.jpg">
+<img desc="" src="//fblog.loopbai.com/images/201609/A02-02.jpg">
 
 ### 方法二
 
 `# dig @<NameServer IP> version.bind chaos txt`
 
-<img desc="" src="//imagehosting.rickyfun.net/201609/A02-01.jpg">
+<img desc="" src="//fblog.loopbai.com/images/201609/A02-01.jpg">
 
 ##### 隱藏版本資訊
 

@@ -31,7 +31,7 @@ Host peter.org
 
 
 ###Woindows下要生成key可以使用 git bash 裡面有內建的ssh command
-<img src="//imagehosting.rickyfun.net/201508/A02-01.png">
+<img src="//fblog.loopbai.com/images/201508/A02-01.png">
 
 再輸入，即可生成ssh key
 `ssh-keygen -t rsa`
