@@ -271,7 +271,7 @@ CentOS 7
 
 <p><code># vi /etc/yum.repos.d/remi.repo</code></p>
 
-<p><img desc="" src="//imagehosting.rickyfun.net/201508/002.png"></p>
+<p><img desc="" src="//fblog.loopbai.com/images/201508/002.png"></p>
 
 <p><strong>安裝 PHP</strong>
 <code># yum install php</code></p>
@@ -296,7 +296,7 @@ magic_quotes_gpc = Off
 <code># mkdir /var/lib/php/session</code>
 <code># chown -R nginx:nginx /var/lib/php/session</code></p>
 
-<p><img desc="" src="//imagehosting.rickyfun.net/201508/003.png"></p>
+<p><img desc="" src="//fblog.loopbai.com/images/201508/003.png"></p>
 
 <p><strong>設定php-fpm</strong>
 &gt;預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
@@ -327,7 +327,7 @@ php_admin_flag[log_errors] = on
     }
 </code></pre>
 
-<p><img desc="" src="//imagehosting.rickyfun.net/201508/004.png"></p>
+<p><img desc="" src="//fblog.loopbai.com/images/201508/004.png"></p>
 
 <blockquote>
 <p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。</p>
@@ -342,7 +342,7 @@ include        fastcgi_params;
 }
 </code></pre>
 
-<p><img desc="" src="//imagehosting.rickyfun.net/201508/005.png"></p>
+<p><img desc="" src="//fblog.loopbai.com/images/201508/005.png"></p>
 
 <p>#五、安裝MySQL
 <strong>安裝 MySQL</strong>
