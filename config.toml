@@ -33,17 +33,17 @@ enableGitInfo = true
     weight = 1
   [[menu.nav]]
     name = "Blog"
-    url = "/post/"
+    url = "/posts/"
     weight = 2
-  [[menu.nav]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 3
-  [[menu.nav]]
-    name = "About"
-    url = "/about/"
-    weight = 4
-  [[menu.nav]]
-    name = "RSS"
-    url = "/index.xml"
-    weight = 5
+#  [[menu.nav]]
+#    name = "Tags"
+#    url = "/tags/"
+#    weight = 3
+#  [[menu.nav]]
+#    name = "About"
+#    url = "/about/"
+#    weight = 4
+#  [[menu.nav]]
+#    name = "RSS"
+#    url = "/index.xml"
+#    weight = 5
