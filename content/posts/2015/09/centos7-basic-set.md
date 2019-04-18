@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS7 基礎設定'
 date: 2015-09-01 03:07
-comments: true
-categories: 
+draft: false
 ---
 - 一、啟用網卡，停用NetworkManger
 - 二、關閉SELinux

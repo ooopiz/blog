@@ -1,9 +1,7 @@
 ---
-layout: post
 title: '一台電腦兩個Git帳號使用SSH Key'
 date: 2015-08-24 03:05
-comments: true
-categories: 
+draft: false
 ---
 #在設定檔中加入設定檔
 Windows下的路徑C:\Users\Ricky\.ssh

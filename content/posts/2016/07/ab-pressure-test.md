@@ -1,9 +1,7 @@
 ---
-layout: post
 title: '2016/07/27 使用ab壓測'
 date: 2016-07-29 01:16
-comments: true
-categories: 
+draft: false
 ---
 ## 2016/07/27 使用ab壓測
 

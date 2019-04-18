@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS6.5 網卡基本設定'
 date: 2015-08-21 09:29
-comments: true
-categories: 
+draft: false
 ---
 首先可以下指令顯示出所有的介面資訊
 `# ip link show`

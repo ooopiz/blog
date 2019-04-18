@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'yum 和 wget 使用 proxy'
 date: 2015-09-02 17:05
-comments: true
-categories: 
+draft: false
 ---
 #yum 設定檔
 在設定檔中加入以下參數

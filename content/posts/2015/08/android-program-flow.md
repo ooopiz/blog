@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'Android 程式流程'
 date: 2015-08-24 04:50
-comments: true
-categories: 
+draft: false
 ---
 了解一個程式的流程是十分重要的一件事
 以下記載著一個Android APP的出生到死亡

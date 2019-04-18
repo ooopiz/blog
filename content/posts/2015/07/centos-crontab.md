@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS crontab'
 date: 2015-07-27 01:35
-comments: true
-categories: 
+draft: false
 ---
 # Example #
 

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'Laravel5.0 升級5.1'
 date: 2015-07-25 12:22
-comments: true
-categories: 
+draft: false
 ---
 ###1. 修改composer.json ###
 `"laravel/framework": "5.0.*"` 修改為 `"laravel/framework": "5.1.*"`

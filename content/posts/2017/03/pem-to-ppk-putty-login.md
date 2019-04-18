@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'pem轉ppk putty 登入'
 date: 2017-03-21 02:21
-comments: true
-categories: 
+draft: false
 ---
 ## putty登入方式
 putty不支援openssh, 所以手上有pem檔的話需要做一次轉換

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS6.5 安裝LNMP'
 date: 2015-08-24 01:08
-comments: true
-categories: 
+draft: false
 ---
 #一、更新rpm
 <a href="https://www.cnhzz.com/yum-repo/" target="_blank">參考連結</a>

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式'
 date: 2016-09-29 08:49
-comments: true
-categories: 
+draft: false
 ---
 <img desc="" src="//imagehosting.rickyfun.net/201609/A04-01.jpg">
 

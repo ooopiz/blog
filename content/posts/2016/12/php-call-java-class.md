@@ -2,8 +2,8 @@
 layout: post
 title: 'php call java 類別'
 date: 2016-12-21 03:23
-comments: true
-categories: 
+draft: false
+
 ---
 [php-java-bridge 介紹](http://php-java-bridge.sourceforge.net/pjb/)
 

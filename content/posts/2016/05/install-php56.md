@@ -1,9 +1,7 @@
 ---
-layout: post
 title: '安裝 PHP5.6'
 date: 2016-05-05 02:38
-comments: true
-categories: 
+draft: false
 ---
 #一、更新rpm
 

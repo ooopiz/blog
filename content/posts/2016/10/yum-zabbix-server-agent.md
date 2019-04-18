@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'Yum Zabbix server, agent'
 date: 2016-10-27 02:13
-comments: true
-categories: 
+draft: false
 ---
 #### 安裝相應的 RPM 檔啟用 Zabbix Repository
 

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: '安裝 Nginx 1.9+'
 date: 2016-05-05 02:47
-comments: true
-categories: 
+draft: false
 ---
 ### 新增nginx.repo
 

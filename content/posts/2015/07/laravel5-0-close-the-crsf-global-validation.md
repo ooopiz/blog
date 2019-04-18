@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'Laravel5.0 關閉CRSF全局驗證'
 date: 2015-07-25 08:13
-comments: true
-categories: 
+draft: false
 ---
 修改Kernel.php
 將global middleware的 `'App\Http\Middleware\VerifyCsrfToken'`

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS7 安裝JDK 64 Bit'
 date: 2015-09-30 05:13
-comments: true
-categories: 
+draft: false
 ---
 # tar.gz 安裝
 `cd /opt`

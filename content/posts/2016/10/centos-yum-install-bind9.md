@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS yum 安裝bind9'
 date: 2016-10-04 02:09
-comments: true
-categories: 
+draft: false
 ---
 ## 安裝
 

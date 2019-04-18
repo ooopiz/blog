@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'opensourcepos 安裝'
 date: 2017-05-15 07:46
-comments: true
-categories: 
+draft: false
 ---
 
 [php pos 商用版](https://phppointofsale.com/)

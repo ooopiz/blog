@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS6.5 流量監控工具(iftop)'
 date: 2015-09-02 16:56
-comments: true
-categories: 
+draft: false
 ---
 <a href="http://www.ex-parrot.com/~pdw/iftop/" target="_blank">官方網站</a>
 

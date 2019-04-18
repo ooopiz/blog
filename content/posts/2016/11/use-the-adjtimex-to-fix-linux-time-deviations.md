@@ -1,9 +1,7 @@
 ---
-layout: post
 title: '利用adjtimex來修正linux時間偏差'
 date: 2016-11-04 10:26
-comments: true
-categories: 
+draft: false
 ---
 ##利用adjtimex來修正linux時間偏差
 

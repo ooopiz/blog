@@ -1,9 +1,7 @@
 ---
-layout: post
 title: '運用google協作平台製作履歷'
 date: 2016-09-20 05:50
-comments: true
-categories: 
+draft: false
 ---
 ## 運用google協作平台製作履歷
 

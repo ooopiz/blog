@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS6.5 Tomcat開機自動啟動'
 date: 2015-09-30 21:50
-comments: true
-categories: 
+draft: false
 ---
 #1.設定啟動腳本
 在目錄/etc/init.d新增一個tomcat的腳本

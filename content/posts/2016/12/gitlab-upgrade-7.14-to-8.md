@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'GitLab 7.14升級8.X'
 date: 2016-12-08 13:22
-comments: true
-categories: 
+draft: false
 ---
 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下
 recovery，以免意外發生時手忙腳亂．

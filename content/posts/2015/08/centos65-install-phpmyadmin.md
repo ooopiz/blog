@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'CentOS6.5 安裝phpMyAdmin'
 date: 2015-08-24 02:00
-comments: true
-categories: 
+draft: false
 ---
 #一、安裝phpMyAdmin
 >phpMyAdmin對應php版本會有影響，請挑選適合的版本

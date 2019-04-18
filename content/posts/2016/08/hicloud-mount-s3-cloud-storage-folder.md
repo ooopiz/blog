@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'Hicloud S3雲儲存資料夾掛載'
 date: 2016-08-09 02:07
-comments: true
-categories: 
+draft: false
 ---
 ### hicloud S3雲儲存
 

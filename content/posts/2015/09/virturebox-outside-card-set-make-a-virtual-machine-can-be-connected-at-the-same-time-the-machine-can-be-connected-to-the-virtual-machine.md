@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器'
 date: 2015-09-09 09:10
-comments: true
-categories: 
+draft: false
 ---
 VirtualBox透過NAT網卡來達到對外部的連線
 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
