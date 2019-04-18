@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/09/wget-and-yum-with-proxy/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>yum 和 wget 使用 proxy | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,49 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>yum 和 wget 使用 proxy</h1>
+    <p>#yum 設定檔
+在設定檔中加入以下參數</p>
+
+<pre><code class="language-config"># The proxy server - proxy server:port number
+http_proxy = proxy.xxxxxx.com.tw:3128
+# The account details for yum connections
+proxy_username=user_name
+proxy_password=user_password
+</code></pre>
+
+<blockquote>
+<p>此設定參數可提供所有帳號使用
+若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile
+(<em>有空再研究</em>)</p>
+</blockquote>
+
+<p>#wget
+在設定檔中加入以下參數</p>
+
+<pre><code class="language-config">http_proxy = proxy.xxxxxx.com.tw:3128
+use_proxy = on
+wait = 15
+</code></pre>
+
+<hr />
+
+<p><b style="color:red;">Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again</b></p>
+
+<p>解決方法：</p>
+
+<p>編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：</p>
+
+<pre><code class="language-config">[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+</code></pre>
+
   </main>
 
           <footer role="contentinfo">

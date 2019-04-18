@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/07/laravel5-0-close-the-crsf-global-validation/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>Laravel5.0 關閉CRSF全局驗證 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,49 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>Laravel5.0 關閉CRSF全局驗證</h1>
+    <p>修改Kernel.php
+將global middleware的 <code>'App\Http\Middleware\VerifyCsrfToken'</code>
+移動到route middleware <code>'csrf' =&gt; 'App\Http\Middleware\VerifyCsrfToken'</code></p>
+
+<pre><code class="language-php">class Kernel extends HttpKernel {
+
+    /**
+     * The application's global HTTP middleware stack.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'Illuminate\Cookie\Middleware\EncryptCookies',
+        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+        'Illuminate\Session\Middleware\StartSession',
+        'Illuminate\View\Middleware\ShareErrorsFromSession',
+    ];
+    /**
+     * The application's route middleware.
+     *
+     * @var array
+     */
+    protected $routeMiddleware = [
+        'auth' =&gt; 'App\Http\Middleware\Authenticate',
+        'auth.basic' =&gt; 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+        'guest' =&gt; 'App\Http\Middleware\RedirectIfAuthenticated',
+        'csrf' =&gt; 'App\Http\Middleware\VerifyCsrfToken',
+    ];
+
+}
+</code></pre>
+
+<p>此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方
+加上 <code>'middleware' =&gt; 'csrf'</code></p>
+
+<pre><code class="language-php">$router-&gt;group(['middleware' =&gt; 'csrf'], function($router)
+{
+  // Protected routes
+})
+</code></pre>
+
   </main>
 
           <footer role="contentinfo">

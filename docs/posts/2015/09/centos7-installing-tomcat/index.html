@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/09/centos7-installing-tomcat/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>CentOS7 安裝Tomcat | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,41 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>CentOS7 安裝Tomcat</h1>
+    <p>#1.切換目錄到 /usr/local
+我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
+<code># cd /usr/local</code></p>
+
+<p>#2.下載Tomcat
+<a href="http://tomcat.apache.org" target="_blank">Tomcat官網</a>
+到官網下載你爽爽的版本
+<code># wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz</code></p>
+
+<p>#3.解壓縮
+<code># tar -zxvf apache-tomcat-7.0.57.tar.gz</code></p>
+
+<p>#4.更改資料夾名稱
+<code># mv apache-tomcat-7.0.57 tomcat7</code></p>
+
+<p>#5.啟動或停止Tomcat
+<strong>啟動Tomcat 7</strong>
+<code># /usr/local/tomcat7/bin/startup.sh</code></p>
+
+<p><strong>停止Tomcat 7</strong>
+<code># /usr/local/tomcat7/bin/shutdown.sh</code></p>
+
+<p>#6.防火牆設定
+Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線</p>
+
+<p>#7.測試Tomcat是否正常
+開啟瀏覽器，輸入【<a href="http://IP位址:8080】">http://IP位址:8080】</a>
+<img src="//imagehosting.rickyfun.net/201509/A06-01.png"></p>
+
+<hr />
+
+<p>若要測試範例網頁是否可以執行，輸入【<a href="http://IP:8080/examples/jsp/">http://IP:8080/examples/jsp/</a> 】，點選其中一個Execute即可以測試。
+<img src="//imagehosting.rickyfun.net/201509/A06-02.png"></p>
+
   </main>
 
           <footer role="contentinfo">

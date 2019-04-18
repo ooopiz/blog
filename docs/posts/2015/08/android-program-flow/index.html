@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/08/android-program-flow/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>Android 程式流程 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,59 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>Android 程式流程</h1>
+    <p>了解一個程式的流程是十分重要的一件事
+以下記載著一個Android APP的出生到死亡</p>
+
+<pre><code class="language-android">protected void onCreate(...) {
+    openGarageDoor();
+    unlockCarAndGetIn();
+    closeCarDoorAndPutOnSeatBelt();
+    putKeyInIgnition();
+}
+
+protected void onStart() {
+    startEngine();
+    changeRadioStation();
+    switchOnLightsIfNeeded();
+    switchOnWipersIfNeeded();
+}
+
+protected void onResume() {
+    applyFootbrake();
+    releaseHandbrake();
+    putCarInGear();
+    drive();
+}
+
+protected void onPause() {
+    putCarInNeutral();
+    applyHandbrake();
+}
+
+protected void onStop() {
+    switchEveryThingOff();
+    turnOffEngine();
+    removeSeatBeltAndGetOutOfCar();
+    lockCar();
+}
+
+protected void onDestroy() {
+    enterOfficeBuilding();
+}
+
+protected void onReachedGroceryStore(...) {
+    Intent i = new Intent(ACTION_GET_GROCERIES, ...,  this, GroceryStoreActivity.class);
+}
+
+protected void onRestart() {
+    unlockCarAndGetIn();
+    closeDoorAndPutOnSeatBelt();
+    putKeyInIgnition();
+}
+
+</code></pre>
+
   </main>
 
           <footer role="contentinfo">

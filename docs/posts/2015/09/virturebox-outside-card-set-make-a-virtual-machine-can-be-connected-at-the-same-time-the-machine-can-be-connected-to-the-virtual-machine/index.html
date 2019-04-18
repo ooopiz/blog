@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,30 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器</h1>
+    <p>VirtualBox透過NAT網卡來達到對外部的連線
+當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線</p>
+
+<hr />
+
+<p>Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡
+Mac就必須自己手動新增一下</p>
+
+<p>VirtualBox-&gt;喜好設定
+<img src="//imagehosting.rickyfun.net/201509/A03-01.png"></p>
+
+<hr />
+
+<p>###設定2張介面卡
+<strong>1. NAT</strong>
+<img src="//imagehosting.rickyfun.net/201509/A03-02.png"></p>
+
+<p><strong>2. 僅限主機介面卡</strong>
+<img src="//imagehosting.rickyfun.net/201509/A03-03.png"></p>
+
+<p><b style="color:red;">VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</b>
+<img src="//imagehosting.rickyfun.net/201509/A03-04.png"></p>
+
   </main>
 
           <footer role="contentinfo">

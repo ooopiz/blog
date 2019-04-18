@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2017/05/opensourcepos-install/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>opensourcepos 安裝 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,91 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
+    <h1>opensourcepos 安裝</h1>
     
+
+<p><a href="https://phppointofsale.com/">php pos 商用版</a></p>
+
+<p><a href="https://github.com/jekkos/opensourcepos">開源版本 opensourcepos</a></p>
+
+<p>OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了</p>
+
+<hr />
+
+<h2 id="環境準備">環境準備：</h2>
+
+<p>安裝lamp</p>
+
+<p>php require
+* php-gd
+* php-bcmath
+* php-intl
+* php-sockets
+* php-mcrypt
+* php-curl installed and enabled.</p>
+
+<h2 id="下載程式">下載程式：</h2>
+
+<p><code># cd /var/www</code>
+<code># git clone https://github.com/jekkos/opensourcepos.git</code></p>
+
+<p><code># mv opensourcepos pos</code>
+<code># cd /var/www/pos</code></p>
+
+<p>看你要使用哪個版本 使用git指令切過去
+<code># git checkout tags/3.0.2 -b b_3.0.2</code></p>
+
+<h2 id="設置權限">設置權限：</h2>
+
+<p><code># chown -R apache:apache /var/www/pos</code></p>
+
+<h2 id="匯入資料-db資訊依照自己的資訊填入">匯入資料：(db資訊依照自己的資訊填入)</h2>
+
+<p><code># mysql pos /var/www/pos/database/database.sql</code></p>
+
+<h2 id="設定檔">設定檔：</h2>
+
+<p><code># cd /var/www/pos/application/config</code>
+<code># cp database.php.tmpl database.php</code></p>
+
+<p><code># vi database.php</code></p>
+
+<pre><code>$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'db_user';
+$db['default']['password'] = 'db_pass';
+$db['default']['database'] = 'pos';
+</code></pre>
+
+<h2 id="apache設定">apache設定</h2>
+
+<p><code>vi /etc/httpd/conf.d/pos.conf</code></p>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+DocumentRoot /var/www/pos/public
+  &lt;Directory /var/www/pos&gt;
+    DirectoryIndex index.php index.html
+    Options FollowSymLinks MultiViews ExecCGI
+    AllowOverride All
+    Order deny,allow
+    Allow from all
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<h2 id="登入畫面">登入畫面</h2>
+
+<p>帳號：admin
+密碼：pointofsale
+<img src="//imagehosting.rickyfun.net/2017/m05-a01.jpg"></p>
+
+<h2 id="登入成功畫面">登入成功畫面</h2>
+
+<p><img src="//imagehosting.rickyfun.net/2017/m05-a02.jpg"></p>
+
+<h2 id="切換語系">切換語系</h2>
+
+<p><img src="//imagehosting.rickyfun.net/2017/m05-b01.jpg"></p>
+
   </main>
 
           <footer role="contentinfo">

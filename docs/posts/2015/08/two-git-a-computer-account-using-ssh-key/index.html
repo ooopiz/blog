@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/08/two-git-a-computer-account-using-ssh-key/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>一台電腦兩個Git帳號使用SSH Key | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,39 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>一台電腦兩個Git帳號使用SSH Key</h1>
+    <p>#在設定檔中加入設定檔
+Windows下的路徑C:\Users\Ricky.ssh</p>
+
+<pre><code class="language-config">Host ricky.org
+  Hostname ricky.org
+  Port 29418
+  User rickyhuang
+  IdentityFile C:\Users\Ricky\.ssh\id_rsa
+Host peter.org
+  Hostname peter.org
+  Port 65095
+  User peter
+  IdentityFile C:\Users\Ricky\.ssh\id_rsa_second
+</code></pre>
+
+<p>#取消glogal mail,設定每個項目repo自己的 user.email
+&gt;pull的時候是識別郵箱，所以不能使用global的user.email</p>
+
+<p><strong>取消global</strong>
+<code>git config --global --unset user.name</code>
+<code>git config --global --unset user.email</code></p>
+
+<p><strong>設定每個項目repo自己的 user.email</strong>
+<code>git config  user.email &quot;xxxx@xx.com&quot;</code>
+<code>git config  user.name &quot;ricky&quot;</code></p>
+
+<p>###Woindows下要生成key可以使用 git bash 裡面有內建的ssh command
+<img src="//imagehosting.rickyfun.net/201508/A02-01.png"></p>
+
+<p>再輸入，即可生成ssh key
+<code>ssh-keygen -t rsa</code></p>
+
   </main>
 
           <footer role="contentinfo">

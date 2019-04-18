@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/09/centos7-basic-set/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>CentOS7 基礎設定 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,130 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>CentOS7 基礎設定</h1>
+    <ul>
+<li>一、啟用網卡，停用NetworkManger</li>
+<li>二、關閉SELinux</li>
+<li>三、關閉UseDNS</li>
+<li>四、調整時區</li>
+<li>五、調整語系</li>
+<li>六、修改Hostname</li>
+<li>七、同步時間</li>
+<li>八、停用firewalld，改用iptabless</li>
+<li>九、更新一下</li>
+</ul>
+
+<hr />
+
+<p>#一、啟用網卡，停用NetworkManger
+先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)</p>
+
+<p><code># cd /etc/sysconfig/network-scripts</code></p>
+
+<blockquote>
+<p>每台電腦的網卡名稱不一定相同</p>
+</blockquote>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-01.png"></p>
+
+<p><code># systemctl stop NetworkManager</code></p>
+
+<p><code># systemctl disable NetworkManager</code></p>
+
+<p><code># systemctl restart network</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-02.png"></p>
+
+<p>#二、關閉SELinux
+<code>#vi /etc/selinux/config</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-03.png"></p>
+
+<p><strong>這個設定reboot後才會生效</strong></p>
+
+<p>#三、關閉UseDNS
+登入SSH需要等很久的話，可以從這個設定獲得改善</p>
+
+<p><code># vi /etc/ssh/sshd_config</code> 將 UseDNS yes 改成 no</p>
+
+<p><code># systemctl restart sshd</code></p>
+
+<p>#四、調整時區
+<code># rm /etc/localtime</code></p>
+
+<p><code># ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p>
+
+<p>#五、調整語系
+檢查系統目前使用的語系</p>
+
+<p><code># localectl</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-04.png"></p>
+
+<p>查看系統有哪些可用的語系</p>
+
+<p><code># localectl list-locales | grep zh</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-05.png"></p>
+
+<p>如果你要設定語系的話</p>
+
+<p><code># localectl set-locale LANG=zh_TW.utf8</code></p>
+
+<p>#六、修改Hostname
+<strong>查看主機 hostname</strong></p>
+
+<p><code># hostnamectl</code></p>
+
+<p><strong>設定 hostname</strong></p>
+
+<p><code># hostnamectl set-hostname new_hostname</code></p>
+
+<p>#七、同步時間
+安裝的packages</p>
+
+<p><code># yum install ntp ntpdate ntp-doc</code></p>
+
+<p>設定開機就啟動NTP Daemon</p>
+
+<p><code># systemctl enable ntpd</code></p>
+
+<p>系統時間與time.stdtime.gov.tw的NTP server做校時</p>
+
+<p><code># ntpdate time.stdtime.gov.tw</code></p>
+
+<p>啟動系統的NTP Daemon</p>
+
+<p><code># systemctl start ntpd</code></p>
+
+<p>設定要校時的NTP server</p>
+
+<p><code># vi /etc/ntp.conf</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-06.png"></p>
+
+<p>#八、停用firewalld，改用iptabless
+<code># systemctl stop firewalld</code></p>
+
+<p><code># systemctl disable firewalld</code></p>
+
+<p><code># yum install iptables-services</code></p>
+
+<p>設定你的防火牆</p>
+
+<p><code># vi /etc/sysconfig/iptables</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201509/A01-07.png"></p>
+
+<p><code># systemctl start iptables</code></p>
+
+<p><code># systemctl enable iptables</code></p>
+
+<p>#九、更新一下
+送他一個</p>
+
+<p><code># yum update -y</code></p>
+
   </main>
 
           <footer role="contentinfo">

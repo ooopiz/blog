@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/08/centos65-install-nginx/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>CentOS6.5 安裝Nginx | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,30 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>CentOS6.5 安裝Nginx</h1>
+    <p>#新增 Nginx 官方所提供的第三方套件庫</p>
+
+<p>新增一個檔案<code>/etc/yum.repos.d/nginx.repo</code>內容如下</p>
+
+<pre><code class="language-config">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+</code></pre>
+
+<p>#更新套件庫
+<code># yum update -y</code></p>
+
+<p>#安裝 Nginx
+<code># yum install nginx</code></p>
+
+<p>#執行 Nginx
+<code># service nginx start</code></p>
+
+<p>#開機時自動啟動
+<code># sudo chkconfig --levels 235 nginx on</code></p>
+
   </main>
 
           <footer role="contentinfo">

@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2015/10/centos7-systemctl-control/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>CentOS7 Tomcat增加systemctl控制 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,64 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
-    
+    <h1>CentOS7 Tomcat增加systemctl控制</h1>
+    <p>#1.增加啟動參數
+在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存</p>
+
+<p><strong>範例如下:</strong></p>
+
+<pre><code class="language-config">#add tomcat pid  
+CATALINA_PID=&quot;$CATALINA_BASE/tomcat7.pid&quot;  
+#add java opts  
+JAVA_OPTS=&quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&quot;
+</code></pre>
+
+<p>#2.增加tomcat.service
+在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。
+<code># vi /usr/lib/systemd/system/tomcat7.service</code></p>
+
+<p>PIDFile就指到tomcat所在的目錄</p>
+
+<pre><code class="language-config">Description=Tomcat  
+After=syslog.target network.target remote-fs.target nss-lookup.target  
+   
+[Service]  
+Type=forking  
+PIDFile=/data/tomcat/tomcat7.pid  
+ExecStart=/data/tomcat/bin/startup.sh   
+ExecReload=/bin/kill -s HUP $MAINPID  
+ExecStop=/bin/kill -s QUIT $MAINPID  
+PrivateTmp=true  
+   
+[Install]  
+WantedBy=multi-user.target 
+</code></pre>
+
+<blockquote>
+<p>[unit]設定服務的描述
+[service]設定服務的啟動，停止等
+[install]設定使用用戶</p>
+</blockquote>
+
+<hr />
+
+<p>查看全部服務：
+systemctl list-unit-files &ndash;type service
+查看服務
+systemctl status name.service
+啟動服務
+systemctl start name.service
+停止服務
+systemctl stop name.service
+重啟服務
+systemctl restart name.service
+增加開機自動啟動
+systemctl enable name.service
+刪除開機自動啟動
+systemctl disable name.service</p>
+
+<p>.service 可以省略</p>
+
   </main>
 
           <footer role="contentinfo">

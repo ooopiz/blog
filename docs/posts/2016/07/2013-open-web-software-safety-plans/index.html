@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2016/07/2013-open-web-software-safety-plans/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>2013開放Web軟體安全計畫 | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,297 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
+    <h1>2013開放Web軟體安全計畫</h1>
     
+
+<p>##2013開放Web軟體安全計畫 – Open Web Application Security Project</p>
+
+<p><a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">https://www.owasp.org/index.php/Top_10_2013-Top_10</a></p>
+
+<p>網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。</p>
+
+<h5 id="a1-injection-注入攻擊">A1 - Injection (注入攻擊)：</h5>
+
+<h5 id="a2-broken-authentication-and-session-management-失效的驗證與連線管理">A2 - Broken Authentication and Session Management (失效的驗證與連線管理)：</h5>
+
+<h5 id="a3-cross-site-scripting-xss-跨站腳本程式攻擊">A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)：</h5>
+
+<h5 id="a4-insecure-direct-object-references-不安全的物件參考">A4 - Insecure Direct Object References (不安全的物件參考)：</h5>
+
+<h5 id="a5-security-misconfiguration-不當的安全組態設定">A5 - Security Misconfiguration (不當的安全組態設定)：</h5>
+
+<h5 id="a6-sensitive-data-exposure-敏感資料暴露">A6 - Sensitive Data Exposure (敏感資料暴露)：</h5>
+
+<h5 id="a7-missing-function-level-access-control-缺少功能級別的存取控制">A7 - Missing Function Level Access Control (缺少功能級別的存取控制)：</h5>
+
+<h5 id="a8-cross-site-request-forgery-csrf-跨站冒名請求">A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)：</h5>
+
+<h5 id="a9-using-components-with-known-vulnerabilities-使用已知漏洞元件">A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)：</h5>
+
+<h5 id="a10-unvalidated-redirects-and-forwards-未經驗證的重新導向與轉送">A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)：</h5>
+
+<hr />
+
+<h3 id="a1-injection-注入攻擊-1">A1 - Injection (注入攻擊)：</h3>
+
+<p>注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</p>
+
+<h5 id="注入種類">注入種類：</h5>
+
+<table>
+<thead>
+<tr>
+<th>注入類型</th>
+<th>利用介面</th>
+<th>攻擊方法</th>
+<th>分隔、結尾或串接符號</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>SQL 敘述注入</td>
+<td>SQL</td>
+<td>安插SQL命令</td>
+<td>&ndash;&rsquo;</td>
+</tr>
+
+<tr>
+<td>OS 命令注入</td>
+<td>OS Shell</td>
+<td>執行系統命令</td>
+<td>；</td>
+</tr>
+
+<tr>
+<td>HTTP 注入</td>
+<td>HTTP</td>
+<td>HTTP回應標頭</td>
+<td>換行符號</td>
+</tr>
+
+<tr>
+<td>跨網站指令碼</td>
+<td>HTML</td>
+<td>插入JavaScript程式碼</td>
+<td>&lt; &ldquo;</td>
+</tr>
+
+<tr>
+<td>郵件命令注入</td>
+<td>SMTP格式訊息或命令</td>
+<td>注入非法的郵件標頭或本文</td>
+<td>換行符號</td>
+</tr>
+
+<tr>
+<td>XPATH注入</td>
+<td>XPATH</td>
+<td>注入XPATH查詢命令</td>
+<td>&lsquo;</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="一-sql-注入攻擊">一. SQL 注入攻擊</h4>
+
+<p>SQL Injection攻擊的方式就很像填空題，攻擊者在網頁裡任何可以輸入資料的地方試著去猜想設計者背後的語法撰寫方式，並去猜測完整的command應該會長成怎麼樣，還有推測欄位數，table的名字，SQL的版本資訊，試著去拼湊輸入一條SQL指令，輕則刪掉資料庫，重則竊取全部的個資。可以說是任何一個撰寫互動式網頁的開發者首先也必要處理的問題。</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201607/A02-02.png" /></p>
+
+<h5 id="防範策略">防範策略：</h5>
+
+<ol>
+<li>在設計應用程式時，完全使用參數化查詢（Parameterized Query）來設計資料存取功能。</li>
+<li>在組合SQL字串時，先針對所傳入的參數作字元取代（將單引號字元取代為連續2個單引號字元）。</li>
+<li>如果使用PHP開發網頁程式的話，亦可開啟PHP的魔術引號（Magic quote）功能（自動將所有的網頁傳入參數，將單引號字元取代為連續2個單引號字元）。</li>
+<li>使用其他更安全的方式連接SQL資料庫。例如已修正過SQL資料隱碼問題的資料庫連接元件，例如ASP.NET的SqlDataSource物件或是 LINQ to SQL。</li>
+<li>使用SQL防資料隱碼系統。</li>
+</ol>
+
+<hr />
+
+<h3 id="a2-broken-authentication-and-session-management-失效的驗證與連線管理-1">A2 - Broken Authentication and Session Management (失效的驗證與連線管理)：</h3>
+
+<ul>
+<li>將使用者的SESSION ID曝露在URL中，我們不能保證使用者不會進行螢幕截圖或是將URL傳給任何他所認識的人，所以這是很危險的</li>
+<li>未將SESSION設定Timeout時間，如果使用者在公用電腦登入卻未登出，那麼下一個使用者將可以直接以上一位使用者的身分登入</li>
+<li>還有未使用SSL加密連線登入，密碼儲存時未加密等等</li>
+</ul>
+
+<h5 id="防範策略-1">防範策略：</h5>
+
+<ol>
+<li>使用SSL加密連線機制</li>
+<li>不要將SESSION ID暴露在URL中，要有完善的SESSION保護的機制，設定一個Timeout的機制</li>
+<li>密碼儲存一定要加密。</li>
+</ol>
+
+<hr />
+
+<h3 id="a3-cross-site-scripting-xss-跨站腳本程式攻擊-1">A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)：</h3>
+
+<p>經常發生在使用者可以輸入的欄位，例如留言板，如下圖所示，若未加防範下次有其他人瀏覽該網站時腳本隨即開始運行</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201607/A02-03.jpg"/ ></p>
+
+<h5 id="防範策略-2">防範策略：</h5>
+
+<ol>
+<li>HTML須以跳脫或編碼機制作為XSS的基本對策</li>
+</ol>
+
+<pre><code>&amp; ---&gt; &amp;amp;
+&lt; ---&gt; &amp;lt;
+&gt; ---&gt; &amp;gt;
+&quot; ---&gt; &amp;quot;
+' ---&gt; &amp;#x27;
+/ ---&gt; &amp;#x2F;
+</code></pre>
+
+<hr />
+
+<h3 id="a4-insecure-direct-object-references-不安全的物件參考-1">A4 - Insecure Direct Object References (不安全的物件參考)：</h3>
+
+<p>攻擊者利用網站自身的檔案讀取功能，去任意的讀取敏感資料或重要檔案，進而分析這些檔案後，達到攻破網站的目的，這個問題主要的部分在於網頁編寫時所使用的原始碼裡沒有去驗證使用者所投入的字串是否合法</p>
+
+<h5 id="例如">例如：</h5>
+
+<p><a href="http://example.com/app/userInfo?userName=Ricky">http://example.com/app/userInfo?userName=Ricky</a>
+<br />
+透過替換userId可以任意取得用戶的資訊</p>
+
+<h5 id="防範策略-3">防範策略：</h5>
+
+<ol>
+<li>網頁裡的每個物件設定正確的存取權限限制，並且在存取時確認使用者是否真的有權限存取</li>
+</ol>
+
+<hr />
+
+<h3 id="a5-security-misconfiguration-不當的安全組態設定-1">A5 - Security Misconfiguration (不當的安全組態設定)：</h3>
+
+<ol>
+<li>未刪除或更改所使用套件的預設帳密，攻擊者可以輕而易舉地透過嘗試法直接入侵</li>
+<li>Directory listing未關閉，攻擊者可以透過此功能輕易地找出所有網站上的檔案，並且獲知你的原始碼</li>
+<li>錯誤訊息直接回傳在使用者頁面上，會透漏許多額外的訊息給予攻擊者</li>
+<li>未刪除套件所附的範例應用程式，有許多的範例都是有漏洞的</li>
+</ol>
+
+<h5 id="防範策略-4">防範策略：</h5>
+
+<ol>
+<li>軟體和作業系統更新至最新的patch</li>
+<li>不需要的port與頁面和服務，通通關閉</li>
+<li>預設的帳密務必要進行更改</li>
+<li>控管防火牆，甚至設立黑白名單</li>
+</ol>
+
+<hr />
+
+<h3 id="a6-sensitive-data-exposure-敏感資料暴露-1">A6 - Sensitive Data Exposure (敏感資料暴露)：</h3>
+
+<ol>
+<li>網站在與使用者傳輸敏感資料時未使用SSL加密連線，導致傳輸有可能被攔截竊聽造成使用者的帳密被盜用</li>
+<li>儲存使用者的敏感資料(例如帳密時未加密後再儲存)</li>
+</ol>
+
+<h5 id="影響">影響：</h5>
+
+<ul>
+<li>網站的管理員可以直接看到你的密碼</li>
+<li>通常每個人常用的帳密通常也就是那幾組，一旦一個網站被攻破，那麼這表示許多網站都會遭受池魚之殃(假設Ａ網站帳密遭竊取，即可使用該組帳密Try B、Ｃ、Ｄ．．網站)</li>
+</ul>
+
+<h5 id="防範策略-5">防範策略：</h5>
+
+<ol>
+<li>通通使用SSL安全連線來傳輸</li>
+<li>密碼必須使用不可逆的演算法加密後再存在資料庫裡，登入時只需比對加密後的結果是否相同。</li>
+</ol>
+
+<hr />
+
+<h3 id="a7-missing-function-level-access-control-缺少功能級別的存取控制-1">A7 - Missing Function Level Access Control (缺少功能級別的存取控制)：</h3>
+
+<p>入侵者會嘗試著去試你的網站上其他網頁的網址，而如果你不對每個頁面進行存取控制權限的要求的話，如果直接被攻擊者嘗試到你的網址，那他可以直接癱瘓你的整台主機。</p>
+
+<h5 id="防範策略-6">防範策略：</h5>
+
+<ol>
+<li>正確處理不存在的網址</li>
+<li>做好認證管制，辨識身分後才能存取(沒有按鈕可以連結過去的頁面並不代表攻擊者不會手動連過去)</li>
+</ol>
+
+<hr />
+
+<h3 id="a8-cross-site-request-forgery-csrf-跨站冒名請求-1">A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)：</h3>
+
+<p>跨站請求攻擊，簡單地說，是攻擊者通過一些技術手段欺騙用戶的瀏覽器去訪問一個自己曾經認證過的網站並執行一些操作（如發郵件，發消息，甚至財產操作如轉帳和購買商品）。由於瀏覽器曾經認證過，所以被訪問的網站會認為是真正的用戶操作而去執行。這利用了web中用戶身份驗證的一個漏洞：<strong>簡單的身份驗證只能保證請求發自某個用戶的瀏覽器，卻不能保證請求本身是用戶自願發出的</strong>。</p>
+
+<h5 id="影響-1">影響：</h5>
+
+<ul>
+<li>假冒使用者身份在網站上購物、下單</li>
+<li>假冒使用者身份在留言板上發文</li>
+<li>假冒使用者身份進行帳戶處理</li>
+<li>變更使用者會員資料(如密碼或電子郵件位址)</li>
+<li>在網路銀行上進行授權的冒名交易</li>
+</ul>
+
+<h5 id="例如-1">例如：</h5>
+
+<p>假設這是銀行轉帳API：<br />
+<code>http://www.examplebank.com/withdraw?account=AccoutName&amp;amount=1000&amp;for=PayeeName</code>
+<br/>
+惡意攻擊者在任意可執行的部位放置如下代碼： <br/>
+<code>&lt;img src=&quot;http://www.examplebank.com/withdraw?account=Alice&amp;amount=1000&amp;for=Badman&quot;&gt;</code>
+<br/>
+如果她之前剛訪問過銀行不久，登錄信息尚未過期，那麼她就會損失1000資金</p>
+
+<h5 id="防範策略-7">防範策略：</h5>
+
+<ol>
+<li>每一次請求都傳回一個經由網站系統所雜湊出來的亂數(Token)</li>
+<li>重要交易前要求使用者重新輸入密碼</li>
+<li>重要交易後既送郵件提醒用戶，可達到儘早察覺遭受CSRF攻擊</li>
+</ol>
+
+<hr />
+
+<h3 id="a9-using-components-with-known-vulnerabilities-使用已知漏洞元件-1">A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)：</h3>
+
+<p>現在的網站很常使用第三方的元件，但是有些時候這些元件或是函式庫其實是有問題的，就有可能會受到攻擊。</p>
+
+<h5 id="防範策略-8">防範策略：</h5>
+
+<ol>
+<li>隨時關注使用的 Third Party 元件是否有漏洞揭發</li>
+<li>保持元件更新</li>
+</ol>
+
+<hr />
+
+<h3 id="a10-unvalidated-redirects-and-forwards-未經驗證的重新導向與轉送-1">A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)：</h3>
+
+<p>通常發生在網站應用程式利用<strong>重新導向</strong>連結到外埠的網址，若網站網址未對重新導向的目標做進一步的驗證，攻擊者有機會設計並引誘導到惡意網址．</p>
+
+<h5 id="例如-2">例如：</h5>
+
+<p>釣魚攻擊(phishing)</p>
+
+<p>利用電子郵件假造連結</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201607/A02-01.png" /></p>
+
+<h5 id="防範策略-9">防範策略：</h5>
+
+<ol>
+<li>盡量避免使用redirect或forward</li>
+<li>維護一份有效的重新導向清單</li>
+<li>提醒用戶即將離開目前網站</li>
+</ol>
+
   </main>
 
           <footer role="contentinfo">

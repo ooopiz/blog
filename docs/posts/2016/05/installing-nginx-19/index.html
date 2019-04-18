@@ -6,12 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/">
+  <link rel="canonical" href="https://blog.rickyfun.net/posts/2016/05/installing-nginx-19/">
 
-  
-    
-      <meta name="description" content="An accessibility-friendly Hugo theme, ported from the original Cupper project.">
-    
   
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -36,9 +32,7 @@
 
   
   
-    
-  
-  <title>LOOPBAI</title>
+  <title>安裝 Nginx 1.9&#43; | LOOPBAI</title>
 </head>
 
   <body>
@@ -161,7 +155,7 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -190,8 +184,29 @@
         <div>
           
   <main id="main">
-    <h1>LOOPBAI</h1>
+    <h1>安裝 Nginx 1.9&#43;</h1>
     
+
+<h3 id="新增nginx-repo">新增nginx.repo</h3>
+
+<p><code># vi /etc/yum.repos.d/nginx.repo</code></p>
+
+<pre><code class="language-config">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+</code></pre>
+
+<h3 id="安裝nginx">安裝Nginx</h3>
+
+<p><code># yum install nginx</code></p>
+
+<h3 id="啟動服務">啟動服務</h3>
+
+<p><code># service nginx start</code>
+<code># chkconfig --levels 235 nginx on</code></p>
+
   </main>
 
           <footer role="contentinfo">
