@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>利用adjtimex來修正linux時間偏差 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,99 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      利用adjtimex來修正linux時間偏差
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Nov 4, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<p>##利用adjtimex來修正linux時間偏差</p>
+
+<p>#####前言：</p>
+
+<p>前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201609/M11-A01-01.jpg"></p>
+
+<p>使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，</p>
+
+<p><strong>最後採用linux本身時間糾偏的方式</strong></p>
+
+<p>主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(<strong><em>感謝神同事Leo協助突破盲腸</em></strong>)</p>
+
+<hr />
+
+<p>####下載下來後選定一個版本後即可開始安裝</p>
+
+<p><a href="https://github.com/rogers0/adjtimex/tree/master">GITHUB - adjtimex</a></p>
+
+<p><code># ./configure</code></p>
+
+<p><code># make</code></p>
+
+<p><code># make install</code></p>
+
+<p>####先了解時間差</p>
+
+<p><code># adjtimex --compare</code> 或 <code># adjtimex -c</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201609/M11-A01-02.jpg"></p>
+
+<p>圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．</p>
+
+<p>####這邊我的-t校正值是9859</p>
+
+<p><code># adjtimex --tick 9859</code></p>
+
+<p>####再檢視一次</p>
+
+<p><code># adjtimex -c</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201609/M11-A01-03.jpg"></p>
+
+<h4 id="這邊還有約-0-8的偏差-但其實已經相當接近-要修正更精密的差距必須用-f參數">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</h4>
+
+<p><strong>公式</strong></p>
+
+<p>f = 差值 * 100000 * 65536</p>
+
+<p>或</p>
+
+<p>f = error_ppm平均值 * 65536</p>
+
+<p>這裡 = 250 * 65536 = 16384000</p>
+
+<p>####這邊我的-f校正值是16384000</p>
+
+<p><code># adjtimex -f 16384000</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201609/M11-A01-04.jpg"></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

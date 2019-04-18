@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/08/centos65-packet-filtering-firewall-iptables/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>CentOS6.5 防火牆設定iptables | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,83 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      CentOS6.5 防火牆設定iptables
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Aug 21, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
+比較常用的Port..</p>
+
+<table>
+<tr>
+<th>Service</th>
+<th>PORT</th>
+</tr>
+<tr>
+<td>FTP</td>
+<td>21</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>80</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>443</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>3306</td>
+</tr>
+</table>
+
+<p>###將對應的資訊加入iptables設定檔中</p>
+
+<pre><code class="language-config">-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+</code></pre>
+
+<p><img src="//imagehosting.rickyfun.net/201508/001.png"></p>
+
+<p>###設定完iptables記得必須重新啟動防火牆
+<code>service iptables restart</code> 或 <code>/etc/init.d/iptables restart</code></p>
+
+<p>###查看有打開的Port
+<code>netstat -tnlp</code></p>
+
+<p><code>netstat -tlp</code></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

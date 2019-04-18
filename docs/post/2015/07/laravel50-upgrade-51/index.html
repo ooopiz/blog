@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/07/laravel50-upgrade-51/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>Laravel5.0 升級5.1 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,55 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Laravel5.0 升級5.1
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Jul 25, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    <p>###1. 修改composer.json ###
+<code>&quot;laravel/framework&quot;: &quot;5.0.*&quot;</code> 修改為 <code>&quot;laravel/framework&quot;: &quot;5.1.*&quot;</code></p>
+
+<p>###2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: ###</p>
+
+<pre><code class="language-config">*
+!.gitignore
+</code></pre>
+
+<p>###3. 修改bootstrap下的autoload.php ###
+<code>$compiledPath = __DIR__.'/../vendor/compiled.php';</code>
+修改為
+<code>$compiledPath = __DIR__.'/cache/compiled.php';</code></p>
+
+<p>###4. 執行 composer update ###
+<code># composer update</code></p>
+
+<p>###5. 確認目錄權限###
+安裝 Laravel 之後，你必須設定一些權限。<b style="color:blue">storage</b> 和 <b style="color:blue">bootstrap/cache</b> 目錄必須讓伺服器有寫入權限。</p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

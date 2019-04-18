@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/08/hicloud-mount-s3-cloud-storage-folder/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>Hicloud S3雲儲存資料夾掛載 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,175 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Hicloud S3雲儲存資料夾掛載
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Aug 9, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#s3fs-fuse-%e5%ae%89%e8%a3%9d">
+            s3fs-fuse 安裝
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#libfuse-%e5%ae%89%e8%a3%9d">
+            libfuse 安裝
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    
+
+<h3 id="hicloud-s3雲儲存">hicloud S3雲儲存</h3>
+
+<p>目的：將s3的bucket掛載到Caas雲伺服器</p>
+
+<p>主機環境：CentOS 6.4</p>
+
+<p>說明：s3fs base on fuse所以伺服器上必須有fuse的lib</p>
+
+<p>示意圖：</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201608/A01-01.png"></p>
+
+<p>Resource：</p>
+
+<ul>
+<li><a href="http://s3help.cloudbox.hinet.net/index.php/2015-02-12-07-14-27">Hicloud S3 文檔</a></li>
+</ul>
+
+<h2 id="s3fs-fuse-安裝">s3fs-fuse 安裝</h2>
+
+<h5 id="一-下載s3fs-fuse源碼進行安裝">一、下載s3fs-fuse源碼進行安裝</h5>
+
+<p><a href="https://github.com/s3fs-fuse/s3fs-fuse">Github s3fs-fuse</a></p>
+
+<h5 id="二-安裝所需套件">二、安裝所需套件</h5>
+
+<p><strong>CentOS7</strong></p>
+
+<p><code># sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></p>
+
+<p><strong>CentOS6</strong></p>
+
+<p><code># sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></p>
+
+<blockquote>
+<p>fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．</p>
+</blockquote>
+
+<h5 id="三-安裝步驟">三、安裝步驟</h5>
+
+<p><code># git clone https://github.com/s3fs-fuse/s3fs-fuse.git</code></p>
+
+<p><code># cd s3fs-fuse</code></p>
+
+<p><code># ./autogen.sh</code></p>
+
+<p><code># ./configure -prefix=/usr</code></p>
+
+<p><code># make</code></p>
+
+<p><code># make install</code></p>
+
+<h5 id="四-設定">四、設定</h5>
+
+<p>要存取Hicloud的s3必須先申請一組access key與secret key</p>
+
+<p>將key info寫入設定檔中</p>
+
+<p><code># vi /etc/passwd-s3fs</code></p>
+
+<pre><code>#Access Key:Secret Key 以冒號(:)區隔
+#ex: 
+2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec
+</code></pre>
+
+<h5 id="五-掛載">五、掛載</h5>
+
+<p><strong>Only ROOT</strong></p>
+
+<p><code># s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123</code></p>
+
+<p><strong>All USER</strong></p>
+
+<p><code># s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other</code></p>
+
+<div style="color:red">注意: 下mount指令時，若出現should not have others permissions時，這時候下`chmod o-rwx /etc/passwd-s3fs`關掉其他人的權限後，在下一次mount指令就可以正常運作。</div>
+
+<h2 id="libfuse-安裝">libfuse 安裝</h2>
+
+<h5 id="一-下載源碼編譯安裝或者下載release版本安裝">一、下載源碼編譯安裝或者下載release版本安裝</h5>
+
+<p><a href="https://github.com/libfuse/libfuse">Github libfuse</a></p>
+
+<p><a href="https://github.com/libfuse/libfuse/releases">Github libfuse release</a></p>
+
+<h5 id="二-安裝">二、安裝</h5>
+
+<p><strong>檢查版本如果&lt;2.8.4必須安裝至大於的版本</strong></p>
+
+<p><code># rpm -qa | grep fuse</code></p>
+
+<p><code># rpm -qa | grep fuse-devel</code></p>
+
+<p><code># yum remove fuse fuse-devel</code></p>
+
+<p><code># ./configure</code></p>
+
+<p><code># make -j8</code></p>
+
+<p><code># make install</code></p>
+
+<h5 id="三-設定">三、設定</h5>
+
+<p>安裝完成後會在/usr/local/lib產生連結，將這個路徑加入到/etc/ld.so.conf然後執行<code>ldconfig</code>刷新</p>
+
+<p><code># export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</code></p>
+
+<h1 id="結語">結語</h1>
+
+<p>s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了</p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

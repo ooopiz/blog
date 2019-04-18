@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/07/ab-pressure-test/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>2016/07/27 使用ab壓測 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,89 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      2016/07/27 使用ab壓測
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Jul 29, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<h2 id="2016-07-27-使用ab壓測">2016/07/27 使用ab壓測</h2>
+
+<p>覺得ab壓出的不是很準，但還是紀錄一下</p>
+
+<p>###環境說明
+- 主機：MacPro裡的VM
+- CPU : 1
+- Memory：512M
+- 系統：CentOS 7
+- 網頁服務：Nginx/1.11.1</p>
+
+<hr />
+
+<h3 id="開始進行壓力測試">開始進行壓力測試</h3>
+
+<p><code># ab -n 1000 -c 500 -k http://127.0.0.1/</code></p>
+
+<div style="color:blue">
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題
+</div>
+
+<p><code># ab -n 10000 -c 2000 -k http://127.0.0.1/</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201607/A07-01.png"></p>
+
+<div style="color:blue">
+Google後了解是系統設定的限制
+</div>
+
+<h5 id="查看目前系統設定的限制-ulimit-a-可查看全部參數">查看目前系統設定的限制 (ulimit -a # 可查看全部參數)</h5>
+
+<p><code># su nginx -</code>
+&gt; 如果su 無法切換使用者可能需要修改一下<code>vipw</code></p>
+
+<h5 id="查可開啟的數量">查可開啟的數量</h5>
+
+<p><code># ulimit -n</code></p>
+
+<h5 id="修改可打開的文件數">修改可打開的文件數</h5>
+
+<p><code># vi /etc/security/limits.conf</code></p>
+
+<p>星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數</p>
+
+<pre><code>nginx soft nofile 65536
+nginx hard nofile 65536
+</code></pre>
+
+<pre><code>* soft nofile 65536
+* hard nofile 65536
+</code></pre>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

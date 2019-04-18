@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/09/nstall-virtualbox-guest-addtiton-for-centos/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>VirtualBox Guest Addtiton安裝 for Centos | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,82 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      VirtualBox Guest Addtiton安裝 for Centos
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Sep 9, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<p>我在virtualbox上面安裝的是CentOS7的OS
+當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你，
+你應該要安裝<strong>VirtualBox Guest Addtiton</strong></p>
+
+<p>那就讓我們來開始安裝吧</p>
+
+<hr />
+
+<p>###先把VBoxGuestAdditions.iso mount起來
+<img src="//imagehosting.rickyfun.net/201509/A04-01.png"></p>
+
+<p><code># mkdir /media/cdrom</code>
+<code># mount /dev/cdrom /media/cdrom</code>
+<img src="//imagehosting.rickyfun.net/201509/A04-02.png"></p>
+
+<p>###執行VBoxLinuxAdditions.run
+<code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
+
+<p>###接著就可以mount本機分享給虛擬機的資料夾了
+<code># mkdir ~/new</code>
+<code># mount -t vboxsf New ~/new</code></p>
+
+<p>或者你需要有特定owner的mount
+<code># mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
+
+<hr />
+
+<hr />
+
+<p>在執行VBoxLinuxAdditions.run的時候你可能會遇到</p>
+
+<h3 id="b-style-color-red-bzip2-command-not-found-b"><b style="color:red">bzip2 command not found</b></h3>
+
+<p><img src="//imagehosting.rickyfun.net/201509/A04-03.png">
+<code># yum install bzip2 -y</code></p>
+
+<h3 id="b-style-color-red-building-the-main-guest-additions-module-失敗-b"><b style="color:red">Building the main Guest Additions module [失敗]</b></h3>
+
+<p><img src="//imagehosting.rickyfun.net/201509/A04-04.png">
+<code># yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</code></p>
+
+<p>解完後在執行一次
+<code># sh /media/cdrom/VBoxLinuxAdditions.run</code>
+<img src="//imagehosting.rickyfun.net/201509/A04-05.png"></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

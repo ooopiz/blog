@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/05/install-php56/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>安裝 PHP5.6 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,130 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      安裝 PHP5.6
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>May 5, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    <p>#一、更新rpm</p>
+
+<p><strong>REMI源</strong>
+最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6
+<code># yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</code>
+CentOS 7
+<code># yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</code></p>
+
+<p>#二、安裝PHP
+&gt;想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
+&gt;路徑：/etc/yum.repos.d/remi.repo
+&gt;[remi-php55]是PHP5.5
+&gt;[remi-php56]是PHP5.6
+&gt;選擇你要的版本做修改即可</p>
+
+<p><code># vi /etc/yum.repos.d/remi.repo</code>
+<img src="//imagehosting.rickyfun.net/201508/002.png"></p>
+
+<p><strong>安裝 PHP</strong>
+<code># yum install php</code></p>
+
+<p><strong>安裝其他PHP Lib</strong>
+<code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
+
+<p>#設定php, php-fpm
+<strong>設定php</strong>
+設定內容如下：</p>
+
+<pre><code class="language-config">cgi.fix_pathinfo=0
+session.save_handler = files
+session.save_path = &quot;/var/lib/php/session&quot;
+date.timezone = &quot;Asia/Taipei&quot;
+error_reporting = E_ALL &amp; ~E_NOTICE
+display_errors = On
+magic_quotes_gpc = Off
+</code></pre>
+
+<p><strong>設定php session檔的權限</strong>
+<code># mkdir /var/lib/php/session</code>
+<code># chown -R nginx:nginx /var/lib/php/session</code></p>
+
+<p><img src="//imagehosting.rickyfun.net/201508/003.png"></p>
+
+<p><strong>設定php-fpm</strong>
+&gt;預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
+
+<pre><code class="language-config">listen = 127.0.0.1:9000
+listen.allowed_clients = 127.0.0.1
+user = nginx
+group = nginx
+pm = dynamic
+pm.max_children = 50
+pm.start_servers = 5
+pm.min_spare_servers = 5
+pm.max_spare_servers = 35
+slowlog = /var/log/php-fpm/www-slow.log
+php_admin_value[error_log] = /var/log/php-fpm/www-error.log
+php_admin_flag[log_errors] = on
+</code></pre>
+
+<p><strong>設定 Log 檔的權限</strong>
+<code># chown -R nginx:nginx /var/log/php-fpm</code></p>
+
+<p>#三、設定Nginx
+&gt;加入一個 index.php</p>
+
+<pre><code class="language-config">    location / {
+        root   /usr/share/nginx/html;
+        index  index.php index.html index.htm;
+    }
+</code></pre>
+
+<p><img src="//imagehosting.rickyfun.net/201508/004.png"></p>
+
+<blockquote>
+<p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。</p>
+</blockquote>
+
+<pre><code class="language-config">location ~ \.php$ {
+root /usr/share/nginx/html;
+fastcgi_pass   127.0.0.1:9000;
+fastcgi_index  index.php;
+fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+include        fastcgi_params;
+}
+</code></pre>
+
+<p><img src="//imagehosting.rickyfun.net/201508/005.png"></p>
+
+<p>#四、啟動服務</p>
+
+<p><code># service php-fpm start</code>
+<code># chkconfig --levels 235 php-fpm on</code></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

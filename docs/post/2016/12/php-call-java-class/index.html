@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/12/php-call-java-class/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>php call java 類別 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,182 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      php call java 類別
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Dec 21, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%af%ab%e4%b8%80%e5%80%8bjar%e4%be%86%e5%81%9a%e6%b8%ac%e8%a9%a6">
+            寫一個jar來做測試
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e4%bd%88%e5%bb%baphp-java-bridge">
+            佈建php/java bridge
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%af%ab%e4%b8%80%e5%80%8bphp%e6%b8%ac%e8%a9%a6">
+            寫一個php測試
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%85%b6%e4%bb%96">
+            其他
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    
+
+<p><a href="http://php-java-bridge.sourceforge.net/pjb/">php-java-bridge 介紹</a></p>
+
+<p><a href="https://sourceforge.net/projects/php-java-bridge/">php-java-bridge 載點</a></p>
+
+<blockquote>
+<p>Files &gt; Binary package &gt; JavaBridgeTemplate621.war</p>
+</blockquote>
+
+<p>我下載到的版本是JavaBridgeTemplate621.war</p>
+
+<h2 id="寫一個jar來做測試">寫一個jar來做測試</h2>
+
+<p><code># mkdir TestMath</code></p>
+
+<p><code># cd TestMath</code></p>
+
+<p><code># vi TestMath.java</code></p>
+
+<pre><code>public class TestMath {
+
+    private Integer num1;
+    private Integer num2;
+
+    public TestMath() {
+        this.num1 = 0;
+        this.num2 = 0;
+    }
+
+    public TestMath(Integer n1, Integer n2) {
+        this.num1 = n1;
+        this.num2 = n2;
+    }
+
+    public void setNum1(Integer n) {
+        this.num1 = n;
+    }
+
+    public void setNum2(Integer n) {
+        this.num2 = n;
+    }
+
+    public Integer plus() {
+        return num1 + num2;
+    }
+
+    public Integer minus() {
+        return num1 - num2;
+    }
+
+}
+</code></pre>
+
+<p><code># javac TestMath.java</code></p>
+
+<p><code># touch MANIFEST.MF</code></p>
+
+<p><code># jar -cvfm TestMath.jar MANIFEST.MF ./</code></p>
+
+<h2 id="佈建php-java-bridge">佈建php/java bridge</h2>
+
+<p>jar放置到tomcat/lib中</p>
+
+<p><code># mv TestMath.jar tomcat/lib/</code></p>
+
+<p>將上面下載下來的war丟掉tomcat/webapps目錄中</p>
+
+<p>啟動tomcat即完成</p>
+
+<h2 id="寫一個php測試">寫一個php測試</h2>
+
+<p>require的網址必須對應你丟入的war包名稱</p>
+
+<p><code># vi phpCallJava.php</code></p>
+
+<pre><code>&lt;?php
+
+require_once(&quot;http://localhost:8080/JavaBridge/java/Java.inc&quot;);
+
+//$TestMath = new java(&quot;TestMath&quot;);
+$TestMath = new java(&quot;TestMath&quot;, 5, 10);
+
+$value = $TestMath-&gt;plus();
+echo $value;
+
+$value = $TestMath-&gt;minus();
+echo $value;
+
+?&gt;
+</code></pre>
+
+<p><code># php -n -dallow_url_include=On phpCallJava.php</code></p>
+
+<h2 id="其他">其他</h2>
+
+<p>實際放在外部機器的話必須打開防火牆</p>
+
+<p>Port: 8080 &amp; 9267</p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

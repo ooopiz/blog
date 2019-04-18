@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2017/03/pem-to-ppk-putty-login/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>pem轉ppk putty 登入 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,121 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      pem轉ppk putty 登入
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Mar 21, 2017
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#putty%e7%99%bb%e5%85%a5%e6%96%b9%e5%bc%8f">
+            putty登入方式
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#linux-or-cmder%e7%99%bb%e5%85%a5%e6%96%b9%e5%bc%8f">
+            linux or Cmder登入方式
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    
+
+<h2 id="putty登入方式">putty登入方式</h2>
+
+<p>putty不支援openssh, 所以手上有pem檔的話需要做一次轉換</p>
+
+<p>前往下載
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">puttygen.exe</a></p>
+
+<h3 id="pem轉ppk">pem轉ppk</h3>
+
+<h5 id="1-載入pem">1.載入pem</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-a01.jpg"></p>
+
+<h5 id="2-如果看不到檔案請選all-file">2.如果看不到檔案請選all file</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-a02.jpg"></p>
+
+<h5 id="3-載入後選擇save-private-key">3.載入後選擇save private key</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-a03.jpg"></p>
+
+<h5 id="4-輸入檔名生成ppk檔">4.輸入檔名生成ppk檔</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-a04.jpg"></p>
+
+<h3 id="putty設定登入">putty設定登入</h3>
+
+<h5 id="1-轉換完成的ppk檔放置到你想保存的位置">1.轉換完成的ppk檔放置到你想保存的位置</h5>
+
+<h5 id="2-開啟putty-以下為範例照自己的機器與檔案資訊填寫">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-b01.jpg"></p>
+
+<h5 id="3-輸入用戶名稱">3.輸入用戶名稱</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-b02.jpg"></p>
+
+<h5 id="4-載入ppk檔">4.載入ppk檔</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-b03.jpg"></p>
+
+<h5 id="5-記得回來按一下存檔">5.記得回來按一下存檔</h5>
+
+<p><img src="http://imagehosting.rickyfun.net/2017/m03-b04.jpg"></p>
+
+<h2 id="linux-or-cmder登入方式">linux or Cmder登入方式</h2>
+
+<h5 id="示意">示意</h5>
+
+<p>ssh -i pem路徑 用戶名稱@主機位址</p>
+
+<p><code>ssh -i xxx.pem ricky@192.168.1.1</code></p>
+
+<p>#####有改port的話</p>
+
+<p>ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/08/centos65-installation-of-mariadb/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>CentOS6.5 安裝MariaDB | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,90 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      CentOS6.5 安裝MariaDB
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Aug 24, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    <p>#新增MariaDB的知識庫，讓系統使用。<br />
+依照自己的系統在目錄下新增檔案
+<strong>32位元系統</strong></p>
+
+<pre><code class="language-config">[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/5.5/centos6-x86
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+</code></pre>
+
+<p><strong>64位元系統</strong></p>
+
+<pre><code class="language-config">[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/5.5/centos6-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+</code></pre>
+
+<p>#更新套件庫
+<code># yum update -y</code></p>
+
+<p>#安裝 MariaDB
+&gt;安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣</p>
+
+<p><code># yum install MariaDB-devel MariaDB-client MariaDB-server -y</code></p>
+
+<p><code># service mysql start</code></p>
+
+<p><code># chkconfig mysql on</code></p>
+
+<p>#初始化 MariaDB
+&gt;執行這個初始化程式，過程跟MySQL一模一樣</p>
+
+<p><code># /usr/bin/mysql_secure_installation</code></p>
+
+<p>第一個問題，Enter current password for root (enter for none):
+請直接按下Enter，因為預設MariaDB沒有密碼。</p>
+
+<p>第二個問題，Change the root password? [Y/n]
+是否更改root密碼，極度建議您設定root密碼，請輸入Y</p>
+
+<p>第三個問題，Remove anonymous users? [Y/n]
+是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了</p>
+
+<p>第四個問題，Disallow root login remotely? [Y/n]
+是否移除遠端root登入權限，視需求設定</p>
+
+<p>第五個問題，Remove test database and access to it? [Y/n]
+是否移除測試資料庫跟使用者，留著也沒用！移除請輸入Y</p>
+
+<p>第六個問題，Reload privilege tables now? [Y/n]
+是否刷新權限表，輸入Y完成所有初始化設定！</p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

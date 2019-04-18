@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/12/install-nexus-oss/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>安裝 Nexus OSS | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,72 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      安裝 Nexus OSS
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Dec 14, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<h1 id="nexus-oss">Nexus OSS</h1>
+
+<p>Nexus OSS是用來架設maven私有倉庫的好幫手
+安裝其實非常容易</p>
+
+<p><a href="http://www.sonatype.org/nexus/" target="_blank">下載網址</a></p>
+
+<p><img src="//imagehosting.rickyfun.net/201512/A01-01.jpg"></p>
+
+<h3 id="下載至您要放置的目錄下即可開始操作以下流程-這裡放置在-usr-local">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</h3>
+
+<p><code># tar zxvf nexus-2.11.4-01-bundle.tar.gz</code></p>
+
+<p><code># ln -s nexus-2.11.4-01/ nexus</code></p>
+
+<p><code># chown -R nexus:nexus nexus</code>
+<code># chown -R nexus:nexus nexus-2.11.4-01/</code>
+<code># chown -R nexus:nexus sonatype-work/</code></p>
+
+<p>修改下面兩個設定
+<code># vi /nexus-2.11.4-01/bin/nexus</code></p>
+
+<pre><code class="language-config">NEXUS_HOME=&quot;/usr/local/nexus/nexus&quot;
+RUN_AS_USER=nexus
+</code></pre>
+
+<p>修改Port
+<code># vi /nexus-2.11.4-01/conf/nexus.properties</code></p>
+
+<pre><code class="language-config">application-port=18081
+</code></pre>
+
+<p>啟動
+<code># sh /var/opt/nexus/nexus/bin/nexus start</code></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/10/centos-yum-install-bind9/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>CentOS yum 安裝bind9 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,212 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      CentOS yum 安裝bind9
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Oct 4, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%ae%89%e8%a3%9d">
+            安裝
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e8%a8%ad%e5%ae%9a">
+            設定
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e6%9f%a5bind%e7%89%88%e6%9c%ac">
+            查bind版本
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    
+
+<h2 id="安裝">安裝</h2>
+
+<p><code># sudo yum install bind bind-utils -y</code></p>
+
+<p><code># service named start</code></p>
+
+<p><code># chkconfig named on</code></p>
+
+<h4 id="防火牆設定">防火牆設定</h4>
+
+<p><code># iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT</code></p>
+
+<p><code># iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT</code></p>
+
+<p><code># service iptables save</code></p>
+
+<p><code># service iptables restart</code></p>
+
+<h2 id="設定">設定</h2>
+
+<h3 id="預設nemed-conf檔-bind-9-8-2rc1-redhat-9-8-2-0-47-rc1-el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</h3>
+
+<h6 id="以下為yum安裝後產生的預設named-conf設定檔">以下為yum安裝後產生的預設named.conf設定檔</h6>
+
+<pre><code>options {
+        listen-on port 53 { 127.0.0.1; };
+        listen-on-v6 port 53 { ::1; };
+        directory       &quot;/var/named&quot;;
+        dump-file       &quot;/var/named/data/cache_dump.db&quot;;
+        statistics-file &quot;/var/named/data/named_stats.txt&quot;;
+        memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;
+        allow-query     { localhost; };
+        recursion yes;
+
+        dnssec-enable yes;
+        dnssec-validation yes;
+
+        /* Path to ISC DLV key */
+        bindkeys-file &quot;/etc/named.iscdlv.key&quot;;
+
+        managed-keys-directory &quot;/var/named/dynamic&quot;;
+};
+
+logging {
+        channel default_debug {
+                file &quot;data/named.run&quot;;
+                severity dynamic;
+        };
+};
+
+zone &quot;.&quot; IN {
+        type hint;
+        file &quot;named.ca&quot;;
+};
+
+include &quot;/etc/named.rfc1912.zones&quot;;
+include &quot;/etc/named.root.key&quot;;
+</code></pre>
+
+<h3 id="修改設定">修改設定</h3>
+
+<h6 id="修改options設定-允許查詢來源">修改options設定，允許查詢來源</h6>
+
+<p><code># vi /etc/named.conf</code></p>
+
+<pre><code>options {
+        //(其他參數略...)
+        listen-on port 53 { any; };
+        listen-on-v6 port 53 { any; };
+        allow-query { any; };
+        version &quot;zzz&quot;;
+};
+</code></pre>
+
+<h3 id="新增正解設定檔">新增正解設定檔</h3>
+
+<p><code># vi /etc/named.conf</code></p>
+
+<pre><code>zone  &quot;example.com&quot; {
+        type master;
+        file  &quot;forward.example.com.zone&quot;;
+};
+</code></pre>
+
+<h6 id="named-conf中指example-com的域名zone檔-因此必須在預設根目錄-var-named-的路徑新增一個檔案">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案</h6>
+
+<p><code># vi /var/named/forward.example.com.zone</code></p>
+
+<pre><code>; zone file for example.tld
+$TTL 1200     ; 14400 4 hours - default TTL for zone
+$ORIGIN example.com.
+;; SOA Resource Record
+@             IN      SOA   ns1.example.com. hostmaster.exapmle.com. (
+                        2015010100 ; se = serial number
+                        12h        ; ref = refresh
+                        15m        ; ret = update retry
+                        3w         ; ex = expiry
+                        3h         ; min = minimum
+                        )
+;; Name Servers
+              IN      NS      ns1.exapmle.com.
+ns1           IN      A       192.168.0.1
+;; Web Server Resource Records
+@             IN      A       192.168.0.2
+www           IN      CNAME   @
+@             IN      AAAA    2001:b034:2000:1000:1000::38
+;; FTP Server Resource Records
+ftp           IN      A       192.168.0.3
+</code></pre>
+
+<h3 id="指令">指令</h3>
+
+<h5 id="檢查設定檔-可以用以下指令來檢查設定是否正確">檢查設定檔(可以用以下指令來檢查設定是否正確)</h5>
+
+<p><code># named-checkconf /etc/named.conf</code></p>
+
+<h2 id="查bind版本">查bind版本</h2>
+
+<h3 id="方法一">方法一</h3>
+
+<p><code># nslookup -debug -class=chaos -query=txt version.bind &lt;NameServer IP&gt;</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201609/A02-02.jpg"></p>
+
+<h3 id="方法二">方法二</h3>
+
+<p><code># dig @&lt;NameServer IP&gt; version.bind chaos txt</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201609/A02-01.jpg"></p>
+
+<h5 id="隱藏版本資訊">隱藏版本資訊</h5>
+
+<pre><code>options {
+        //(其他參數略...)
+        version &quot;ZZZ&quot;;
+};
+</code></pre>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2016/10/bind-makeinstall-with-dlz-mysql/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>bind make安裝搭配 dlz mysql | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,425 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      bind make安裝搭配 dlz mysql
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Oct 17, 2016
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#bind-dlz-%e7%b0%a1%e4%bb%8b">
+            Bind-dlz 簡介
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#bind-%e5%ae%89%e8%a3%9d-mysql%e7%af%87">
+            Bind 安裝 (MySQL篇)
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%85%b6%e4%bb%96%e6%8c%87%e4%bb%a4%e5%8f%83%e8%80%83">
+            其他指令參考
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e7%96%91%e9%9b%a3%e6%8e%92%e8%a7%a3">
+            疑難排解
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%85%b6%e4%bb%96">
+            其他
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    
+
+<h2 id="bind-dlz-簡介">Bind-dlz 簡介</h2>
+
+<ol>
+<li>BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。</li>
+<li>BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。</li>
+<li>BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。</li>
+<li>如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。</li>
+<li>bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。</li>
+<li>DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效</li>
+</ol>
+
+<h4 id="reference">Reference</h4>
+
+<ul>
+<li><a href="http://www.coctec.com/docs/service/show-post-12776.html">智能DNS(Bind dlz)在企業中的應用</a></li>
+</ul>
+
+<h2 id="bind-安裝-mysql篇">Bind 安裝 (MySQL篇)</h2>
+
+<p><strong>bind9 默認不支援dlz需要在編譯時加上with(看你搭配什麼資料庫)</strong></p>
+
+<ul>
+<li>&ndash;with-dlz-mysql</li>
+<li>&ndash;with-dlz-postgres</li>
+</ul>
+
+<h3 id="前置作業">前置作業</h3>
+
+<p><strong>到官網或FTP站下載安裝檔</strong></p>
+
+<ul>
+<li><a href="https://www.isc.org/downloads/">Bind官網</a></li>
+<li><a href="http://ftp.isc.org/isc/bind9/">FTP站</a></li>
+</ul>
+
+<p><strong>安裝MySQL資料庫</strong></p>
+
+<h3 id="開始安裝">開始安裝</h3>
+
+<h4 id="1-防火牆設定-開啟53port">1. 防火牆設定(開啟53port)</h4>
+
+<p><code># iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT</code></p>
+
+<p><code># -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT</code></p>
+
+<p><code># service iptables save</code></p>
+
+<p><code># service iptables restart</code></p>
+
+<h4 id="2-移除舊有的bind安裝">2. 移除舊有的bind安裝</h4>
+
+<p><code># rpm -qa | grep &quot;^bind&quot;</code></p>
+
+<p><code># yum remove bind</code></p>
+
+<h4 id="3-安装依賴套件">3. 安装依賴套件</h4>
+
+<p><code># yum install gcc openssl openssl-devel mysql-devel</code></p>
+
+<h4 id="4-1-編譯with-mysql">4-1. 編譯with mysql</h4>
+
+<p><code># ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile</code></p>
+
+<h4 id="4-2-編譯with-postgres">4-2. 編譯with postgres</h4>
+
+<p><code># ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres</code></p>
+
+<h5 id="編譯配置項說明-完整的功能配置項可使用-configure-help-查看">編譯配置項說明(完整的功能配置項可使用: ./configure &ndash;help 查看):</h5>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>說明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&ndash;prefix=/usr</td>
+<td>bind安裝路徑, 默認[ /usr/local ]</td>
+</tr>
+
+<tr>
+<td>&ndash;sysconfdir=/etc</td>
+<td>配置文件路徑, 默認 [ /etc ]</td>
+</tr>
+
+<tr>
+<td>&ndash;enable-threads</td>
+<td>激活多線程</td>
+</tr>
+
+<tr>
+<td>&ndash;with-libtool</td>
+<td>Use GNU libtool</td>
+</tr>
+
+<tr>
+<td>&mdash;with-openssl=yes</td>
+<td>Build with OpenSSL yes</td>
+</tr>
+
+<tr>
+<td>&ndash;enable-exportlib</td>
+<td>Build exportable library (GNU make required) [default=no]</td>
+</tr>
+
+<tr>
+<td>&ndash;with-dlz-postgres</td>
+<td>使用postgres驅動，可以指定include檔路徑，<br />例：&ndash;with-dlz-postgres=/usr/local/pgsql/include</td>
+</tr>
+
+<tr>
+<td>&ndash;with-dlz-mysql</td>
+<td>使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，<br />可以指定include檔路徑，例：&ndash;with-dlz-mysql=/www/include</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="5-編譯安裝">5. 編譯安裝</h4>
+
+<p><code># make</code></p>
+
+<p><code># make install</code></p>
+
+<h4 id="6-設定">6. 設定</h4>
+
+<p><code># vi named.conf</code></p>
+
+<pre><code>options {
+    listen-on port 53 { any; };
+    listen-on-v6 port 53 { ::1; };
+    allow-query     { any; };
+
+    allow-transfer { none; };
+    allow-update { none; };
+    allow-recursion { none; };
+    recursion no;
+
+    version &quot;zzz&quot;;
+};
+
+logging {
+    channel default_debug {
+        file &quot;var/bind9.log&quot; versions 3 size 10m;
+        severity dynamic;
+        print-time yes;
+        print-severity yes;
+    };
+};
+
+include &quot;etc/bind.keys&quot;;
+
+dlz &quot;mysql zone&quot; {
+    database &quot;mysql
+      {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
+      {select zone from dns_records where zone='$zone$' limit 1}
+      {select ttl, type, mx_priority, data, resp_person, serial, refresh,
+retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}&quot;;
+};
+</code></pre>
+
+<h4 id="7-創建named用戶與群組">7. 創建named用戶與群組</h4>
+
+<p><code># groupadd named</code></p>
+
+<p><strong>依據你的目錄建立用戶</strong></p>
+
+<p><code># adduser -d /var/named -g named -s /bin/false named</code></p>
+
+<p><code># adduser -d /usr/local/bind9 -g named -s /bin/false named</code></p>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>說明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>-d</td>
+<td>被創建的named用戶的主目錄</td>
+</tr>
+
+<tr>
+<td>-g</td>
+<td>所屬群組</td>
+</tr>
+
+<tr>
+<td>-s</td>
+<td>帳號的登入shell(false表示不能登入)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="給予目錄權限">給予目錄權限</h4>
+
+<p><code># chown -R named:named ./var</code></p>
+
+<h4 id="8-資料庫中建立schema-and-record">8. 資料庫中建立Schema and Record</h4>
+
+<h5 id="schema-example">Schema Example</h5>
+
+<pre><code>CREATE DATABASE  IF NOT EXISTS `dns_data`;
+USE `dns_data`;
+
+CREATE TABLE `dns_records` (
+  `ser_no` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `zone` varchar(255) DEFAULT NULL,
+  `host` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `data` varchar(255) DEFAULT NULL,
+  `ttl` int(11) DEFAULT NULL,
+  `mx_priority` int(11) DEFAULT NULL,
+  `refresh` int(11) DEFAULT NULL,
+  `retry` int(11) DEFAULT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `minimum` int(11) DEFAULT NULL,
+  `serial` bigint(20) DEFAULT NULL,
+  `resp_person` varchar(255) DEFAULT NULL,
+  `primary_ns` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ser_no`),
+  KEY `host_index` (`host`(20)) USING BTREE,
+  KEY `type_index` (`type`(8)),
+  KEY `zone_index` (`zone`(30))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `xfr_table` (
+  `zone` varchar(255) NOT NULL,
+  `client` varchar(255) NOT NULL,
+  KEY `zone_client_index` (`zone`(30)),
+  KEY `client_index` (`client`(20))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+</code></pre>
+
+<h5 id="record-example">Record Example</h5>
+
+<pre><code>INSERT INTO `dns_records`
+( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`)
+VALUES
+/* SOA */
+('example.com','@','SOA','ns1.example.com.',3600,NULL,10800,7200,604800,86400,2015091101,'master.example.com.','ns1.example.com.'),
+('example.com','@','NS','ns1.example.com.',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+('example.com','ns1','A','192.168.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+
+/* A AAAA CNAME Record */
+('example.com','@','A','127.0.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+('example.com','@','AAAA','::1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+('example.com','www','CNAME','@',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+
+</code></pre>
+
+<h4 id="9-啟動">9. 啟動</h4>
+
+<p><code># sbin/named -c etc/named.conf -u named</code></p>
+
+<h2 id="其他指令參考">其他指令參考</h2>
+
+<h5 id="檢查設定檔">檢查設定檔</h5>
+
+<p><code># sbin/named-checkconf etc/named.conf</code></p>
+
+<h5 id="啟動">啟動</h5>
+
+<p><code># sbin/named</code></p>
+
+<h5 id="啟動-使用named身份執行">啟動(使用named身份執行)</h5>
+
+<p><code># sbin/named -u named</code></p>
+
+<h5 id="啟動-前台執行-會輸出啟動訊息-debug可以使用">啟動(前台執行，會輸出啟動訊息，debug可以使用)</h5>
+
+<p><code># sbin/named -g</code></p>
+
+<h5 id="啟動-指定設定檔">啟動(指定設定檔)</h5>
+
+<p><code># /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf</code></p>
+
+<h2 id="疑難排解">疑難排解</h2>
+
+<h5 id="一-找不到mysql-h時">一、找不到mysql.h時</h5>
+
+<p><code># yum install mysql-devel</code></p>
+
+<h5 id="二-如果抓不到-usr-lib-mysql">二、如果抓不到/usr/lib/mysql</h5>
+
+<p>編譯加上</p>
+
+<pre><code>--with-mysql-libraries=/usr/lib64/mysql/
+</code></pre>
+
+<h5 id="三-承二-但是也有可能無效-死都要抓-usr-lib-mysql-只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</h5>
+
+<p><code># ln -s /usr/lib64/mysql/ /usr/lib/mysql</code></p>
+
+<h2 id="其他">其他</h2>
+
+<h5 id="生成rndc-key">生成rndc key</h5>
+
+<p><code># sbin/rndc-confgen -a -r /dev/urandom</code></p>
+
+<h5 id="更新named-ca">更新named.ca</h5>
+
+<p>頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件</p>
+
+<p>最新資訊可以到<a href="ftp://rs.internic.net/domain">ftp://rs.internic.net/domain</a> 下載。</p>
+
+<h5 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</h5>
+
+<pre><code>dlz &quot;mysql zone&quot; {
+   database &quot;mysql
+      {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
+      {select zone from dns_records where zone='$zone$' limit 1}
+      {select ttl, type, mx_priority, data, resp_person, serial, refresh,
+retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}&quot;;
+};
+</code></pre>
+
+<h5 id="dns-security-reference">DNS security reference</h5>
+
+<ul>
+<li><a href="http://www.lijyyh.com/2012/07/dns-dns-server-security-management.html">DNS伺服器安全性管理實務</a></li>
+<li><a href="http://wiki.weithenn.org/cgi-bin/wiki.pl?Study_DNS-DNS_%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E3%80%81%E5%AE%89%E5%85%A8%E3%80%81%E6%AA%A2%E6%B8%AC">Study DNS-DNS 進階設定、安全、檢測</a></li>
+<li><a href="https://dotblogs.com.tw/jerrymow/2013/04/25/102283">建議安裝 fail2ban來阻擋</a></li>
+</ul>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

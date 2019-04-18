@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/08/centos65-install-phpmyadmin/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>CentOS6.5 安裝phpMyAdmin | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,106 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      CentOS6.5 安裝phpMyAdmin
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Aug 24, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    <p>#一、安裝phpMyAdmin
+&gt;phpMyAdmin對應php版本會有影響，請挑選適合的版本</p>
+
+<p><code>wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
+
+<p><code>tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
+
+<p><code>mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin</code></p>
+
+<p><code>rm phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
+
+<p>#二、設定config.inc.php
+路徑:/usr/share/nginx/html/phpMyAdmin
+複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
+<code># cp config.sample.inc.php config.inc.php</code></p>
+
+<pre><code> /* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'cookies';
+</code></pre>
+
+<p>改成</p>
+
+<pre><code>/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'http';
+</code></pre>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-01.png"></p>
+
+<p>#三、查看mysql使用者,新增使用者,給予權限</p>
+
+<p><code># mysql -u root -p -h 127.0.0.1</code></p>
+
+<p><code>mysql&gt; select user, host from mysql.user;</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-02.png"></p>
+
+<p><code>mysql&gt; create user 'admin'@'%' identified by 'admin';</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-03.png"></p>
+
+<p><code>mysql&gt; grant all on *.* to 'admin'@'%';</code>
+這樣 admin 對整個資料庫的所有資料表都擁有全部的權利</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-04.png"></p>
+
+<p>#四、phpMyAdmin 高級功能啟用</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-05.png"></p>
+
+<p>建立使用者pma
+<code>mysql&gt; create user 'pma'@'localhost' identified by 'pmapass';</code></p>
+
+<p>給予pma表phpmyadmin權限
+<code>mysql&gt; grant select, insert, update, delete on phpmyadmin.* to pma@localhost;</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-06.png"></p>
+
+<p>執行create_tables.sql啟用高級功能
+<code># mysql -u root -p &lt; /usr/share/nginx/html/phpMyAdmin/examples/create_tables.sql</code></p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-07.png"></p>
+
+<p>編輯 config.inc.php 設定檔
+將下列的部分註解拿掉</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-08.png"></p>
+
+<p>#五、完成，即可在phpMyAdmin看到表phpmyadmin</p>
+
+<p><img desc="" src="//imagehosting.rickyfun.net/201508/A01-09.png"></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/09/centos65-boot-tomcat-started-automatically/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>CentOS6.5 Tomcat開機自動啟動 | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,110 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      CentOS6.5 Tomcat開機自動啟動
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Sep 30, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    <p>#1.設定啟動腳本
+在目錄/etc/init.d新增一個tomcat的腳本
+<code># vi /etc/init.d/tomcat</code></p>
+
+<p><strong>記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下</strong></p>
+
+<pre><code class="language-config">#startup script for jakarta tomcat
+#
+# chkconfig: - 85 20
+# description: Tomcat running
+# processname: tomcat7
+# pidfile: /var/run/tomcat.pid # config:# Source function library.
+. /etc/rc.d/init.d/functions
+# Source networking configuration.
+. /etc/sysconfig/network
+# Check that networking is up.
+[ ${NETWORKING} = &quot;no&quot; ] &amp;&amp; exit 0# Set Tomcat environment.
+export JAVA_HOME=/usr/java/jdk1.8.0_25
+export CATALINA_HOME=/usr/local/tomcat7
+export CATALINA_OPTS=&quot;-Dbuild.compiler.emacs=true&quot;
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar
+export PATH=$JAVA_HOME/bin:$PATH
+[ -f /usr/local/tomcat7/bin/startup.sh ] || exit 0 [ -f /usr/local/tomcat7/bin/shutdown.sh ] || exit 0
+export PATH=$PATH:/usr/bin:/usr/lib/bin
+# See how we were called.
+case &quot;$1&quot; in
+        start)
+                # Start daemon.
+                echo -n &quot;Starting Tomcat: &quot;
+                /usr/local/tomcat7/bin/startup.sh
+                RETVAL=$?
+                echo
+                        [ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/tomcat ;;
+        stop)
+                # Stop daemons.
+                echo -n &quot;Shutting down Tomcat: &quot;
+                /usr/local/tomcat7/bin/shutdown.sh
+                RETVAL=$?
+                echo
+                        [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/tomcat ;;
+        restart)
+                $0 stop
+                $0 start
+        ;;
+        condrestart)
+                [ -e /var/lock/subsys/tomcat ] &amp;&amp; $0 restart ;;
+        status)
+               status tomcat
+        ;;
+        *)
+                echo &quot;Usage: $0 {start|stop|restart|status}&quot;
+        exit 1
+esac
+        exit 0
+</code></pre>
+
+<p>#2.修改執行權限
+<code># chmod 755 /etc/init.d/tomcat</code></p>
+
+<p>#3.增加tomcat啟動服務
+<code># chkconfig --add tomcat</code></p>
+
+<p>#4.設定開機自動啟動
+<code># chkconfig tomcat on</code></p>
+
+<p>#5.服務開啟關閉方式
+<strong>啟動服務</strong>
+<code># service tomcat start</code>
+<code># /etc/init.d/tomcat start</code>
+<strong>停止服務</strong>
+<code># service tomcat stop</code>
+<code># /etc/init.d/tomcat stop</code></p>
+
+<p>#6.reboot看看吧</p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

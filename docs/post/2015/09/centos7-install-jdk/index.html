@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.rickyfun.net/tags/">
+  <link rel="canonical" href="https://blog.rickyfun.net/post/2015/09/centos7-install-jdk/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Tags | LOOPBAI</title>
+  <title>CentOS7 安裝JDK 64 Bit | LOOPBAI</title>
 </head>
 
   <body>
@@ -168,7 +168,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -197,12 +197,117 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      CentOS7 安裝JDK 64 Bit
+    </h1>
+
+    <div class="date">
       
       
-    </ul>
+      <strong aria-hidden="true">Publish date: </strong>Sep 30, 2015
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<h1 id="tar-gz-安裝">tar.gz 安裝</h1>
+
+<p><code>cd /opt</code>
+<code>wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot;</code>
+<code>tar zxvf jdk-7u79-linux-x64.tar.gz</code></p>
+
+<pre><code># alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2
+# alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2
+# alternatives --set jar /opt/jdk1.7.0_79/bin/jar
+# alternatives --set javac /opt/jdk1.7.0_79/bin/javac 
+</code></pre>
+
+<h1 id="rpm-安裝">rpm 安裝</h1>
+
+<h1 id="1-下載jdk">1.下載JDK</h1>
+
+<p>首先到<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">官方網址</a>下載你需要的JDK版本
+<img src="//imagehosting.rickyfun.net/201509/A05-01.png"></p>
+
+<h1 id="2-安裝rpm包">2.安裝rpm包</h1>
+
+<p>會自動安裝到/usr/java下
+<code># rpm -Uvh jdk-8u25-linux-x64.rpm</code></p>
+
+<h1 id="3-alternatives管理jdk版本">3.alternatives管理JDK版本</h1>
+
+<p>在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下:
+alternatives –install <b style="color:red;">&lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;</b>
+<code># alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1</code></p>
+
+<p>使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本
+<code># alternatives --config java</code>
+<img src="//imagehosting.rickyfun.net/201509/A05-02.png"></p>
+
+<h1 id="4-檢查安裝是否正常">4.檢查安裝是否正常</h1>
+
+<p><code># java -version</code></p>
+
+<p><code># javac -version</code>
+<img src="//imagehosting.rickyfun.net/201509/A05-03.png"></p>
+
+<h1 id="5-設定環境變數">5.設定環境變數</h1>
+
+<p>設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile
+<code># vi /etc/profile</code></p>
+
+<p>最底下加上變數(JAVA_HOME目錄可能不同)</p>
+
+<pre><code class="language-config">JAVA_HOME=/usr/java/jdk1.8.0_25
+CLASSPATH=./:$JAVA_HOME/lib:JAVA_HOME/jre/lib
+PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
+export PATH CLASSPATH JAVA_HOME
+</code></pre>
+
+<p><img src="//imagehosting.rickyfun.net/201509/A05-04.png"></p>
+
+<h1 id="6-reboot">6.reboot</h1>
+
+<p>可以的話reboot一下吧~</p>
+
+<hr />
+
+<h2 id="hellojava">HelloJava</h2>
+
+<pre><code class="language-java">public class HelloJava {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello! Java!&quot;);
+    }
+}
+</code></pre>
+
+<p>##編譯
+<code># javac HelloJava.java</code></p>
+
+<p>##執行
+<code># java HelloJava</code>
+<code># java -cp . HelloJava</code> <b style="color:#F8ECE0;">(暫時不知道為什麼要這樣子才可以)</b>
+<img src="//imagehosting.rickyfun.net/201509/A05-05.png"></p>
+
   </main>
+  <div id="disqus-container">
+  
+</div>
+
 
           <footer role="contentinfo">
   <div>

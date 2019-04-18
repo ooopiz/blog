@@ -3,224 +3,227 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rickyfun.net/about/</loc>
+    <lastmod>2019-04-18T16:08:02+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rickyfun.net/</loc>
-    <lastmod>2017-05-15T07:46:01+08:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-04-18T16:07:58+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/</loc>
-    <lastmod>2017-05-15T07:46:01+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rickyfun.net/posts/2017/05/opensourcepos-install/</loc>
+    <loc>https://blog.rickyfun.net/post/</loc>
     <lastmod>2017-05-15T07:46:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2017/03/pem-to-ppk-putty-login/</loc>
+    <loc>https://blog.rickyfun.net/post/2017/05/opensourcepos-install/</loc>
+    <lastmod>2017-05-15T07:46:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rickyfun.net/post/2017/03/pem-to-ppk-putty-login/</loc>
     <lastmod>2017-03-21T02:21:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/12/php-call-java-class/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/12/php-call-java-class/</loc>
     <lastmod>2016-12-21T03:23:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/12/gitlab-upgrade-7.14-to-8/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/12/gitlab-upgrade-7.14-to-8/</loc>
     <lastmod>2016-12-08T13:22:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</loc>
     <lastmod>2016-11-04T10:26:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/10/yum-zabbix-server-agent/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/10/yum-zabbix-server-agent/</loc>
     <lastmod>2016-10-27T02:13:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/10/bind-makeinstall-with-dlz-mysql/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/10/bind-makeinstall-with-dlz-mysql/</loc>
     <lastmod>2016-10-17T15:46:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/10/centos-yum-install-bind9/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/10/centos-yum-install-bind9/</loc>
     <lastmod>2016-10-04T02:09:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</loc>
     <lastmod>2016-09-29T08:49:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/09/google-resume/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/09/google-resume/</loc>
     <lastmod>2016-09-20T05:50:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/08/hicloud-mount-s3-cloud-storage-folder/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/08/hicloud-mount-s3-cloud-storage-folder/</loc>
     <lastmod>2016-08-09T02:07:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/07/ab-pressure-test/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/07/ab-pressure-test/</loc>
     <lastmod>2016-07-29T01:16:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/07/study-on-the-gradle/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/07/study-on-the-gradle/</loc>
     <lastmod>2016-07-27T03:14:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/07/differences-have-javascript-var/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/07/differences-have-javascript-var/</loc>
     <lastmod>2016-07-21T14:54:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/07/2013-open-web-software-safety-plans/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/07/2013-open-web-software-safety-plans/</loc>
     <lastmod>2016-07-11T07:14:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/05/centos7-install-postfix/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/05/centos7-install-postfix/</loc>
     <lastmod>2016-05-26T10:20:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/05/installing-nginx-19/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/05/installing-nginx-19/</loc>
     <lastmod>2016-05-05T02:47:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2016/05/install-php56/</loc>
+    <loc>https://blog.rickyfun.net/post/2016/05/install-php56/</loc>
     <lastmod>2016-05-05T02:38:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/12/install-nexus-oss/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/12/install-nexus-oss/</loc>
     <lastmod>2015-12-14T01:27:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/10/centos7-systemctl-control/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/10/centos7-systemctl-control/</loc>
     <lastmod>2015-10-01T05:24:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/centos65-boot-tomcat-started-automatically/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/centos65-boot-tomcat-started-automatically/</loc>
     <lastmod>2015-09-30T21:50:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/centos7-installing-tomcat/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/centos7-installing-tomcat/</loc>
     <lastmod>2015-09-30T06:10:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/centos7-install-jdk/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/centos7-install-jdk/</loc>
     <lastmod>2015-09-30T05:13:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</loc>
     <lastmod>2015-09-09T09:49:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</loc>
     <lastmod>2015-09-09T09:10:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/wget-and-yum-with-proxy/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/wget-and-yum-with-proxy/</loc>
     <lastmod>2015-09-02T17:05:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/centos-traffic-monitoring-tool-iftop/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/centos-traffic-monitoring-tool-iftop/</loc>
     <lastmod>2015-09-02T16:56:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/09/centos7-basic-set/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/09/centos7-basic-set/</loc>
     <lastmod>2015-09-01T03:07:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos-using-rsync/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos-using-rsync/</loc>
     <lastmod>2015-08-31T13:06:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/reinstall-mac/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/reinstall-mac/</loc>
     <lastmod>2015-08-30T14:14:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos65-installation-of-mariadb/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos65-installation-of-mariadb/</loc>
     <lastmod>2015-08-24T07:05:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos65-install-nginx/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos65-install-nginx/</loc>
     <lastmod>2015-08-24T07:01:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/laravel-delete-kit/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/laravel-delete-kit/</loc>
     <lastmod>2015-08-24T05:04:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/android-program-flow/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/android-program-flow/</loc>
     <lastmod>2015-08-24T04:50:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/two-git-a-computer-account-using-ssh-key/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/two-git-a-computer-account-using-ssh-key/</loc>
     <lastmod>2015-08-24T03:05:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos65-install-phpmyadmin/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos65-install-phpmyadmin/</loc>
     <lastmod>2015-08-24T02:00:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos65-installation-lnmp/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos65-installation-lnmp/</loc>
     <lastmod>2015-08-24T01:08:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos65-packet-filtering-firewall-iptables/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos65-packet-filtering-firewall-iptables/</loc>
     <lastmod>2015-08-21T10:05:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/08/centos65-network-card-settings/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/08/centos65-network-card-settings/</loc>
     <lastmod>2015-08-21T09:29:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/07/centos-crontab/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/07/centos-crontab/</loc>
     <lastmod>2015-07-27T01:35:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/07/laravel50-upgrade-51/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/07/laravel50-upgrade-51/</loc>
     <lastmod>2015-07-25T12:22:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rickyfun.net/posts/2015/07/laravel5-0-close-the-crsf-global-validation/</loc>
+    <loc>https://blog.rickyfun.net/post/2015/07/laravel5-0-close-the-crsf-global-validation/</loc>
     <lastmod>2015-07-25T08:13:01+08:00</lastmod>
   </url>
   
