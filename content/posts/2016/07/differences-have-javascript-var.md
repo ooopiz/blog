@@ -1,6 +1,6 @@
 ---
 title: 'javascript 有沒有var的差別'
-date: 2016-07-21 14:54
+date: 2016-07-21T14:54:01+08:00
 draft: false
 ---
 <p style="color:red">有沒有var差很大啊，要注意</p>

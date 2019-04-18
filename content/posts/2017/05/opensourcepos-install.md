@@ -1,6 +1,6 @@
 ---
 title: 'opensourcepos 安裝'
-date: 2017-05-15 07:46
+date: 2017-05-15T07:46:01+08:00
 draft: false
 ---
 

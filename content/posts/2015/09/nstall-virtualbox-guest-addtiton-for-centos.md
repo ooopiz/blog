@@ -1,6 +1,6 @@
 ---
 title: 'VirtualBox Guest Addtiton安裝 for Centos'
-date: 2015-09-09 09:49
+date: 2015-09-09T09:49:01+08:00
 draft: false
 ---
 我在virtualbox上面安裝的是CentOS7的OS

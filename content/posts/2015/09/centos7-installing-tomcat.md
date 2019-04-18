@@ -1,6 +1,6 @@
 ---
 title: 'CentOS7 安裝Tomcat'
-date: 2015-09-30 06:10
+date: 2015-09-30T06:10:01+08:00
 draft: false
 ---
 #1.切換目錄到 /usr/local

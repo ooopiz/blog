@@ -1,6 +1,6 @@
 ---
 title: 'CentOS6.5 安裝phpMyAdmin'
-date: 2015-08-24 02:00
+date: 2015-08-24T02:00:01+08:00
 draft: false
 ---
 #一、安裝phpMyAdmin

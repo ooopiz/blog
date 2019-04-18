@@ -1,6 +1,6 @@
 ---
 title: 'CentOS6.5 安裝Nginx'
-date: 2015-08-24 07:01
+date: 2015-08-24T07:01:01+08:00
 draft: false
 ---
 #新增 Nginx 官方所提供的第三方套件庫

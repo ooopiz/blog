@@ -1,6 +1,6 @@
 ---
 title: 'CentOS7 基礎設定'
-date: 2015-09-01 03:07
+date: 2015-09-01T03:07:01+08:00
 draft: false
 ---
 - 一、啟用網卡，停用NetworkManger

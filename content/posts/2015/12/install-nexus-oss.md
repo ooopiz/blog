@@ -1,6 +1,6 @@
 ---
 title: '安裝 Nexus OSS'
-date: 2015-12-14 01:27
+date: 2015-12-14T01:27:01+08:00
 draft: false
 ---
 # Nexus OSS

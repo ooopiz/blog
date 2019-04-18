@@ -1,6 +1,6 @@
 ---
 title: 'CentOS6.5 防火牆設定iptables'
-date: 2015-08-21 10:05
+date: 2015-08-21T10:05:01+08:00
 draft: false
 ---
 CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。

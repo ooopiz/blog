@@ -1,6 +1,6 @@
 ---
 title: 'CentOS6.5 安裝LNMP'
-date: 2015-08-24 01:08
+date: 2015-08-24T01:08:01+08:00
 draft: false
 ---
 #一、更新rpm

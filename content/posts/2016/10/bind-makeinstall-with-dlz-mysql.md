@@ -1,6 +1,6 @@
 ---
 title: 'bind make安裝搭配 dlz mysql'
-date: 2016-10-17 15:46
+date: 2016-10-17T15:46:01+08:00
 draft: false
 ---
 ## Bind-dlz 簡介

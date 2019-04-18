@@ -1,6 +1,6 @@
 ---
 title: 'Gradle初探'
-date: 2016-07-27 03:14
+date: 2016-07-27T03:14:01+08:00
 draft: false
 ---
 <img desc="" src="//imagehosting.rickyfun.net/201607/A05-01.png">

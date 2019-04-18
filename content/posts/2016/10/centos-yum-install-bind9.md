@@ -1,6 +1,6 @@
 ---
 title: 'CentOS yum 安裝bind9'
-date: 2016-10-04 02:09
+date: 2016-10-04T02:09:01+08:00
 draft: false
 ---
 ## 安裝

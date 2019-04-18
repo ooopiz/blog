@@ -1,6 +1,6 @@
 ---
 title: 'CentOS6.5 安裝MariaDB'
-date: 2015-08-24 07:05
+date: 2015-08-24T07:05:01+08:00
 draft: false
 ---
 #新增MariaDB的知識庫，讓系統使用。  

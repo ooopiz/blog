@@ -1,6 +1,6 @@
 ---
 title: 'yum 和 wget 使用 proxy'
-date: 2015-09-02 17:05
+date: 2015-09-02T17:05:01+08:00
 draft: false
 ---
 #yum 設定檔

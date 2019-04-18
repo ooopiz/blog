@@ -1,6 +1,6 @@
 ---
 title: 'CentOS 使用rsync'
-date: 2015-08-31 13:06
+date: 2015-08-31T13:06:01+08:00
 draft: false
 ---
 rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．

@@ -1,6 +1,6 @@
 ---
 title: '利用adjtimex來修正linux時間偏差'
-date: 2016-11-04 10:26
+date: 2016-11-04T10:26:01+08:00
 draft: false
 ---
 ##利用adjtimex來修正linux時間偏差

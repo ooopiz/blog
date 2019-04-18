@@ -1,6 +1,6 @@
 ---
 title: 'VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器'
-date: 2015-09-09 09:10
+date: 2015-09-09T09:10:01+08:00
 draft: false
 ---
 VirtualBox透過NAT網卡來達到對外部的連線

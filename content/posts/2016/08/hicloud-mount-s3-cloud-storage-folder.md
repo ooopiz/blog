@@ -1,6 +1,6 @@
 ---
 title: 'Hicloud S3雲儲存資料夾掛載'
-date: 2016-08-09 02:07
+date: 2016-08-09T02:07:01+08:00
 draft: false
 ---
 ### hicloud S3雲儲存

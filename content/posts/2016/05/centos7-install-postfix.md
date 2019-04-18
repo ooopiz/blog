@@ -1,6 +1,6 @@
 ---
 title: 'CentOS7 安裝Postfix'
-date: 2016-05-26 10:20
+date: 2016-05-26T10:20:01+08:00
 draft: false
 ---
 ### Postfix介紹

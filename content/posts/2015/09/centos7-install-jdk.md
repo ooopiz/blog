@@ -1,6 +1,6 @@
 ---
 title: 'CentOS7 安裝JDK 64 Bit'
-date: 2015-09-30 05:13
+date: 2015-09-30T05:13:01+08:00
 draft: false
 ---
 # tar.gz 安裝

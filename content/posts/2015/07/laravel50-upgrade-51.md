@@ -1,6 +1,6 @@
 ---
 title: 'Laravel5.0 升級5.1'
-date: 2015-07-25 12:22
+date: 2015-07-25T12:22:01+08:00
 draft: false
 ---
 ###1. 修改composer.json ###

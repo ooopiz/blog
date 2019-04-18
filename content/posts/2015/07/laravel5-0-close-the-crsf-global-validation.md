@@ -1,6 +1,6 @@
 ---
 title: 'Laravel5.0 關閉CRSF全局驗證'
-date: 2015-07-25 08:13
+date: 2015-07-25T08:13:01+08:00
 draft: false
 ---
 修改Kernel.php

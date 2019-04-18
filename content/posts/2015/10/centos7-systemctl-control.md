@@ -1,6 +1,6 @@
 ---
 title: 'CentOS7 Tomcat增加systemctl控制'
-date: 2015-10-01 05:24
+date: 2015-10-01T05:24:01+08:00
 draft: false
 ---
 #1.增加啟動參數

@@ -1,6 +1,6 @@
 ---
 title: 'Laravel 刪除套件'
-date: 2015-08-24 05:04
+date: 2015-08-24T05:04:01+08:00
 draft: false
 ---
 
