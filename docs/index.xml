@@ -6,293 +6,65 @@
     <description>Recent content on LOOPBAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
+    <lastBuildDate>Mon, 15 May 2017 07:46:01 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rickyfun.net/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>2013開放Web軟體安全計畫</title>
-      <link>https://blog.rickyfun.net/posts/2016/07/2013-open-web-software-safety-plans/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>opensourcepos 安裝</title>
+      <link>https://blog.rickyfun.net/posts/2017/05/opensourcepos-install/</link>
+      <pubDate>Mon, 15 May 2017 07:46:01 +0800</pubDate>
       
-      <guid>https://blog.rickyfun.net/posts/2016/07/2013-open-web-software-safety-plans/</guid>
-      <description>##2013開放Web軟體安全計畫 – Open Web Application Security Project
-https://www.owasp.org/index.php/Top_10_2013-Top_10
-網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</description>
+      <guid>https://blog.rickyfun.net/posts/2017/05/opensourcepos-install/</guid>
+      <description>php pos 商用版
+開源版本 opensourcepos
+OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了
+環境準備： 安裝lamp
+php require * php-gd * php-bcmath * php-intl * php-sockets * php-mcrypt * php-curl installed and enabled.
+下載程式： # cd /var/www # git clone https://github.com/jekkos/opensourcepos.git
+# mv opensourcepos pos # cd /var/www/pos
+看你要使用哪個版本 使用git指令切過去 # git checkout tags/3.0.2 -b b_3.0.2
+設置權限： # chown -R apache:apache /var/www/pos
+匯入資料：(db資訊依照自己的資訊填入) # mysql pos /var/www/pos/database/database.sql
+設定檔： # cd /var/www/pos/application/config # cp database.php.tmpl database.php
+# vi database.</description>
     </item>
     
     <item>
-      <title>2016/07/27 使用ab壓測</title>
-      <link>https://blog.rickyfun.net/posts/2016/07/ab-pressure-test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>pem轉ppk putty 登入</title>
+      <link>https://blog.rickyfun.net/posts/2017/03/pem-to-ppk-putty-login/</link>
+      <pubDate>Tue, 21 Mar 2017 02:21:01 +0800</pubDate>
       
-      <guid>https://blog.rickyfun.net/posts/2016/07/ab-pressure-test/</guid>
-      <description> 2016/07/27 使用ab壓測 覺得ab壓出的不是很準，但還是紀錄一下
-###環境說明 - 主機：MacPro裡的VM - CPU : 1 - Memory：512M - 系統：CentOS 7 - 網頁服務：Nginx/1.11.1
-開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
-當擴大到2000併發時遇到 socket: Too many open files (24) 的問題  # ab -n 10000 -c 2000 -k http://127.0.0.1/
-Google後了解是系統設定的限制  查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx - &amp;gt; 如果su 無法切換使用者可能需要修改一下vipw
-查可開啟的數量 # ulimit -n
-修改可打開的文件數 # vi /etc/security/limits.conf
-星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
-nginx soft nofile 65536 nginx hard nofile 65536  * soft nofile 65536 * hard nofile 65536  </description>
+      <guid>https://blog.rickyfun.net/posts/2017/03/pem-to-ppk-putty-login/</guid>
+      <description>putty登入方式 putty不支援openssh, 所以手上有pem檔的話需要做一次轉換
+前往下載 puttygen.exe
+pem轉ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選擇save private key 4.輸入檔名生成ppk檔 putty設定登入 1.轉換完成的ppk檔放置到你想保存的位置 2.開啟putty (以下為範例照自己的機器與檔案資訊填寫) 3.輸入用戶名稱 4.載入ppk檔 5.記得回來按一下存檔 linux or Cmder登入方式 示意 ssh -i pem路徑 用戶名稱@主機位址
+ssh -i xxx.pem ricky@192.168.1.1
+#####有改port的話
+ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</description>
     </item>
     
     <item>
-      <title>Android 程式流程</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/android-program-flow/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>php call java 類別</title>
+      <link>https://blog.rickyfun.net/posts/2016/12/php-call-java-class/</link>
+      <pubDate>Wed, 21 Dec 2016 03:23:01 +0800</pubDate>
       
-      <guid>https://blog.rickyfun.net/posts/2015/08/android-program-flow/</guid>
-      <description>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
-protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); }  </description>
-    </item>
-    
-    <item>
-      <title>CentOS crontab</title>
-      <link>https://blog.rickyfun.net/posts/2015/07/centos-crontab/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/07/centos-crontab/</guid>
-      <description>Example 輸入 crontab -e 進入排程編輯
-# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed  Instruction   特殊字符 代表意義   *(星號) 代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 * ，</description>
-    </item>
-    
-    <item>
-      <title>CentOS yum 安裝bind9</title>
-      <link>https://blog.rickyfun.net/posts/2016/10/centos-yum-install-bind9/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/10/centos-yum-install-bind9/</guid>
-      <description>安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT
-# iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔 options { listen-on port 53 { 127.</description>
-    </item>
-    
-    <item>
-      <title>CentOS 使用rsync</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos-using-rsync/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos-using-rsync/</guid>
-      <description>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～ &amp;gt;做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 Tomcat開機自動啟動</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/centos65-boot-tomcat-started-automatically/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/centos65-boot-tomcat-started-automatically/</guid>
-      <description>#1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat
-記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下
-#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &amp;quot;no&amp;quot; ] &amp;amp;&amp;amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&amp;quot;-Dbuild.compiler.emacs=true&amp;quot; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup.</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 安裝LNMP</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos65-installation-lnmp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-installation-lnmp/</guid>
-      <description>#一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
-NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-EPEL源 CentOS 6 # yum install http://mirrors.ustc.edu.cn/fedora/epel/6/i386/epel-release-6-8.noarch.rpm CentOS 7 # http://mirrors.yun-idc.com/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
-REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-PUPPETLABS源 CentOS 6 # yum install http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm CentOS 7 # yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-VARNISH源 # yum install https://repo.</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 安裝MariaDB</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos65-installation-of-mariadb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-installation-of-mariadb/</guid>
-      <description>#新增MariaDB的知識庫，讓系統使用。
-依照自己的系統在目錄下新增檔案 32位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  64位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  #更新套件庫 # yum update -y
-#安裝 MariaDB &amp;gt;安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
-# yum install MariaDB-devel MariaDB-client MariaDB-server -y
-# service mysql start
-# chkconfig mysql on
-#初始化 MariaDB &amp;gt;執行這個初始化程式，過程跟MySQL一模一樣
-# /usr/bin/mysql_secure_installation
-第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。
-第二個問題，Change the root password? [Y/n] 是否更改root密碼，極度建議您設定root密碼，請輸入Y
-第三個問題，Remove anonymous users? [Y/n] 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 安裝Nginx</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos65-install-nginx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-install-nginx/</guid>
-      <description>#新增 Nginx 官方所提供的第三方套件庫
-新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1  #更新套件庫 # yum update -y
-#安裝 Nginx # yum install nginx
-#執行 Nginx # service nginx start
-#開機時自動啟動 # sudo chkconfig --levels 235 nginx on</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 安裝phpMyAdmin</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos65-install-phpmyadmin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-install-phpmyadmin/</guid>
-      <description>#一、安裝phpMyAdmin &amp;gt;phpMyAdmin對應php版本會有影響，請挑選適合的版本
-wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
-tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
-mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
-rm phpMyAdmin-4.1.12-all-languages.tar.gz
-#二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
- /* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;;  改成
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;  #三、查看mysql使用者,新增使用者,給予權限
-# mysql -u root -p -h 127.0.0.1
-mysql&amp;gt; select user, host from mysql.user;
-mysql&amp;gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
-mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 流量監控工具(iftop)</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/centos-traffic-monitoring-tool-iftop/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/centos-traffic-monitoring-tool-iftop/</guid>
-      <description>官方網站
-#安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y
-#執行 # iftop</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 網卡基本設定</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos65-network-card-settings/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-network-card-settings/</guid>
-      <description>首先可以下指令顯示出所有的介面資訊 # ip link show
-###網卡設定檔的目錄一般會在
-DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASL=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes  ###說明 &amp;gt;DEVICE 這個裝置的名稱 &amp;gt;BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） &amp;gt;BROADCAST 這是節點的網域 &amp;gt;IPADDR 這是這塊網路卡的位址 &amp;gt;NETMASL 子遮罩網路 &amp;gt;NETWORK 工作的網域 &amp;gt;ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範， 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255）， NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了）， NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
-設定玩之後，網路服務重新啓動，指令為： # service network restart</description>
-    </item>
-    
-    <item>
-      <title>CentOS6.5 防火牆設定iptables</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/centos65-packet-filtering-firewall-iptables/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
-      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-  Service PORT   FTP 21   SSH 22   HTTP 80   HTTPS 443   MySQL 3306   ###將對應的資訊加入iptables設定檔中
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT  ###設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.</description>
-    </item>
-    
-    <item>
-      <title>CentOS7 Tomcat增加systemctl控制</title>
-      <link>https://blog.rickyfun.net/posts/2015/10/centos7-systemctl-control/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/10/centos7-systemctl-control/</guid>
-      <description>#1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
-範例如下:
-#add tomcat pid CATALINA_PID=&amp;quot;$CATALINA_BASE/tomcat7.pid&amp;quot; #add java opts JAVA_OPTS=&amp;quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;quot;  #2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
-PIDFile就指到tomcat所在的目錄
-Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target   [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
- 查看全部服務： systemctl list-unit-files &amp;ndash;type service 查看服務 systemctl status name.service 啟動服務 systemctl start name.service 停止服務 systemctl stop name.service 重啟服務 systemctl restart name.service 增加開機自動啟動 systemctl enable name.</description>
-    </item>
-    
-    <item>
-      <title>CentOS7 基礎設定</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/centos7-basic-set/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/centos7-basic-set/</guid>
-      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下  #一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
-# cd /etc/sysconfig/network-scripts
- 每台電腦的網卡名稱不一定相同
- # systemctl stop NetworkManager
-# systemctl disable NetworkManager
-# systemctl restart network
-#二、關閉SELinux #vi /etc/selinux/config
-這個設定reboot後才會生效
-#三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
-# vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
-# systemctl restart sshd
-#四、調整時區 # rm /etc/localtime
-# ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
-#五、調整語系 檢查系統目前使用的語系
-# localectl
-查看系統有哪些可用的語系
-# localectl list-locales | grep zh
-如果你要設定語系的話</description>
-    </item>
-    
-    <item>
-      <title>CentOS7 安裝JDK 64 Bit</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/centos7-install-jdk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/centos7-install-jdk/</guid>
-      <description>tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&amp;quot; &amp;quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&amp;quot; tar zxvf jdk-7u79-linux-x64.tar.gz
-# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac  rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下 # rpm -Uvh jdk-8u25-linux-x64.rpm
-3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &amp;lt;連結&amp;gt; &amp;lt;名稱&amp;gt; &amp;lt;路徑&amp;gt; &amp;lt;優先順序&amp;gt; # alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
-使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本 # alternatives --config java 4.</description>
-    </item>
-    
-    <item>
-      <title>CentOS7 安裝Postfix</title>
-      <link>https://blog.rickyfun.net/posts/2016/05/centos7-install-postfix/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/05/centos7-install-postfix/</guid>
-      <description>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法: 查詢是否安裝過 # rpm -qa | grep sendmail # rpm -qa | grep exim
-移除 # yum remove sendmail # yum remove exim
-為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將: SELINUX=enforcing 換成 SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix</description>
-    </item>
-    
-    <item>
-      <title>CentOS7 安裝Tomcat</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/centos7-installing-tomcat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/centos7-installing-tomcat/</guid>
-      <description>#1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local
-#2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 # wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-#3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
-#4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
-#5.啟動或停止Tomcat 啟動Tomcat 7 # /usr/local/tomcat7/bin/startup.sh
-停止Tomcat 7 # /usr/local/tomcat7/bin/shutdown.sh
-#6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
-#7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。 </description>
+      <guid>https://blog.rickyfun.net/posts/2016/12/php-call-java-class/</guid>
+      <description>php-java-bridge 介紹
+php-java-bridge 載點
+ Files &amp;gt; Binary package &amp;gt; JavaBridgeTemplate621.war
+ 我下載到的版本是JavaBridgeTemplate621.war
+寫一個jar來做測試 # mkdir TestMath
+# cd TestMath
+# vi TestMath.java
+public class TestMath { private Integer num1; private Integer num2; public TestMath() { this.num1 = 0; this.num2 = 0; } public TestMath(Integer n1, Integer n2) { this.num1 = n1; this.num2 = n2; } public void setNum1(Integer n) { this.num1 = n; } public void setNum2(Integer n) { this.</description>
     </item>
     
     <item>
       <title>GitLab 7.14升級8.X</title>
       <link>https://blog.rickyfun.net/posts/2016/12/gitlab-upgrade-7.14-to-8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Dec 2016 13:22:01 +0800</pubDate>
       
       <guid>https://blog.rickyfun.net/posts/2016/12/gitlab-upgrade-7.14-to-8/</guid>
       <description>上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙腳亂．
@@ -318,235 +90,9 @@ mv to /var/opt/gitlab/backups/
     </item>
     
     <item>
-      <title>Gradle初探</title>
-      <link>https://blog.rickyfun.net/posts/2016/07/study-on-the-gradle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/07/study-on-the-gradle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式</title>
-      <link>https://blog.rickyfun.net/posts/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</guid>
-      <description>原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
-首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
-* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)）  hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &amp;lt;&amp;lt; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &amp;lt;&amp;lt; CentOS 7.1  CentOS 7版本說明    RHEL 版本 版本     CentOS 7 7-1406   CentOS 7.1 7-1503   CentOS 7.2 7-1511    Wiki - CentOS版本說明
-Installation:
- 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-.</description>
-    </item>
-    
-    <item>
-      <title>Hicloud S3雲儲存資料夾掛載</title>
-      <link>https://blog.rickyfun.net/posts/2016/08/hicloud-mount-s3-cloud-storage-folder/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/08/hicloud-mount-s3-cloud-storage-folder/</guid>
-      <description>hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器
-主機環境：CentOS 6.4
-說明：s3fs base on fuse所以伺服器上必須有fuse的lib
-示意圖：
-Resource：
- Hicloud S3 文檔  s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
-二、安裝所需套件 CentOS7
-# sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
-CentOS6
-# sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
- fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
- 三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-# cd s3fs-fuse
-# ./autogen.sh
-# ./configure -prefix=/usr</description>
-    </item>
-    
-    <item>
-      <title>Laravel 刪除套件</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/laravel-delete-kit/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/laravel-delete-kit/</guid>
-      <description> 1. Remove declaration from composer.json (in &amp;ldquo;require&amp;rdquo; section) 2. Remove Service Provider from &amp;ldquo;app/config/app.php&amp;rdquo; (reference in &amp;ldquo;providers&amp;rdquo; array) 3. Remove any Class Aliases from &amp;ldquo;app/config/app.php&amp;rdquo; 4. Remove any references to the package from your code :-) 5. Run &amp;ldquo;composer update&amp;rdquo; 6. Manually delete the published files </description>
-    </item>
-    
-    <item>
-      <title>Laravel5.0 升級5.1</title>
-      <link>https://blog.rickyfun.net/posts/2015/07/laravel50-upgrade-51/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/07/laravel50-upgrade-51/</guid>
-      <description>###1. 修改composer.json ### &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
-###2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: ###
-* !.gitignore  ###3. 修改bootstrap下的autoload.php ### $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-###4. 執行 composer update ### # composer update
-###5. 確認目錄權限### 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
-    </item>
-    
-    <item>
-      <title>Laravel5.0 關閉CRSF全局驗證</title>
-      <link>https://blog.rickyfun.net/posts/2015/07/laravel5-0-close-the-crsf-global-validation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/07/laravel5-0-close-the-crsf-global-validation/</guid>
-      <description>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
-class Kernel extends HttpKernel { /** * The application&#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;, &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;, &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;, &#39;Illuminate\Session\Middleware\StartSession&#39;, &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;, ]; /** * The application&#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &#39;auth&#39; =&amp;gt; &#39;App\Http\Middleware\Authenticate&#39;, &#39;auth.basic&#39; =&amp;gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;, &#39;guest&#39; =&amp;gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;, &#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;, ]; }  此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&amp;gt; &#39;csrf&#39;</description>
-    </item>
-    
-    <item>
-      <title>VirtualBox Guest Addtiton安裝 for Centos</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</guid>
-      <description> 我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
-那就讓我們來開始安裝吧
-###先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom # mount /dev/cdrom /media/cdrom ###執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-###接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new # mount -t vboxsf New ~/new
-或者你需要有特定owner的mount # mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到
-bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y
-解完後在執行一次 # sh /media/cdrom/VBoxLinuxAdditions.run </description>
-    </item>
-    
-    <item>
-      <title>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
-      <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&amp;gt;喜好設定 ###設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0 </description>
-    </item>
-    
-    <item>
-      <title>Yum Zabbix server, agent</title>
-      <link>https://blog.rickyfun.net/posts/2016/10/yum-zabbix-server-agent/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/10/yum-zabbix-server-agent/</guid>
-      <description>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
-# rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
-RHEL 6, CentOS 6
-# rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
-zabbix-server  由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
- php 使用模組
-# yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
-開始安裝 YUM 安裝 Zabbix 及相關套件
-# yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
-建立 zabbix 帳號及資料庫
-mysql&amp;gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;</description>
-    </item>
-    
-    <item>
-      <title>bind make安裝搭配 dlz mysql</title>
-      <link>https://blog.rickyfun.net/posts/2016/10/bind-makeinstall-with-dlz-mysql/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/10/bind-makeinstall-with-dlz-mysql/</guid>
-      <description>Bind-dlz 簡介  BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效  Reference  智能DNS(Bind dlz)在企業中的應用  Bind 安裝 (MySQL篇) bind9 默認不支援dlz需要在編譯時加上with(看你搭配什麼資料庫)
- &amp;ndash;with-dlz-mysql &amp;ndash;with-dlz-postgres  前置作業 到官網或FTP站下載安裝檔
- Bind官網 FTP站  安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟53port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save</description>
-    </item>
-    
-    <item>
-      <title>javascript 有沒有var的差別</title>
-      <link>https://blog.rickyfun.net/posts/2016/07/differences-have-javascript-var/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/07/differences-have-javascript-var/</guid>
-      <description> 有沒有var差很大啊，要注意
-Output is &amp;ldquo;7&amp;rdquo; $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); });  x is not defined $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });  </description>
-    </item>
-    
-    <item>
-      <title>opensourcepos 安裝</title>
-      <link>https://blog.rickyfun.net/posts/2017/05/opensourcepos-install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2017/05/opensourcepos-install/</guid>
-      <description>php pos 商用版
-開源版本 opensourcepos
-OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了
-環境準備： 安裝lamp
-php require * php-gd * php-bcmath * php-intl * php-sockets * php-mcrypt * php-curl installed and enabled.
-下載程式： # cd /var/www # git clone https://github.com/jekkos/opensourcepos.git
-# mv opensourcepos pos # cd /var/www/pos
-看你要使用哪個版本 使用git指令切過去 # git checkout tags/3.0.2 -b b_3.0.2
-設置權限： # chown -R apache:apache /var/www/pos
-匯入資料：(db資訊依照自己的資訊填入) # mysql pos /var/www/pos/database/database.sql
-設定檔： # cd /var/www/pos/application/config # cp database.php.tmpl database.php
-# vi database.</description>
-    </item>
-    
-    <item>
-      <title>pem轉ppk putty 登入</title>
-      <link>https://blog.rickyfun.net/posts/2017/03/pem-to-ppk-putty-login/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2017/03/pem-to-ppk-putty-login/</guid>
-      <description>putty登入方式 putty不支援openssh, 所以手上有pem檔的話需要做一次轉換
-前往下載 puttygen.exe
-pem轉ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選擇save private key 4.輸入檔名生成ppk檔 putty設定登入 1.轉換完成的ppk檔放置到你想保存的位置 2.開啟putty (以下為範例照自己的機器與檔案資訊填寫) 3.輸入用戶名稱 4.載入ppk檔 5.記得回來按一下存檔 linux or Cmder登入方式 示意 ssh -i pem路徑 用戶名稱@主機位址
-ssh -i xxx.pem ricky@192.168.1.1
-#####有改port的話
-ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</description>
-    </item>
-    
-    <item>
-      <title>php call java 類別</title>
-      <link>https://blog.rickyfun.net/posts/2016/12/php-call-java-class/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2016/12/php-call-java-class/</guid>
-      <description>php-java-bridge 介紹
-php-java-bridge 載點
- Files &amp;gt; Binary package &amp;gt; JavaBridgeTemplate621.war
- 我下載到的版本是JavaBridgeTemplate621.war
-寫一個jar來做測試 # mkdir TestMath
-# cd TestMath
-# vi TestMath.java
-public class TestMath { private Integer num1; private Integer num2; public TestMath() { this.num1 = 0; this.num2 = 0; } public TestMath(Integer n1, Integer n2) { this.num1 = n1; this.num2 = n2; } public void setNum1(Integer n) { this.num1 = n; } public void setNum2(Integer n) { this.</description>
-    </item>
-    
-    <item>
-      <title>yum 和 wget 使用 proxy</title>
-      <link>https://blog.rickyfun.net/posts/2015/09/wget-and-yum-with-proxy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/09/wget-and-yum-with-proxy/</guid>
-      <description>#yum 設定檔 在設定檔中加入以下參數
-# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password   此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile (有空再研究)
- #wget 在設定檔中加入以下參數
-http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15  Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again
-解決方法：
-編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：
-[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;amp;arch=$basearch failovermethod=priority enabled=1 gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6  </description>
-    </item>
-    
-    <item>
-      <title>一台電腦兩個Git帳號使用SSH Key</title>
-      <link>https://blog.rickyfun.net/posts/2015/08/two-git-a-computer-account-using-ssh-key/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.rickyfun.net/posts/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
-      <description>#在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second  #取消glogal mail,設定每個項目repo自己的 user.email &amp;gt;pull的時候是識別郵箱，所以不能使用global的user.email
-取消global git config --global --unset user.name git config --global --unset user.email
-設定每個項目repo自己的 user.email git config user.email &amp;quot;xxxx@xx.com&amp;quot; git config user.name &amp;quot;ricky&amp;quot;
-###Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
-    </item>
-    
-    <item>
       <title>利用adjtimex來修正linux時間偏差</title>
       <link>https://blog.rickyfun.net/posts/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 04 Nov 2016 10:26:01 +0800</pubDate>
       
       <guid>https://blog.rickyfun.net/posts/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</guid>
       <description>##利用adjtimex來修正linux時間偏差
@@ -577,51 +123,71 @@ f = error_ppm平均值 * 65536
     </item>
     
     <item>
-      <title>安裝 Nexus OSS</title>
-      <link>https://blog.rickyfun.net/posts/2015/12/install-nexus-oss/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Yum Zabbix server, agent</title>
+      <link>https://blog.rickyfun.net/posts/2016/10/yum-zabbix-server-agent/</link>
+      <pubDate>Thu, 27 Oct 2016 02:13:01 +0800</pubDate>
       
-      <guid>https://blog.rickyfun.net/posts/2015/12/install-nexus-oss/</guid>
-      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
-下載網址
-下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
-# ln -s nexus-2.11.4-01/ nexus
-# chown -R nexus:nexus nexus # chown -R nexus:nexus nexus-2.11.4-01/ # chown -R nexus:nexus sonatype-work/
-修改下面兩個設定 # vi /nexus-2.11.4-01/bin/nexus
-NEXUS_HOME=&amp;quot;/usr/local/nexus/nexus&amp;quot; RUN_AS_USER=nexus  修改Port # vi /nexus-2.11.4-01/conf/nexus.properties
-application-port=18081  啟動 # sh /var/opt/nexus/nexus/bin/nexus start</description>
+      <guid>https://blog.rickyfun.net/posts/2016/10/yum-zabbix-server-agent/</guid>
+      <description>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
+# rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
+RHEL 6, CentOS 6
+# rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
+zabbix-server  由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+ php 使用模組
+# yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+開始安裝 YUM 安裝 Zabbix 及相關套件
+# yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+建立 zabbix 帳號及資料庫
+mysql&amp;gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;</description>
     </item>
     
     <item>
-      <title>安裝 Nginx 1.9&#43;</title>
-      <link>https://blog.rickyfun.net/posts/2016/05/installing-nginx-19/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>bind make安裝搭配 dlz mysql</title>
+      <link>https://blog.rickyfun.net/posts/2016/10/bind-makeinstall-with-dlz-mysql/</link>
+      <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
       
-      <guid>https://blog.rickyfun.net/posts/2016/05/installing-nginx-19/</guid>
-      <description>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1  安裝Nginx # yum install nginx
-啟動服務 # service nginx start # chkconfig --levels 235 nginx on</description>
+      <guid>https://blog.rickyfun.net/posts/2016/10/bind-makeinstall-with-dlz-mysql/</guid>
+      <description>Bind-dlz 簡介  BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效  Reference  智能DNS(Bind dlz)在企業中的應用  Bind 安裝 (MySQL篇) bind9 默認不支援dlz需要在編譯時加上with(看你搭配什麼資料庫)
+ &amp;ndash;with-dlz-mysql &amp;ndash;with-dlz-postgres  前置作業 到官網或FTP站下載安裝檔
+ Bind官網 FTP站  安裝MySQL資料庫
+開始安裝 1. 防火牆設定(開啟53port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+# service iptables save</description>
     </item>
     
     <item>
-      <title>安裝 PHP5.6</title>
-      <link>https://blog.rickyfun.net/posts/2016/05/install-php56/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>CentOS yum 安裝bind9</title>
+      <link>https://blog.rickyfun.net/posts/2016/10/centos-yum-install-bind9/</link>
+      <pubDate>Tue, 04 Oct 2016 02:09:01 +0800</pubDate>
       
-      <guid>https://blog.rickyfun.net/posts/2016/05/install-php56/</guid>
-      <description>#一、更新rpm
-REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-#二、安裝PHP &amp;gt;想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 &amp;gt;路徑：/etc/yum.repos.d/remi.repo &amp;gt;[remi-php55]是PHP5.5 &amp;gt;[remi-php56]是PHP5.6 &amp;gt;選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-#設定php, php-fpm 設定php 設定內容如下：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;quot;/var/lib/php/session&amp;quot; date.timezone = &amp;quot;Asia/Taipei&amp;quot; error_reporting = E_ALL &amp;amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off  設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session</description>
+      <guid>https://blog.rickyfun.net/posts/2016/10/centos-yum-install-bind9/</guid>
+      <description>安裝 # sudo yum install bind bind-utils -y
+# service named start
+# chkconfig named on
+防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT
+# iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+# service iptables save
+# service iptables restart
+設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔 options { listen-on port 53 { 127.</description>
+    </item>
+    
+    <item>
+      <title>HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式</title>
+      <link>https://blog.rickyfun.net/posts/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</link>
+      <pubDate>Thu, 29 Sep 2016 08:49:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</guid>
+      <description>原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
+首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
+* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)）  hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &amp;lt;&amp;lt; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &amp;lt;&amp;lt; CentOS 7.1  CentOS 7版本說明    RHEL 版本 版本     CentOS 7 7-1406   CentOS 7.1 7-1503   CentOS 7.2 7-1511    Wiki - CentOS版本說明
+Installation:
+ 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-.</description>
     </item>
     
     <item>
       <title>運用google協作平台製作履歷</title>
       <link>https://blog.rickyfun.net/posts/2016/09/google-resume/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 20 Sep 2016 05:50:01 +0800</pubDate>
       
       <guid>https://blog.rickyfun.net/posts/2016/09/google-resume/</guid>
       <description>運用google協作平台製作履歷 安安大家好，我也是看別人用我才知道可以這樣用的，或者你想做別的事情，就自由發揮吧．
@@ -637,12 +203,447 @@ cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;quot;/v
     </item>
     
     <item>
+      <title>Hicloud S3雲儲存資料夾掛載</title>
+      <link>https://blog.rickyfun.net/posts/2016/08/hicloud-mount-s3-cloud-storage-folder/</link>
+      <pubDate>Tue, 09 Aug 2016 02:07:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/08/hicloud-mount-s3-cloud-storage-folder/</guid>
+      <description>hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器
+主機環境：CentOS 6.4
+說明：s3fs base on fuse所以伺服器上必須有fuse的lib
+示意圖：
+Resource：
+ Hicloud S3 文檔  s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7
+# sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
+CentOS6
+# sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
+ fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+ 三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+# cd s3fs-fuse
+# ./autogen.sh
+# ./configure -prefix=/usr</description>
+    </item>
+    
+    <item>
+      <title>2016/07/27 使用ab壓測</title>
+      <link>https://blog.rickyfun.net/posts/2016/07/ab-pressure-test/</link>
+      <pubDate>Fri, 29 Jul 2016 01:16:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/07/ab-pressure-test/</guid>
+      <description> 2016/07/27 使用ab壓測 覺得ab壓出的不是很準，但還是紀錄一下
+###環境說明 - 主機：MacPro裡的VM - CPU : 1 - Memory：512M - 系統：CentOS 7 - 網頁服務：Nginx/1.11.1
+開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題  # ab -n 10000 -c 2000 -k http://127.0.0.1/
+Google後了解是系統設定的限制  查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx - &amp;gt; 如果su 無法切換使用者可能需要修改一下vipw
+查可開啟的數量 # ulimit -n
+修改可打開的文件數 # vi /etc/security/limits.conf
+星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
+nginx soft nofile 65536 nginx hard nofile 65536  * soft nofile 65536 * hard nofile 65536  </description>
+    </item>
+    
+    <item>
+      <title>Gradle初探</title>
+      <link>https://blog.rickyfun.net/posts/2016/07/study-on-the-gradle/</link>
+      <pubDate>Wed, 27 Jul 2016 03:14:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/07/study-on-the-gradle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript 有沒有var的差別</title>
+      <link>https://blog.rickyfun.net/posts/2016/07/differences-have-javascript-var/</link>
+      <pubDate>Thu, 21 Jul 2016 14:54:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/07/differences-have-javascript-var/</guid>
+      <description> 有沒有var差很大啊，要注意
+Output is &amp;ldquo;7&amp;rdquo; $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); });  x is not defined $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });  </description>
+    </item>
+    
+    <item>
+      <title>2013開放Web軟體安全計畫</title>
+      <link>https://blog.rickyfun.net/posts/2016/07/2013-open-web-software-safety-plans/</link>
+      <pubDate>Mon, 11 Jul 2016 07:14:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/07/2013-open-web-software-safety-plans/</guid>
+      <description>##2013開放Web軟體安全計畫 – Open Web Application Security Project
+https://www.owasp.org/index.php/Top_10_2013-Top_10
+網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
+A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</description>
+    </item>
+    
+    <item>
+      <title>CentOS7 安裝Postfix</title>
+      <link>https://blog.rickyfun.net/posts/2016/05/centos7-install-postfix/</link>
+      <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/05/centos7-install-postfix/</guid>
+      <description>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法: 查詢是否安裝過 # rpm -qa | grep sendmail # rpm -qa | grep exim
+移除 # yum remove sendmail # yum remove exim
+為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將: SELINUX=enforcing 換成 SELINUX=disabled
+1.開始安裝 Postfix # yum install postfix</description>
+    </item>
+    
+    <item>
+      <title>安裝 Nginx 1.9&#43;</title>
+      <link>https://blog.rickyfun.net/posts/2016/05/installing-nginx-19/</link>
+      <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/05/installing-nginx-19/</guid>
+      <description>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1  安裝Nginx # yum install nginx
+啟動服務 # service nginx start # chkconfig --levels 235 nginx on</description>
+    </item>
+    
+    <item>
+      <title>安裝 PHP5.6</title>
+      <link>https://blog.rickyfun.net/posts/2016/05/install-php56/</link>
+      <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2016/05/install-php56/</guid>
+      <description>#一、更新rpm
+REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+#二、安裝PHP &amp;gt;想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 &amp;gt;路徑：/etc/yum.repos.d/remi.repo &amp;gt;[remi-php55]是PHP5.5 &amp;gt;[remi-php56]是PHP5.6 &amp;gt;選擇你要的版本做修改即可
+# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
+安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+#設定php, php-fpm 設定php 設定內容如下：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;quot;/var/lib/php/session&amp;quot; date.timezone = &amp;quot;Asia/Taipei&amp;quot; error_reporting = E_ALL &amp;amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off  設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session</description>
+    </item>
+    
+    <item>
+      <title>安裝 Nexus OSS</title>
+      <link>https://blog.rickyfun.net/posts/2015/12/install-nexus-oss/</link>
+      <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/12/install-nexus-oss/</guid>
+      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
+下載網址
+下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
+# ln -s nexus-2.11.4-01/ nexus
+# chown -R nexus:nexus nexus # chown -R nexus:nexus nexus-2.11.4-01/ # chown -R nexus:nexus sonatype-work/
+修改下面兩個設定 # vi /nexus-2.11.4-01/bin/nexus
+NEXUS_HOME=&amp;quot;/usr/local/nexus/nexus&amp;quot; RUN_AS_USER=nexus  修改Port # vi /nexus-2.11.4-01/conf/nexus.properties
+application-port=18081  啟動 # sh /var/opt/nexus/nexus/bin/nexus start</description>
+    </item>
+    
+    <item>
+      <title>CentOS7 Tomcat增加systemctl控制</title>
+      <link>https://blog.rickyfun.net/posts/2015/10/centos7-systemctl-control/</link>
+      <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/10/centos7-systemctl-control/</guid>
+      <description>#1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
+範例如下:
+#add tomcat pid CATALINA_PID=&amp;quot;$CATALINA_BASE/tomcat7.pid&amp;quot; #add java opts JAVA_OPTS=&amp;quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;quot;  #2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
+PIDFile就指到tomcat所在的目錄
+Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target   [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
+ 查看全部服務： systemctl list-unit-files &amp;ndash;type service 查看服務 systemctl status name.service 啟動服務 systemctl start name.service 停止服務 systemctl stop name.service 重啟服務 systemctl restart name.service 增加開機自動啟動 systemctl enable name.</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 Tomcat開機自動啟動</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/centos65-boot-tomcat-started-automatically/</link>
+      <pubDate>Wed, 30 Sep 2015 21:50:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/centos65-boot-tomcat-started-automatically/</guid>
+      <description>#1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat
+記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下
+#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &amp;quot;no&amp;quot; ] &amp;amp;&amp;amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&amp;quot;-Dbuild.compiler.emacs=true&amp;quot; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup.</description>
+    </item>
+    
+    <item>
+      <title>CentOS7 安裝Tomcat</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/centos7-installing-tomcat/</link>
+      <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/centos7-installing-tomcat/</guid>
+      <description>#1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local
+#2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 # wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+#3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
+#4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+#5.啟動或停止Tomcat 啟動Tomcat 7 # /usr/local/tomcat7/bin/startup.sh
+停止Tomcat 7 # /usr/local/tomcat7/bin/shutdown.sh
+#6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+#7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。 </description>
+    </item>
+    
+    <item>
+      <title>CentOS7 安裝JDK 64 Bit</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/centos7-install-jdk/</link>
+      <pubDate>Wed, 30 Sep 2015 05:13:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/centos7-install-jdk/</guid>
+      <description>tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&amp;quot; &amp;quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&amp;quot; tar zxvf jdk-7u79-linux-x64.tar.gz
+# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac  rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下 # rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &amp;lt;連結&amp;gt; &amp;lt;名稱&amp;gt; &amp;lt;路徑&amp;gt; &amp;lt;優先順序&amp;gt; # alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本 # alternatives --config java 4.</description>
+    </item>
+    
+    <item>
+      <title>VirtualBox Guest Addtiton安裝 for Centos</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</link>
+      <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</guid>
+      <description> 我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+那就讓我們來開始安裝吧
+###先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom # mount /dev/cdrom /media/cdrom ###執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
+###接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new # mount -t vboxsf New ~/new
+或者你需要有特定owner的mount # mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+在執行VBoxLinuxAdditions.run的時候你可能會遇到
+bzip2 command not found # yum install bzip2 -y
+Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y
+解完後在執行一次 # sh /media/cdrom/VBoxLinuxAdditions.run </description>
+    </item>
+    
+    <item>
+      <title>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</link>
+      <pubDate>Wed, 09 Sep 2015 09:10:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
+      <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox-&amp;gt;喜好設定 ###設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0 </description>
+    </item>
+    
+    <item>
+      <title>yum 和 wget 使用 proxy</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/wget-and-yum-with-proxy/</link>
+      <pubDate>Wed, 02 Sep 2015 17:05:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/wget-and-yum-with-proxy/</guid>
+      <description>#yum 設定檔 在設定檔中加入以下參數
+# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password   此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile (有空再研究)
+ #wget 在設定檔中加入以下參數
+http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15  Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again
+解決方法：
+編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：
+[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;amp;arch=$basearch failovermethod=priority enabled=1 gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6  </description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 流量監控工具(iftop)</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/centos-traffic-monitoring-tool-iftop/</link>
+      <pubDate>Wed, 02 Sep 2015 16:56:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/centos-traffic-monitoring-tool-iftop/</guid>
+      <description>官方網站
+#安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y
+#執行 # iftop</description>
+    </item>
+    
+    <item>
+      <title>CentOS7 基礎設定</title>
+      <link>https://blog.rickyfun.net/posts/2015/09/centos7-basic-set/</link>
+      <pubDate>Tue, 01 Sep 2015 03:07:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/09/centos7-basic-set/</guid>
+      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下  #一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
+# cd /etc/sysconfig/network-scripts
+ 每台電腦的網卡名稱不一定相同
+ # systemctl stop NetworkManager
+# systemctl disable NetworkManager
+# systemctl restart network
+#二、關閉SELinux #vi /etc/selinux/config
+這個設定reboot後才會生效
+#三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
+# vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
+# systemctl restart sshd
+#四、調整時區 # rm /etc/localtime
+# ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+#五、調整語系 檢查系統目前使用的語系
+# localectl
+查看系統有哪些可用的語系
+# localectl list-locales | grep zh
+如果你要設定語系的話</description>
+    </item>
+    
+    <item>
+      <title>CentOS 使用rsync</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos-using-rsync/</link>
+      <pubDate>Mon, 31 Aug 2015 13:06:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos-using-rsync/</guid>
+      <description>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
+如果沒有的話就yum一下吧～ &amp;gt;做rsync的時候server端與client端都必須要安裝
+# yum install rsync
+rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
+這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
+當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
+產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
+Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.</description>
+    </item>
+    
+    <item>
       <title>重灌Mac</title>
       <link>https://blog.rickyfun.net/posts/2015/08/reinstall-mac/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Aug 2015 14:14:01 +0800</pubDate>
       
       <guid>https://blog.rickyfun.net/posts/2015/08/reinstall-mac/</guid>
       <description>重開機時，按住command + R 會跳出如下面圖片的介面． 就可以開始進行清理硬碟與重灌OS X的作業</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 安裝MariaDB</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos65-installation-of-mariadb/</link>
+      <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-installation-of-mariadb/</guid>
+      <description>#新增MariaDB的知識庫，讓系統使用。
+依照自己的系統在目錄下新增檔案 32位元系統
+[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  64位元系統
+[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  #更新套件庫 # yum update -y
+#安裝 MariaDB &amp;gt;安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
+# yum install MariaDB-devel MariaDB-client MariaDB-server -y
+# service mysql start
+# chkconfig mysql on
+#初始化 MariaDB &amp;gt;執行這個初始化程式，過程跟MySQL一模一樣
+# /usr/bin/mysql_secure_installation
+第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。
+第二個問題，Change the root password? [Y/n] 是否更改root密碼，極度建議您設定root密碼，請輸入Y
+第三個問題，Remove anonymous users? [Y/n] 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 安裝Nginx</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos65-install-nginx/</link>
+      <pubDate>Mon, 24 Aug 2015 07:01:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-install-nginx/</guid>
+      <description>#新增 Nginx 官方所提供的第三方套件庫
+新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1  #更新套件庫 # yum update -y
+#安裝 Nginx # yum install nginx
+#執行 Nginx # service nginx start
+#開機時自動啟動 # sudo chkconfig --levels 235 nginx on</description>
+    </item>
+    
+    <item>
+      <title>Laravel 刪除套件</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/laravel-delete-kit/</link>
+      <pubDate>Mon, 24 Aug 2015 05:04:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/laravel-delete-kit/</guid>
+      <description> 1. Remove declaration from composer.json (in &amp;ldquo;require&amp;rdquo; section) 2. Remove Service Provider from &amp;ldquo;app/config/app.php&amp;rdquo; (reference in &amp;ldquo;providers&amp;rdquo; array) 3. Remove any Class Aliases from &amp;ldquo;app/config/app.php&amp;rdquo; 4. Remove any references to the package from your code :-) 5. Run &amp;ldquo;composer update&amp;rdquo; 6. Manually delete the published files </description>
+    </item>
+    
+    <item>
+      <title>Android 程式流程</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/android-program-flow/</link>
+      <pubDate>Mon, 24 Aug 2015 04:50:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/android-program-flow/</guid>
+      <description>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
+protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); }  </description>
+    </item>
+    
+    <item>
+      <title>一台電腦兩個Git帳號使用SSH Key</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/two-git-a-computer-account-using-ssh-key/</link>
+      <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
+      <description>#在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
+Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second  #取消glogal mail,設定每個項目repo自己的 user.email &amp;gt;pull的時候是識別郵箱，所以不能使用global的user.email
+取消global git config --global --unset user.name git config --global --unset user.email
+設定每個項目repo自己的 user.email git config user.email &amp;quot;xxxx@xx.com&amp;quot; git config user.name &amp;quot;ricky&amp;quot;
+###Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 安裝phpMyAdmin</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos65-install-phpmyadmin/</link>
+      <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-install-phpmyadmin/</guid>
+      <description>#一、安裝phpMyAdmin &amp;gt;phpMyAdmin對應php版本會有影響，請挑選適合的版本
+wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
+tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
+mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
+rm phpMyAdmin-4.1.12-all-languages.tar.gz
+#二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
+ /* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;;  改成
+/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;  #三、查看mysql使用者,新增使用者,給予權限
+# mysql -u root -p -h 127.0.0.1
+mysql&amp;gt; select user, host from mysql.user;
+mysql&amp;gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
+mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 安裝LNMP</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos65-installation-lnmp/</link>
+      <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-installation-lnmp/</guid>
+      <description>#一、更新rpm 參考連結
+MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+EPEL源 CentOS 6 # yum install http://mirrors.ustc.edu.cn/fedora/epel/6/i386/epel-release-6-8.noarch.rpm CentOS 7 # http://mirrors.yun-idc.com/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+PUPPETLABS源 CentOS 6 # yum install http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm CentOS 7 # yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
+VARNISH源 # yum install https://repo.</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 防火牆設定iptables</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos65-packet-filtering-firewall-iptables/</link>
+      <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
+      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
+  Service PORT   FTP 21   SSH 22   HTTP 80   HTTPS 443   MySQL 3306   ###將對應的資訊加入iptables設定檔中
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT  ###設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 網卡基本設定</title>
+      <link>https://blog.rickyfun.net/posts/2015/08/centos65-network-card-settings/</link>
+      <pubDate>Fri, 21 Aug 2015 09:29:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/08/centos65-network-card-settings/</guid>
+      <description>首先可以下指令顯示出所有的介面資訊 # ip link show
+###網卡設定檔的目錄一般會在
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASL=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes  ###說明 &amp;gt;DEVICE 這個裝置的名稱 &amp;gt;BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） &amp;gt;BROADCAST 這是節點的網域 &amp;gt;IPADDR 這是這塊網路卡的位址 &amp;gt;NETMASL 子遮罩網路 &amp;gt;NETWORK 工作的網域 &amp;gt;ONBOOT 開機自動開啟網路卡
+在上面的例子中，我們以虛擬 IP 來作為示範， 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255）， NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了）， NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
+設定玩之後，網路服務重新啓動，指令為： # service network restart</description>
+    </item>
+    
+    <item>
+      <title>CentOS crontab</title>
+      <link>https://blog.rickyfun.net/posts/2015/07/centos-crontab/</link>
+      <pubDate>Mon, 27 Jul 2015 01:35:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/07/centos-crontab/</guid>
+      <description>Example 輸入 crontab -e 進入排程編輯
+# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed  Instruction   特殊字符 代表意義   *(星號) 代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 * ，</description>
+    </item>
+    
+    <item>
+      <title>Laravel5.0 升級5.1</title>
+      <link>https://blog.rickyfun.net/posts/2015/07/laravel50-upgrade-51/</link>
+      <pubDate>Sat, 25 Jul 2015 12:22:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/07/laravel50-upgrade-51/</guid>
+      <description>###1. 修改composer.json ### &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
+###2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: ###
+* !.gitignore  ###3. 修改bootstrap下的autoload.php ### $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
+###4. 執行 composer update ### # composer update
+###5. 確認目錄權限### 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
+    </item>
+    
+    <item>
+      <title>Laravel5.0 關閉CRSF全局驗證</title>
+      <link>https://blog.rickyfun.net/posts/2015/07/laravel5-0-close-the-crsf-global-validation/</link>
+      <pubDate>Sat, 25 Jul 2015 08:13:01 +0800</pubDate>
+      
+      <guid>https://blog.rickyfun.net/posts/2015/07/laravel5-0-close-the-crsf-global-validation/</guid>
+      <description>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
+class Kernel extends HttpKernel { /** * The application&#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;, &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;, &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;, &#39;Illuminate\Session\Middleware\StartSession&#39;, &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;, ]; /** * The application&#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &#39;auth&#39; =&amp;gt; &#39;App\Http\Middleware\Authenticate&#39;, &#39;auth.basic&#39; =&amp;gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;, &#39;guest&#39; =&amp;gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;, &#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;, ]; }  此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&amp;gt; &#39;csrf&#39;</description>
     </item>
     
   </channel>

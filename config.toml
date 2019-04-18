@@ -7,7 +7,7 @@ title = "LOOPBAI"
 theme = "cupper-hugo-theme"
 googleAnalytics = ""
 disqusShortname = ""
-enableGitInfo = true
+enableGitInfo = false
 
 [taxonomies]
   tag = "tags"
