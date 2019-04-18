@@ -39,10 +39,10 @@ enableGitInfo = false
 #    name = "Tags"
 #    url = "/tags/"
 #    weight = 3
-#  [[menu.nav]]
-#    name = "About"
-#    url = "/about/"
-#    weight = 4
+  [[menu.nav]]
+    name = "About"
+    url = "/about/"
+    weight = 4
 #  [[menu.nav]]
 #    name = "RSS"
 #    url = "/index.xml"
