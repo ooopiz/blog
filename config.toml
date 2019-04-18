@@ -1,6 +1,6 @@
 publishDir = "docs"
 
-baseURL = "https://blog.rickyfun.net"
+baseURL = "https://blog.loopbai.com"
 languageCode = "zh-tw"
 defaultContentLanguage = "zh"
 title = "LOOPBAI"
