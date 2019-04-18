@@ -1,9 +1,9 @@
 publishDir = "docs"
 
-baseURL = "https://example.com"
+baseURL = "https://blog.rickyfun.net"
 languageCode = "zh-tw"
 defaultContentLanguage = "zh"
-title = "Cupper"
+title = "LOOPBAI"
 theme = "cupper-hugo-theme"
 googleAnalytics = ""
 disqusShortname = ""
