@@ -3,10 +3,13 @@ title: 'CentOS6.5 安裝MariaDB'
 date: 2015-08-24T07:05:01+08:00
 draft: false
 ---
-#新增MariaDB的知識庫，讓系統使用。  
-依照自己的系統在目錄下新增檔案
-**32位元系統**
-```config /etc/yum.repos.d/mariadb.repo
+### 新增MariaDB的知識庫，讓系統使用。  
+>依照自己的系統在目錄下新增檔案
+>**32位元系統**
+
+config /etc/yum.repos.d/mariadb.repo
+
+```
 [mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/5.5/centos6-x86
@@ -14,8 +17,9 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 
-**64位元系統**
-```config /etc/yum.repos.d/mariadb.repo
+>64位元系統
+
+```
 [mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/5.5/centos6-amd64
@@ -23,10 +27,10 @@ gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 
-#更新套件庫
+### 更新套件庫
 `# yum update -y`
 
-#安裝 MariaDB
+### 安裝 MariaDB
 >安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
 
 `# yum install MariaDB-devel MariaDB-client MariaDB-server -y`
@@ -35,7 +39,7 @@ gpgcheck=1
 
 `# chkconfig mysql on`
 
-#初始化 MariaDB
+### 初始化 MariaDB
 >執行這個初始化程式，過程跟MySQL一模一樣
 
 `# /usr/bin/mysql_secure_installation`

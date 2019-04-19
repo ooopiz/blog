@@ -3,7 +3,7 @@ title: 'CentOS6.5 安裝phpMyAdmin'
 date: 2015-08-24T02:00:01+08:00
 draft: false
 ---
-#一、安裝phpMyAdmin
+### 一、安裝phpMyAdmin
 >phpMyAdmin對應php版本會有影響，請挑選適合的版本
 
 `wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz`
@@ -14,7 +14,7 @@ draft: false
 
 `rm phpMyAdmin-4.1.12-all-languages.tar.gz`
 
-#二、設定config.inc.php
+### 二、設定config.inc.php
 路徑:/usr/share/nginx/html/phpMyAdmin
 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
 `# cp config.sample.inc.php config.inc.php`
@@ -31,7 +31,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 <img desc="" src="//fblog.loopbai.com/images/201508/A01-01.png">
 
-#三、查看mysql使用者,新增使用者,給予權限
+### 三、查看mysql使用者,新增使用者,給予權限
 
 `# mysql -u root -p -h 127.0.0.1`
 
@@ -48,7 +48,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 <img desc="" src="//fblog.loopbai.com/images/201508/A01-04.png">
 
-#四、phpMyAdmin 高級功能啟用
+### 四、phpMyAdmin 高級功能啟用
 
 <img desc="" src="//fblog.loopbai.com/images/201508/A01-05.png">
 
@@ -70,6 +70,6 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 <img desc="" src="//fblog.loopbai.com/images/201508/A01-08.png">
 
-#五、完成，即可在phpMyAdmin看到表phpmyadmin
+### 五、完成，即可在phpMyAdmin看到表phpmyadmin
 
 <img desc="" src="//fblog.loopbai.com/images/201508/A01-09.png">

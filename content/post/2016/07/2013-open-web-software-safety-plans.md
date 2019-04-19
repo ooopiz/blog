@@ -3,22 +3,22 @@ title: '2013開放Web軟體安全計畫'
 date: 2016-07-11T07:14:01+08:00
 draft: false
 ---
-##2013開放Web軟體安全計畫 – Open Web Application Security Project
+## 2013開放Web軟體安全計畫 – Open Web Application Security Project
 
 https://www.owasp.org/index.php/Top_10_2013-Top_10
 
 網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
 
-##### A1 - Injection (注入攻擊)：
-##### A2 - Broken Authentication and Session Management (失效的驗證與連線管理)：
-##### A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)：
-##### A4 - Insecure Direct Object References (不安全的物件參考)：
-##### A5 - Security Misconfiguration (不當的安全組態設定)：
-##### A6 - Sensitive Data Exposure (敏感資料暴露)：
-##### A7 - Missing Function Level Access Control (缺少功能級別的存取控制)：
-##### A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)：
-##### A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)：
-##### A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)：
+- A1 - Injection (注入攻擊)：
+- A2 - Broken Authentication and Session Management (失效的驗證與連線管理)：
+- A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)：
+- A4 - Insecure Direct Object References (不安全的物件參考)：
+- A5 - Security Misconfiguration (不當的安全組態設定)：
+- A6 - Sensitive Data Exposure (敏感資料暴露)：
+- A7 - Missing Function Level Access Control (缺少功能級別的存取控制)：
+- A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)：
+- A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)：
+- A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)：
 
 ---
 

@@ -16,12 +16,13 @@ VirtualBox->喜好設定
 
 ***
 
-###設定2張介面卡
-**1. NAT**
+### 設定2張介面卡
+#### 1. NAT
 <img src="//fblog.loopbai.com/images/201509/A03-02.png">
 
-**2. 僅限主機介面卡**
+#### 2. 僅限主機介面卡
 <img src="//fblog.loopbai.com/images/201509/A03-03.png">
 
 <b style="color:red;">VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</b>
+
 <img src="//fblog.loopbai.com/images/201509/A03-04.png">

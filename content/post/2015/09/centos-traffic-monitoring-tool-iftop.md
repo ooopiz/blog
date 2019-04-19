@@ -5,7 +5,7 @@ draft: false
 ---
 <a href="http://www.ex-parrot.com/~pdw/iftop/" target="_blank">官方網站</a>
 
-#安裝
+### 安裝
 `# rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`
 `# yum install iftop -y`
 or
@@ -13,7 +13,7 @@ or
 `# rpm -ivh epel-release-6-8.noarch.rpm`
 `# yum install iftop -y`
 
-#執行
+### 執行
 `# iftop`
 
 <img src="//fblog.loopbai.com/images/201509/A02-01.png">

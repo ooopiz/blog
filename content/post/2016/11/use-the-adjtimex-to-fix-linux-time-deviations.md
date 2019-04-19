@@ -3,9 +3,9 @@ title: '利用adjtimex來修正linux時間偏差'
 date: 2016-11-04T10:26:01+08:00
 draft: false
 ---
-##利用adjtimex來修正linux時間偏差
+## 利用adjtimex來修正linux時間偏差
 
-#####前言：
+##### 前言：
 
 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，
 
@@ -19,7 +19,7 @@ draft: false
 
 ---
 
-####下載下來後選定一個版本後即可開始安裝
+#### 下載下來後選定一個版本後即可開始安裝
 
 [GITHUB - adjtimex](https://github.com/rogers0/adjtimex/tree/master)
 
@@ -29,7 +29,7 @@ draft: false
 
 `# make install`
 
-####先了解時間差
+#### 先了解時間差
 
 `# adjtimex --compare` 或 `# adjtimex -c`
 
@@ -37,11 +37,11 @@ draft: false
 
 圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
 
-####這邊我的-t校正值是9859
+#### 這邊我的-t校正值是9859
 
 `# adjtimex --tick 9859`
 
-####再檢視一次
+#### 再檢視一次
 
 `# adjtimex -c`
 
@@ -59,8 +59,9 @@ f = error_ppm平均值 * 65536
 
 這裡 = 250 * 65536 = 16384000
 
-####這邊我的-f校正值是16384000
+#### 這邊我的-f校正值是16384000
 
 `# adjtimex -f 16384000`
 
 <img desc="" src="//fblog.loopbai.com/images/201609/M11-A01-04.jpg">
+
