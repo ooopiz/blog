@@ -6,7 +6,7 @@ defaultContentLanguage = "zh"
 title = "LOOPBAI"
 theme = "cupper-hugo-theme"
 googleAnalytics = "UA-66438778-2"
-disqusShortname = ""
+disqusShortname = "loopbai-blog"
 enableGitInfo = false
 
 [taxonomies]
