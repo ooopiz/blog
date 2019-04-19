@@ -208,13 +208,16 @@
 
     
 
-    <p>#1.設定啟動腳本
-在目錄/etc/init.d新增一個tomcat的腳本
+    
+
+<h3 id="1-設定啟動腳本">1.設定啟動腳本</h3>
+
+<p>在目錄/etc/init.d新增一個tomcat的腳本
 <code># vi /etc/init.d/tomcat</code></p>
 
 <p><strong>記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下</strong></p>
 
-<pre><code class="language-config">#startup script for jakarta tomcat
+<pre><code>#startup script for jakarta tomcat
 #
 # chkconfig: - 85 20
 # description: Tomcat running
@@ -264,24 +267,31 @@ esac
         exit 0
 </code></pre>
 
-<p>#2.修改執行權限
-<code># chmod 755 /etc/init.d/tomcat</code></p>
+<h3 id="2-修改執行權限">2.修改執行權限</h3>
 
-<p>#3.增加tomcat啟動服務
-<code># chkconfig --add tomcat</code></p>
+<p><code># chmod 755 /etc/init.d/tomcat</code></p>
 
-<p>#4.設定開機自動啟動
-<code># chkconfig tomcat on</code></p>
+<h3 id="3-增加tomcat啟動服務">3.增加tomcat啟動服務</h3>
 
-<p>#5.服務開啟關閉方式
-<strong>啟動服務</strong>
-<code># service tomcat start</code>
-<code># /etc/init.d/tomcat start</code>
-<strong>停止服務</strong>
-<code># service tomcat stop</code>
+<p><code># chkconfig --add tomcat</code></p>
+
+<h3 id="4-設定開機自動啟動">4.設定開機自動啟動</h3>
+
+<p><code># chkconfig tomcat on</code></p>
+
+<h3 id="5-服務開啟關閉方式">5.服務開啟關閉方式</h3>
+
+<h4 id="啟動服務">啟動服務</h4>
+
+<p><code># service tomcat start</code>
+<code># /etc/init.d/tomcat start</code></p>
+
+<h4 id="停止服務">停止服務</h4>
+
+<p><code># service tomcat stop</code>
 <code># /etc/init.d/tomcat stop</code></p>
 
-<p>#6.reboot看看吧</p>
+<h3 id="6-reboot看看吧">6.reboot看看吧</h3>
 
   </main>
   <div id="disqus-container">

@@ -208,7 +208,9 @@
 
     
 
-    <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
+    
+
+<p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
 比較常用的Port..</p>
 
 <table>
@@ -238,9 +240,11 @@
 </tr>
 </table>
 
-<p>###將對應的資訊加入iptables設定檔中</p>
+<h3 id="將對應的資訊加入iptables設定檔中">將對應的資訊加入iptables設定檔中</h3>
 
-<pre><code class="language-config">-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+<p>/etc/sysconfig/iptables</p>
+
+<pre><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
@@ -248,11 +252,13 @@
 
 <p><img src="//fblog.loopbai.com/images/201508/001.png"></p>
 
-<p>###設定完iptables記得必須重新啟動防火牆
-<code>service iptables restart</code> 或 <code>/etc/init.d/iptables restart</code></p>
+<h3 id="設定完iptables記得必須重新啟動防火牆">設定完iptables記得必須重新啟動防火牆</h3>
 
-<p>###查看有打開的Port
-<code>netstat -tnlp</code></p>
+<p><code>service iptables restart</code> 或 <code>/etc/init.d/iptables restart</code></p>
+
+<h3 id="查看有打開的port">查看有打開的Port</h3>
+
+<p><code>netstat -tnlp</code></p>
 
 <p><code>netstat -tlp</code></p>
 

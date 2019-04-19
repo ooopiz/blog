@@ -210,9 +210,9 @@
 
     
 
-<p>##利用adjtimex來修正linux時間偏差</p>
+<h2 id="利用adjtimex來修正linux時間偏差">利用adjtimex來修正linux時間偏差</h2>
 
-<p>#####前言：</p>
+<h5 id="前言">前言：</h5>
 
 <p>前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，</p>
 
@@ -226,7 +226,7 @@
 
 <hr />
 
-<p>####下載下來後選定一個版本後即可開始安裝</p>
+<h4 id="下載下來後選定一個版本後即可開始安裝">下載下來後選定一個版本後即可開始安裝</h4>
 
 <p><a href="https://github.com/rogers0/adjtimex/tree/master">GITHUB - adjtimex</a></p>
 
@@ -236,7 +236,7 @@
 
 <p><code># make install</code></p>
 
-<p>####先了解時間差</p>
+<h4 id="先了解時間差">先了解時間差</h4>
 
 <p><code># adjtimex --compare</code> 或 <code># adjtimex -c</code></p>
 
@@ -244,11 +244,11 @@
 
 <p>圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．</p>
 
-<p>####這邊我的-t校正值是9859</p>
+<h4 id="這邊我的-t校正值是9859">這邊我的-t校正值是9859</h4>
 
 <p><code># adjtimex --tick 9859</code></p>
 
-<p>####再檢視一次</p>
+<h4 id="再檢視一次">再檢視一次</h4>
 
 <p><code># adjtimex -c</code></p>
 
@@ -266,7 +266,7 @@
 
 <p>這裡 = 250 * 65536 = 16384000</p>
 
-<p>####這邊我的-f校正值是16384000</p>
+<h4 id="這邊我的-f校正值是16384000">這邊我的-f校正值是16384000</h4>
 
 <p><code># adjtimex -f 16384000</code></p>
 

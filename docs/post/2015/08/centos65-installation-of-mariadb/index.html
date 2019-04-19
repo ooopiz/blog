@@ -208,31 +208,44 @@
 
     
 
-    <p>#新增MariaDB的知識庫，讓系統使用。<br />
-依照自己的系統在目錄下新增檔案
-<strong>32位元系統</strong></p>
+    
 
-<pre><code class="language-config">[mariadb]
+<h3 id="新增mariadb的知識庫-讓系統使用">新增MariaDB的知識庫，讓系統使用。</h3>
+
+<blockquote>
+<p>依照自己的系統在目錄下新增檔案
+<strong>32位元系統</strong></p>
+</blockquote>
+
+<p>config /etc/yum.repos.d/mariadb.repo</p>
+
+<pre><code>[mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/5.5/centos6-x86
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 </code></pre>
 
-<p><strong>64位元系統</strong></p>
+<blockquote>
+<p>64位元系統</p>
+</blockquote>
 
-<pre><code class="language-config">[mariadb]
+<pre><code>[mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/5.5/centos6-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 </code></pre>
 
-<p>#更新套件庫
-<code># yum update -y</code></p>
+<h3 id="更新套件庫">更新套件庫</h3>
 
-<p>#安裝 MariaDB
-&gt;安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣</p>
+<p><code># yum update -y</code></p>
+
+<h3 id="安裝-mariadb">安裝 MariaDB</h3>
+
+<blockquote>
+<p>安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣</p>
+</blockquote>
 
 <p><code># yum install MariaDB-devel MariaDB-client MariaDB-server -y</code></p>
 
@@ -240,8 +253,11 @@ gpgcheck=1
 
 <p><code># chkconfig mysql on</code></p>
 
-<p>#初始化 MariaDB
-&gt;執行這個初始化程式，過程跟MySQL一模一樣</p>
+<h3 id="初始化-mariadb">初始化 MariaDB</h3>
+
+<blockquote>
+<p>執行這個初始化程式，過程跟MySQL一模一樣</p>
+</blockquote>
 
 <p><code># /usr/bin/mysql_secure_installation</code></p>
 

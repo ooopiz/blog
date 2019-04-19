@@ -214,12 +214,15 @@
 
 <p>覺得ab壓出的不是很準，但還是紀錄一下</p>
 
-<p>###環境說明
-- 主機：MacPro裡的VM
-- CPU : 1
-- Memory：512M
-- 系統：CentOS 7
-- 網頁服務：Nginx/1.11.1</p>
+<h3 id="環境說明">環境說明</h3>
+
+<ul>
+<li>主機：MacPro裡的VM</li>
+<li>CPU : 1</li>
+<li>Memory：512M</li>
+<li>系統：CentOS 7</li>
+<li>網頁服務：Nginx/1.11.1</li>
+</ul>
 
 <hr />
 
@@ -239,16 +242,16 @@
 Google後了解是系統設定的限制
 </div>
 
-<h5 id="查看目前系統設定的限制-ulimit-a-可查看全部參數">查看目前系統設定的限制 (ulimit -a # 可查看全部參數)</h5>
+<h4 id="查看目前系統設定的限制-ulimit-a-可查看全部參數">查看目前系統設定的限制 (ulimit -a # 可查看全部參數)</h4>
 
 <p><code># su nginx -</code>
 &gt; 如果su 無法切換使用者可能需要修改一下<code>vipw</code></p>
 
-<h5 id="查可開啟的數量">查可開啟的數量</h5>
+<h4 id="查可開啟的數量">查可開啟的數量</h4>
 
 <p><code># ulimit -n</code></p>
 
-<h5 id="修改可打開的文件數">修改可打開的文件數</h5>
+<h4 id="修改可打開的文件數">修改可打開的文件數</h4>
 
 <p><code># vi /etc/security/limits.conf</code></p>
 

@@ -208,36 +208,51 @@
 
     
 
-    <p>#一、更新rpm</p>
+    
 
-<p><strong>REMI源</strong>
-最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6
-<code># yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</code>
-CentOS 7
-<code># yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</code></p>
+<h3 id="一-更新rpm">一、更新rpm</h3>
 
-<p>#二、安裝PHP
-&gt;想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
-&gt;路徑：/etc/yum.repos.d/remi.repo
-&gt;[remi-php55]是PHP5.5
-&gt;[remi-php56]是PHP5.6
-&gt;選擇你要的版本做修改即可</p>
+<h4 id="remi源-最新的php版本需要修改remi-repo中的enabled-0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</h4>
+
+<p><code># vi /etc/yum.repos.d/remi.repo</code></p>
+
+<pre><code>CentOS 6
+# yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
+
+ CentOS 7
+# yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm`
+</code></pre>
+
+<h3 id="二-安裝php">二、安裝PHP</h3>
+
+<blockquote>
+<p>想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
+路徑：/etc/yum.repos.d/remi.repo
+[remi-php55]是PHP5.5
+[remi-php56]是PHP5.6
+選擇你要的版本做修改即可</p>
+</blockquote>
 
 <p><code># vi /etc/yum.repos.d/remi.repo</code>
 <img src="//fblog.loopbai.com/images/201508/002.png"></p>
 
-<p><strong>安裝 PHP</strong>
-<code># yum install php</code></p>
+<h4 id="安裝-php">安裝 PHP</h4>
 
-<p><strong>安裝其他PHP Lib</strong>
-<code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
+<p><code># yum install php</code></p>
 
-<p>#設定php, php-fpm
-<strong>設定php</strong>
-設定內容如下：</p>
+<h4 id="安裝其他php-lib">安裝其他PHP Lib</h4>
 
-<pre><code class="language-config">cgi.fix_pathinfo=0
+<p><code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
+
+<h4 id="設定php-php-fpm">設定php, php-fpm</h4>
+
+<h4 id="設定php">設定php</h4>
+
+<blockquote>
+<p>設定內容如下(/etc/php.ini)：</p>
+</blockquote>
+
+<pre><code>cgi.fix_pathinfo=0
 session.save_handler = files
 session.save_path = &quot;/var/lib/php/session&quot;
 date.timezone = &quot;Asia/Taipei&quot;
@@ -246,16 +261,20 @@ display_errors = On
 magic_quotes_gpc = Off
 </code></pre>
 
-<p><strong>設定php session檔的權限</strong>
-<code># mkdir /var/lib/php/session</code>
+<h4 id="設定php-session檔的權限">設定php session檔的權限</h4>
+
+<p><code># mkdir /var/lib/php/session</code>
 <code># chown -R nginx:nginx /var/lib/php/session</code></p>
 
 <p><img src="//fblog.loopbai.com/images/201508/003.png"></p>
 
-<p><strong>設定php-fpm</strong>
-&gt;預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
+<h4 id="設定php-fpm">設定php-fpm</h4>
 
-<pre><code class="language-config">listen = 127.0.0.1:9000
+<blockquote>
+<p>預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
+</blockquote>
+
+<pre><code>listen = 127.0.0.1:9000
 listen.allowed_clients = 127.0.0.1
 user = nginx
 group = nginx
@@ -269,13 +288,17 @@ php_admin_value[error_log] = /var/log/php-fpm/www-error.log
 php_admin_flag[log_errors] = on
 </code></pre>
 
-<p><strong>設定 Log 檔的權限</strong>
-<code># chown -R nginx:nginx /var/log/php-fpm</code></p>
+<h4 id="設定-log-檔的權限">設定 Log 檔的權限</h4>
 
-<p>#三、設定Nginx
-&gt;加入一個 index.php</p>
+<p><code># chown -R nginx:nginx /var/log/php-fpm</code></p>
 
-<pre><code class="language-config">    location / {
+<h3 id="三-設定nginx">三、設定Nginx</h3>
+
+<blockquote>
+<p>加入一個 index.php</p>
+</blockquote>
+
+<pre><code>    location / {
         root   /usr/share/nginx/html;
         index  index.php index.html index.htm;
     }
@@ -284,10 +307,11 @@ php_admin_flag[log_errors] = on
 <p><img src="//fblog.loopbai.com/images/201508/004.png"></p>
 
 <blockquote>
-<p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。</p>
+<p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。
+/etc/nginx/conf.d/default.conf</p>
 </blockquote>
 
-<pre><code class="language-config">location ~ \.php$ {
+<pre><code>location ~ \.php$ {
 root /usr/share/nginx/html;
 fastcgi_pass   127.0.0.1:9000;
 fastcgi_index  index.php;
@@ -298,7 +322,7 @@ include        fastcgi_params;
 
 <p><img src="//fblog.loopbai.com/images/201508/005.png"></p>
 
-<p>#四、啟動服務</p>
+<h3 id="四-啟動服務">四、啟動服務</h3>
 
 <p><code># service php-fpm start</code>
 <code># chkconfig --levels 235 php-fpm on</code></p>

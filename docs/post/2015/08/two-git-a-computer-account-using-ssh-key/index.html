@@ -208,8 +208,11 @@
 
     
 
-    <p>#在設定檔中加入設定檔
-Windows下的路徑C:\Users\Ricky.ssh</p>
+    
+
+<h3 id="在設定檔中加入設定檔">在設定檔中加入設定檔</h3>
+
+<p>Windows下的路徑C:\Users\Ricky.ssh</p>
 
 <pre><code class="language-config">Host ricky.org
   Hostname ricky.org
@@ -223,19 +226,25 @@ Host peter.org
   IdentityFile C:\Users\Ricky\.ssh\id_rsa_second
 </code></pre>
 
-<p>#取消glogal mail,設定每個項目repo自己的 user.email
-&gt;pull的時候是識別郵箱，所以不能使用global的user.email</p>
+<h3 id="取消glogal-mail-設定每個項目repo自己的-user-email">取消glogal mail,設定每個項目repo自己的 user.email</h3>
 
-<p><strong>取消global</strong>
-<code>git config --global --unset user.name</code>
+<blockquote>
+<p>pull的時候是識別郵箱，所以不能使用global的user.email</p>
+</blockquote>
+
+<h4 id="取消global">取消global</h4>
+
+<p><code>git config --global --unset user.name</code>
 <code>git config --global --unset user.email</code></p>
 
-<p><strong>設定每個項目repo自己的 user.email</strong>
-<code>git config  user.email &quot;xxxx@xx.com&quot;</code>
+<h4 id="設定每個項目repo自己的-user-email">設定每個項目repo自己的 user.email</h4>
+
+<p><code>git config  user.email &quot;xxxx@xx.com&quot;</code>
 <code>git config  user.name &quot;ricky&quot;</code></p>
 
-<p>###Woindows下要生成key可以使用 git bash 裡面有內建的ssh command
-<img src="//fblog.loopbai.com/images/201508/A02-01.png"></p>
+<h4 id="woindows下要生成key可以使用-git-bash-裡面有內建的ssh-command">Woindows下要生成key可以使用 git bash 裡面有內建的ssh command</h4>
+
+<p><img src="//fblog.loopbai.com/images/201508/A02-01.png"></p>
 
 <p>再輸入，即可生成ssh key
 <code>ssh-keygen -t rsa</code></p>

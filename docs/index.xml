@@ -104,31 +104,24 @@ mv to /var/opt/gitlab/backups/
       <pubDate>Fri, 04 Nov 2016 10:26:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</guid>
-      <description>##利用adjtimex來修正linux時間偏差
-#####前言：
-前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，
+      <description>利用adjtimex來修正linux時間偏差 前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，
 使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，
 最後採用linux本身時間糾偏的方式
 主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(感謝神同事Leo協助突破盲腸)
-####下載下來後選定一個版本後即可開始安裝
-GITHUB - adjtimex
+下載下來後選定一個版本後即可開始安裝 GITHUB - adjtimex
 # ./configure
 # make
 # make install
-####先了解時間差
-# adjtimex --compare 或 # adjtimex -c
+先了解時間差 # adjtimex --compare 或 # adjtimex -c
 圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
-####這邊我的-t校正值是9859
-# adjtimex --tick 9859
-####再檢視一次
-# adjtimex -c
+這邊我的-t校正值是9859 # adjtimex --tick 9859
+再檢視一次 # adjtimex -c
 這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數 公式
 f = 差值 * 100000 * 65536
 或
 f = error_ppm平均值 * 65536
 這裡 = 250 * 65536 = 16384000
-####這邊我的-f校正值是16384000
-# adjtimex -f 16384000</description>
+這邊我的-f校正值是16384000 # adjtimex -f 16384000</description>
     </item>
     
     <item>
@@ -202,8 +195,7 @@ Installation:
       <description>運用google協作平台製作履歷 安安大家好，我也是看別人用我才知道可以這樣用的，或者你想做別的事情，就自由發揮吧．
 開始用的時候用起來有點麻煩，感覺介面不太友善．
 這邊感謝一下瘋婆子yaya協助破關．
-####下面簡單介紹一下一些設定順便筆記
-建立一個協作平台
+下面簡單介紹一下一些設定順便筆記 建立一個協作平台
 一開始你可能會想把這兩個東西拿掉
 管理協作平台
 設定搜尋功能
@@ -241,8 +233,7 @@ CentOS6
       
       <guid>https://blog.loopbai.com/post/2016/07/ab-pressure-test/</guid>
       <description> 2016/07/27 使用ab壓測 覺得ab壓出的不是很準，但還是紀錄一下
-###環境說明 - 主機：MacPro裡的VM - CPU : 1 - Memory：512M - 系統：CentOS 7 - 網頁服務：Nginx/1.11.1
-開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
+環境說明  主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1  開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
 當擴大到2000併發時遇到 socket: Too many open files (24) 的問題  # ab -n 10000 -c 2000 -k http://127.0.0.1/
 Google後了解是系統設定的限制  查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx - &amp;gt; 如果su 無法切換使用者可能需要修改一下vipw
 查可開啟的數量 # ulimit -n
@@ -276,10 +267,9 @@ Output is &amp;ldquo;7&amp;rdquo; $(document).ready(function () { x = 6; }); $(d
       <pubDate>Mon, 11 Jul 2016 07:14:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2016/07/2013-open-web-software-safety-plans/</guid>
-      <description>##2013開放Web軟體安全計畫 – Open Web Application Security Project
-https://www.owasp.org/index.php/Top_10_2013-Top_10
+      <description>2013開放Web軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
 網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</description>
+ A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)：  A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</description>
     </item>
     
     <item>
@@ -312,13 +302,12 @@ A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Manageme
       <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2016/05/install-php56/</guid>
-      <description>#一、更新rpm
-REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-#二、安裝PHP &amp;gt;想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 &amp;gt;路徑：/etc/yum.repos.d/remi.repo &amp;gt;[remi-php55]是PHP5.5 &amp;gt;[remi-php56]是PHP5.6 &amp;gt;選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
+      <description>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
+CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm`  二、安裝PHP  想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+ # vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
 安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-#設定php, php-fpm 設定php 設定內容如下：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;quot;/var/lib/php/session&amp;quot; date.timezone = &amp;quot;Asia/Taipei&amp;quot; error_reporting = E_ALL &amp;amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off  設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session</description>
+設定php, php-fpm 設定php  設定內容如下(/etc/php.ini)：
+ cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;quot;/var/lib/php/session&amp;quot; date.</description>
     </item>
     
     <item>
@@ -343,12 +332,16 @@ application-port=18081  啟動 # sh /var/opt/nexus/nexus/bin/nexus start</descri
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/10/centos7-systemctl-control/</guid>
-      <description>#1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
+      <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
 範例如下:
-#add tomcat pid CATALINA_PID=&amp;quot;$CATALINA_BASE/tomcat7.pid&amp;quot; #add java opts JAVA_OPTS=&amp;quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;quot;  #2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
+#add tomcat pid CATALINA_PID=&amp;quot;$CATALINA_BASE/tomcat7.pid&amp;quot; #add java opts JAVA_OPTS=&amp;quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;quot;  2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
 PIDFile就指到tomcat所在的目錄
 Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target   [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
- 查看全部服務： systemctl list-unit-files &amp;ndash;type service 查看服務 systemctl status name.service 啟動服務 systemctl start name.service 停止服務 systemctl stop name.service 重啟服務 systemctl restart name.service 增加開機自動啟動 systemctl enable name.</description>
+ 查看全部服務： systemctl list-unit-files &amp;ndash;type service
+查看服務 systemctl status name.service
+啟動服務 systemctl start name.service
+停止服務 systemctl stop name.service
+重啟服務 systemctl restart name.</description>
     </item>
     
     <item>
@@ -357,7 +350,7 @@ Description=Tomcat After=syslog.target network.target remote-fs.target nss-looku
       <pubDate>Wed, 30 Sep 2015 21:50:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/09/centos65-boot-tomcat-started-automatically/</guid>
-      <description>#1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat
+      <description>1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat
 記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下
 #startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &amp;quot;no&amp;quot; ] &amp;amp;&amp;amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&amp;quot;-Dbuild.compiler.emacs=true&amp;quot; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup.</description>
     </item>
@@ -368,14 +361,14 @@ Description=Tomcat After=syslog.target network.target remote-fs.target nss-looku
       <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/09/centos7-installing-tomcat/</guid>
-      <description>#1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local
-#2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 # wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-#3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
-#4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
-#5.啟動或停止Tomcat 啟動Tomcat 7 # /usr/local/tomcat7/bin/startup.sh
+      <description> 1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local
+2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 # wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+5.啟動或停止Tomcat 啟動Tomcat 7 # /usr/local/tomcat7/bin/startup.sh
 停止Tomcat 7 # /usr/local/tomcat7/bin/shutdown.sh
-#6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
-#7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。 </description>
+6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。 </description>
     </item>
     
     <item>
@@ -392,19 +385,18 @@ Description=Tomcat After=syslog.target network.target remote-fs.target nss-looku
     
     <item>
       <title>VirtualBox Guest Addtiton安裝 for Centos</title>
-      <link>https://blog.loopbai.com/post/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</link>
+      <link>https://blog.loopbai.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</link>
       <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/09/nstall-virtualbox-guest-addtiton-for-centos/</guid>
-      <description> 我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
-那就讓我們來開始安裝吧
-###先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom # mount /dev/cdrom /media/cdrom ###執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-###接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new # mount -t vboxsf New ~/new
+      <guid>https://blog.loopbai.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</guid>
+      <description>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+ 那就讓我們來開始安裝吧
+先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom # mount /dev/cdrom /media/cdrom 執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new # mount -t vboxsf New ~/new
 或者你需要有特定owner的mount # mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到
-bzip2 command not found # yum install bzip2 -y
+在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
 Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y
-解完後在執行一次 # sh /media/cdrom/VBoxLinuxAdditions.run </description>
+解完後在執行一次 # sh /media/cdrom/VBoxLinuxAdditions.</description>
     </item>
     
     <item>
@@ -415,7 +407,7 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
       <guid>https://blog.loopbai.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
       <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
 Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&amp;gt;喜好設定 ###設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0 </description>
+VirtualBox-&amp;gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</description>
     </item>
     
     <item>
@@ -424,13 +416,13 @@ VirtualBox-&amp;gt;喜好設定 ###設定2張介面卡 1. NAT 2. 僅限主機介
       <pubDate>Wed, 02 Sep 2015 17:05:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/09/wget-and-yum-with-proxy/</guid>
-      <description>#yum 設定檔 在設定檔中加入以下參數
+      <description>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf
 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password   此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile (有空再研究)
- #wget 在設定檔中加入以下參數
+ wget 在設定檔中加入以下參數config /etc/wgetrc
 http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15  Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again
 解決方法：
-編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：
-[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;amp;arch=$basearch failovermethod=priority enabled=1 gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6  </description>
+編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下： config /etc/yum.repos.d/epel.repo
+[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.</description>
     </item>
     
     <item>
@@ -440,8 +432,8 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15  Error: Cannot re
       
       <guid>https://blog.loopbai.com/post/2015/09/centos-traffic-monitoring-tool-iftop/</guid>
       <description>官方網站
-#安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y
-#執行 # iftop</description>
+安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y
+執行 # iftop</description>
     </item>
     
     <item>
@@ -450,24 +442,23 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15  Error: Cannot re
       <pubDate>Tue, 01 Sep 2015 03:07:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/09/centos7-basic-set/</guid>
-      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下  #一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
+      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下  一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
 # cd /etc/sysconfig/network-scripts
  每台電腦的網卡名稱不一定相同
  # systemctl stop NetworkManager
 # systemctl disable NetworkManager
 # systemctl restart network
-#二、關閉SELinux #vi /etc/selinux/config
+二、關閉SELinux #vi /etc/selinux/config
 這個設定reboot後才會生效
-#三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
+三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
 # vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
 # systemctl restart sshd
-#四、調整時區 # rm /etc/localtime
+四、調整時區 # rm /etc/localtime
 # ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
-#五、調整語系 檢查系統目前使用的語系
+五、調整語系 檢查系統目前使用的語系
 # localectl
 查看系統有哪些可用的語系
-# localectl list-locales | grep zh
-如果你要設定語系的話</description>
+# localectl list-locales | grep zh</description>
     </item>
     
     <item>
@@ -502,19 +493,17 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
       <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/08/centos65-installation-of-mariadb/</guid>
-      <description>#新增MariaDB的知識庫，讓系統使用。
-依照自己的系統在目錄下新增檔案 32位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  64位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  #更新套件庫 # yum update -y
-#安裝 MariaDB &amp;gt;安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
-# yum install MariaDB-devel MariaDB-client MariaDB-server -y
+      <description>新增MariaDB的知識庫，讓系統使用。  依照自己的系統在目錄下新增檔案 32位元系統
+ config /etc/yum.repos.d/mariadb.repo
+[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1   64位元系統
+ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  更新套件庫 # yum update -y
+安裝 MariaDB  安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
+ # yum install MariaDB-devel MariaDB-client MariaDB-server -y
 # service mysql start
 # chkconfig mysql on
-#初始化 MariaDB &amp;gt;執行這個初始化程式，過程跟MySQL一模一樣
-# /usr/bin/mysql_secure_installation
-第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。
-第二個問題，Change the root password? [Y/n] 是否更改root密碼，極度建議您設定root密碼，請輸入Y
-第三個問題，Remove anonymous users? [Y/n] 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了</description>
+初始化 MariaDB  執行這個初始化程式，過程跟MySQL一模一樣
+ # /usr/bin/mysql_secure_installation
+第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。</description>
     </item>
     
     <item>
@@ -523,12 +512,11 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
       <pubDate>Mon, 24 Aug 2015 07:01:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/08/centos65-install-nginx/</guid>
-      <description>#新增 Nginx 官方所提供的第三方套件庫
-新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1  #更新套件庫 # yum update -y
-#安裝 Nginx # yum install nginx
-#執行 Nginx # service nginx start
-#開機時自動啟動 # sudo chkconfig --levels 235 nginx on</description>
+      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1  更新套件庫 # yum update -y
+安裝 Nginx # yum install nginx
+執行 Nginx # service nginx start
+開機時自動啟動 # sudo chkconfig --levels 235 nginx on</description>
     </item>
     
     <item>
@@ -556,11 +544,11 @@ protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDo
       <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
-      <description>#在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second  #取消glogal mail,設定每個項目repo自己的 user.email &amp;gt;pull的時候是識別郵箱，所以不能使用global的user.email
-取消global git config --global --unset user.name git config --global --unset user.email
+      <description>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
+Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second  取消glogal mail,設定每個項目repo自己的 user.email  pull的時候是識別郵箱，所以不能使用global的user.email
+ 取消global git config --global --unset user.name git config --global --unset user.email
 設定每個項目repo自己的 user.email git config user.email &amp;quot;xxxx@xx.com&amp;quot; git config user.name &amp;quot;ricky&amp;quot;
-###Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
+Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
     </item>
     
     <item>
@@ -569,15 +557,14 @@ Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Use
       <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/08/centos65-install-phpmyadmin/</guid>
-      <description>#一、安裝phpMyAdmin &amp;gt;phpMyAdmin對應php版本會有影響，請挑選適合的版本
-wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
+      <description>一、安裝phpMyAdmin  phpMyAdmin對應php版本會有影響，請挑選適合的版本
+ wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
 tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
 mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
 rm phpMyAdmin-4.1.12-all-languages.tar.gz
-#二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
+二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
  /* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;;  改成
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;  #三、查看mysql使用者,新增使用者,給予權限
-# mysql -u root -p -h 127.0.0.1
+/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;  三、查看mysql使用者,新增使用者,給予權限 # mysql -u root -p -h 127.0.0.1
 mysql&amp;gt; select user, host from mysql.user;
 mysql&amp;gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
 mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利</description>
@@ -589,13 +576,12 @@ mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對�
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>#一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
-NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-EPEL源 CentOS 6 # yum install http://mirrors.ustc.edu.cn/fedora/epel/6/i386/epel-release-6-8.noarch.rpm CentOS 7 # http://mirrors.yun-idc.com/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
-REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-PUPPETLABS源 CentOS 6 # yum install http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm CentOS 7 # yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-VARNISH源 # yum install https://repo.</description>
+      <description>一、更新rpm 參考連結
+MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm  NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm  REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm  二、安裝Nginx 安裝 NGINX 網頁伺服器 # yum install nginx
+三、安裝PHP  想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+ # vi /etc/yum.repos.d/remi.repo
+安裝 PHP # yum install php</description>
     </item>
     
     <item>
@@ -605,8 +591,8 @@ VARNISH源 # yum install https://repo.</description>
       
       <guid>https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
       <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-  Service PORT   FTP 21   SSH 22   HTTP 80   HTTPS 443   MySQL 3306   ###將對應的資訊加入iptables設定檔中
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT  ###設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.</description>
+  Service PORT   FTP 21   SSH 22   HTTP 80   HTTPS 443   MySQL 3306   將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT  設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.</description>
     </item>
     
     <item>
@@ -616,10 +602,14 @@ VARNISH源 # yum install https://repo.</description>
       
       <guid>https://blog.loopbai.com/post/2015/08/centos65-network-card-settings/</guid>
       <description>首先可以下指令顯示出所有的介面資訊 # ip link show
-###網卡設定檔的目錄一般會在
-DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASL=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes  ###說明 &amp;gt;DEVICE 這個裝置的名稱 &amp;gt;BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） &amp;gt;BROADCAST 這是節點的網域 &amp;gt;IPADDR 這是這塊網路卡的位址 &amp;gt;NETMASL 子遮罩網路 &amp;gt;NETWORK 工作的網域 &amp;gt;ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範， 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255）， NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了）， NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
-設定玩之後，網路服務重新啓動，指令為： # service network restart</description>
+網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASL=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes  說明  DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
+ 在上面的例子中，我們以虛擬 IP 來作為示範，
+假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
+NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
+NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
+如果你的網路位址是固定的，那上面的網址就跟著改變即可！
+設定玩之後，網路服務重新啓動，指令為：
+# service network restart</description>
     </item>
     
     <item>
@@ -638,11 +628,10 @@ DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASL=
       <pubDate>Sat, 25 Jul 2015 12:22:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2015/07/laravel50-upgrade-51/</guid>
-      <description>###1. 修改composer.json ### &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
-###2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: ###
-* !.gitignore  ###3. 修改bootstrap下的autoload.php ### $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-###4. 執行 composer update ### # composer update
-###5. 確認目錄權限### 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
+      <description>1. 修改composer.json &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
+2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore  3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
+4. 執行 composer update # composer update
+5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
     </item>
     
     <item>

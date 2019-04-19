@@ -208,12 +208,15 @@
 
     
 
-    <p>首先可以下指令顯示出所有的介面資訊
-<code># ip link show</code></p>
+    
 
-<p>###網卡設定檔的目錄一般會在</p>
+<h4 id="首先可以下指令顯示出所有的介面資訊">首先可以下指令顯示出所有的介面資訊</h4>
 
-<pre><code class="language-config">DEVICE=eth0
+<p><code># ip link show</code></p>
+
+<h3 id="網卡設定檔的目錄一般會在-etc-sysconfig-network-scripts-ifcfg-eth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</h3>
+
+<pre><code>DEVICE=eth0
 BOOTPROTO=static
 BROADCAST=192.168.1.255
 IPADDR=192.168.1.2
@@ -222,23 +225,31 @@ NETWORK=192.168.1.0
 ONBOOT=yes
 </code></pre>
 
-<p>###說明
-&gt;DEVICE 這個裝置的名稱
-&gt;BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ）
-&gt;BROADCAST 這是節點的網域
-&gt;IPADDR 這是這塊網路卡的位址
-&gt;NETMASL 子遮罩網路
-&gt;NETWORK 工作的網域
-&gt;ONBOOT 開機自動開啟網路卡</p>
+<h3 id="說明">說明</h3>
 
-<p>在上面的例子中，我們以虛擬 IP 來作為示範，
-假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
-NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
-NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
-如果你的網路位址是固定的，那上面的網址就跟著改變即可！</p>
+<blockquote>
+<p>DEVICE 這個裝置的名稱
+BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ）
+BROADCAST 這是節點的網域
+IPADDR 這是這塊網路卡的位址
+NETMASL 子遮罩網路
+NETWORK 工作的網域
+ONBOOT 開機自動開啟網路卡</p>
+</blockquote>
 
-<p>設定玩之後，網路服務重新啓動，指令為：
-<code># service network restart</code></p>
+<p>在上面的例子中，我們以虛擬 IP 來作為示範，</p>
+
+<p>假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），</p>
+
+<p>NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），</p>
+
+<p>NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。</p>
+
+<p>如果你的網路位址是固定的，那上面的網址就跟著改變即可！</p>
+
+<p>設定玩之後，網路服務重新啓動，指令為：</p>
+
+<p><code># service network restart</code></p>
 
   </main>
   <div id="disqus-container">

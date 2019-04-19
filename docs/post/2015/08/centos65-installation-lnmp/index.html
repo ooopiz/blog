@@ -208,67 +208,70 @@
 
     
 
-    <p>#一、更新rpm
-<a href="https://www.cnhzz.com/yum-repo/" target="_blank">參考連結</a></p>
+    
 
-<p><strong>MYSQL源</strong>
-CentOS 6
-<code># yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm</code>
+<h3 id="一-更新rpm">一、更新rpm</h3>
+
+<p><a href="https://www.cnhzz.com/yum-repo/" target="_blank">參考連結</a></p>
+
+<h4 id="mysql源">MYSQL源</h4>
+
+<pre><code>CentOS 6
+# yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
 CentOS 7
-<code># yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</code></p>
+# yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+</code></pre>
 
-<p><strong>NGINX源</strong>
-CentOS 6
-<code># yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</code>
+<h4 id="nginx源">NGINX源</h4>
+
+<pre><code>CentOS 6
+# yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
 CentOS 7
-<code># yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></p>
+# yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+</code></pre>
 
-<p><strong>EPEL源</strong>
-CentOS 6
-<code># yum install http://mirrors.ustc.edu.cn/fedora/epel/6/i386/epel-release-6-8.noarch.rpm</code>
+<h4 id="remi源">REMI源</h4>
+
+<p>最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo</p>
+
+<pre><code>CentOS 6
+# yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 CentOS 7
-<code># http://mirrors.yun-idc.com/epel/7/x86_64/e/epel-release-7-9.noarch.rpm</code></p>
+# yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+</code></pre>
 
-<p><strong>REMI源</strong>
-最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6
-<code># yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</code>
-CentOS 7
-<code># yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</code></p>
+<h3 id="二-安裝nginx">二、安裝Nginx</h3>
 
-<p><strong>PUPPETLABS源</strong>
-CentOS 6
-<code># yum install http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm</code>
-CentOS 7
-<code># yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm</code></p>
-
-<p><strong>VARNISH源</strong>
-<code># yum install https://repo.varnish-cache.org/redhat/varnish-4.0.el6.rpm</code></p>
-
-<p>#二、安裝Nginx
-<strong>安裝 NGINX 網頁伺服器</strong>
+<p><strong>安裝 NGINX 網頁伺服器</strong>
 <code># yum install nginx</code></p>
 
-<p>#三、安裝PHP
-&gt;想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
-&gt;路徑：/etc/yum.repos.d/remi.repo
-&gt;[remi-php55]是PHP5.5
-&gt;[remi-php56]是PHP5.6
-&gt;選擇你要的版本做修改即可</p>
+<h3 id="三-安裝php">三、安裝PHP</h3>
+
+<blockquote>
+<p>想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
+路徑：/etc/yum.repos.d/remi.repo
+[remi-php55]是PHP5.5
+[remi-php56]是PHP5.6
+選擇你要的版本做修改即可</p>
+</blockquote>
 
 <p><code># vi /etc/yum.repos.d/remi.repo</code></p>
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/002.png"></p>
 
-<p><strong>安裝 PHP</strong>
-<code># yum install php</code></p>
+<h4 id="安裝-php">安裝 PHP</h4>
 
-<p><strong>安裝其他PHP Lib</strong>
-<code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
+<p><code># yum install php</code></p>
 
-<p>#設定php, php-fpm
-<strong>設定php</strong>
-設定內容如下：</p>
+<h4 id="安裝其他php-lib">安裝其他PHP Lib</h4>
+
+<p><code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
+
+<h3 id="設定php-php-fpm">設定php, php-fpm</h3>
+
+<h4 id="設定php">設定php</h4>
+
+<p>設定內容如下：</p>
 
 <pre><code class="language-config">cgi.fix_pathinfo=0
 session.save_handler = files
@@ -279,14 +282,18 @@ display_errors = On
 magic_quotes_gpc = Off
 </code></pre>
 
-<p><strong>設定php session檔的權限</strong>
-<code># mkdir /var/lib/php/session</code>
+<h4 id="設定php-session檔的權限">設定php session檔的權限</h4>
+
+<p><code># mkdir /var/lib/php/session</code>
 <code># chown -R nginx:nginx /var/lib/php/session</code></p>
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/003.png"></p>
 
-<p><strong>設定php-fpm</strong>
-&gt;預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
+<h4 id="設定php-fpm">設定php-fpm</h4>
+
+<blockquote>
+<p>預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
+</blockquote>
 
 <pre><code class="language-config">listen = 127.0.0.1:9000
 listen.allowed_clients = 127.0.0.1
@@ -302,11 +309,15 @@ php_admin_value[error_log] = /var/log/php-fpm/www-error.log
 php_admin_flag[log_errors] = on
 </code></pre>
 
-<p><strong>設定 Log 檔的權限</strong>
-<code># chown -R nginx:nginx /var/log/php-fpm</code></p>
+<h4 id="設定-log-檔的權限">設定 Log 檔的權限</h4>
 
-<p>#四、設定Nginx
-&gt;加入一個 index.php</p>
+<p><code># chown -R nginx:nginx /var/log/php-fpm</code></p>
+
+<h3 id="四-設定nginx">四、設定Nginx</h3>
+
+<blockquote>
+<p>加入一個 index.php</p>
+</blockquote>
 
 <pre><code class="language-config">    location / {
         root   /usr/share/nginx/html;
@@ -331,25 +342,34 @@ include        fastcgi_params;
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/005.png"></p>
 
-<p>#五、安裝MySQL
-<strong>安裝 MySQL</strong>
-<code># yum install mysql mysql-server</code></p>
+<h3 id="五-安裝mysql">五、安裝MySQL</h3>
 
-<p><strong>啟動MySQL</strong>
-<code># service mysqld start</code></p>
+<h4 id="安裝-mysql">安裝 MySQL</h4>
 
-<p><strong>配置 MySQL 基本設定</strong>
-<code># /usr/bin/mysql_secure_installation</code></p>
+<p><code># yum install mysql mysql-server</code></p>
 
-<p>#六、啟動服務
-<strong>啟動服務</strong>
-<code># service nginx start</code>
+<h4 id="啟動mysql">啟動MySQL</h4>
+
+<p><code># service mysqld start</code></p>
+
+<h4 id="配置-mysql-基本設定">配置 MySQL 基本設定</h4>
+
+<p><code># /usr/bin/mysql_secure_installation</code></p>
+
+<h3 id="六-啟動服務">六、啟動服務</h3>
+
+<h4 id="啟動服務">啟動服務</h4>
+
+<p><code># service nginx start</code>
 <code># service php-fpm start</code></p>
 
-<p><strong>設置開機啟動</strong>
-<code># chkconfig --levels 235 nginx on</code>
-<code># chkconfig --levels 235 php-fpm on</code>
-<code># chkconfig --levels 235 mysqld on</code></p>
+<h4 id="設置開機啟動">設置開機啟動</h4>
+
+<p><code># chkconfig --levels 235 nginx on</code></p>
+
+<p><code># chkconfig --levels 235 php-fpm on</code></p>
+
+<p><code># chkconfig --levels 235 mysqld on</code></p>
 
   </main>
   <div id="disqus-container">

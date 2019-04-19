@@ -208,7 +208,9 @@
 
     
 
-    <p>#新增 Nginx 官方所提供的第三方套件庫</p>
+    
+
+<h3 id="新增-nginx-官方所提供的第三方套件庫">新增 Nginx 官方所提供的第三方套件庫</h3>
 
 <p>新增一個檔案<code>/etc/yum.repos.d/nginx.repo</code>內容如下</p>
 
@@ -219,17 +221,21 @@ gpgcheck=0
 enabled=1
 </code></pre>
 
-<p>#更新套件庫
-<code># yum update -y</code></p>
+<h3 id="更新套件庫">更新套件庫</h3>
 
-<p>#安裝 Nginx
-<code># yum install nginx</code></p>
+<p><code># yum update -y</code></p>
 
-<p>#執行 Nginx
-<code># service nginx start</code></p>
+<h3 id="安裝-nginx">安裝 Nginx</h3>
 
-<p>#開機時自動啟動
-<code># sudo chkconfig --levels 235 nginx on</code></p>
+<p><code># yum install nginx</code></p>
+
+<h3 id="執行-nginx">執行 Nginx</h3>
+
+<p><code># service nginx start</code></p>
+
+<h3 id="開機時自動啟動">開機時自動啟動</h3>
+
+<p><code># sudo chkconfig --levels 235 nginx on</code></p>
 
   </main>
   <div id="disqus-container">

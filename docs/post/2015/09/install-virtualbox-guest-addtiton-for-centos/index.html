@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.55.1" />
-  <link rel="canonical" href="https://blog.loopbai.com/post/2015/07/laravel50-upgrade-51/">
+  <link rel="canonical" href="https://blog.loopbai.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/">
 
   
 
@@ -32,7 +32,7 @@
 
   
   
-  <title>Laravel5.0 升級5.1 | LOOPBAI</title>
+  <title>VirtualBox Guest Addtiton安裝 for Centos | LOOPBAI</title>
 </head>
 
   <body>
@@ -188,13 +188,13 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Laravel5.0 升級5.1
+      VirtualBox Guest Addtiton安裝 for Centos
     </h1>
 
     <div class="date">
       
       
-      <strong aria-hidden="true">Publish date: </strong>Sat, 25 Jul 2015 12:22:01 &#43;0800
+      <strong aria-hidden="true">Publish date: </strong>Wed, 09 Sep 2015 09:49:01 &#43;0800
       
         
       
@@ -210,29 +210,53 @@
 
     
 
-<h3 id="1-修改composer-json">1. 修改composer.json</h3>
+<blockquote>
+<p>我在virtualbox上面安裝的是CentOS7的OS
+當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你，
+你應該要安裝<strong>VirtualBox Guest Addtiton</strong></p>
+</blockquote>
 
-<p><code>&quot;laravel/framework&quot;: &quot;5.0.*&quot;</code> 修改為 <code>&quot;laravel/framework&quot;: &quot;5.1.*&quot;</code></p>
+<p>那就讓我們來開始安裝吧</p>
 
-<h3 id="2-在bootstrap目錄下建立一個目錄cache-並新增一個文件-gitignore-內容為">2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為:</h3>
+<h3 id="先把vboxguestadditions-iso-mount起來">先把VBoxGuestAdditions.iso mount起來</h3>
 
-<pre><code class="language-config">*
-!.gitignore
-</code></pre>
+<p><img src="//fblog.loopbai.com/images/201509/A04-01.png"></p>
 
-<h3 id="3-修改bootstrap下的autoload-php">3. 修改bootstrap下的autoload.php</h3>
+<p><code># mkdir /media/cdrom</code>
+<code># mount /dev/cdrom /media/cdrom</code>
+<img src="//fblog.loopbai.com/images/201509/A04-02.png"></p>
 
-<p><code>$compiledPath = __DIR__.'/../vendor/compiled.php';</code>
-修改為
-<code>$compiledPath = __DIR__.'/cache/compiled.php';</code></p>
+<h3 id="執行vboxlinuxadditions-run">執行VBoxLinuxAdditions.run</h3>
 
-<h3 id="4-執行-composer-update">4. 執行 composer update</h3>
+<p><code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
 
-<p><code># composer update</code></p>
+<h3 id="接著就可以mount本機分享給虛擬機的資料夾了">接著就可以mount本機分享給虛擬機的資料夾了</h3>
 
-<h3 id="5-確認目錄權限">5. 確認目錄權限</h3>
+<p><code># mkdir ~/new</code>
+<code># mount -t vboxsf New ~/new</code></p>
 
-<p>安裝 Laravel 之後，你必須設定一些權限。<b style="color:blue">storage</b> 和 <b style="color:blue">bootstrap/cache</b> 目錄必須讓伺服器有寫入權限。</p>
+<p>或者你需要有特定owner的mount
+<code># mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
+
+<hr />
+
+<h4 id="在執行vboxlinuxadditions-run的時候你可能會遇到">在執行VBoxLinuxAdditions.run的時候你可能會遇到</h4>
+
+<h3 id="b-style-color-red-bzip2-command-not-found-b"><b style="color:red">bzip2 command not found</b></h3>
+
+<p><img src="//fblog.loopbai.com/images/201509/A04-03.png">
+<code># yum install bzip2 -y</code></p>
+
+<h3 id="b-style-color-red-building-the-main-guest-additions-module-失敗-b"><b style="color:red">Building the main Guest Additions module [失敗]</b></h3>
+
+<p><code># yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</code></p>
+
+<p><img src="//fblog.loopbai.com/images/201509/A04-04.png"></p>
+
+<p>解完後在執行一次
+<code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
+
+<p><img src="//fblog.loopbai.com/images/201509/A04-05.png"></p>
 
   </main>
   <div id="disqus-container">

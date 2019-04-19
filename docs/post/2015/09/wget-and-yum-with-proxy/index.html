@@ -208,10 +208,13 @@
 
     
 
-    <p>#yum 設定檔
-在設定檔中加入以下參數</p>
+    
 
-<pre><code class="language-config"># The proxy server - proxy server:port number
+<h3 id="yum-設定檔">yum 設定檔</h3>
+
+<p>在設定檔中加入以下參數config /etc/yum.conf</p>
+
+<pre><code># The proxy server - proxy server:port number
 http_proxy = proxy.xxxxxx.com.tw:3128
 # The account details for yum connections
 proxy_username=user_name
@@ -224,10 +227,11 @@ proxy_password=user_password
 (<em>有空再研究</em>)</p>
 </blockquote>
 
-<p>#wget
-在設定檔中加入以下參數</p>
+<h3 id="wget">wget</h3>
 
-<pre><code class="language-config">http_proxy = proxy.xxxxxx.com.tw:3128
+<p>在設定檔中加入以下參數config /etc/wgetrc</p>
+
+<pre><code>http_proxy = proxy.xxxxxx.com.tw:3128
 use_proxy = on
 wait = 15
 </code></pre>
@@ -238,9 +242,10 @@ wait = 15
 
 <p>解決方法：</p>
 
-<p>編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：</p>
+<p>編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：
+config /etc/yum.repos.d/epel.repo</p>
 
-<pre><code class="language-config">[epel]
+<pre><code>[epel]
 name=Extra Packages for Enterprise Linux 6 - $basearch
 baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
 #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch

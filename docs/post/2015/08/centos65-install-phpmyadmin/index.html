@@ -208,8 +208,13 @@
 
     
 
-    <p>#一、安裝phpMyAdmin
-&gt;phpMyAdmin對應php版本會有影響，請挑選適合的版本</p>
+    
+
+<h3 id="一-安裝phpmyadmin">一、安裝phpMyAdmin</h3>
+
+<blockquote>
+<p>phpMyAdmin對應php版本會有影響，請挑選適合的版本</p>
+</blockquote>
 
 <p><code>wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
 
@@ -219,8 +224,9 @@
 
 <p><code>rm phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
 
-<p>#二、設定config.inc.php
-路徑:/usr/share/nginx/html/phpMyAdmin
+<h3 id="二-設定config-inc-php">二、設定config.inc.php</h3>
+
+<p>路徑:/usr/share/nginx/html/phpMyAdmin
 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
 <code># cp config.sample.inc.php config.inc.php</code></p>
 
@@ -236,7 +242,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/A01-01.png"></p>
 
-<p>#三、查看mysql使用者,新增使用者,給予權限</p>
+<h3 id="三-查看mysql使用者-新增使用者-給予權限">三、查看mysql使用者,新增使用者,給予權限</h3>
 
 <p><code># mysql -u root -p -h 127.0.0.1</code></p>
 
@@ -253,7 +259,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/A01-04.png"></p>
 
-<p>#四、phpMyAdmin 高級功能啟用</p>
+<h3 id="四-phpmyadmin-高級功能啟用">四、phpMyAdmin 高級功能啟用</h3>
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/A01-05.png"></p>
 
@@ -275,7 +281,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/A01-08.png"></p>
 
-<p>#五、完成，即可在phpMyAdmin看到表phpmyadmin</p>
+<h3 id="五-完成-即可在phpmyadmin看到表phpmyadmin">五、完成，即可在phpMyAdmin看到表phpmyadmin</h3>
 
 <p><img desc="" src="//fblog.loopbai.com/images/201508/A01-09.png"></p>
 

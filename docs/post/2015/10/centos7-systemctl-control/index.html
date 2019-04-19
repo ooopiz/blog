@@ -208,24 +208,28 @@
 
     
 
-    <p>#1.增加啟動參數
-在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存</p>
+    
+
+<h3 id="1-增加啟動參數">1.增加啟動參數</h3>
+
+<p>在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存</p>
 
 <p><strong>範例如下:</strong></p>
 
-<pre><code class="language-config">#add tomcat pid  
+<pre><code>#add tomcat pid  
 CATALINA_PID=&quot;$CATALINA_BASE/tomcat7.pid&quot;  
 #add java opts  
 JAVA_OPTS=&quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&quot;
 </code></pre>
 
-<p>#2.增加tomcat.service
-在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。
+<h3 id="2-增加tomcat-service">2.增加tomcat.service</h3>
+
+<p>在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。
 <code># vi /usr/lib/systemd/system/tomcat7.service</code></p>
 
 <p>PIDFile就指到tomcat所在的目錄</p>
 
-<pre><code class="language-config">Description=Tomcat  
+<pre><code>Description=Tomcat  
 After=syslog.target network.target remote-fs.target nss-lookup.target  
    
 [Service]  
@@ -248,22 +252,37 @@ WantedBy=multi-user.target
 
 <hr />
 
-<p>查看全部服務：
-systemctl list-unit-files &ndash;type service
-查看服務
-systemctl status name.service
-啟動服務
-systemctl start name.service
-停止服務
-systemctl stop name.service
-重啟服務
-systemctl restart name.service
-增加開機自動啟動
-systemctl enable name.service
-刪除開機自動啟動
-systemctl disable name.service</p>
+<h4 id="查看全部服務">查看全部服務：</h4>
 
+<p>systemctl list-unit-files &ndash;type service</p>
+
+<h4 id="查看服務">查看服務</h4>
+
+<p>systemctl status name.service</p>
+
+<h4 id="啟動服務">啟動服務</h4>
+
+<p>systemctl start name.service</p>
+
+<h4 id="停止服務">停止服務</h4>
+
+<p>systemctl stop name.service</p>
+
+<h4 id="重啟服務">重啟服務</h4>
+
+<p>systemctl restart name.service</p>
+
+<h4 id="增加開機自動啟動">增加開機自動啟動</h4>
+
+<p>systemctl enable name.service</p>
+
+<h4 id="刪除開機自動啟動">刪除開機自動啟動</h4>
+
+<p>systemctl disable name.service</p>
+
+<blockquote>
 <p>.service 可以省略</p>
+</blockquote>
 
   </main>
   <div id="disqus-container">
