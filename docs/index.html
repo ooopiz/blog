@@ -161,24 +161,11 @@
       
       
       
-      <a href="/" aria-current="page">
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
         <span class="text">Home</span>
-      </a>
-    </li>
-  
-    <li class="pattern">
-      
-      
-      
-      
-      <a href="/post/" >
-        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
-          <use xlink:href="#bookmark"></use>
-        </svg>
-        <span class="text">Blog</span>
       </a>
     </li>
   
@@ -204,22 +191,471 @@
           
   <main id="main">
     <h1>Home</h1>
-    <p>{{ range first 10 .Pages }}
-    <article>
-      <!-- this <div> includes the title summary -->
-      <div>
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ .Summary }}
-      </div>
-      {{ if .Truncated }}
-      <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-      <div>
-        <a href="{{ .RelPermalink }}">Read More…</a>
-      </div>
-      {{ end }}
-    </article>
-{{ end }}</p>
-
+    <ul class="patterns-list">
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2017/05/opensourcepos-install/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            opensourcepos 安裝
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2017/03/pem-to-ppk-putty-login/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            pem轉ppk putty 登入
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/12/php-call-java-class/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            php call java 類別
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/12/gitlab-upgrade-7.14-to-8/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            GitLab 7.14升級8.X
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            利用adjtimex來修正linux時間偏差
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/10/yum-zabbix-server-agent/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Yum Zabbix server, agent
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/10/bind-makeinstall-with-dlz-mysql/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            bind make安裝搭配 dlz mysql
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/10/centos-yum-install-bind9/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS yum 安裝bind9
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/09/google-resume/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            運用google協作平台製作履歷
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Hicloud S3雲儲存資料夾掛載
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/07/ab-pressure-test/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            2016/07/27 使用ab壓測
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/07/study-on-the-gradle/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Gradle初探
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/07/differences-have-javascript-var/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            javascript 有沒有var的差別
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/07/2013-open-web-software-safety-plans/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            2013開放Web軟體安全計畫
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/05/centos7-install-postfix/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS7 安裝Postfix
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/05/installing-nginx-19/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            安裝 Nginx 1.9&#43;
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2016/05/install-php56/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            安裝 PHP5.6
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/12/install-nexus-oss/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            安裝 Nexus OSS
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/10/centos7-systemctl-control/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS7 Tomcat增加systemctl控制
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/centos65-boot-tomcat-started-automatically/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 Tomcat開機自動啟動
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/centos7-installing-tomcat/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS7 安裝Tomcat
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/centos7-install-jdk/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS7 安裝JDK 64 Bit
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/nstall-virtualbox-guest-addtiton-for-centos/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            VirtualBox Guest Addtiton安裝 for Centos
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/wget-and-yum-with-proxy/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            yum 和 wget 使用 proxy
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/centos-traffic-monitoring-tool-iftop/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 流量監控工具(iftop)
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/09/centos7-basic-set/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS7 基礎設定
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos-using-rsync/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS 使用rsync
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/reinstall-mac/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            重灌Mac
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos65-installation-of-mariadb/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 安裝MariaDB
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos65-install-nginx/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 安裝Nginx
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/laravel-delete-kit/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Laravel 刪除套件
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/android-program-flow/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Android 程式流程
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/two-git-a-computer-account-using-ssh-key/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            一台電腦兩個Git帳號使用SSH Key
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos65-install-phpmyadmin/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 安裝phpMyAdmin
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 安裝LNMP
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 防火牆設定iptables
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/08/centos65-network-card-settings/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS6.5 網卡基本設定
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/07/centos-crontab/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            CentOS crontab
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/07/laravel50-upgrade-51/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Laravel5.0 升級5.1
+          </a>
+        </h2>
+      </li>        
+    
+      <li>
+        <h2>
+          <a href="https://blog.loopbai.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/">
+            <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+              <use xlink:href="#bookmark"></use>
+            </svg>
+            Laravel5.0 關閉CRSF全局驗證
+          </a>
+        </h2>
+      </li>        
+    
+    </ul>
   </main>
 
           <footer role="contentinfo">
