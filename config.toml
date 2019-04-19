@@ -5,7 +5,7 @@ languageCode = "zh-tw"
 defaultContentLanguage = "zh"
 title = "LOOPBAI"
 theme = "cupper-hugo-theme"
-googleAnalytics = ""
+googleAnalytics = "UA-66438778-2"
 disqusShortname = ""
 enableGitInfo = false
 
