@@ -6,10 +6,30 @@
     <description>Recent content in Blog on 跑跑馬丁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 15 May 2017 07:46:01 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 May 2019 07:22:01 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.loopbai.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>關於 Docker volume create</title>
+      <link>https://blog.loopbai.com/post/2019/05/docker-volume-create/</link>
+      <pubDate>Fri, 10 May 2019 07:22:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2019/05/docker-volume-create/</guid>
+      <description>前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。
+原本我都是使用 -v 對應到我 host 機器的目錄
+ex :
+-v $(pwd)/nginx-cache:/var/cache/nginx
+後來很好奇 docker volume create 的用途還有存放路徑。
+於是就小小的研究了一下。
+docker volume create 一般的 Linux 在執行 docker volume create … 之後，
+可以在 /var/lib/docker/volumes 看到 docker 幫你建立 volume 名稱的資料夾。
+docker volume create In Mac 可是當你使用 Mac 執行過 docker volume create … 之後，
+並無法在 Mac 電腦中找到 /var/lib/docker/volumes 這個目錄。
+在 Mac 電腦 是無法直接訪問 /var/lib/docker/volumes 這個目錄，
+必須先 screen 到 docker 目錄下的 tty，</description>
+    </item>
     
     <item>
       <title>opensourcepos 安裝</title>
