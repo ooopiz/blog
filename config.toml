@@ -6,7 +6,7 @@ defaultContentLanguage = "en"                             # en / zh-cn / ... (Th
 title = "LoopBai's Blog"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
-enableEmoji = false
+enableEmoji = true
 theme = "even"
 enableGitInfo = false # use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。
 
