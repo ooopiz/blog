@@ -333,7 +333,7 @@ Alias /zabbix /usr/share/zabbix
 
 <p>agent 有主動模式和被動模式，這邊的設定檔為主動模式的。</p>
 
-<p><code>$ vi /etc/zabbix/zabbix_agent.conf</code></p>
+<p><code>$ vi /etc/zabbix/zabbix_agentd.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -365,7 +365,7 @@ Server=127.0.0.1
 StartAgents=0
 
 # zabbix server 主動模式時的 server ip 位置
-ServerActive=... 
+ServerActive=...
 
 # 重要：客戶端的hostname，不配置則使用主機名
 Hostname=test_host

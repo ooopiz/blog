@@ -119,7 +119,7 @@ agent 一樣要刷最上方的RPM
 ### 設定 (主動模式)
 agent 有主動模式和被動模式，這邊的設定檔為主動模式的。
   
-`$ vi /etc/zabbix/zabbix_agent.conf`
+`$ vi /etc/zabbix/zabbix_agentd.conf`
   
 ```
 # zabbix server 的 ip (如果設置為純主動模式，則應該注釋掉這一條指令)
@@ -129,7 +129,7 @@ Server=127.0.0.1
 StartAgents=0
 
 # zabbix server 主動模式時的 server ip 位置
-ServerActive=... 
+ServerActive=...
 
 # 重要：客戶端的hostname，不配置則使用主機名
 Hostname=test_host
