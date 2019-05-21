@@ -45,7 +45,6 @@ ex :
 - 使用 `ctrl` `a` + `d` detach screen，就用 screen -r 來重新連結 screen
 - 或者用 `ctrl` `a` + `k` 來結束這個 screen
 
----
-#### Reference.
+## Reference.
 - [Getting path and accessing persistent volumes in Docker for Mac](https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/)
 - [since if you simply attach screen again, the terminal text will be garbleda](https://stackoverflow.com/questions/38532483/where-is-var-lib-docker-on-mac-os-x/55312677#55312677)
