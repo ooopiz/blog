@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2016-10-17T15:46:01&#43;08:00" />
 <meta itemprop="dateModified" content="2016-10-17T15:46:01&#43;08:00" />
-<meta itemprop="wordCount" content="1579">
+<meta itemprop="wordCount" content="1573">
 
 
 
@@ -129,19 +129,14 @@
 <ul>
 <li>
 <ul>
-<li><a href="#bind-dlz-簡介">Bind-dlz 簡介</a>
-<ul>
-<li>
-<ul>
+<li><a href="#bind-dlz-簡介">Bind-dlz 簡介</a></li>
 <li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul></li>
 <li><a href="#bind-安裝-mysql篇">Bind 安裝 (MySQL篇)</a>
 <ul>
 <li><a href="#前置作業">前置作業</a></li>
 <li><a href="#開始安裝">開始安裝</a>
 <ul>
-<li><a href="#1-防火牆設定-開啟53port">1. 防火牆設定(開啟53port)</a></li>
+<li><a href="#1-防火牆設定-開啟-53-port">1. 防火牆設定(開啟 53 port)</a></li>
 <li><a href="#2-移除舊有的bind安裝">2. 移除舊有的bind安裝</a></li>
 <li><a href="#3-安装依賴套件">3. 安装依賴套件</a></li>
 <li><a href="#4-1-編譯with-mysql">4-1. 編譯with mysql</a></li>
@@ -152,7 +147,6 @@
 <li><a href="#5-編譯安裝">5. 編譯安裝</a></li>
 <li><a href="#6-設定">6. 設定</a></li>
 <li><a href="#7-創建named用戶與群組">7. 創建named用戶與群組</a></li>
-<li><a href="#給予目錄權限">給予目錄權限</a></li>
 <li><a href="#8-資料庫中建立schema-and-record">8. 資料庫中建立Schema and Record</a>
 <ul>
 <li><a href="#schema-example">Schema Example</a></li>
@@ -161,45 +155,20 @@
 <li><a href="#9-啟動">9. 啟動</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#其他指令參考">其他指令參考</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#檢查設定檔">檢查設定檔</a></li>
-<li><a href="#啟動">啟動</a></li>
-<li><a href="#啟動-使用named身份執行">啟動(使用named身份執行)</a></li>
-<li><a href="#啟動-前台執行-會輸出啟動訊息-debug可以使用">啟動(前台執行，會輸出啟動訊息，debug可以使用)</a></li>
-<li><a href="#啟動-指定設定檔">啟動(指定設定檔)</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
+<li><a href="#其他指令參考">其他指令參考</a></li>
 <li><a href="#疑難排解">疑難排解</a>
-<ul>
-<li>
-<ul>
-<li>
 <ul>
 <li><a href="#一-找不到mysql-h時">一、找不到mysql.h時</a></li>
 <li><a href="#二-如果抓不到-usr-lib-mysql">二、如果抓不到/usr/lib/mysql</a></li>
 <li><a href="#三-承二-但是也有可能無效-死都要抓-usr-lib-mysql-只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</a></li>
 </ul></li>
-</ul></li>
-</ul></li>
 <li><a href="#其他">其他</a>
-<ul>
-<li>
-<ul>
-<li>
 <ul>
 <li><a href="#生成rndc-key">生成rndc key</a></li>
 <li><a href="#更新named-ca">更新named.ca</a></li>
 <li><a href="#dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</a></li>
+</ul></li>
 <li><a href="#dns-security-reference">DNS security reference</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -219,7 +188,7 @@
 <li>DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效</li>
 </ol>
 
-<h4 id="reference">Reference</h4>
+<h2 id="reference">Reference</h2>
 
 <ul>
 <li><a href="http://www.coctec.com/docs/service/show-post-12776.html">智能DNS(Bind dlz)在企業中的應用</a></li>
@@ -227,7 +196,7 @@
 
 <h2 id="bind-安裝-mysql篇">Bind 安裝 (MySQL篇)</h2>
 
-<p><strong>bind9 默認不支援dlz需要在編譯時加上with(看你搭配什麼資料庫)</strong></p>
+<p>bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)</p>
 
 <ul>
 <li>&ndash;with-dlz-mysql</li>
@@ -236,18 +205,19 @@
 
 <h3 id="前置作業">前置作業</h3>
 
-<p><strong>到官網或FTP站下載安裝檔</strong></p>
+<p>一、到官網或FTP站下載安裝檔</p>
 
 <ul>
 <li><a href="https://www.isc.org/downloads/">Bind官網</a></li>
-<li><a href="http://ftp.isc.org/isc/bind9/">FTP站</a></li>
+<li><a href="http://ftp.isc.org/isc/bind9/">FTP站</a>
+<br /></li>
 </ul>
 
-<p><strong>安裝MySQL資料庫</strong></p>
+<p>二、安裝MySQL資料庫</p>
 
 <h3 id="開始安裝">開始安裝</h3>
 
-<h4 id="1-防火牆設定-開啟53port">1. 防火牆設定(開啟53port)</h4>
+<h4 id="1-防火牆設定-開啟-53-port">1. 防火牆設定(開啟 53 port)</h4>
 
 <p><code># iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT</code></p>
 
@@ -409,7 +379,7 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 
 <p><code># groupadd named</code></p>
 
-<p><strong>依據你的目錄建立用戶</strong></p>
+<p>依據你的目錄建立用戶</p>
 
 <p><code># adduser -d /var/named -g named -s /bin/false named</code></p>
 
@@ -441,7 +411,7 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 </tbody>
 </table>
 
-<h4 id="給予目錄權限">給予目錄權限</h4>
+<p>給予目錄權限</p>
 
 <p><code># chown -R named:named ./var</code></p>
 
@@ -551,33 +521,32 @@ VALUES
 
 <h2 id="其他指令參考">其他指令參考</h2>
 
-<h5 id="檢查設定檔">檢查設定檔</h5>
+<p>檢查設定檔</p>
 
 <p><code># sbin/named-checkconf etc/named.conf</code></p>
 
-<h5 id="啟動">啟動</h5>
+<p>啟動</p>
 
 <p><code># sbin/named</code></p>
 
-<h5 id="啟動-使用named身份執行">啟動(使用named身份執行)</h5>
+<p>啟動(使用named身份執行)</p>
 
 <p><code># sbin/named -u named</code></p>
 
-<h5 id="啟動-前台執行-會輸出啟動訊息-debug可以使用">啟動(前台執行，會輸出啟動訊息，debug可以使用)</h5>
+<p>啟動(前台執行，會輸出啟動訊息，debug可以使用)</p>
 
 <p><code># sbin/named -g</code></p>
 
-<h5 id="啟動-指定設定檔">啟動(指定設定檔)</h5>
-
-<p><code># /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf</code></p>
+<p>啟動(指定設定檔)
+<code># /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf</code></p>
 
 <h2 id="疑難排解">疑難排解</h2>
 
-<h5 id="一-找不到mysql-h時">一、找不到mysql.h時</h5>
+<h3 id="一-找不到mysql-h時">一、找不到mysql.h時</h3>
 
 <p><code># yum install mysql-devel</code></p>
 
-<h5 id="二-如果抓不到-usr-lib-mysql">二、如果抓不到/usr/lib/mysql</h5>
+<h3 id="二-如果抓不到-usr-lib-mysql">二、如果抓不到/usr/lib/mysql</h3>
 
 <p>編譯加上</p>
 <div class="highlight"><div class="chroma">
@@ -588,23 +557,23 @@ VALUES
 <pre class="chroma">--with-mysql-libraries=/usr/lib64/mysql/</pre></td></tr></table>
 </div>
 </div>
-<h5 id="三-承二-但是也有可能無效-死都要抓-usr-lib-mysql-只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</h5>
+<h3 id="三-承二-但是也有可能無效-死都要抓-usr-lib-mysql-只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</h3>
 
 <p><code># ln -s /usr/lib64/mysql/ /usr/lib/mysql</code></p>
 
 <h2 id="其他">其他</h2>
 
-<h5 id="生成rndc-key">生成rndc key</h5>
+<h3 id="生成rndc-key">生成rndc key</h3>
 
 <p><code># sbin/rndc-confgen -a -r /dev/urandom</code></p>
 
-<h5 id="更新named-ca">更新named.ca</h5>
+<h3 id="更新named-ca">更新named.ca</h3>
 
 <p>頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件</p>
 
 <p>最新資訊可以到<a href="ftp://rs.internic.net/domain">ftp://rs.internic.net/domain</a> 下載。</p>
 
-<h5 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</h5>
+<h3 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -625,7 +594,7 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 };</pre></td></tr></table>
 </div>
 </div>
-<h5 id="dns-security-reference">DNS security reference</h5>
+<h2 id="dns-security-reference">DNS security reference</h2>
 
 <ul>
 <li><a href="http://www.lijyyh.com/2012/07/dns-dns-server-security-management.html">DNS伺服器安全性管理實務</a></li>

@@ -53,7 +53,7 @@
       <pubDate>Tue, 21 Mar 2017 02:21:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2017/03/pem-to-ppk-putty-login/</guid>
-      <description>putty登入方式 putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe pem轉ppk 1.載入pem 2.如果看不到檔</description>
+      <description>putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe pem 轉 ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@
       <pubDate>Thu, 08 Dec 2016 13:22:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2016/12/gitlab-upgrade-7.14-to-8/</guid>
-      <description>上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙</description>
+      <description>簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@
       <pubDate>Fri, 04 Nov 2016 10:26:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</guid>
-      <description>利用adjtimex來修正linux時間偏差 前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此</description>
+      <description>前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差</description>
     </item>
     
     <item>

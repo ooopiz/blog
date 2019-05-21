@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="loopbai" /><meta name="description" content="上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="loopbai" /><meta name="description" content="簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,26 +39,26 @@
 
 
 <meta property="og:title" content="GitLab 7.14升級8.X" />
-<meta property="og:description" content="上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙" />
+<meta property="og:description" content="簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.loopbai.com/post/2016/12/gitlab-upgrade-7.14-to-8/" />
 <meta property="article:published_time" content="2016-12-08T13:22:01&#43;08:00"/>
 <meta property="article:modified_time" content="2016-12-08T13:22:01&#43;08:00"/>
 
 <meta itemprop="name" content="GitLab 7.14升級8.X">
-<meta itemprop="description" content="上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙">
+<meta itemprop="description" content="簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時">
 
 
 <meta itemprop="datePublished" content="2016-12-08T13:22:01&#43;08:00" />
 <meta itemprop="dateModified" content="2016-12-08T13:22:01&#43;08:00" />
-<meta itemprop="wordCount" content="924">
+<meta itemprop="wordCount" content="960">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitLab 7.14升級8.X"/>
-<meta name="twitter:description" content="上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙"/>
+<meta name="twitter:description" content="簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,33 +129,27 @@
 <ul>
 <li>
 <ul>
-<li><a href="#舊機器7-14-3">舊機器7.14.3</a>
+<li><a href="#簡介">簡介</a></li>
+<li><a href="#流程">流程</a>
 <ul>
-<li>
+<li><a href="#舊機器-7-14-3-備份">舊機器 7.14.3 備份</a>
 <ul>
 <li><a href="#1-備份backup檔">1. 備份backup檔</a></li>
 </ul></li>
+<li><a href="#新機器版本-7-14-3">新機器版本 7.14.3</a>
+<ul>
+<li><a href="#1-安裝">1.安裝</a></li>
+<li><a href="#2-匯入backup檔">2. 匯入backup檔</a></li>
+<li><a href="#3-開始前先停止相關數據服務連線">3.開始前先停止相關數據服務連線</a></li>
+<li><a href="#4-從1393513186編號備份中復原-看你的檔案編號是啥鬼">4.從1393513186編號備份中復原(看你的檔案編號是啥鬼)</a></li>
+<li><a href="#5-啟動gitlab">5.啟動Gitlab</a></li>
+<li><a href="#6-執行檢查">6.執行檢查</a></li>
+<li><a href="#7-版本升級">7.版本升級</a></li>
+<li><a href="#8-匯出新版本-8-14-4-backup檔">8.匯出新版本(8.14.4)backup檔</a></li>
 </ul></li>
-<li><a href="#新機器7-14-3">新機器7.14.3</a>
-<ul>
-<li>
-<ul>
-<li><a href="#1-匯入backup檔">1. 匯入backup檔</a></li>
-<li><a href="#2-開始前先停止相關數據服務連線">2.開始前先停止相關數據服務連線</a></li>
-<li><a href="#3-從1393513186編號備份中復原-看你的檔案編號是啥鬼">3.從1393513186編號備份中復原(看你的檔案編號是啥鬼)</a></li>
-<li><a href="#4-啟動gitlab">4.啟動Gitlab</a></li>
-<li><a href="#5-執行檢查">5.執行檢查</a></li>
-<li><a href="#6-版本升級">6.版本升級</a></li>
-<li><a href="#7-匯出新版本-8-14-4-backup檔">7.匯出新版本(8.14.4)backup檔</a></li>
+<li><a href="#新機器8-14-4">新機器8.14.4</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#新機器8-14-4">新機器8.14.4</a>
-<ul>
-<li>
-<ul>
 <li><a href="#注意事項">注意事項</a></li>
-</ul></li>
-</ul></li>
 <li><a href="#完成">完成</a></li>
 </ul></li>
 </ul>
@@ -164,6 +158,8 @@
 </div>
     <div class="post-content">
       
+
+<h2 id="簡介">簡介</h2>
 
 <p>上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下
 recovery，以免意外發生時手忙腳亂．</p>
@@ -183,7 +179,9 @@ recovery，以免意外發生時手忙腳亂．</p>
 然後因為個人有點龜毛，再用升級好機器備份出8.14.4版的備份檔，
 來到全新的新版機器(8.14.4)再進行匯入</p>
 
-<h2 id="舊機器7-14-3">舊機器7.14.3</h2>
+<h2 id="流程">流程</h2>
+
+<h3 id="舊機器-7-14-3-備份">舊機器 7.14.3 備份</h3>
 
 <h4 id="1-備份backup檔">1. 備份backup檔</h4>
 
@@ -191,7 +189,11 @@ recovery，以免意外發生時手忙腳亂．</p>
 
 <p><code># gitlab-rake gitlab:backup:create</code></p>
 
-<h2 id="新機器7-14-3">新機器7.14.3</h2>
+<h3 id="新機器版本-7-14-3">新機器版本 7.14.3</h3>
+
+<p>這台機器要先裝好 7.14.3，匯入備份檔，再用 yum 更新到 8.14.4。</p>
+
+<h4 id="1-安裝">1.安裝</h4>
 
 <p>我自己都用Omnibus
 所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧</p>
@@ -200,41 +202,45 @@ recovery，以免意外發生時手忙腳亂．</p>
 
 <p>其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]</p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M12-A01-02.jpg"></p>
+<p><img desc="" src="https:////fblog.loopbai.com/images/201609/M12-A01-02.jpg"></p>
 
 <p><code># sudo /opt/gitlab/embedded/bin/runsvdir-start &amp;</code></p>
 
 <p><code># sudo gitlab-ctl reconfigure</code></p>
 
-<p>ref: <a href="https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430">Freeze on ruby_block[supervise_redis_sleep] action run</a></p>
+<p>Ref:</p>
 
-<h4 id="1-匯入backup檔">1. 匯入backup檔</h4>
+<ul>
+<li><a href="https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430">Freeze on ruby_block[supervise_redis_sleep] action run</a></li>
+</ul>
+
+<h4 id="2-匯入backup檔">2. 匯入backup檔</h4>
 
 <p>我將backup檔copy到新伺服器的備份目錄下，執行recovery時，程序會自動將檔案recovery回去</p>
 
 <p>mv to <code>/var/opt/gitlab/backups/</code></p>
 
-<h4 id="2-開始前先停止相關數據服務連線">2.開始前先停止相關數據服務連線</h4>
+<h4 id="3-開始前先停止相關數據服務連線">3.開始前先停止相關數據服務連線</h4>
 
 <p><code># gitlab-ctl stop unicorn</code></p>
 
 <p><code># gitlab-ctl stop sidekiq</code></p>
 
-<h4 id="3-從1393513186編號備份中復原-看你的檔案編號是啥鬼">3.從1393513186編號備份中復原(看你的檔案編號是啥鬼)</h4>
+<h4 id="4-從1393513186編號備份中復原-看你的檔案編號是啥鬼">4.從1393513186編號備份中復原(看你的檔案編號是啥鬼)</h4>
 
 <p><code># gitlab-rake gitlab:backup:restore BACKUP=1393513186</code></p>
 
-<h4 id="4-啟動gitlab">4.啟動Gitlab</h4>
+<h4 id="5-啟動gitlab">5.啟動Gitlab</h4>
 
 <p><code># gitlab-ctl start</code></p>
 
-<h4 id="5-執行檢查">5.執行檢查</h4>
+<h4 id="6-執行檢查">6.執行檢查</h4>
 
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
 
 <p>檢查時有出現一些問題</p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M12-A01-01.jpg"></p>
+<p><img desc="" src="https://fblog.loopbai.com/images/201609/M12-A01-01.jpg"></p>
 
 <p>解</p>
 
@@ -244,7 +250,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
 
-<h4 id="6-版本升級">6.版本升級</h4>
+<h4 id="7-版本升級">7.版本升級</h4>
 
 <p>這邊是我的操作流程，有試過直接yum install gitlab-ce會有一點問題，
 所以我前面加了一步gitlab-ctl upgrade很像就比較正常了</p>
@@ -257,11 +263,11 @@ recovery，以免意外發生時手忙腳亂．</p>
 
 <p><code># gitlab-ctl restart</code></p>
 
-<h4 id="7-匯出新版本-8-14-4-backup檔">7.匯出新版本(8.14.4)backup檔</h4>
+<h4 id="8-匯出新版本-8-14-4-backup檔">8.匯出新版本(8.14.4)backup檔</h4>
 
 <p><code># gitlab-rake gitlab:backup:create</code></p>
 
-<h2 id="新機器8-14-4">新機器8.14.4</h2>
+<h3 id="新機器8-14-4">新機器8.14.4</h3>
 
 <p><code># gitlab-ctl stop unicorn</code></p>
 
@@ -273,7 +279,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
 
-<h4 id="注意事項">注意事項</h4>
+<h2 id="注意事項">注意事項</h2>
 
 <p>為了避免更換伺服器與重新匯入備份檔時known_host失效</p>
 
@@ -286,7 +292,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 
 <h2 id="完成">完成</h2>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M12-A01-04.jpg"></p>
+<p><img desc="" src="https://fblog.loopbai.com/images/201609/M12-A01-04.jpg"></p>
 
     </div>
 

@@ -6,28 +6,29 @@ draft: false
 ## 安裝
 
 `# sudo yum install bind bind-utils -y`
-
+  
 `# service named start`
-
+  
 `# chkconfig named on`
 
 
-#### 防火牆設定
+### 防火牆設定
 
 `# iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT `
-
+  
 `# iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT`
-
+  
 `# service iptables save`
-
+  
 `# service iptables restart`
 
 
-## 設定
+### 設定
 
-### 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)
-###### 以下為yum安裝後產生的預設named.conf設定檔
+#### 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)
 
+以下為yum安裝後產生的預設named.conf設定檔
+  
 ```
 options {
         listen-on port 53 { 127.0.0.1; };
@@ -64,11 +65,11 @@ include "/etc/named.rfc1912.zones";
 include "/etc/named.root.key";
 ```
 
-### 修改設定
-###### 修改options設定，允許查詢來源
-
+#### 修改設定
+修改options設定，允許查詢來源
+  
 `# vi /etc/named.conf`
-
+  
 ```
 options {
         //(其他參數略...)
@@ -79,10 +80,10 @@ options {
 };
 ```
 
-### 新增正解設定檔
+#### 新增正解設定檔
 
 `# vi /etc/named.conf`
-
+  
 ```
 zone  "example.com" {
         type master;
@@ -90,10 +91,10 @@ zone  "example.com" {
 };
 ```
 
-###### named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案
+#### named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案
 
 `# vi /var/named/forward.example.com.zone`
-
+  
 ```
 ; zone file for example.tld
 $TTL 1200     ; 14400 4 hours - default TTL for zone
@@ -119,7 +120,7 @@ ftp           IN      A       192.168.0.3
 
 ### 指令
 
-##### 檢查設定檔(可以用以下指令來檢查設定是否正確)
+#### 檢查設定檔(可以用以下指令來檢查設定是否正確)
 
 `# named-checkconf /etc/named.conf`
 
@@ -128,16 +129,16 @@ ftp           IN      A       192.168.0.3
 ### 方法一
 
 `# nslookup -debug -class=chaos -query=txt version.bind <NameServer IP>`
-
-<img desc="" src="//fblog.loopbai.com/images/201609/A02-02.jpg">
+  
+<img desc="" src="https://fblog.loopbai.com/images/201609/A02-02.jpg">
 
 ### 方法二
 
 `# dig @<NameServer IP> version.bind chaos txt`
+  
+<img desc="" src="https://fblog.loopbai.com/images/201609/A02-01.jpg">
 
-<img desc="" src="//fblog.loopbai.com/images/201609/A02-01.jpg">
-
-##### 隱藏版本資訊
+## 隱藏版本資訊
 
 ```
 options {

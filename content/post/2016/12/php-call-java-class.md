@@ -3,24 +3,23 @@ layout: post
 title: 'php call java 類別'
 date: 2016-12-21T03:23:01+08:00
 draft: false
-
 ---
 [php-java-bridge 介紹](http://php-java-bridge.sourceforge.net/pjb/)
-
+  
 [php-java-bridge 載點](https://sourceforge.net/projects/php-java-bridge/)
 
->Files > Binary package > JavaBridgeTemplate621.war
+> Files > Binary package > JavaBridgeTemplate621.war
 
 我下載到的版本是JavaBridgeTemplate621.war
 
 ## 寫一個jar來做測試
-
+  
 `# mkdir TestMath`
-
+  
 `# cd TestMath`
-
+  
 `# vi TestMath.java`
-
+  
 ```
 public class TestMath {
 
@@ -55,29 +54,29 @@ public class TestMath {
 
 }
 ```
-
+  
 `# javac TestMath.java`
-
+  
 `# touch MANIFEST.MF`
-
+  
 `# jar -cvfm TestMath.jar MANIFEST.MF ./`
-
+  
 ## 佈建php/java bridge
-
+  
 jar放置到tomcat/lib中
-
+  
 `# mv TestMath.jar tomcat/lib/`
-
+  
 將上面下載下來的war丟掉tomcat/webapps目錄中
-
+  
 啟動tomcat即完成
-
+  
 ## 寫一個php測試
-
+  
 require的網址必須對應你丟入的war包名稱
-
+  
 `# vi phpCallJava.php`
-
+  
 ```
 <?php
 
@@ -94,11 +93,10 @@ echo $value;
 
 ?>
 ```
-
+  
 `# php -n -dallow_url_include=On phpCallJava.php`
-
+  
 ## 其他
-
 實際放在外部機器的話必須打開防火牆
-
-Port: 8080 & 9267
+- tcp 8080
+- tcp 9267

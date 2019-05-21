@@ -131,62 +131,25 @@
 <ul>
 <li><a href="#安裝">安裝</a>
 <ul>
-<li>
-<ul>
 <li><a href="#防火牆設定">防火牆設定</a></li>
-</ul></li>
-</ul></li>
 <li><a href="#設定">設定</a>
 <ul>
-<li><a href="#預設nemed-conf檔-bind-9-8-2rc1-redhat-9-8-2-0-47-rc1-el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#以下為yum安裝後產生的預設named-conf設定檔">以下為yum安裝後產生的預設named.conf設定檔</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#修改設定">修改設定</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#修改options設定-允許查詢來源">修改options設定，允許查詢來源</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#新增正解設定檔">新增正解設定檔</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
+<li><a href="#預設nemed-conf檔-bind-9-8-2rc1-redhat-9-8-2-0-47-rc1-el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</a></li>
+<li><a href="#修改設定">修改設定</a></li>
+<li><a href="#新增正解設定檔">新增正解設定檔</a></li>
 <li><a href="#named-conf中指example-com的域名zone檔-因此必須在預設根目錄-var-named-的路徑新增一個檔案">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案</a></li>
-</ul></li>
-</ul></li>
 </ul></li>
 <li><a href="#指令">指令</a>
 <ul>
-<li>
-<ul>
 <li><a href="#檢查設定檔-可以用以下指令來檢查設定是否正確">檢查設定檔(可以用以下指令來檢查設定是否正確)</a></li>
-</ul></li>
 </ul></li>
 </ul></li>
 <li><a href="#查bind版本">查bind版本</a>
 <ul>
 <li><a href="#方法一">方法一</a></li>
-<li><a href="#方法二">方法二</a>
-<ul>
-<li>
-<ul>
+<li><a href="#方法二">方法二</a></li>
+</ul></li>
 <li><a href="#隱藏版本資訊">隱藏版本資訊</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -203,7 +166,7 @@
 
 <p><code># chkconfig named on</code></p>
 
-<h4 id="防火牆設定">防火牆設定</h4>
+<h3 id="防火牆設定">防火牆設定</h3>
 
 <p><code># iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT</code></p>
 
@@ -213,11 +176,11 @@
 
 <p><code># service iptables restart</code></p>
 
-<h2 id="設定">設定</h2>
+<h3 id="設定">設定</h3>
 
-<h3 id="預設nemed-conf檔-bind-9-8-2rc1-redhat-9-8-2-0-47-rc1-el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</h3>
+<h4 id="預設nemed-conf檔-bind-9-8-2rc1-redhat-9-8-2-0-47-rc1-el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</h4>
 
-<h6 id="以下為yum安裝後產生的預設named-conf設定檔">以下為yum安裝後產生的預設named.conf設定檔</h6>
+<p>以下為yum安裝後產生的預設named.conf設定檔</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -290,9 +253,9 @@ include &#34;/etc/named.rfc1912.zones&#34;;
 include &#34;/etc/named.root.key&#34;;</pre></td></tr></table>
 </div>
 </div>
-<h3 id="修改設定">修改設定</h3>
+<h4 id="修改設定">修改設定</h4>
 
-<h6 id="修改options設定-允許查詢來源">修改options設定，允許查詢來源</h6>
+<p>修改options設定，允許查詢來源</p>
 
 <p><code># vi /etc/named.conf</code></p>
 <div class="highlight"><div class="chroma">
@@ -315,7 +278,7 @@ include &#34;/etc/named.root.key&#34;;</pre></td></tr></table>
 };</pre></td></tr></table>
 </div>
 </div>
-<h3 id="新增正解設定檔">新增正解設定檔</h3>
+<h4 id="新增正解設定檔">新增正解設定檔</h4>
 
 <p><code># vi /etc/named.conf</code></p>
 <div class="highlight"><div class="chroma">
@@ -332,7 +295,7 @@ include &#34;/etc/named.root.key&#34;;</pre></td></tr></table>
 };</pre></td></tr></table>
 </div>
 </div>
-<h6 id="named-conf中指example-com的域名zone檔-因此必須在預設根目錄-var-named-的路徑新增一個檔案">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案</h6>
+<h4 id="named-conf中指example-com的域名zone檔-因此必須在預設根目錄-var-named-的路徑新增一個檔案">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案</h4>
 
 <p><code># vi /var/named/forward.example.com.zone</code></p>
 <div class="highlight"><div class="chroma">
@@ -383,7 +346,7 @@ ftp           IN      A       192.168.0.3</pre></td></tr></table>
 </div>
 <h3 id="指令">指令</h3>
 
-<h5 id="檢查設定檔-可以用以下指令來檢查設定是否正確">檢查設定檔(可以用以下指令來檢查設定是否正確)</h5>
+<h4 id="檢查設定檔-可以用以下指令來檢查設定是否正確">檢查設定檔(可以用以下指令來檢查設定是否正確)</h4>
 
 <p><code># named-checkconf /etc/named.conf</code></p>
 
@@ -393,15 +356,15 @@ ftp           IN      A       192.168.0.3</pre></td></tr></table>
 
 <p><code># nslookup -debug -class=chaos -query=txt version.bind &lt;NameServer IP&gt;</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/A02-02.jpg"></p>
+<p><img desc="" src="https://fblog.loopbai.com/images/201609/A02-02.jpg"></p>
 
 <h3 id="方法二">方法二</h3>
 
 <p><code># dig @&lt;NameServer IP&gt; version.bind chaos txt</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/A02-01.jpg"></p>
+<p><img desc="" src="https://fblog.loopbai.com/images/201609/A02-01.jpg"></p>
 
-<h5 id="隱藏版本資訊">隱藏版本資訊</h5>
+<h2 id="隱藏版本資訊">隱藏版本資訊</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
