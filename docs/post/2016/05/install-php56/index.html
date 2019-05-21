@@ -129,8 +129,6 @@
 <ul>
 <li>
 <ul>
-<li>
-<ul>
 <li><a href="#一-更新rpm">一、更新rpm</a>
 <ul>
 <li><a href="#remi源-最新的php版本需要修改remi-repo中的enabled-0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</a></li>
@@ -148,7 +146,6 @@
 <li><a href="#三-設定nginx">三、設定Nginx</a></li>
 <li><a href="#四-啟動服務">四、啟動服務</a></li>
 </ul></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -156,9 +153,9 @@
     <div class="post-content">
       
 
-<h3 id="一-更新rpm">一、更新rpm</h3>
+<h2 id="一-更新rpm">一、更新rpm</h2>
 
-<h4 id="remi源-最新的php版本需要修改remi-repo中的enabled-0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</h4>
+<h3 id="remi源-最新的php版本需要修改remi-repo中的enabled-0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</h3>
 
 <p><code># vi /etc/yum.repos.d/remi.repo</code></p>
 <div class="highlight"><div class="chroma">
@@ -173,11 +170,11 @@
 <pre class="chroma">CentOS 6
 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
 
- CentOS 7
+CentOS 7
 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm`</pre></td></tr></table>
 </div>
 </div>
-<h3 id="二-安裝php">二、安裝PHP</h3>
+<h2 id="二-安裝php">二、安裝PHP</h2>
 
 <blockquote>
 <p>想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
@@ -190,17 +187,17 @@
 <p><code># vi /etc/yum.repos.d/remi.repo</code>
 <img src="//fblog.loopbai.com/images/201508/002.png"></p>
 
-<h4 id="安裝-php">安裝 PHP</h4>
+<h3 id="安裝-php">安裝 PHP</h3>
 
 <p><code># yum install php</code></p>
 
-<h4 id="安裝其他php-lib">安裝其他PHP Lib</h4>
+<h3 id="安裝其他php-lib">安裝其他PHP Lib</h3>
 
 <p><code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
 
-<h4 id="設定php-php-fpm">設定php, php-fpm</h4>
+<h3 id="設定php-php-fpm">設定php, php-fpm</h3>
 
-<h4 id="設定php">設定php</h4>
+<h3 id="設定php">設定php</h3>
 
 <blockquote>
 <p>設定內容如下(/etc/php.ini)：</p>
@@ -225,14 +222,14 @@ display_errors = On
 magic_quotes_gpc = Off</pre></td></tr></table>
 </div>
 </div>
-<h4 id="設定php-session檔的權限">設定php session檔的權限</h4>
+<h3 id="設定php-session檔的權限">設定php session檔的權限</h3>
 
 <p><code># mkdir /var/lib/php/session</code>
 <code># chown -R nginx:nginx /var/lib/php/session</code></p>
 
 <p><img src="//fblog.loopbai.com/images/201508/003.png"></p>
 
-<h4 id="設定php-fpm">設定php-fpm</h4>
+<h3 id="設定php-fpm">設定php-fpm</h3>
 
 <blockquote>
 <p>預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
@@ -267,11 +264,11 @@ php_admin_value[error_log] = /var/log/php-fpm/www-error.log
 php_admin_flag[log_errors] = on</pre></td></tr></table>
 </div>
 </div>
-<h4 id="設定-log-檔的權限">設定 Log 檔的權限</h4>
+<h3 id="設定-log-檔的權限">設定 Log 檔的權限</h3>
 
 <p><code># chown -R nginx:nginx /var/log/php-fpm</code></p>
 
-<h3 id="三-設定nginx">三、設定Nginx</h3>
+<h2 id="三-設定nginx">三、設定Nginx</h2>
 
 <blockquote>
 <p>加入一個 index.php</p>
@@ -318,7 +315,7 @@ include        fastcgi_params;
 </div>
 <p><img src="//fblog.loopbai.com/images/201508/005.png"></p>
 
-<h3 id="四-啟動服務">四、啟動服務</h3>
+<h2 id="四-啟動服務">四、啟動服務</h2>
 
 <p><code># service php-fpm start</code>
 <code># chkconfig --levels 235 php-fpm on</code></p>

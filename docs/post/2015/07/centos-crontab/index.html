@@ -127,8 +127,11 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
+<li>
+<ul>
 <li><a href="#example">Example</a></li>
 <li><a href="#instruction">Instruction</a></li>
+</ul></li>
 </ul>
 </nav>
   </div>
@@ -136,7 +139,7 @@
     <div class="post-content">
       
 
-<h1 id="example">Example</h1>
+<h2 id="example">Example</h2>
 
 <p>輸入 <code>crontab -e</code> 進入排程編輯</p>
 <div class="highlight"><div class="chroma">
@@ -161,7 +164,7 @@
 # *  *  *  *  * user-name command to be executed</pre></td></tr></table>
 </div>
 </div>
-<h1 id="instruction">Instruction</h1>
+<h2 id="instruction">Instruction</h2>
 
 <table>
   <tr>
@@ -192,8 +195,7 @@
         很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！</td>
   </tr>
 </table>
-
-<hr />
+  
 
 <p><strong>crontab 產生的訊息會存放在<code>/var/spool/mail/root</code></strong></p>
 

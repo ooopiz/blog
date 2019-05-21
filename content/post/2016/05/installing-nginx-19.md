@@ -20,4 +20,5 @@ enabled=1
 
 ### 啟動服務
 `# service nginx start`
+  
 `# chkconfig --levels 235 nginx on`

@@ -129,8 +129,6 @@
 <ul>
 <li>
 <ul>
-<li>
-<ul>
 <li><a href="#1-增加啟動參數">1.增加啟動參數</a></li>
 <li><a href="#2-增加tomcat-service">2.增加tomcat.service</a>
 <ul>
@@ -143,7 +141,6 @@
 <li><a href="#刪除開機自動啟動">刪除開機自動啟動</a></li>
 </ul></li>
 </ul></li>
-</ul></li>
 </ul>
 </nav>
   </div>
@@ -151,7 +148,7 @@
     <div class="post-content">
       
 
-<h3 id="1-增加啟動參數">1.增加啟動參數</h3>
+<h2 id="1-增加啟動參數">1.增加啟動參數</h2>
 
 <p>在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存</p>
 
@@ -170,7 +167,7 @@ CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34;
 JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34;</pre></td></tr></table>
 </div>
 </div>
-<h3 id="2-增加tomcat-service">2.增加tomcat.service</h3>
+<h2 id="2-增加tomcat-service">2.增加tomcat.service</h2>
 
 <p>在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。
 <code># vi /usr/lib/systemd/system/tomcat7.service</code></p>
@@ -216,31 +213,31 @@ WantedBy=multi-user.target </pre></td></tr></table>
 
 <hr />
 
-<h4 id="查看全部服務">查看全部服務：</h4>
+<h3 id="查看全部服務">查看全部服務：</h3>
 
 <p>systemctl list-unit-files &ndash;type service</p>
 
-<h4 id="查看服務">查看服務</h4>
+<h3 id="查看服務">查看服務</h3>
 
 <p>systemctl status name.service</p>
 
-<h4 id="啟動服務">啟動服務</h4>
+<h3 id="啟動服務">啟動服務</h3>
 
 <p>systemctl start name.service</p>
 
-<h4 id="停止服務">停止服務</h4>
+<h3 id="停止服務">停止服務</h3>
 
 <p>systemctl stop name.service</p>
 
-<h4 id="重啟服務">重啟服務</h4>
+<h3 id="重啟服務">重啟服務</h3>
 
 <p>systemctl restart name.service</p>
 
-<h4 id="增加開機自動啟動">增加開機自動啟動</h4>
+<h3 id="增加開機自動啟動">增加開機自動啟動</h3>
 
 <p>systemctl enable name.service</p>
 
-<h4 id="刪除開機自動啟動">刪除開機自動啟動</h4>
+<h3 id="刪除開機自動啟動">刪除開機自動啟動</h3>
 
 <p>systemctl disable name.service</p>
 

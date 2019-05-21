@@ -5,7 +5,8 @@ draft: false
 ---
 <p style="color:red">有沒有var差很大啊，要注意</p>
 
-## Output is "7"
+Output is "7"
+  
 ```
 $(document).ready(function () {
     x = 6;
@@ -18,8 +19,8 @@ $(document).ready(function () {
 });
 ```
 
-
-## x is not defined
+x is not defined
+  
 ```
 $(document).ready(function () {
     var x = 6;

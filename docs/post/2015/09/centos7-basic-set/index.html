@@ -129,8 +129,6 @@
 <ul>
 <li>
 <ul>
-<li>
-<ul>
 <li><a href="#一-啟用網卡-停用networkmanger">一、啟用網卡，停用NetworkManger</a></li>
 <li><a href="#二-關閉selinux">二、關閉SELinux</a></li>
 <li><a href="#三-關閉usedns">三、關閉UseDNS</a></li>
@@ -140,7 +138,6 @@
 <li><a href="#七-同步時間">七、同步時間</a></li>
 <li><a href="#八-停用firewalld-改用iptabless">八、停用firewalld，改用iptabless</a></li>
 <li><a href="#九-更新一下">九、更新一下</a></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -163,7 +160,7 @@
 
 <hr />
 
-<h3 id="一-啟用網卡-停用networkmanger">一、啟用網卡，停用NetworkManger</h3>
+<h2 id="一-啟用網卡-停用networkmanger">一、啟用網卡，停用NetworkManger</h2>
 
 <p>先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)</p>
 
@@ -183,7 +180,7 @@
 
 <p><img desc="" src="//fblog.loopbai.com/images/201509/A01-02.png"></p>
 
-<h3 id="二-關閉selinux">二、關閉SELinux</h3>
+<h2 id="二-關閉selinux">二、關閉SELinux</h2>
 
 <p><code>#vi /etc/selinux/config</code></p>
 
@@ -191,7 +188,7 @@
 
 <p><strong>這個設定reboot後才會生效</strong></p>
 
-<h3 id="三-關閉usedns">三、關閉UseDNS</h3>
+<h2 id="三-關閉usedns">三、關閉UseDNS</h2>
 
 <p>登入SSH需要等很久的話，可以從這個設定獲得改善</p>
 
@@ -199,13 +196,13 @@
 
 <p><code># systemctl restart sshd</code></p>
 
-<h3 id="四-調整時區">四、調整時區</h3>
+<h2 id="四-調整時區">四、調整時區</h2>
 
 <p><code># rm /etc/localtime</code></p>
 
 <p><code># ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p>
 
-<h3 id="五-調整語系">五、調整語系</h3>
+<h2 id="五-調整語系">五、調整語系</h2>
 
 <p>檢查系統目前使用的語系</p>
 
@@ -223,7 +220,7 @@
 
 <p><code># localectl set-locale LANG=zh_TW.utf8</code></p>
 
-<h3 id="六-修改hostname">六、修改Hostname</h3>
+<h2 id="六-修改hostname">六、修改Hostname</h2>
 
 <p><strong>查看主機 hostname</strong></p>
 
@@ -233,7 +230,7 @@
 
 <p><code># hostnamectl set-hostname new_hostname</code></p>
 
-<h3 id="七-同步時間">七、同步時間</h3>
+<h2 id="七-同步時間">七、同步時間</h2>
 
 <p>安裝的packages</p>
 
@@ -257,7 +254,7 @@
 
 <p><img desc="" src="//fblog.loopbai.com/images/201509/A01-06.png"></p>
 
-<h3 id="八-停用firewalld-改用iptabless">八、停用firewalld，改用iptabless</h3>
+<h2 id="八-停用firewalld-改用iptabless">八、停用firewalld，改用iptabless</h2>
 
 <p><code># systemctl stop firewalld</code></p>
 
@@ -275,7 +272,7 @@
 
 <p><code># systemctl enable iptables</code></p>
 
-<h3 id="九-更新一下">九、更新一下</h3>
+<h2 id="九-更新一下">九、更新一下</h2>
 
 <p>送他一個</p>
 

@@ -143,7 +143,7 @@
       <pubDate>Fri, 29 Jul 2016 01:16:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2016/07/ab-pressure-test/</guid>
-      <description>2016/07/27 使用ab壓測 覺得ab壓出的不是很準，但還是紀錄一下 環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服</description>
+      <description>環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000</description>
     </item>
     
     <item>

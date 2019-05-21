@@ -3,7 +3,7 @@ title: 'CentOS crontab'
 date: 2015-07-27T01:35:01+08:00
 draft: false
 ---
-# Example #
+## Example
 
 輸入 `crontab -e` 進入排程編輯
 ```
@@ -17,7 +17,7 @@ draft: false
 # *  *  *  *  * user-name command to be executed
 ```
 
-# Instruction #
+## Instruction
 <table>
   <tr>
     <th>特殊字符</th>
@@ -47,6 +47,5 @@ draft: false
         很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！</td>
   </tr>
 </table>
-
-***
+  
 **crontab 產生的訊息會存放在`/var/spool/mail/root`**

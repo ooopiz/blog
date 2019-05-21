@@ -15,7 +15,7 @@ draft: false
 
 ---
 
-### 一、啟用網卡，停用NetworkManger
+## 一、啟用網卡，停用NetworkManger
 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
 
 `# cd /etc/sysconfig/network-scripts`
@@ -32,26 +32,26 @@ draft: false
 
 <img desc="" src="//fblog.loopbai.com/images/201509/A01-02.png">
 
-### 二、關閉SELinux
+## 二、關閉SELinux
 `#vi /etc/selinux/config`
 
 <img desc="" src="//fblog.loopbai.com/images/201509/A01-03.png">
 
 **這個設定reboot後才會生效**
 
-### 三、關閉UseDNS
+## 三、關閉UseDNS
 登入SSH需要等很久的話，可以從這個設定獲得改善
 
 `# vi /etc/ssh/sshd_config` 將 UseDNS yes 改成 no
 
 `# systemctl restart sshd`
 
-### 四、調整時區
+## 四、調整時區
 `# rm /etc/localtime`
 
 `# ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime`
 
-### 五、調整語系
+## 五、調整語系
 檢查系統目前使用的語系
 
 `# localectl`
@@ -68,7 +68,7 @@ draft: false
 
 `# localectl set-locale LANG=zh_TW.utf8`
 
-### 六、修改Hostname
+## 六、修改Hostname
 **查看主機 hostname**
 
 `# hostnamectl`
@@ -77,7 +77,7 @@ draft: false
 
 `# hostnamectl set-hostname new_hostname`
 
-### 七、同步時間
+## 七、同步時間
 安裝的packages
 
 `# yum install ntp ntpdate ntp-doc`
@@ -100,7 +100,7 @@ draft: false
 
 <img desc="" src="//fblog.loopbai.com/images/201509/A01-06.png">
 
-### 八、停用firewalld，改用iptabless
+## 八、停用firewalld，改用iptabless
 `# systemctl stop firewalld`
 
 `# systemctl disable firewalld`
@@ -117,7 +117,7 @@ draft: false
 
 `# systemctl enable iptables`
 
-### 九、更新一下
+## 九、更新一下
 送他一個
 
 `# yum update -y`
