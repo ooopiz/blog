@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.loopbai.com/" />
 
-<meta property="og:updated_time" content="2019-05-17T08:02:00&#43;08:00"/>
+<meta property="og:updated_time" content="2019-05-23T23:27:58&#43;08:00"/>
 
 <meta itemprop="name" content="LoopBai&#39;s Blog">
 <meta itemprop="description" content="Hugo theme even example site.">
@@ -109,6 +109,25 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/10/centos-yum-install-bind9/">CentOS yum 安裝bind9</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> Tue, 04 Oct 2016 02:09:01 &#43;0800 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      安裝 # sudo yum install bind bind-utils -y # service named start # chkconfig named on 防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT # service iptables save # service iptables restart 設定 預設ne
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/10/centos-yum-install-bind9/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/">HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式</a></h1>
@@ -276,25 +295,6 @@
     </div>
     <div class="read-more">
       <a href="/post/2016/05/installing-nginx-19/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2016/05/install-php56/">安裝 PHP5.6</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 05 May 2016 02:38:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、
-    </div>
-    <div class="read-more">
-      <a href="/post/2016/05/install-php56/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
