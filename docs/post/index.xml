@@ -17,7 +17,7 @@
       <pubDate>Thu, 23 May 2019 23:27:58 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/post/2019/05/fswatch-save-my-times/</guid>
-      <description>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的</description>
+      <description>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找</description>
     </item>
     
     <item>

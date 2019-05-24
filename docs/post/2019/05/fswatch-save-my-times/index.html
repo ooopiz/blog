@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="loopbai" /><meta name="description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="loopbai" /><meta name="description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,26 +39,26 @@
 
 
 <meta property="og:title" content="Fswatch Save My Times" />
-<meta property="og:description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的" />
+<meta property="og:description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.loopbai.com/post/2019/05/fswatch-save-my-times/" />
 <meta property="article:published_time" content="2019-05-23T23:27:58&#43;08:00"/>
 <meta property="article:modified_time" content="2019-05-23T23:27:58&#43;08:00"/>
 
 <meta itemprop="name" content="Fswatch Save My Times">
-<meta itemprop="description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的">
+<meta itemprop="description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找">
 
 
 <meta itemprop="datePublished" content="2019-05-23T23:27:58&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-23T23:27:58&#43;08:00" />
-<meta itemprop="wordCount" content="225">
+<meta itemprop="wordCount" content="214">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fswatch Save My Times"/>
-<meta name="twitter:description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的"/>
+<meta name="twitter:description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,11 +133,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#fswatch-可以用來-檢測資料夾與文件的變更">Fswatch 可以用來檢測資料夾與文件的變更</a></li>
-<li><a href="#安裝">安裝</a></li>
+<li><a href="#fswatch-可以用來檢測資料夾與文件的變更">Fswatch 可以用來檢測資料夾與文件的變更</a></li>
+<li><a href="#安裝">安裝</a></li>
 <li><a href="#腳本">腳本</a></li>
-<li><a href="#demo">Demo</a></li>
-<li><a href="#reference">Reference</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#reference">Reference</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -146,22 +146,21 @@
     <div class="post-content">
       
 
-<h2 id="fswatch-可以用來-檢測資料夾與文件的變更">Fswatch 可以用來檢測資料夾與文件的變更</h2>
+<h2 id="fswatch-可以用來檢測資料夾與文件的變更">Fswatch 可以用來檢測資料夾與文件的變更</h2>
 
-<p>最近在用 vim 練習 golang，真的是 go run 到手累心也累，<br />
-就到網路上搜看看有沒有可以監控檔案存檔事件的工具，<br />
-於是找到了這款 Mac 可以使用的 <a href="https://github.com/emcrisostomo/fswatch" title="Fswatch">Fswatch</a>
-</p>
+<p>最近在用 vim 練習 golang，真的是 go run 到手累心也累，<br />
+就到網路上搜看看有沒有可以監控檔案存檔事件的工具，<br />
+於是找到了這款 Mac 可以使用的 <a href="https://github.com/emcrisostomo/fswatch" title="Fswatch">Fswatch</a></p>
 
-<h2 id="安裝">安裝</h2>
+<h2 id="安裝">安裝</h2>
 
-<p>mac 上安裝就直接<br />
+<p>mac 上安裝就直接<br />
 <code>brew install fswatch</code></p>
 
 <h2 id="腳本">腳本</h2>
 
 <p>因為我只要監控 go file 有沒有異動，<br />
-如果有的話幫我 compilar，所以腳步中有限定 .go 檔。</p>
+如果有的話幫我 compilar，所以腳本中有限定 .go 檔。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -200,11 +199,11 @@ fswatch <span class="s2">&#34;</span><span class="nv">$BASEDIR</span><span class
 <span class="k">done</span></pre></td></tr></table>
 </div>
 </div>
-<h2 id="demo">Demo</h2>
+<h2 id="demo">Demo</h2>
 
 <p><img src="https://fblog.loopbai.com/images/2019/05/c001.gif" alt="Auto compilar demo" title="Auto compilar demo" /></p>
 
-<h2 id="reference">Reference</h2>
+<h2 id="reference">Reference</h2>
 
 <ul>
 <li><a href="https://my.oschina.net/mengshuai/blog/618354" title="OS X使用fswatch+rsync自动检测文件夹改动并同步">OS X使用fswatch+rsync自动检测文件夹改动并同步</a></li>
