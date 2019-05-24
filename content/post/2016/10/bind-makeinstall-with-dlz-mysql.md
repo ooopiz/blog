@@ -2,6 +2,7 @@
 title: 'bind make安裝搭配 dlz mysql'
 date: 2016-10-17T15:46:01+08:00
 draft: false
+tags: ["dns", "bind"]
 ---
 ## Bind-dlz 簡介
 1. BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。

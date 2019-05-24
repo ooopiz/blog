@@ -2,6 +2,7 @@
 title: 'IPsec Lan tp Lan Vigor-2925/AWS-ec2'
 date: 2019-05-17T08:02:00+08:00
 draft: false
+tags: ["ipsec", "vigor", "vpn"]
 ---
 ## 前言
 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，  

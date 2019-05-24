@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="laravel," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Laravel5.0 關閉CRSF全局驗證"/>
 <meta name="twitter:description" content="修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -216,7 +220,9 @@
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/laravel/">laravel</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2015/07/laravel50-upgrade-51/">
             <i class="iconfont icon-left"></i>

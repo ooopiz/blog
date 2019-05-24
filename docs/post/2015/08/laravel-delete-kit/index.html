@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="laravel," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Laravel 刪除套件"/>
 <meta name="twitter:description" content="1. Remove declaration from composer.json (in &ldquo;require&rdquo; section) 2. Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) 3. Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; 4. Remove any references to the package from your code :-) 5. Run &ldquo;composer update&rdquo; 6. Manually delete the published files"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -146,7 +150,9 @@
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/laravel/">laravel</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2015/08/centos65-install-nginx/">
             <i class="iconfont icon-left"></i>

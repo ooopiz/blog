@@ -6,9 +6,235 @@
     <description>Recent content in Tags on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Thu, 23 May 2019 23:27:58 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.loopbai.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fswatch</title>
+      <link>https://blog.loopbai.com/tags/fswatch/</link>
+      <pubDate>Thu, 23 May 2019 23:27:58 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/fswatch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ipsec</title>
+      <link>https://blog.loopbai.com/tags/ipsec/</link>
+      <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/ipsec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vigor</title>
+      <link>https://blog.loopbai.com/tags/vigor/</link>
+      <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/vigor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpn</title>
+      <link>https://blog.loopbai.com/tags/vpn/</link>
+      <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.loopbai.com/tags/docker/</link>
+      <pubDate>Fri, 10 May 2019 07:22:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>https://blog.loopbai.com/tags/gitlab/</link>
+      <pubDate>Thu, 08 Dec 2016 13:22:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zabbix</title>
+      <link>https://blog.loopbai.com/tags/zabbix/</link>
+      <pubDate>Thu, 27 Oct 2016 02:13:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/zabbix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bind</title>
+      <link>https://blog.loopbai.com/tags/bind/</link>
+      <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/bind/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dns</title>
+      <link>https://blog.loopbai.com/tags/dns/</link>
+      <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postfix</title>
+      <link>https://blog.loopbai.com/tags/postfix/</link>
+      <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/postfix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>smtp</title>
+      <link>https://blog.loopbai.com/tags/smtp/</link>
+      <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/smtp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://blog.loopbai.com/tags/nginx/</link>
+      <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://blog.loopbai.com/tags/php/</link>
+      <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>https://blog.loopbai.com/tags/maven/</link>
+      <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nexus</title>
+      <link>https://blog.loopbai.com/tags/nexus/</link>
+      <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/nexus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>centos</title>
+      <link>https://blog.loopbai.com/tags/centos/</link>
+      <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tomcat</title>
+      <link>https://blog.loopbai.com/tags/tomcat/</link>
+      <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/tomcat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualbox</title>
+      <link>https://blog.loopbai.com/tags/virtualbox/</link>
+      <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/virtualbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mariadb</title>
+      <link>https://blog.loopbai.com/tags/mariadb/</link>
+      <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/mariadb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>laravel</title>
+      <link>https://blog.loopbai.com/tags/laravel/</link>
+      <pubDate>Mon, 24 Aug 2015 05:04:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://blog.loopbai.com/tags/android/</link>
+      <pubDate>Mon, 24 Aug 2015 04:50:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://blog.loopbai.com/tags/git/</link>
+      <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phpmyadmin</title>
+      <link>https://blog.loopbai.com/tags/phpmyadmin/</link>
+      <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/phpmyadmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://blog.loopbai.com/tags/mysql/</link>
+      <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iptables</title>
+      <link>https://blog.loopbai.com/tags/iptables/</link>
+      <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/iptables/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

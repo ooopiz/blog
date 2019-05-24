@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on 馬丁沒有派對</title>
+    <link>https://blog.loopbai.com/tags/docker/</link>
+    <description>Recent content in docker on 馬丁沒有派對</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 May 2019 07:22:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.loopbai.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>關於 Docker volume create</title>
+      <link>https://blog.loopbai.com/post/2019/05/docker-volume-create/</link>
+      <pubDate>Fri, 10 May 2019 07:22:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2019/05/docker-volume-create/</guid>
+      <description>前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。 原本我都是使用 -v 對應到我 host 機器的目錄 ex : -v $(pwd)/nginx-cache:/var/cache/nginx 後來很好奇 docker volume create 的用途還有存放路徑。 於</description>
+    </item>
+    
+  </channel>
+</rss>

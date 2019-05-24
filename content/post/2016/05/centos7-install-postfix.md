@@ -2,6 +2,7 @@
 title: 'CentOS7 安裝Postfix'
 date: 2016-05-26T10:20:01+08:00
 draft: false
+tags: ["postfix", "smtp"]
 ---
 ## Postfix介紹
 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.

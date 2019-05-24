@@ -2,6 +2,7 @@
 title: 'CentOS7 Tomcat增加systemctl控制'
 date: 2015-10-01T05:24:01+08:00
 draft: false
+tags: ["centos", "tomcat"]
 ---
 ## 1.增加啟動參數
 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存

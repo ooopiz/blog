@@ -2,6 +2,7 @@
 title: 'CentOS7 安裝Tomcat'
 date: 2015-09-30T06:10:01+08:00
 draft: false
+tags: ["centos"]
 ---
 ### 1.切換目錄到 /usr/local
 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下

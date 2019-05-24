@@ -2,6 +2,7 @@
 title: "Fswatch Save My Times"
 date: 2019-05-23T23:27:58+08:00
 draft: false
+tags: ["fswatch"]
 ---
 ## Fswatch 可以用來檢測資料夾與文件的變更
 最近在用 vim 練習 golang，真的是 go run 到手累心也累，  

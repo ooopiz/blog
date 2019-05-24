@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="centos,php,mysql,nginx," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 安裝LNMP"/>
 <meta name="twitter:description" content="一、更新rpm 參考連結 MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -392,7 +396,12 @@ include        fastcgi_params;
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/centos/">centos</a>
+          <a href="/tags/php/">php</a>
+          <a href="/tags/mysql/">mysql</a>
+          <a href="/tags/nginx/">nginx</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2015/08/centos65-install-phpmyadmin/">
             <i class="iconfont icon-left"></i>

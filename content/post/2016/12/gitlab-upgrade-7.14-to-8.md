@@ -2,6 +2,7 @@
 title: 'GitLab 7.14升級8.X'
 date: 2016-12-08T13:22:01+08:00
 draft: false
+tags: ["gitlab"]
 ---
 ## 簡介
 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下

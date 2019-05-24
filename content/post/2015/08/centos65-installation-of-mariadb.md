@@ -2,6 +2,7 @@
 title: 'CentOS6.5 安裝MariaDB'
 date: 2015-08-24T07:05:01+08:00
 draft: false
+tags: ["mariadb"]
 ---
 ### 新增MariaDB的知識庫，讓系統使用。  
 >依照自己的系統在目錄下新增檔案

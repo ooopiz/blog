@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on 馬丁沒有派對</title>
+    <link>https://blog.loopbai.com/tags/php/</link>
+    <description>Recent content in php on 馬丁沒有派對</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 05 May 2016 02:38:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.loopbai.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>安裝 PHP5.6</title>
+      <link>https://blog.loopbai.com/post/2016/05/install-php56/</link>
+      <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2016/05/install-php56/</guid>
+      <description>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 安裝LNMP</title>
+      <link>https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/</link>
+      <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/</guid>
+      <description>一、更新rpm 參考連結 MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,6 +2,7 @@
 title: 'yum 和 wget 使用 proxy'
 date: 2015-09-02T17:05:01+08:00
 draft: false
+tags: ["centos"]
 ---
 ### yum 設定檔
 在設定檔中加入以下參數config /etc/yum.conf

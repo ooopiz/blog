@@ -2,6 +2,7 @@
 title: '安裝 Nginx 1.9+'
 date: 2016-05-05T02:47:01+08:00
 draft: false
+tags: ["nginx"]
 ---
 ### 新增nginx.repo
 

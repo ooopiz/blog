@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="dns,bind," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="bind make安裝搭配 dlz mysql"/>
 <meta name="twitter:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -610,7 +614,10 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/dns/">dns</a>
+          <a href="/tags/bind/">bind</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2016/10/yum-zabbix-server-agent/">
             <i class="iconfont icon-left"></i>

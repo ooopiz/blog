@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="centos,tomcat," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 Tomcat增加systemctl控制"/>
 <meta name="twitter:description" content="1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Ja"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -253,7 +257,10 @@ WantedBy=multi-user.target </pre></td></tr></table>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/centos/">centos</a>
+          <a href="/tags/tomcat/">tomcat</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2015/12/install-nexus-oss/">
             <i class="iconfont icon-left"></i>

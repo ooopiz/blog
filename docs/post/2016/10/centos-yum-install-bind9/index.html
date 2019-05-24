@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="dns,bind," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS yum 安裝bind9"/>
 <meta name="twitter:description" content="安裝 # sudo yum install bind bind-utils -y # service named start # chkconfig named on 防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT # service iptables save # service iptables restart 設定 預設ne"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -387,7 +391,10 @@ ftp           IN      A       192.168.0.3</pre></td></tr></table>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/dns/">dns</a>
+          <a href="/tags/bind/">bind</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2016/10/bind-makeinstall-with-dlz-mysql/">
             <i class="iconfont icon-left"></i>

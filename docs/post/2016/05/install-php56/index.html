@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="php," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安裝 PHP5.6"/>
 <meta name="twitter:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -328,7 +332,9 @@ include        fastcgi_params;
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/php/">php</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2016/05/installing-nginx-19/">
             <i class="iconfont icon-left"></i>

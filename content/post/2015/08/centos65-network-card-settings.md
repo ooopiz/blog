@@ -2,6 +2,7 @@
 title: 'CentOS6.5 網卡基本設定'
 date: 2015-08-21T09:29:01+08:00
 draft: false
+tags: ["centos"]
 ---
 #### 首先可以下指令顯示出所有的介面資訊
 `# ip link show`

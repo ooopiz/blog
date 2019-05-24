@@ -15,6 +15,18 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/</loc>
+    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/fswatch/</loc>
+    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/</loc>
     <lastmod>2019-05-23T23:27:58+08:00</lastmod>
     <priority>0</priority>
@@ -32,6 +44,30 @@
     <lastmod>2019-05-17T08:02:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/ipsec/</loc>
+    <lastmod>2019-05-17T08:02:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/vigor/</loc>
+    <lastmod>2019-05-17T08:02:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/vpn/</loc>
+    <lastmod>2019-05-17T08:02:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/docker/</loc>
+    <lastmod>2019-05-10T07:22:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -70,6 +106,12 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/gitlab/</loc>
+    <lastmod>2016-12-08T13:22:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</loc>
     <lastmod>2016-11-04T10:26:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -84,10 +126,28 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/zabbix/</loc>
+    <lastmod>2016-10-27T02:13:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/bind/</loc>
+    <lastmod>2016-10-17T15:46:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</loc>
     <lastmod>2016-10-17T15:46:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/dns/</loc>
+    <lastmod>2016-10-17T15:46:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -154,6 +214,24 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/postfix/</loc>
+    <lastmod>2016-05-26T10:20:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/smtp/</loc>
+    <lastmod>2016-05-26T10:20:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/nginx/</loc>
+    <lastmod>2016-05-05T02:47:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2016/05/installing-nginx-19/</loc>
     <lastmod>2016-05-05T02:47:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -161,10 +239,28 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/php/</loc>
+    <lastmod>2016-05-05T02:38:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2016/05/install-php56/</loc>
     <lastmod>2016-05-05T02:38:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/maven/</loc>
+    <lastmod>2015-12-14T01:27:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/nexus/</loc>
+    <lastmod>2015-12-14T01:27:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -179,6 +275,18 @@
     <lastmod>2015-10-01T05:24:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/centos/</loc>
+    <lastmod>2015-10-01T05:24:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/tomcat/</loc>
+    <lastmod>2015-10-01T05:24:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -207,6 +315,12 @@
     <lastmod>2015-09-09T09:49:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/virtualbox/</loc>
+    <lastmod>2015-09-09T09:49:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -259,6 +373,12 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/mariadb/</loc>
+    <lastmod>2015-08-24T07:05:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2015/08/centos65-install-nginx/</loc>
     <lastmod>2015-08-24T07:01:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -273,10 +393,28 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/laravel/</loc>
+    <lastmod>2015-08-24T05:04:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2015/08/android-program-flow/</loc>
     <lastmod>2015-08-24T04:50:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/android/</loc>
+    <lastmod>2015-08-24T04:50:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/git/</loc>
+    <lastmod>2015-08-24T03:05:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -294,6 +432,12 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/phpmyadmin/</loc>
+    <lastmod>2015-08-24T02:00:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/</loc>
     <lastmod>2015-08-24T01:08:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -301,10 +445,22 @@
   </url>
   
   <url>
+    <loc>https://blog.loopbai.com/tags/mysql/</loc>
+    <lastmod>2015-08-24T01:08:01+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</loc>
     <lastmod>2015-08-21T10:05:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/iptables/</loc>
+    <lastmod>2015-08-21T10:05:01+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -337,11 +493,6 @@
   
   <url>
     <loc>https://blog.loopbai.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.loopbai.com/tags/</loc>
     <priority>0</priority>
   </url>
   

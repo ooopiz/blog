@@ -2,6 +2,7 @@
 title: 'CentOS crontab'
 date: 2015-07-27T01:35:01+08:00
 draft: false
+tags: ["centos"]
 ---
 ## Example
 

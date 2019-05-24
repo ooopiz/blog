@@ -2,6 +2,7 @@
 title: 'Yum Zabbix server, agent'
 date: 2016-10-27T02:13:01+08:00
 draft: false
+tags: ["zabbix"]
 ---
 ## 安裝相應的 RPM 檔啟用 Zabbix Repository
 

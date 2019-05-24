@@ -2,6 +2,7 @@
 title: 'VirtualBox Guest Addtiton安裝 for Centos'
 date: 2015-09-09T09:49:01+08:00
 draft: false
+tags: ["virtualbox"]
 ---
 >我在virtualbox上面安裝的是CentOS7的OS
 >當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你，

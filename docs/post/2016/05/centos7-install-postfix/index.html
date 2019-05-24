@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="postfix,smtp," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 安裝Postfix"/>
 <meta name="twitter:description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -281,7 +285,10 @@ mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/postfix/">postfix</a>
+          <a href="/tags/smtp/">smtp</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2016/07/2013-open-web-software-safety-plans/">
             <i class="iconfont icon-left"></i>

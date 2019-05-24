@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="zabbix," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Yum Zabbix server, agent"/>
 <meta name="twitter:description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 $ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 $ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境 php 使用模組 $ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc 開始安裝"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -402,7 +406,9 @@ Timeout=10</pre></td></tr></table>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/zabbix/">zabbix</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/">
             <i class="iconfont icon-left"></i>

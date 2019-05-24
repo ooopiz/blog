@@ -55,7 +55,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="mariadb," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 安裝MariaDB"/>
 <meta name="twitter:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name"/>
@@ -87,6 +87,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -104,6 +106,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
@@ -237,7 +241,9 @@ gpgcheck=1</pre></td></tr></table>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/mariadb/">mariadb</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/2015/08/reinstall-mac/">
             <i class="iconfont icon-left"></i>

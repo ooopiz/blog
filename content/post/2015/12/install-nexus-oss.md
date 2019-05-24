@@ -2,6 +2,7 @@
 title: '安裝 Nexus OSS'
 date: 2015-12-14T01:27:01+08:00
 draft: false
+tags: ["maven", "nexus"]
 ---
 ## Nexus OSS
 Nexus OSS是用來架設maven私有倉庫的好幫手

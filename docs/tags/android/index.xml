@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android on 馬丁沒有派對</title>
+    <link>https://blog.loopbai.com/tags/android/</link>
+    <description>Recent content in android on 馬丁沒有派對</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Aug 2015 04:50:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.loopbai.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android 程式流程</title>
+      <link>https://blog.loopbai.com/post/2015/08/android-program-flow/</link>
+      <pubDate>Mon, 24 Aug 2015 04:50:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2015/08/android-program-flow/</guid>
+      <description>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29</description>
+    </item>
+    
+  </channel>
+</rss>

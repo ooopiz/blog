@@ -2,6 +2,7 @@
 title: '安裝 PHP5.6'
 date: 2016-05-05T02:38:01+08:00
 draft: false
+tags: ["php"]
 ---
 ## 一、更新rpm
 

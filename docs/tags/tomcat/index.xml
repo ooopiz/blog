@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tomcat on 馬丁沒有派對</title>
+    <link>https://blog.loopbai.com/tags/tomcat/</link>
+    <description>Recent content in tomcat on 馬丁沒有派對</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.loopbai.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentOS7 Tomcat增加systemctl控制</title>
+      <link>https://blog.loopbai.com/post/2015/10/centos7-systemctl-control/</link>
+      <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2015/10/centos7-systemctl-control/</guid>
+      <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Ja</description>
+    </item>
+    
+    <item>
+      <title>CentOS6.5 Tomcat開機自動啟動</title>
+      <link>https://blog.loopbai.com/post/2015/09/centos65-boot-tomcat-started-automatically/</link>
+      <pubDate>Wed, 30 Sep 2015 21:50:01 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2015/09/centos65-boot-tomcat-started-automatically/</guid>
+      <description>1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat 記得修改你的JAVA_HOME, CATALINA_HOME到你所</description>
+    </item>
+    
+  </channel>
+</rss>

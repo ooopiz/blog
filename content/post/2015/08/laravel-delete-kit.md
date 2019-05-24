@@ -2,6 +2,7 @@
 title: 'Laravel 刪除套件'
 date: 2015-08-24T05:04:01+08:00
 draft: false
+tags: ["laravel"]
 ---
 
 - 1. Remove declaration from composer.json (in "require" section)

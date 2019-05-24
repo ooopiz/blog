@@ -2,6 +2,7 @@
 title: 'CentOS6.5 安裝LNMP'
 date: 2015-08-24T01:08:01+08:00
 draft: false
+tags: ["centos", "php", "mysql", "nginx"]
 ---
 ## 一、更新rpm
 <a href="https://www.cnhzz.com/yum-repo/" target="_blank">參考連結</a>
