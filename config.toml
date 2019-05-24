@@ -1,9 +1,9 @@
 publishDir = "docs"
 
 baseURL = "https://blog.loopbai.com"
-languageCode = "en"
-defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
-title = "LoopBai's Blog"
+languageCode = "zh"
+defaultContentLanguage = "zh-tw"                             # en / zh-cn / ... (This field determines which i18n file to use)
+title = "馬丁沒有派對"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
@@ -24,7 +24,7 @@ disqusShortname = "loopbai-blog"
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
 [author]                  # essential                     # 必需
-  name = "loopbai"
+  name = "馬丁"
 
 [sitemap]                 # essential                     # 必需
   changefreq = "weekly"
@@ -67,9 +67,9 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   gitRepo = ""
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "LoopBai"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["Hugo", "theme","even"]
-  description = "Hugo theme even example site."
+  logoTitle = ""            # default: the title value    # 默认值: 上面设置的title值
+  keywords = ["技術文章", "【*】端工程師", "我是一條it狗", "如果你看到這裡了，那麼恭喜，你也是一條it狗"]
+  description = "俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜"
 
   # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
   archivePaginate = 30
