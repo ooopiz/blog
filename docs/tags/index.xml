@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 May 2019 23:27:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2019 15:20:25 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.loopbai.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>coreos</title>
+      <link>https://blog.loopbai.com/tags/coreos/</link>
+      <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/coreos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualbox</title>
+      <link>https://blog.loopbai.com/tags/virtualbox/</link>
+      <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/virtualbox/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>fswatch</title>
@@ -161,15 +179,6 @@
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/tags/tomcat/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>virtualbox</title>
-      <link>https://blog.loopbai.com/tags/virtualbox/</link>
-      <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
-      
-      <guid>https://blog.loopbai.com/tags/virtualbox/</guid>
       <description></description>
     </item>
     

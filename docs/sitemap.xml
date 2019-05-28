@@ -2,6 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.loopbai.com/post/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/coreos/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/virtualbox/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/2019/05/fswatch-save-my-times/</loc>
     <lastmod>2019-05-23T23:27:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -9,25 +46,7 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/post/</loc>
-    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.loopbai.com/tags/</loc>
-    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.loopbai.com/tags/fswatch/</loc>
-    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.loopbai.com/</loc>
     <lastmod>2019-05-23T23:27:58+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -315,12 +334,6 @@
     <lastmod>2015-09-09T09:49:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.loopbai.com/tags/virtualbox/</loc>
-    <lastmod>2015-09-09T09:49:01+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -6,10 +6,19 @@
     <description>Recent content on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 May 2019 23:27:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2019 15:20:25 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.loopbai.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Virtualbox 安裝 Coreos</title>
+      <link>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</link>
+      <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</guid>
+      <description>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開</description>
+    </item>
     
     <item>
       <title>Fswatch Save My Times</title>
