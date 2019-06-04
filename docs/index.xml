@@ -6,10 +6,19 @@
     <description>Recent content on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 28 May 2019 15:20:25 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.loopbai.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker cli 連線到遠端的 dockerd daemon</title>
+      <link>https://blog.loopbai.com/post/2019/06/docker-connecting-remote-daemon/</link>
+      <pubDate>Tue, 04 Jun 2019 20:22:08 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2019/06/docker-connecting-remote-daemon/</guid>
+      <description>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本</description>
+    </item>
     
     <item>
       <title>Virtualbox 安裝 Coreos</title>
