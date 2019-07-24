@@ -2,22 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.loopbai.com/post/2019/06/docker-connecting-remote-daemon/</loc>
-    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
+    <loc>https://blog.loopbai.com/post/2019/07/coreos-static-ip/</loc>
+    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/post/</loc>
-    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
+    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/</loc>
-    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
+    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/coreos/</loc>
+    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/</loc>
+    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/post/2019/06/docker-connecting-remote-daemon/</loc>
+    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -27,22 +46,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/</loc>
-    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</loc>
     <lastmod>2019-05-28T15:20:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.loopbai.com/tags/coreos/</loc>
-    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

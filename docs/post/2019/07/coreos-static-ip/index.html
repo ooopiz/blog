@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>coreos · 馬丁沒有派對</title>
+  <title>CoreOS Static Ip 固定 IP 設定 - 馬丁沒有派對</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://blog.loopbai.com/tags/coreos/" />
-  <link href="https://blog.loopbai.com/tags/coreos/index.xml" rel="alternate" type="application/rss+xml" title="馬丁沒有派對" />
-  <link href="https://blog.loopbai.com/tags/coreos/index.xml" rel="feed" type="application/rss+xml" title="馬丁沒有派對" />
+<link rel="canonical" href="https://blog.loopbai.com/post/2019/07/coreos-static-ip/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,19 +38,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="coreos" />
-<meta property="og:description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.loopbai.com/tags/coreos/" />
+<meta property="og:title" content="CoreOS Static Ip 固定 IP 設定" />
+<meta property="og:description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.loopbai.com/post/2019/07/coreos-static-ip/" />
+<meta property="article:published_time" content="2019-07-24T17:01:37&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-24T17:01:37&#43;08:00"/>
 
-<meta property="og:updated_time" content="2019-07-24T17:01:37&#43;08:00"/>
+<meta itemprop="name" content="CoreOS Static Ip 固定 IP 設定">
+<meta itemprop="description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot">
 
-<meta itemprop="name" content="coreos">
-<meta itemprop="description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜">
 
+<meta itemprop="datePublished" content="2019-07-24T17:01:37&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-24T17:01:37&#43;08:00" />
+<meta itemprop="wordCount" content="33">
+
+
+
+<meta itemprop="keywords" content="coreos," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="coreos"/>
-<meta name="twitter:description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜"/>
+<meta name="twitter:title" content="CoreOS Static Ip 固定 IP 設定"/>
+<meta name="twitter:description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -112,38 +118,94 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="archive" class="archive">
-  <div class="archive-title tag">
-        <h2 class="archive-name">coreos</h2>
-      </div>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CoreOS Static Ip 固定 IP 設定</h1>
 
-  <div class="archive-post">
-      <span class="archive-post-time">
-        Wed, 24 Jul 2019 17:01:37 &#43;0800
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/2019/07/coreos-static-ip/" class="archive-post-link">
-          CoreOS Static Ip 固定 IP 設定
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        Tue, 28 May 2019 15:20:25 &#43;0800
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/2019/05/virtualbox-install-coreos/" class="archive-post-link">
-          Virtualbox 安裝 Coreos
-        </a>
-      </span>
-    </div>
-</section>
-
-<nav class="pagination">
-  
-  
-</nav>
-        </div>
+      <div class="post-meta">
+        <span class="post-time"> Wed, 24 Jul 2019 17:01:37 &#43;0800 </span>
         
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#設定-static-ip">設定 static ip</a></li>
+<li><a href="#reboot">reboot</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="設定-static-ip">設定 static ip</h2>
+
+<p>副檔名必須是.network</p>
+
+<p><code>$ vi /etc/systemd/network/enp0s8.network</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[Match]
+Name=enp0s8
+ 
+[Network]
+Address=192.168.56.201/24</pre></td></tr></table>
+</div>
+</div>
+<p><img src="https://fblog.loopbai.com/images/2019/07/a001.jpg" alt="static ip" title="static ip" /></p>
+
+<h2 id="reboot">reboot</h2>
+
+<p><code>sudo reboot</code></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/coreos/">coreos</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2019/06/docker-connecting-remote-daemon/">
+            <span class="next-text nav-default">Docker cli 連線到遠端的 dockerd daemon</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'loopbai-blog';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
       </div>
     </main>

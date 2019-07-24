@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 17:01:37 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.loopbai.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>coreos</title>
+      <link>https://blog.loopbai.com/tags/coreos/</link>
+      <pubDate>Wed, 24 Jul 2019 17:01:37 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/tags/coreos/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -17,15 +26,6 @@
       <pubDate>Tue, 04 Jun 2019 20:22:08 +0800</pubDate>
       
       <guid>https://blog.loopbai.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coreos</title>
-      <link>https://blog.loopbai.com/tags/coreos/</link>
-      <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
-      
-      <guid>https://blog.loopbai.com/tags/coreos/</guid>
       <description></description>
     </item>
     
