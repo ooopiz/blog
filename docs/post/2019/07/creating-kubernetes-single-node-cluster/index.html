@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-07-29T17:18:19&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-29T17:18:19&#43;08:00" />
-<meta itemprop="wordCount" content="1060">
+<meta itemprop="wordCount" content="1056">
 
 
 
@@ -200,11 +200,17 @@
 <p>先選定好要安裝在什麼 OS 上，<br />
 並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。</p>
 
-<p>下面列出我的環境跟CNI<br />
-* OS（CoreOS）
-    * 2 GB or more of RAM per machine (any less will leave little room for your apps)
-    * 2 CPUs or more
-* CNI（flannel）</p>
+<p>下面列出我的環境跟CNI</p>
+
+<ul>
+<li>OS（CoreOS）
+
+<ul>
+<li>2 GB or more of RAM per machine (any less will leave little room for your apps)</li>
+<li>2 CPUs or more</li>
+</ul></li>
+<li>CNI（flannel）</li>
+</ul>
 
 <h2 id="安裝-kubeadm">安裝 kubeadm</h2>
 
@@ -268,7 +274,7 @@ curl -sSL &#34;https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE
 
 <p><code>$ systemctl enable --now kubelet</code></p>
 
-<p>這個時候 kubelet 啟動尚未成功，是因為 kubeadm 還沒有 initialize。
+<p>這個時候 kubelet 啟動尚未成功，是因為 kubeadm 還沒有 initialize。<br />
 用 journalctl 看 log 的時候會有錯誤不用擔心。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

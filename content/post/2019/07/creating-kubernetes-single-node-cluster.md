@@ -24,6 +24,7 @@ tags: ["kubernetes"]
 並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。  
 
 下面列出我的環境跟CNI  
+
 * OS（CoreOS）
     * 2 GB or more of RAM per machine (any less will leave little room for your apps)
     * 2 CPUs or more
@@ -64,8 +65,8 @@ curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/bu
 ### 啟動與開機自動啟動
 `$ systemctl enable --now kubelet`
 
-這個時候 kubelet 啟動尚未成功，是因為 kubeadm 還沒有 initialize。
-用 journalctl 看 log 的時候會有錯誤不用擔心。
+這個時候 kubelet 啟動尚未成功，是因為 kubeadm 還沒有 initialize。  
+用 journalctl 看 log 的時候會有錯誤不用擔心。  
 
 ```
 $ journalctl -f
