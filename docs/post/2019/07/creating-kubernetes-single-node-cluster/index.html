@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>建立一個單節點的 kubernetes cluster (kubeadm) - 馬丁沒有派對</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="馬丁" /><meta name="description" content="前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。 Kubernetes Architecture 這是一個 kubernetes cluster 較完整" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://blog.loopbai.com/post/2019/07/creating-kubernetes-single-node-cluster/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="建立一個單節點的 kubernetes cluster (kubeadm)" />
+<meta property="og:description" content="前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。 Kubernetes Architecture 這是一個 kubernetes cluster 較完整" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.loopbai.com/post/2019/07/creating-kubernetes-single-node-cluster/" />
+<meta property="article:published_time" content="2019-07-29T17:18:19&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-29T17:18:19&#43;08:00"/>
+
+<meta itemprop="name" content="建立一個單節點的 kubernetes cluster (kubeadm)">
+<meta itemprop="description" content="前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。 Kubernetes Architecture 這是一個 kubernetes cluster 較完整">
+
+
+<meta itemprop="datePublished" content="2019-07-29T17:18:19&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-29T17:18:19&#43;08:00" />
+<meta itemprop="wordCount" content="1060">
+
+
+
+<meta itemprop="keywords" content="kubernetes," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="建立一個單節點的 kubernetes cluster (kubeadm)"/>
+<meta name="twitter:description" content="前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。 Kubernetes Architecture 這是一個 kubernetes cluster 較完整"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">馬丁沒有派對</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">馬丁沒有派對</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">建立一個單節點的 kubernetes cluster (kubeadm)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> Mon, 29 Jul 2019 17:18:19 &#43;0800 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#kubernetes-architecture">Kubernetes Architecture</a></li>
+<li><a href="#master-節點的組件">Master 節點的組件</a></li>
+<li><a href="#安裝準備">安裝準備</a></li>
+<li><a href="#安裝-kubeadm">安裝 kubeadm</a>
+<ul>
+<li><a href="#install-cni-plugins">Install CNI plugins</a></li>
+<li><a href="#install-crictl">Install crictl</a></li>
+<li><a href="#install-kubeadm-kubelet-kubectl-and-add-a-kubelet-systemd-service">Install kubeadm, kubelet, kubectl and add a kubelet systemd service:</a></li>
+<li><a href="#啟動與開機自動啟動">啟動與開機自動啟動</a></li>
+</ul></li>
+<li><a href="#install-cni-flannel">Install CNI（Flannel）</a>
+<ul>
+<li><a href="#kubeadm-init">kubeadm init</a></li>
+</ul></li>
+<li><a href="#kubectl-設定檔">kubectl 設定檔</a>
+<ul>
+<li><a href="#還沒安裝-cni-前">還沒安裝 cni 前</a></li>
+</ul></li>
+<li><a href="#install-cni-flannel-1">Install CNI（Flannel）</a>
+<ul>
+<li><a href="#修改內核">修改內核</a></li>
+<li><a href="#安裝-flannel">安裝 Flannel</a></li>
+<li><a href="#安裝-cni-後">安裝 cni 後</a></li>
+</ul></li>
+<li><a href="#移除控制節點的-taints">移除控制節點的 Taints</a></li>
+<li><a href="#test">Test</a>
+<ul>
+<li><a href="#成功-存取的-port-記得使用你自己分配到的-port">成功（存取的 port 記得使用你自己分配到的 port）</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="前言">前言</h2>
+
+<p>前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。</p>
+
+<h2 id="kubernetes-architecture">Kubernetes Architecture</h2>
+
+<p>這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。</p>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b001.png" alt="kubernetes architecture" title="kubernetes architecture" />
+(圖片來自WIKI)</p>
+
+<h2 id="master-節點的組件">Master 節點的組件</h2>
+
+<ul>
+<li>ETCD 集群</li>
+<li>API SERVER</li>
+<li>Controller Manager</li>
+<li>Scheduler</li>
+</ul>
+
+<h2 id="安裝準備">安裝準備</h2>
+
+<p>先選定好要安裝在什麼 OS 上，<br />
+並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。</p>
+
+<p>下面列出我的環境跟CNI<br />
+* OS（CoreOS）
+    * 2 GB or more of RAM per machine (any less will leave little room for your apps)
+    * 2 CPUs or more
+* CNI（flannel）</p>
+
+<h2 id="安裝-kubeadm">安裝 kubeadm</h2>
+
+<ul>
+<li>官網文件：<a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">Installing kubeadm</a></li>
+<li>官網文件：<a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">Creating a single control-plane cluster with kubeadm</a></li>
+</ul>
+
+<p><em>我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。</em></p>
+
+<h3 id="install-cni-plugins">Install CNI plugins</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">CNI_VERSION=&#34;v0.7.5&#34;
+mkdir -p /opt/cni/bin
+curl -L &#34;https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-amd64-${CNI_VERSION}.tgz&#34; | tar -C /opt/cni/bin -xz</pre></td></tr></table>
+</div>
+</div>
+<h3 id="install-crictl">Install crictl</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">CRICTL_VERSION=&#34;v1.12.0&#34;
+mkdir -p /opt/bin
+curl -L &#34;https://github.com/kubernetes-incubator/cri-tools/releases/download/${CRICTL_VERSION}/crictl-${CRICTL_VERSION}-linux-amd64.tar.gz&#34; | tar -C /opt/bin -xz</pre></td></tr></table>
+</div>
+</div>
+<h3 id="install-kubeadm-kubelet-kubectl-and-add-a-kubelet-systemd-service">Install kubeadm, kubelet, kubectl and add a kubelet systemd service:</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">RELEASE=&#34;$(curl -sSL https://dl.k8s.io/release/stable.txt)&#34;
+mkdir -p /opt/bin
+cd /opt/bin
+curl -L --remote-name-all https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/amd64/{kubeadm,kubelet,kubectl}
+chmod +x {kubeadm,kubelet,kubectl}
+curl -sSL &#34;https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/kubelet.service&#34; | sed &#34;s:/usr/bin:/opt/bin:g&#34; &gt; /etc/systemd/system/kubelet.service
+mkdir -p /etc/systemd/system/kubelet.service.d
+curl -sSL &#34;https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/10-kubeadm.conf&#34; | sed &#34;s:/usr/bin:/opt/bin:g&#34; &gt; /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</pre></td></tr></table>
+</div>
+</div>
+<h3 id="啟動與開機自動啟動">啟動與開機自動啟動</h3>
+
+<p><code>$ systemctl enable --now kubelet</code></p>
+
+<p>這個時候 kubelet 啟動尚未成功，是因為 kubeadm 還沒有 initialize。
+用 journalctl 看 log 的時候會有錯誤不用擔心。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ journalctl -f
+
+# ============================================
+Jul 25 06:37:02 localhost systemd[1]: kubelet.service: Service RestartSec=10s expired, scheduling restart.
+Jul 25 06:37:02 localhost systemd[1]: kubelet.service: Scheduled restart job, restart counter is at 69.
+Jul 25 06:37:02 localhost systemd[1]: Stopped kubelet: The Kubernetes Node Agent.
+Jul 25 06:37:02 localhost systemd[1]: Started kubelet: The Kubernetes Node Agent.
+Jul 25 06:37:02 localhost kubelet[1462]: F0725 06:37:02.205296    1462 server.go:198] failed to load Kubelet config file /var/lib/kubelet/config.yaml, error failed to read kubelet config file &#34;/var/lib/kubelet/config.yaml&#34;, error: open /var/lib/kubelet/config.yaml: no such file or directory
+Jul 25 06:37:02 localhost systemd[1]: kubelet.service: Main process exited, code=exited, status=255/EXCEPTION
+Jul 25 06:37:02 localhost systemd[1]: kubelet.service: Failed with result &#39;exit-code&#39;.</pre></td></tr></table>
+</div>
+</div>
+<h2 id="install-cni-flannel">Install CNI（Flannel）</h2>
+
+<h3 id="kubeadm-init">kubeadm init</h3>
+
+<p><em>&ndash;pod-network-cidr 必須跟後續的 cni yaml 腳本中的 cidr 互相配合</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+
+# ======================================================
+[init] Using Kubernetes version: v1.15.1
+[preflight] Running pre-flight checks
+    [WARNING Service-Docker]: docker service is not enabled, please run &#39;systemctl enable docker.service&#39;
+    [WARNING IsDockerSystemdCheck]: detected &#34;cgroupfs&#34; as the Docker cgroup driver. The recommended driver is &#34;systemd&#34;. Please follow the guide at https://kubernetes.io/docs/setup/cri/
+[preflight] Pulling images required for setting up a Kubernetes cluster
+[preflight] This might take a minute or two, depending on the speed of your internet connection
+[preflight] You can also perform this action in beforehand using &#39;kubeadm config images pull&#39;
+
+
+...
+
+
+Your Kubernetes control-plane has initialized successfully!
+To start using your cluster, you need to run the following as a regular user:
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+You should now deploy a pod network to the cluster.
+Run &#34;kubectl apply -f [podnetwork].yaml&#34; with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+Then you can join any number of worker nodes by running the following on each as root:
+kubeadm join 10.0.2.15:6443 --token 86u3ts.46lvxxw10capjhr0 \
+    --discovery-token-ca-cert-hash sha256:8fd26f90779603f91bbc0b89afd6dba3863f360f4a1eba23870957e6723d167c</pre></td></tr></table>
+</div>
+</div>
+<p><em>上面 &hellip; 那邊會下載 image 回來，必須等待一下。</em></p>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b002.jpg" alt="kubeadm init" title="kubeadm init" /></p>
+
+<p>完成後可以在 docker images 看到下載那些 image 回來。</p>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b003.jpg" alt="docker images" title="docker images" /></p>
+
+<h2 id="kubectl-設定檔">kubectl 設定檔</h2>
+
+<p>if not root user</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config</pre></td></tr></table>
+</div>
+</div>
+<h3 id="還沒安裝-cni-前">還沒安裝 cni 前</h3>
+
+<p>看一下 node 的狀態 status 為 NotReady
+<img src="https://fblog.loopbai.com/images/2019/07/b004.jpg" alt="kubernetes noready" title="kubernetes noready" /></p>
+
+<p>再看一下 pods 的狀態，有兩個 coredns 的 pods 尚未 ready</p>
+
+<p><code>$ kubectl get pods --all-namespaces</code></p>
+
+<p><code>$ watch kubectl get pods --all-namespaces</code></p>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b005.jpg" alt="pod noready" title="pod noready" /></p>
+
+<p>在後續安裝完 cni 都可以解決</p>
+
+<h2 id="install-cni-flannel-1">Install CNI（Flannel）</h2>
+
+<h3 id="修改內核">修改內核</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ vi /etc/sysctl.conf
+
+# ================================
+net.bridge.bridge-nf-call-iptables=1</pre></td></tr></table>
+</div>
+</div>
+<p><code>$ sysctl -p</code></p>
+
+<h3 id="安裝-flannel">安裝 Flannel</h3>
+
+<p><code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml</code></p>
+
+<h3 id="安裝-cni-後">安裝 cni 後</h3>
+
+<p>再看一下節點狀態，都是 ready 狀態了</p>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b006.jpg" alt="pod ready" title="pod ready" /></p>
+
+<h2 id="移除控制節點的-taints">移除控制節點的 Taints</h2>
+
+<p>預設集群不會將 pod 安排在控制節點。<br />
+如果要建立一個單節點的集群必須執行如下的指令。<br />
+<code>$ kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b007.jpg" alt="kubectl taint" title="kubectl taint" /></p>
+
+<h2 id="test">Test</h2>
+
+<p><code>$ kubectl run my-nginx --image=nginx:alpine --port=80 --generator=run-pod/v1</code></p>
+
+<p><code>$ kubectl expose pod my-nginx --type=NodePort --name=my-ng-srv --port=80 --target-port=80</code></p>
+
+<h3 id="成功-存取的-port-記得使用你自己分配到的-port">成功（存取的 port 記得使用你自己分配到的 port）</h3>
+
+<p><img src="https://fblog.loopbai.com/images/2019/07/b008.jpg" alt="kubernetes cluster" title="kubernetes cluster" /></p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/kubernetes/">kubernetes</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2019/07/coreos-static-ip/">
+            <span class="next-text nav-default">CoreOS Static Ip 固定 IP 設定</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'loopbai-blog';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://blog.loopbai.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">馬丁</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66438778-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
