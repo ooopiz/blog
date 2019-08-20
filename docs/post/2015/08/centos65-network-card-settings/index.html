@@ -174,7 +174,7 @@
 BOOTPROTO=static
 BROADCAST=192.168.1.255
 IPADDR=192.168.1.2
-NETMASL=255.255.255.0
+NETMASK=255.255.255.0
 NETWORK=192.168.1.0
 ONBOOT=yes</pre></td></tr></table>
 </div>
@@ -191,17 +191,12 @@ NETWORK 工作的網域
 ONBOOT 開機自動開啟網路卡</p>
 </blockquote>
 
-<p>在上面的例子中，我們以虛擬 IP 來作為示範，</p>
-
-<p>假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），</p>
-
-<p>NETMASL 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），</p>
-
-<p>NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。</p>
-
-<p>如果你的網路位址是固定的，那上面的網址就跟著改變即可！</p>
-
-<p>設定玩之後，網路服務重新啓動，指令為：</p>
+<p>在上面的例子中，我們以虛擬 IP 來作為示範，<br />
+假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），<br />
+NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），<br />
+NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。<br />
+如果你的網路位址是固定的，那上面的網址就跟著改變即可！<br />
+設定玩之後，網路服務重新啓動，指令為：</p>
 
 <p><code># service network restart</code></p>
 
