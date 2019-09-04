@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Gitlab-ce 版本升級與容器化 - 馬丁沒有派對</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="馬丁" /><meta name="description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Gitlab-ce 版本升級與容器化" />
+<meta property="og:description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/" />
+<meta property="article:published_time" content="2018-11-01T10:45:51&#43;08:00"/>
+<meta property="article:modified_time" content="2018-11-01T10:45:51&#43;08:00"/>
+
+<meta itemprop="name" content="Gitlab-ce 版本升級與容器化">
+<meta itemprop="description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還">
+
+
+<meta itemprop="datePublished" content="2018-11-01T10:45:51&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-01T10:45:51&#43;08:00" />
+<meta itemprop="wordCount" content="805">
+
+
+
+<meta itemprop="keywords" content="gitlab," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gitlab-ce 版本升級與容器化"/>
+<meta name="twitter:description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">馬丁沒有派對</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">馬丁沒有派對</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Gitlab-ce 版本升級與容器化</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> Thu, 01 Nov 2018 10:45:51 &#43;0800 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#升級目標">升級目標</a></li>
+<li><a href="#步驟流程">步驟流程</a></li>
+<li><a href="#一-備份-omnibus-上的資料">一、備份 Omnibus 上的資料</a></li>
+<li><a href="#二-準備-docker-環境">二、準備 docker 環境</a>
+<ul>
+<li><a href="#install-docker-docker-compose">Install docker, docker-compose</a></li>
+<li><a href="#檔案存放的根目錄我設定在-srv-gitlab-因此先在母體主機建立三個資料夾後續給-docker-掛載">檔案存放的根目錄我設定在 /srv/gitlab，因此先在母體主機建立三個資料夾後續給 docker 掛載。</a></li>
+</ul></li>
+<li><a href="#三-啟動新環境-使用-gitlab-ce-8-14-4-ce-0-版本的-image-與匯入">三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與匯入</a>
+<ul>
+<li><a href="#複製-omnibus-機器下的主機金鑰組到新環境">複製 omnibus 機器下的主機金鑰組到新環境</a></li>
+<li><a href="#撰寫-docker-compose-yaml-如下">撰寫 docker-compose.yaml 如下</a></li>
+<li><a href="#使用上方的docker-compose-啟動-gitlab-ce">使用上方的docker-compose 啟動 gitlab-ce</a></li>
+<li><a href="#還原備份檔">還原備份檔</a>
+<ul>
+<li><a href="#a-將檔案放置到-srv-gitlab-data-backups-1538935763-gitlab-backup-tar">a. 將檔案放置到/srv/gitlab/data/backups/1538935763_gitlab_backup.tar</a></li>
+<li><a href="#b-連線至container">b. 連線至container</a></li>
+<li><a href="#c-停止相關數據服務連線">c. 停止相關數據服務連線</a></li>
+<li><a href="#d-從1393513186編號備份中復原">d. 從1393513186編號備份中復原</a></li>
+<li><a href="#e-啟動-gitlab">e. 啟動 Gitlab</a></li>
+<li><a href="#f-檢查">f. 檢查</a></li>
+<li><a href="#g-修正錯誤-uploads-directory-setup-correctly-no">g. 修正錯誤 Uploads directory setup correctly? &hellip; no</a></li>
+<li><a href="#h-再檢查">h. 再檢查</a></li>
+<li><a href="#i-升級postgress-版本-8-升級到版本-9-必須升級-postgress-詳見官網">i. 升級postgress (版本 8 升級到版本 9 必須升級 postgress 詳見官網)</a></li>
+<li><a href="#j-再檢查">j. 再檢查</a></li>
+<li><a href="#k-啟動">k. 啟動</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#四-版本逐步升級">【四、版本逐步升級】</a>
+<ul>
+<li><a href="#升級流程">升級流程</a></li>
+<li><a href="#gitlab-ce-9-2-10-ce-0">gitlab-ce:9.2.10-ce.0</a></li>
+<li><a href="#gitlab-ce-10-8-7-ce-0">gitlab-ce:10.8.7-ce.0</a></li>
+<li><a href="#gitlab-ce-11-3-4-ce-0">gitlab-ce:11.3.4-ce.0</a></li>
+<li><a href="#升級完成後-在統一調整-gitlab-rb-的參數">升級完成後，在統一調整 gitlab.rb 的參數</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="升級目標">升級目標</h2>
+
+<ul>
+<li>gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4</li>
+<li>Omnibus 轉移到 Docker 容器（Dockerized）</li>
+</ul>
+
+<h2 id="步驟流程">步驟流程</h2>
+
+<ul>
+<li>一、備份 Omnibus 上的資料</li>
+<li>二、準備 docker 環境</li>
+<li>三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還原</li>
+<li>四、版本逐步升級</li>
+</ul>
+
+<h2 id="一-備份-omnibus-上的資料">一、備份 Omnibus 上的資料</h2>
+
+<p><code>$ gitlab-rake gitlab:backup:create</code></p>
+
+<h2 id="二-準備-docker-環境">二、準備 docker 環境</h2>
+
+<h3 id="install-docker-docker-compose">Install docker, docker-compose</h3>
+
+<h3 id="檔案存放的根目錄我設定在-srv-gitlab-因此先在母體主機建立三個資料夾後續給-docker-掛載">檔案存放的根目錄我設定在 /srv/gitlab，因此先在母體主機建立三個資料夾後續給 docker 掛載。</h3>
+
+<ul>
+<li>/srv/gitlab/config</li>
+<li>/srv/gitlab/logs</li>
+<li>/srv/gitlab/data</li>
+</ul>
+
+<h2 id="三-啟動新環境-使用-gitlab-ce-8-14-4-ce-0-版本的-image-與匯入">三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與匯入</h2>
+
+<h3 id="複製-omnibus-機器下的主機金鑰組到新環境">複製 omnibus 機器下的主機金鑰組到新環境</h3>
+
+<ul>
+<li>From omnibus (/etc/ssh/ssh_host_*) copy to /srv/gitlab/config/</li>
+</ul>
+
+<h3 id="撰寫-docker-compose-yaml-如下">撰寫 docker-compose.yaml 如下</h3>
+
+<ul>
+<li>hostname 與 external_url 替換成自己的參數</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">web:
+  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
+  container_name: gitlab
+  restart: always
+  hostname: &#39;git.example.com&#39;
+  environment:
+    TZ: Asia/Taipei
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url &#39;http://git.example.com&#39;
+      # Add any other gitlab.rb configuration here, each on its own line
+  ports:
+    - &#39;22:22&#39;
+    - &#39;80:80&#39;
+    - &#39;443:443&#39;
+  volumes:
+    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
+    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
+    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="使用上方的docker-compose-啟動-gitlab-ce">使用上方的docker-compose 啟動 gitlab-ce</h3>
+
+<p><code>$ docker-compose up -d</code></p>
+
+<p><code>$ docker-compose logs -f</code></p>
+
+<h3 id="還原備份檔">還原備份檔</h3>
+
+<h4 id="a-將檔案放置到-srv-gitlab-data-backups-1538935763-gitlab-backup-tar">a. 將檔案放置到/srv/gitlab/data/backups/1538935763_gitlab_backup.tar</h4>
+
+<h4 id="b-連線至container">b. 連線至container</h4>
+
+<p><code>$ docker exec -it gitlab /bin/bash</code></p>
+
+<h4 id="c-停止相關數據服務連線">c. 停止相關數據服務連線</h4>
+
+<p><code>$ gitlab-ctl stop unicorn</code></p>
+
+<p><code>$ gitlab-ctl stop sidekiq</code></p>
+
+<h4 id="d-從1393513186編號備份中復原">d. 從1393513186編號備份中復原</h4>
+
+<p><code>$ gitlab-rake gitlab:backup:restore BACKUP=1539079268</code></p>
+
+<h4 id="e-啟動-gitlab">e. 啟動 Gitlab</h4>
+
+<p><code>$ gitlab-ctl start</code></p>
+
+<h4 id="f-檢查">f. 檢查</h4>
+
+<p><code>$ gitlab-rake gitlab:check SANITIZE=true</code></p>
+
+<p><img src="https://fblog.loopbai.com/images/2018/11/a001.png" alt="gitlab check" title="gitlab check" /></p>
+
+<h4 id="g-修正錯誤-uploads-directory-setup-correctly-no">g. 修正錯誤 Uploads directory setup correctly? &hellip; no</h4>
+
+<p><code>$ find /var/opt/gitlab/gitlab-rails/uploads -type d -not -path /var/opt/gitlab/gitlab-rails/uploads -exec chmod 0700 {} \;</code></p>
+
+<h4 id="h-再檢查">h. 再檢查</h4>
+
+<p><code>$ gitlab-rake gitlab:check SANITIZE=true</code></p>
+
+<h4 id="i-升級postgress-版本-8-升級到版本-9-必須升級-postgress-詳見官網">i. 升級postgress (版本 8 升級到版本 9 必須升級 postgress 詳見官網)</h4>
+
+<p><code>$ gitlab-ctl pg-upgrade</code></p>
+
+<h4 id="j-再檢查">j. 再檢查</h4>
+
+<p><code>$ gitlab-rake gitlab:check SANITIZE=true</code></p>
+
+<h4 id="k-啟動">k. 啟動</h4>
+
+<p><code>$ gitlab-ctl restart</code></p>
+
+<p><img src="https://fblog.loopbai.com/images/2018/11/a002.png" alt="gitlab-ce:8.14.4" title="gitlab-ce:8.14.4" /></p>
+
+<h2 id="四-版本逐步升級">【四、版本逐步升級】</h2>
+
+<h3 id="升級流程">升級流程</h3>
+
+<ul>
+<li>Update to gitlab-ce:9.2.10-ce.0</li>
+<li>Update to gitlab-ce:10.8.7-ce.0</li>
+<li>Update to gitlab-ce:11.3.4-ce.0</li>
+</ul>
+
+<p>升級時希望產生包含最新參數的 gitlab.rb 設定檔，因此每次升級前我都會先刪除 gitlab.rb。</p>
+
+<p>升級過程逐步調整 docker-compose.yaml 的 image 版本，每一個大版號逐步升級。</p>
+
+<ul>
+<li>1. 刪除 gitlab.rb</li>
+<li>2. 停止並刪除 Container
+
+<ul>
+<li>$ docker-compose down</li>
+</ul></li>
+<li>3. 修改 docker-compose.yaml 的 image 版本</li>
+<li>4. 啟動 Container
+
+<ul>
+<li>$ docker-compose up -d</li>
+<li>觀察log $ docker-compose logs -f</li>
+</ul></li>
+<li>5. 執行 gitlab 的檢查程序
+
+<ul>
+<li>$ docker exec -gitlab gitlab-rake gitlab:check SANITIZE=true</li>
+</ul></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">web:
+#  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
+#  image: &#39;gitlab/gitlab-ce:9.2.10-ce.0&#39;
+#  image: &#39;gitlab/gitlab-ce:10.8.7-ce.0&#39;
+  image: &#39;gitlab/gitlab-ce:11.3.4-ce.0&#39;
+  container_name: gitlab
+  restart: always
+  hostname: &#39;git.example.com&#39;
+  environment:
+    TZ: Asia/Taipei
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url &#39;http://git.example.com&#39;
+      # Add any other gitlab.rb configuration here, each on its own line
+  ports:
+    - &#39;22:22&#39;
+    - &#39;80:80&#39;
+    - &#39;443:443&#39;
+  volumes:
+    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
+    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
+    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="gitlab-ce-9-2-10-ce-0">gitlab-ce:9.2.10-ce.0</h3>
+
+<p><img src="https://fblog.loopbai.com/images/2018/11/a003.png" alt="gitlab-ce:9.2.10" title="gitlab-ce:9.2.10" /></p>
+
+<h3 id="gitlab-ce-10-8-7-ce-0">gitlab-ce:10.8.7-ce.0</h3>
+
+<p><img src="https://fblog.loopbai.com/images/2018/11/a004.png" alt="gitlab-ce:10.8.7" title="gitlab-ce:10.8.7" /></p>
+
+<h3 id="gitlab-ce-11-3-4-ce-0">gitlab-ce:11.3.4-ce.0</h3>
+
+<p><img src="https://fblog.loopbai.com/images/2018/11/a005.png" alt="gitlab-ce:11.3.4" title="gitlab-ce:11.3.4" /></p>
+
+<h3 id="升級完成後-在統一調整-gitlab-rb-的參數">升級完成後，在統一調整 gitlab.rb 的參數</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ vi gitlab.rb
+
+//=========
+external_url &#39;http://git.example.com’
+gitlab_rails[&#39;gitlab_email_from&#39;] = &#39;gitlab@example.com&#39;
+gitlab_rails[&#39;gitlab_email_display_name&#39;] = &#39;GitLab&#39;
+
+...</pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/gitlab/">gitlab</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019/05/docker-volume-create/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">關於 Docker volume create</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2017/05/opensourcepos-install/">
+            <span class="next-text nav-default">opensourcepos 安裝</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'loopbai-blog';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://blog.loopbai.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">馬丁</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66438778-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

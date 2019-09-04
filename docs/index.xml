@@ -84,6 +84,15 @@
     </item>
     
     <item>
+      <title>Gitlab-ce 版本升級與容器化</title>
+      <link>https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/</link>
+      <pubDate>Thu, 01 Nov 2018 10:45:51 +0800</pubDate>
+      
+      <guid>https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/</guid>
+      <description>升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還</description>
+    </item>
+    
+    <item>
       <title>opensourcepos 安裝</title>
       <link>https://blog.loopbai.com/post/2017/05/opensourcepos-install/</link>
       <pubDate>Mon, 15 May 2017 07:46:01 +0800</pubDate>
