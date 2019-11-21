@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://blog.loopbai.com/post/2016/07/2013-open-web-software-safety-plans/" />
@@ -318,8 +318,7 @@
 <h4 id="防範策略-2">防範策略：</h4>
 
 <ol>
-<li>HTML須以跳脫或編碼機制作為XSS的基本對策</li>
-</ol>
+<li><p>HTML須以跳脫或編碼機制作為XSS的基本對策</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -337,7 +336,9 @@
 &#39; ---&gt; &amp;#x27;
 / ---&gt; &amp;#x2F;</pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
+
 <h3 id="a4-insecure-direct-object-references-不安全的物件參考">A4 - Insecure Direct Object References (不安全的物件參考)：</h3>
 
 <p>攻擊者利用網站自身的檔案讀取功能，去任意的讀取敏感資料或重要檔案，進而分析這些檔案後，達到攻破網站的目的，這個問題主要的部分在於網頁編寫時所使用的原始碼裡沒有去驗證使用者所投入的字串是否合法</p>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.1 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/" />
@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-11-01T10:45:51&#43;08:00" />
 <meta itemprop="dateModified" content="2018-11-01T10:45:51&#43;08:00" />
-<meta itemprop="wordCount" content="805">
+<meta itemprop="wordCount" content="804">
 
 
 
@@ -224,8 +224,7 @@
 <h3 id="撰寫-docker-compose-yaml-如下">撰寫 docker-compose.yaml 如下</h3>
 
 <ul>
-<li>hostname 與 external_url 替換成自己的參數</li>
-</ul>
+<li><p>hostname 與 external_url 替換成自己的參數</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -249,25 +248,27 @@
 </span></pre></td>
 <td class="lntd">
 <pre class="chroma">web:
-  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
-  container_name: gitlab
-  restart: always
-  hostname: &#39;git.example.com&#39;
-  environment:
-    TZ: Asia/Taipei
-    GITLAB_OMNIBUS_CONFIG: |
-      external_url &#39;http://git.example.com&#39;
-      # Add any other gitlab.rb configuration here, each on its own line
-  ports:
-    - &#39;22:22&#39;
-    - &#39;80:80&#39;
-    - &#39;443:443&#39;
-  volumes:
-    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
-    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
-    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;</pre></td></tr></table>
+image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
+container_name: gitlab
+restart: always
+hostname: &#39;git.example.com&#39;
+environment:
+TZ: Asia/Taipei
+GITLAB_OMNIBUS_CONFIG: |
+  external_url &#39;http://git.example.com&#39;
+  # Add any other gitlab.rb configuration here, each on its own line
+ports:
+- &#39;22:22&#39;
+- &#39;80:80&#39;
+- &#39;443:443&#39;
+volumes:
+- &#39;/srv/gitlab/config:/etc/gitlab&#39;
+- &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
+- &#39;/srv/gitlab/data:/var/opt/gitlab&#39;</pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h3 id="使用上方的docker-compose-啟動-gitlab-ce">使用上方的docker-compose 啟動 gitlab-ce</h3>
 
 <p><code>$ docker-compose up -d</code></p>
@@ -352,12 +353,13 @@
 <li>$ docker-compose up -d</li>
 <li>觀察log $ docker-compose logs -f</li>
 </ul></li>
-<li>5. 執行 gitlab 的檢查程序
+
+<li><ol>
+<li>執行 gitlab 的檢查程序</li>
+</ol>
 
 <ul>
-<li>$ docker exec -gitlab gitlab-rake gitlab:check SANITIZE=true</li>
-</ul></li>
-</ul>
+<li><p>$ docker exec -gitlab gitlab-rake gitlab:check SANITIZE=true</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -387,25 +389,28 @@
 #  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
 #  image: &#39;gitlab/gitlab-ce:9.2.10-ce.0&#39;
 #  image: &#39;gitlab/gitlab-ce:10.8.7-ce.0&#39;
-  image: &#39;gitlab/gitlab-ce:11.3.4-ce.0&#39;
-  container_name: gitlab
-  restart: always
-  hostname: &#39;git.example.com&#39;
-  environment:
-    TZ: Asia/Taipei
-    GITLAB_OMNIBUS_CONFIG: |
-      external_url &#39;http://git.example.com&#39;
-      # Add any other gitlab.rb configuration here, each on its own line
-  ports:
-    - &#39;22:22&#39;
-    - &#39;80:80&#39;
-    - &#39;443:443&#39;
-  volumes:
-    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
-    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
-    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;</pre></td></tr></table>
+image: &#39;gitlab/gitlab-ce:11.3.4-ce.0&#39;
+container_name: gitlab
+restart: always
+hostname: &#39;git.example.com&#39;
+environment:
+TZ: Asia/Taipei
+GITLAB_OMNIBUS_CONFIG: |
+external_url &#39;http://git.example.com&#39;
+# Add any other gitlab.rb configuration here, each on its own line
+ports:
+- &#39;22:22&#39;
+- &#39;80:80&#39;
+- &#39;443:443&#39;
+volumes:
+- &#39;/srv/gitlab/config:/etc/gitlab&#39;
+- &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
+- &#39;/srv/gitlab/data:/var/opt/gitlab&#39;</pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul></li>
+</ul>
+
 <h3 id="gitlab-ce-9-2-10-ce-0">gitlab-ce:9.2.10-ce.0</h3>
 
 <p><img src="https://fblog.loopbai.com/images/2018/11/a003.png" alt="gitlab-ce:9.2.10" title="gitlab-ce:9.2.10" /></p>

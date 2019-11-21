@@ -453,7 +453,7 @@
     </item>
     
     <item>
-      <title>Laravel5.0 關閉CRSF全局驗證</title>
+      <title>Laravel5.0 關閉CSRF全局驗證</title>
       <link>https://blog.loopbai.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/</link>
       <pubDate>Sat, 25 Jul 2015 08:13:01 +0800</pubDate>
       
