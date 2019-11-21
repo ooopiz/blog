@@ -2,21 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.loopbai.com/tags/kubernetes/</loc>
+    <lastmod>2019-07-29T17:18:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.loopbai.com/post/</loc>
     <lastmod>2019-07-29T17:18:19+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/</loc>
     <lastmod>2019-07-29T17:18:19+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.loopbai.com/tags/kubernetes/</loc>
-    <lastmod>2019-07-29T17:18:19+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -29,7 +32,15 @@
   <url>
     <loc>https://blog.loopbai.com/</loc>
     <lastmod>2019-07-29T17:18:19+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/coreos/</loc>
+    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -40,9 +51,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/coreos/</loc>
-    <lastmod>2019-07-24T17:01:37+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.loopbai.com/tags/docker/</loc>
+    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -53,9 +65,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/docker/</loc>
-    <lastmod>2019-06-04T20:22:08+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.loopbai.com/tags/virtualbox/</loc>
+    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -66,9 +79,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/virtualbox/</loc>
-    <lastmod>2019-05-28T15:20:25+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.loopbai.com/tags/fswatch/</loc>
+    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -79,14 +93,15 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/fswatch/</loc>
-    <lastmod>2019-05-23T23:27:58+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.loopbai.com/about/</loc>
+    <lastmod>2019-05-21T16:08:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/about/</loc>
-    <lastmod>2019-05-21T16:08:02+08:00</lastmod>
+    <loc>https://blog.loopbai.com/tags/ipsec/</loc>
+    <lastmod>2019-05-17T08:02:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -99,21 +114,17 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/ipsec/</loc>
-    <lastmod>2019-05-17T08:02:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.loopbai.com/tags/vigor/</loc>
     <lastmod>2019-05-17T08:02:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/vpn/</loc>
     <lastmod>2019-05-17T08:02:00+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -124,16 +135,17 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/</loc>
+    <loc>https://blog.loopbai.com/tags/gitlab/</loc>
     <lastmod>2018-11-01T10:45:51+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/gitlab/</loc>
+    <loc>https://blog.loopbai.com/post/2018/11/gitlab-version-update-and-dockerized/</loc>
     <lastmod>2018-11-01T10:45:51+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -181,13 +193,15 @@
   <url>
     <loc>https://blog.loopbai.com/tags/zabbix/</loc>
     <lastmod>2016-10-27T02:13:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/bind/</loc>
     <lastmod>2016-10-17T15:46:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -200,7 +214,8 @@
   <url>
     <loc>https://blog.loopbai.com/tags/dns/</loc>
     <lastmod>2016-10-17T15:46:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -269,19 +284,22 @@
   <url>
     <loc>https://blog.loopbai.com/tags/postfix/</loc>
     <lastmod>2016-05-26T10:20:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/smtp/</loc>
     <lastmod>2016-05-26T10:20:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/nginx/</loc>
     <lastmod>2016-05-05T02:47:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -294,7 +312,8 @@
   <url>
     <loc>https://blog.loopbai.com/tags/php/</loc>
     <lastmod>2016-05-05T02:38:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -307,18 +326,27 @@
   <url>
     <loc>https://blog.loopbai.com/tags/maven/</loc>
     <lastmod>2015-12-14T01:27:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/tags/nexus/</loc>
     <lastmod>2015-12-14T01:27:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/post/2015/12/install-nexus-oss/</loc>
     <lastmod>2015-12-14T01:27:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/centos/</loc>
+    <lastmod>2015-10-01T05:24:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -331,15 +359,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/centos/</loc>
-    <lastmod>2015-10-01T05:24:01+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.loopbai.com/tags/tomcat/</loc>
     <lastmod>2015-10-01T05:24:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -422,12 +445,20 @@
   <url>
     <loc>https://blog.loopbai.com/tags/mariadb/</loc>
     <lastmod>2015-08-24T07:05:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.loopbai.com/post/2015/08/centos65-install-nginx/</loc>
     <lastmod>2015-08-24T07:01:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.loopbai.com/tags/laravel/</loc>
+    <lastmod>2015-08-24T05:04:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -440,9 +471,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/laravel/</loc>
-    <lastmod>2015-08-24T05:04:01+08:00</lastmod>
-    <priority>0</priority>
+    <loc>https://blog.loopbai.com/tags/android/</loc>
+    <lastmod>2015-08-24T04:50:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -453,15 +485,10 @@
   </url>
   
   <url>
-    <loc>https://blog.loopbai.com/tags/android/</loc>
-    <lastmod>2015-08-24T04:50:01+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.loopbai.com/tags/git/</loc>
     <lastmod>2015-08-24T03:05:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -481,7 +508,8 @@
   <url>
     <loc>https://blog.loopbai.com/tags/phpmyadmin/</loc>
     <lastmod>2015-08-24T02:00:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -494,7 +522,8 @@
   <url>
     <loc>https://blog.loopbai.com/tags/mysql/</loc>
     <lastmod>2015-08-24T01:08:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -507,7 +536,8 @@
   <url>
     <loc>https://blog.loopbai.com/tags/iptables/</loc>
     <lastmod>2015-08-21T10:05:01+08:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -540,7 +570,8 @@
   
   <url>
     <loc>https://blog.loopbai.com/categories/</loc>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>
