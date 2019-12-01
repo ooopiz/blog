@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>virtualbox on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/virtualbox/</link>
+    <link>https://blog.ooopiz.com/tags/virtualbox/</link>
     <description>Recent content in virtualbox on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Tue, 28 May 2019 15:20:25 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Virtualbox 安裝 Coreos</title>
-      <link>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</link>
+      <link>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</link>
       <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</guid>
       <description>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開</description>
     </item>
     
     <item>
       <title>VirtualBox Guest Addtiton安裝 for Centos</title>
-      <link>https://blog.loopbai.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</link>
+      <link>https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</link>
       <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</guid>
       <description>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示</description>
     </item>
     
     <item>
       <title>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器</title>
-      <link>https://blog.loopbai.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</link>
+      <link>https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</link>
       <pubDate>Wed, 09 Sep 2015 09:10:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
       <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線 Windows環境</description>
     </item>
     

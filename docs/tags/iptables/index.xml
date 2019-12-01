@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>iptables on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/iptables/</link>
+    <link>https://blog.ooopiz.com/tags/iptables/</link>
     <description>Recent content in iptables on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Fri, 21 Aug 2015 10:05:01 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CentOS6.5 防火牆設定iptables</title>
-      <link>https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
+      <link>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
       <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對</description>
     </item>
     

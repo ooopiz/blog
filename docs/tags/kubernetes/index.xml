@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kubernetes on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/kubernetes/</link>
+    <link>https://blog.ooopiz.com/tags/kubernetes/</link>
     <description>Recent content in kubernetes on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 29 Jul 2019 17:18:19 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>建立一個單節點的 kubernetes cluster (kubeadm)</title>
-      <link>https://blog.loopbai.com/post/2019/07/creating-kubernetes-single-node-cluster/</link>
+      <link>https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/</link>
       <pubDate>Mon, 29 Jul 2019 17:18:19 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/07/creating-kubernetes-single-node-cluster/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/</guid>
       <description>前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。 Kubernetes Architecture 這是一個 kubernetes cluster 較完整</description>
     </item>
     

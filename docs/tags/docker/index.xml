@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/docker/</link>
+    <link>https://blog.ooopiz.com/tags/docker/</link>
     <description>Recent content in docker on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker cli 連線到遠端的 dockerd daemon</title>
-      <link>https://blog.loopbai.com/post/2019/06/docker-connecting-remote-daemon/</link>
+      <link>https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/</link>
       <pubDate>Tue, 04 Jun 2019 20:22:08 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/06/docker-connecting-remote-daemon/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/</guid>
       <description>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本</description>
     </item>
     
     <item>
       <title>關於 Docker volume create</title>
-      <link>https://blog.loopbai.com/post/2019/05/docker-volume-create/</link>
+      <link>https://blog.ooopiz.com/post/2019/05/docker-volume-create/</link>
       <pubDate>Fri, 10 May 2019 07:22:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/05/docker-volume-create/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/05/docker-volume-create/</guid>
       <description>前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。 原本我都是使用 -v 對應到我 host 機器的目錄 ex : -v $(pwd)/nginx-cache:/var/cache/nginx 後來很好奇 docker volume create 的用途還有存放路徑。 於</description>
     </item>
     

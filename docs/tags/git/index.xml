@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/git/</link>
+    <link>https://blog.ooopiz.com/tags/git/</link>
     <description>Recent content in git on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 24 Aug 2015 03:05:01 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>一台電腦兩個Git帳號使用SSH Key</title>
-      <link>https://blog.loopbai.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</link>
+      <link>https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</link>
       <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
       <description>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh 1 2 3 4 5 6 7 8 9 10 Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second 取</description>
     </item>
     

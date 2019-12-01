@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fswatch on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/fswatch/</link>
+    <link>https://blog.ooopiz.com/tags/fswatch/</link>
     <description>Recent content in fswatch on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Thu, 23 May 2019 23:27:58 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/fswatch/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/fswatch/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fswatch Save My Times</title>
-      <link>https://blog.loopbai.com/post/2019/05/fswatch-save-my-times/</link>
+      <link>https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/</link>
       <pubDate>Thu, 23 May 2019 23:27:58 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/05/fswatch-save-my-times/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/</guid>
       <description>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找</description>
     </item>
     

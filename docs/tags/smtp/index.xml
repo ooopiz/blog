@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>smtp on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/smtp/</link>
+    <link>https://blog.ooopiz.com/tags/smtp/</link>
     <description>Recent content in smtp on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Thu, 26 May 2016 10:20:01 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CentOS7 安裝Postfix</title>
-      <link>https://blog.loopbai.com/post/2016/05/centos7-install-postfix/</link>
+      <link>https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2016/05/centos7-install-postfix/</guid>
+      <guid>https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/</guid>
       <description>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果</description>
     </item>
     

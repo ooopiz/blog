@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>maven on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/maven/</link>
+    <link>https://blog.ooopiz.com/tags/maven/</link>
     <description>Recent content in maven on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 14 Dec 2015 01:27:01 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>安裝 Nexus OSS</title>
-      <link>https://blog.loopbai.com/post/2015/12/install-nexus-oss/</link>
+      <link>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</link>
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/12/install-nexus-oss/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</guid>
       <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo</description>
     </item>
     

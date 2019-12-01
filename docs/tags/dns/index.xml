@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dns on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/dns/</link>
+    <link>https://blog.ooopiz.com/tags/dns/</link>
     <description>Recent content in dns on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 17 Oct 2016 15:46:01 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/dns/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>bind make安裝搭配 dlz mysql</title>
-      <link>https://blog.loopbai.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</link>
+      <link>https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</link>
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</guid>
+      <guid>https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</guid>
       <description>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI</description>
     </item>
     
     <item>
       <title>CentOS yum 安裝bind9</title>
-      <link>https://blog.loopbai.com/post/2016/10/centos-yum-install-bind9/</link>
+      <link>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</link>
       <pubDate>Tue, 04 Oct 2016 02:09:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2016/10/centos-yum-install-bind9/</guid>
+      <guid>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</guid>
       <description>安裝 # sudo yum install bind bind-utils -y # service named start # chkconfig named on 防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT # service iptables save # service iptables restart 設定 預設ne</description>
     </item>
     

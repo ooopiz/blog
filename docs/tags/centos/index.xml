@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>centos on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/centos/</link>
+    <link>https://blog.ooopiz.com/tags/centos/</link>
     <description>Recent content in centos on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CentOS7 Tomcat增加systemctl控制</title>
-      <link>https://blog.loopbai.com/post/2015/10/centos7-systemctl-control/</link>
+      <link>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/10/centos7-systemctl-control/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</guid>
       <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Ja</description>
     </item>
     
     <item>
       <title>CentOS7 安裝Tomcat</title>
-      <link>https://blog.loopbai.com/post/2015/09/centos7-installing-tomcat/</link>
+      <link>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</link>
       <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/09/centos7-installing-tomcat/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</guid>
       <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #</description>
     </item>
     
     <item>
       <title>yum 和 wget 使用 proxy</title>
-      <link>https://blog.loopbai.com/post/2015/09/wget-and-yum-with-proxy/</link>
+      <link>https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/</link>
       <pubDate>Wed, 02 Sep 2015 17:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/09/wget-and-yum-with-proxy/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/</guid>
       <description>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使</description>
     </item>
     
     <item>
       <title>CentOS7 基礎設定</title>
-      <link>https://blog.loopbai.com/post/2015/09/centos7-basic-set/</link>
+      <link>https://blog.ooopiz.com/post/2015/09/centos7-basic-set/</link>
       <pubDate>Tue, 01 Sep 2015 03:07:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/09/centos7-basic-set/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/09/centos7-basic-set/</guid>
       <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同</description>
     </item>
     
     <item>
       <title>CentOS 使用rsync</title>
-      <link>https://blog.loopbai.com/post/2015/08/centos-using-rsync/</link>
+      <link>https://blog.ooopiz.com/post/2015/08/centos-using-rsync/</link>
       <pubDate>Mon, 31 Aug 2015 13:06:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/08/centos-using-rsync/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/08/centos-using-rsync/</guid>
       <description>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器． 首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync 如</description>
     </item>
     
     <item>
       <title>CentOS6.5 安裝LNMP</title>
-      <link>https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/</link>
+      <link>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</link>
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/08/centos65-installation-lnmp/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
       <description>一、更新rpm 參考連結 MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
     </item>
     
     <item>
       <title>CentOS6.5 防火牆設定iptables</title>
-      <link>https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
+      <link>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
       <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對</description>
     </item>
     
     <item>
       <title>CentOS6.5 網卡基本設定</title>
-      <link>https://blog.loopbai.com/post/2015/08/centos65-network-card-settings/</link>
+      <link>https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/</link>
       <pubDate>Fri, 21 Aug 2015 09:29:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/08/centos65-network-card-settings/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/</guid>
       <description>首先可以下指令顯示出所有的介面資訊 # ip link show 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-</description>
     </item>
     
     <item>
       <title>CentOS crontab</title>
-      <link>https://blog.loopbai.com/post/2015/07/centos-crontab/</link>
+      <link>https://blog.ooopiz.com/post/2015/07/centos-crontab/</link>
       <pubDate>Mon, 27 Jul 2015 01:35:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2015/07/centos-crontab/</guid>
+      <guid>https://blog.ooopiz.com/post/2015/07/centos-crontab/</guid>
       <description>Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -</description>
     </item>
     

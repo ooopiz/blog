@@ -2,255 +2,255 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/</link>
+    <link>https://blog.ooopiz.com/tags/</link>
     <description>Recent content in Tags on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 29 Jul 2019 17:18:19 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubernetes</title>
-      <link>https://blog.loopbai.com/tags/kubernetes/</link>
+      <link>https://blog.ooopiz.com/tags/kubernetes/</link>
       <pubDate>Mon, 29 Jul 2019 17:18:19 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/kubernetes/</guid>
+      <guid>https://blog.ooopiz.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>coreos</title>
-      <link>https://blog.loopbai.com/tags/coreos/</link>
+      <link>https://blog.ooopiz.com/tags/coreos/</link>
       <pubDate>Wed, 24 Jul 2019 17:01:37 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/coreos/</guid>
+      <guid>https://blog.ooopiz.com/tags/coreos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://blog.loopbai.com/tags/docker/</link>
+      <link>https://blog.ooopiz.com/tags/docker/</link>
       <pubDate>Tue, 04 Jun 2019 20:22:08 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/docker/</guid>
+      <guid>https://blog.ooopiz.com/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtualbox</title>
-      <link>https://blog.loopbai.com/tags/virtualbox/</link>
+      <link>https://blog.ooopiz.com/tags/virtualbox/</link>
       <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/virtualbox/</guid>
+      <guid>https://blog.ooopiz.com/tags/virtualbox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fswatch</title>
-      <link>https://blog.loopbai.com/tags/fswatch/</link>
+      <link>https://blog.ooopiz.com/tags/fswatch/</link>
       <pubDate>Thu, 23 May 2019 23:27:58 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/fswatch/</guid>
+      <guid>https://blog.ooopiz.com/tags/fswatch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ipsec</title>
-      <link>https://blog.loopbai.com/tags/ipsec/</link>
+      <link>https://blog.ooopiz.com/tags/ipsec/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/ipsec/</guid>
+      <guid>https://blog.ooopiz.com/tags/ipsec/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vigor</title>
-      <link>https://blog.loopbai.com/tags/vigor/</link>
+      <link>https://blog.ooopiz.com/tags/vigor/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/vigor/</guid>
+      <guid>https://blog.ooopiz.com/tags/vigor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vpn</title>
-      <link>https://blog.loopbai.com/tags/vpn/</link>
+      <link>https://blog.ooopiz.com/tags/vpn/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/vpn/</guid>
+      <guid>https://blog.ooopiz.com/tags/vpn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gitlab</title>
-      <link>https://blog.loopbai.com/tags/gitlab/</link>
+      <link>https://blog.ooopiz.com/tags/gitlab/</link>
       <pubDate>Thu, 01 Nov 2018 10:45:51 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/gitlab/</guid>
+      <guid>https://blog.ooopiz.com/tags/gitlab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>zabbix</title>
-      <link>https://blog.loopbai.com/tags/zabbix/</link>
+      <link>https://blog.ooopiz.com/tags/zabbix/</link>
       <pubDate>Thu, 27 Oct 2016 02:13:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/zabbix/</guid>
+      <guid>https://blog.ooopiz.com/tags/zabbix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bind</title>
-      <link>https://blog.loopbai.com/tags/bind/</link>
+      <link>https://blog.ooopiz.com/tags/bind/</link>
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/bind/</guid>
+      <guid>https://blog.ooopiz.com/tags/bind/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dns</title>
-      <link>https://blog.loopbai.com/tags/dns/</link>
+      <link>https://blog.ooopiz.com/tags/dns/</link>
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/dns/</guid>
+      <guid>https://blog.ooopiz.com/tags/dns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>postfix</title>
-      <link>https://blog.loopbai.com/tags/postfix/</link>
+      <link>https://blog.ooopiz.com/tags/postfix/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/postfix/</guid>
+      <guid>https://blog.ooopiz.com/tags/postfix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>smtp</title>
-      <link>https://blog.loopbai.com/tags/smtp/</link>
+      <link>https://blog.ooopiz.com/tags/smtp/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/smtp/</guid>
+      <guid>https://blog.ooopiz.com/tags/smtp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nginx</title>
-      <link>https://blog.loopbai.com/tags/nginx/</link>
+      <link>https://blog.ooopiz.com/tags/nginx/</link>
       <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/nginx/</guid>
+      <guid>https://blog.ooopiz.com/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>php</title>
-      <link>https://blog.loopbai.com/tags/php/</link>
+      <link>https://blog.ooopiz.com/tags/php/</link>
       <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/php/</guid>
+      <guid>https://blog.ooopiz.com/tags/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>maven</title>
-      <link>https://blog.loopbai.com/tags/maven/</link>
+      <link>https://blog.ooopiz.com/tags/maven/</link>
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/maven/</guid>
+      <guid>https://blog.ooopiz.com/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nexus</title>
-      <link>https://blog.loopbai.com/tags/nexus/</link>
+      <link>https://blog.ooopiz.com/tags/nexus/</link>
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/nexus/</guid>
+      <guid>https://blog.ooopiz.com/tags/nexus/</guid>
       <description></description>
     </item>
     
     <item>
       <title>centos</title>
-      <link>https://blog.loopbai.com/tags/centos/</link>
+      <link>https://blog.ooopiz.com/tags/centos/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/centos/</guid>
+      <guid>https://blog.ooopiz.com/tags/centos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tomcat</title>
-      <link>https://blog.loopbai.com/tags/tomcat/</link>
+      <link>https://blog.ooopiz.com/tags/tomcat/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/tomcat/</guid>
+      <guid>https://blog.ooopiz.com/tags/tomcat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mariadb</title>
-      <link>https://blog.loopbai.com/tags/mariadb/</link>
+      <link>https://blog.ooopiz.com/tags/mariadb/</link>
       <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/mariadb/</guid>
+      <guid>https://blog.ooopiz.com/tags/mariadb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>laravel</title>
-      <link>https://blog.loopbai.com/tags/laravel/</link>
+      <link>https://blog.ooopiz.com/tags/laravel/</link>
       <pubDate>Mon, 24 Aug 2015 05:04:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/laravel/</guid>
+      <guid>https://blog.ooopiz.com/tags/laravel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>android</title>
-      <link>https://blog.loopbai.com/tags/android/</link>
+      <link>https://blog.ooopiz.com/tags/android/</link>
       <pubDate>Mon, 24 Aug 2015 04:50:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/android/</guid>
+      <guid>https://blog.ooopiz.com/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://blog.loopbai.com/tags/git/</link>
+      <link>https://blog.ooopiz.com/tags/git/</link>
       <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/git/</guid>
+      <guid>https://blog.ooopiz.com/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>phpmyadmin</title>
-      <link>https://blog.loopbai.com/tags/phpmyadmin/</link>
+      <link>https://blog.ooopiz.com/tags/phpmyadmin/</link>
       <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/phpmyadmin/</guid>
+      <guid>https://blog.ooopiz.com/tags/phpmyadmin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mysql</title>
-      <link>https://blog.loopbai.com/tags/mysql/</link>
+      <link>https://blog.ooopiz.com/tags/mysql/</link>
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/mysql/</guid>
+      <guid>https://blog.ooopiz.com/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>iptables</title>
-      <link>https://blog.loopbai.com/tags/iptables/</link>
+      <link>https://blog.ooopiz.com/tags/iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/tags/iptables/</guid>
+      <guid>https://blog.ooopiz.com/tags/iptables/</guid>
       <description></description>
     </item>
     

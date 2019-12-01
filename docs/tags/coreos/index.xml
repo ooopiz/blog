@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>coreos on 馬丁沒有派對</title>
-    <link>https://blog.loopbai.com/tags/coreos/</link>
+    <link>https://blog.ooopiz.com/tags/coreos/</link>
     <description>Recent content in coreos on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Wed, 24 Jul 2019 17:01:37 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.loopbai.com/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ooopiz.com/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CoreOS Static Ip 固定 IP 設定</title>
-      <link>https://blog.loopbai.com/post/2019/07/coreos-static-ip/</link>
+      <link>https://blog.ooopiz.com/post/2019/07/coreos-static-ip/</link>
       <pubDate>Wed, 24 Jul 2019 17:01:37 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/07/coreos-static-ip/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/07/coreos-static-ip/</guid>
       <description>設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot</description>
     </item>
     
     <item>
       <title>Virtualbox 安裝 Coreos</title>
-      <link>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</link>
+      <link>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</link>
       <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
       
-      <guid>https://blog.loopbai.com/post/2019/05/virtualbox-install-coreos/</guid>
+      <guid>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</guid>
       <description>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開</description>
     </item>
     

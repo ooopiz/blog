@@ -1,6 +1,6 @@
 publishDir = "docs"
 
-baseURL = "https://blog.loopbai.com"
+baseURL = "https://blog.ooopiz.com"
 languageCode = "zh-tw"
 defaultContentLanguage = "zh-tw"                           # en / zh-cn / ... (This field determines which i18n file to use)
 title = "馬丁沒有派對"
