@@ -11,11 +11,11 @@ tags: ["virtualbox"]
 那就讓我們來開始安裝吧
 
 ### 先把VBoxGuestAdditions.iso mount起來
-<img src="//fblog.loopbai.com/images/201509/A04-01.png">
+<img src="//fblog.ooopiz.com/images/201509/A04-01.png">
 
 `# mkdir /media/cdrom`
 `# mount /dev/cdrom /media/cdrom`
-<img src="//fblog.loopbai.com/images/201509/A04-02.png">
+<img src="//fblog.ooopiz.com/images/201509/A04-02.png">
 
 ### 執行VBoxLinuxAdditions.run
 `# sh /media/cdrom/VBoxLinuxAdditions.run`
@@ -32,16 +32,16 @@ tags: ["virtualbox"]
 
 #### 在執行VBoxLinuxAdditions.run的時候你可能會遇到
 ### <b style="color:red">bzip2 command not found</b>
-<img src="//fblog.loopbai.com/images/201509/A04-03.png">
+<img src="//fblog.ooopiz.com/images/201509/A04-03.png">
 `# yum install bzip2 -y`
 
 ### <b style="color:red">Building the main Guest Additions module [失敗]</b>
 `# yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y`
 
-<img src="//fblog.loopbai.com/images/201509/A04-04.png">
+<img src="//fblog.ooopiz.com/images/201509/A04-04.png">
 
 
 解完後在執行一次
 `# sh /media/cdrom/VBoxLinuxAdditions.run`
 
-<img src="//fblog.loopbai.com/images/201509/A04-05.png">
+<img src="//fblog.ooopiz.com/images/201509/A04-05.png">

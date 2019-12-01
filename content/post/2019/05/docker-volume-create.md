@@ -20,7 +20,7 @@ ex :
 一般的 Linux 在執行 docker volume create … 之後，  
 可以在 /var/lib/docker/volumes 看到 docker 幫你建立 volume 名稱的資料夾。  
 
-![docker volume ls](https://fblog.loopbai.com/images/2019/05/a001.jpg "docker volume ls")
+![docker volume ls](https://fblog.ooopiz.com/images/2019/05/a001.jpg "docker volume ls")
 
 ## docker volume create In Mac
 可是當你使用 Mac 執行過 docker volume create … 之後，  
@@ -32,7 +32,7 @@ ex :
 
 `$ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty`
 
-![docker volume store](https://fblog.loopbai.com/images/2019/05/a002.jpg "docker volume store")
+![docker volume store](https://fblog.ooopiz.com/images/2019/05/a002.jpg "docker volume store")
 
 
 ## 你可能會遇到的問題

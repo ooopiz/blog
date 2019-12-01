@@ -12,10 +12,10 @@ tags: ["virtualbox", "coreos"]
 
 ## VirtualBox 新增機器
 選 Linux 64 bit 即可  
-![virtualbox-new-server](https://fblog.loopbai.com/images/2019/05/d001.jpg "virtualbox-new-server")
+![virtualbox-new-server](https://fblog.ooopiz.com/images/2019/05/d001.jpg "virtualbox-new-server")
 
 掛載剛下載的 ISO 檔  
-![mount-coreos-iso](https://fblog.loopbai.com/images/2019/05/d002.jpg "mount-coreos-iso")
+![mount-coreos-iso](https://fblog.ooopiz.com/images/2019/05/d002.jpg "mount-coreos-iso")
 
 ## 開機
 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。  
@@ -23,10 +23,10 @@ tags: ["virtualbox", "coreos"]
 * 512 G - <span style="color:red"> *無限重開* </span>
 
 * 1024 G - <span style="color:red"> *boot into emergency shell* </span>
-![emergency shell](https://fblog.loopbai.com/images/2019/05/d003.jpg "emergency shell")
+![emergency shell](https://fblog.ooopiz.com/images/2019/05/d003.jpg "emergency shell")
 
 * 2048 G - OK
-![coreos boot](https://fblog.loopbai.com/images/2019/05/d004.jpg "coreos boot")
+![coreos boot](https://fblog.ooopiz.com/images/2019/05/d004.jpg "coreos boot")
 
 > 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
 
@@ -41,7 +41,7 @@ tags: ["virtualbox", "coreos"]
 ### 先查看硬碟空間在那裡
 `$ sudo fdisk -l`
 
-![fdisk -l](https://fblog.loopbai.com/images/2019/05/d005.jpg "fdisk -l")
+![fdisk -l](https://fblog.ooopiz.com/images/2019/05/d005.jpg "fdisk -l")
 
 ### 編寫 ignition.json
 sshAuthorizedKeys 替換成你要登入的公鑰
@@ -72,7 +72,7 @@ sshAuthorizedKeys 替換成你要登入的公鑰
 ### 安裝吧 coreos-install
 `$ sudo coreos-install -d /dev/sda -C stable -i ~/ignition.json`
 
-![coreos-install](https://fblog.loopbai.com/images/2019/05/d006.jpg "coreos-install")
+![coreos-install](https://fblog.ooopiz.com/images/2019/05/d006.jpg "coreos-install")
 
 #### coreos-install 參數說明
 * -d DEVICE   Install Container Linux to the given device.

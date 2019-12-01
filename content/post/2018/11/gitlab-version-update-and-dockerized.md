@@ -81,7 +81,7 @@ web:
 #### f. 檢查
 `$ gitlab-rake gitlab:check SANITIZE=true`
 
-![gitlab check](https://fblog.loopbai.com/images/2018/11/a001.png "gitlab check")
+![gitlab check](https://fblog.ooopiz.com/images/2018/11/a001.png "gitlab check")
 
 #### g. 修正錯誤 Uploads directory setup correctly? ... no
 `$ find /var/opt/gitlab/gitlab-rails/uploads -type d -not -path /var/opt/gitlab/gitlab-rails/uploads -exec chmod 0700 {} \;`
@@ -98,7 +98,7 @@ web:
 #### k. 啟動
 `$ gitlab-ctl restart`
 
-![gitlab-ce:8.14.4](https://fblog.loopbai.com/images/2018/11/a002.png "gitlab-ce:8.14.4")
+![gitlab-ce:8.14.4](https://fblog.ooopiz.com/images/2018/11/a002.png "gitlab-ce:8.14.4")
 
 
 ## 【四、版本逐步升級】
@@ -147,13 +147,13 @@ web:
 ```
 
 ### gitlab-ce:9.2.10-ce.0
-![gitlab-ce:9.2.10](https://fblog.loopbai.com/images/2018/11/a003.png "gitlab-ce:9.2.10")
+![gitlab-ce:9.2.10](https://fblog.ooopiz.com/images/2018/11/a003.png "gitlab-ce:9.2.10")
 
 ### gitlab-ce:10.8.7-ce.0
-![gitlab-ce:10.8.7](https://fblog.loopbai.com/images/2018/11/a004.png "gitlab-ce:10.8.7")
+![gitlab-ce:10.8.7](https://fblog.ooopiz.com/images/2018/11/a004.png "gitlab-ce:10.8.7")
 
 ### gitlab-ce:11.3.4-ce.0
-![gitlab-ce:11.3.4](https://fblog.loopbai.com/images/2018/11/a005.png "gitlab-ce:11.3.4")
+![gitlab-ce:11.3.4](https://fblog.ooopiz.com/images/2018/11/a005.png "gitlab-ce:11.3.4")
 
 
 ### 升級完成後，在統一調整 gitlab.rb 的參數

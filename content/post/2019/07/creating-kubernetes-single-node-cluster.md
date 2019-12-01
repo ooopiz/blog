@@ -10,7 +10,7 @@ tags: ["kubernetes"]
 ## Kubernetes Architecture
 這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。
 
-![kubernetes architecture](https://fblog.loopbai.com/images/2019/07/b001.png "kubernetes architecture")
+![kubernetes architecture](https://fblog.ooopiz.com/images/2019/07/b001.png "kubernetes architecture")
 (圖片來自WIKI)
 
 ## Master 節點的組件
@@ -119,12 +119,12 @@ kubeadm join 10.0.2.15:6443 --token 86u3ts.46lvxxw10capjhr0 \
 
 _上面 ... 那邊會下載 image 回來，必須等待一下。_
 
-![kubeadm init](https://fblog.loopbai.com/images/2019/07/b002.jpg "kubeadm init")
+![kubeadm init](https://fblog.ooopiz.com/images/2019/07/b002.jpg "kubeadm init")
 
 
 完成後可以在 docker images 看到下載那些 image 回來。
 
-![docker images](https://fblog.loopbai.com/images/2019/07/b003.jpg "docker images")
+![docker images](https://fblog.ooopiz.com/images/2019/07/b003.jpg "docker images")
 
 ## kubectl 設定檔
 if not root user
@@ -138,7 +138,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ### 還沒安裝 cni 前
 看一下 node 的狀態 status 為 NotReady
-![kubernetes noready](https://fblog.loopbai.com/images/2019/07/b004.jpg "kubernetes noready")
+![kubernetes noready](https://fblog.ooopiz.com/images/2019/07/b004.jpg "kubernetes noready")
 
 再看一下 pods 的狀態，有兩個 coredns 的 pods 尚未 ready
 
@@ -146,7 +146,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 `$ watch kubectl get pods --all-namespaces`
 
-![pod noready](https://fblog.loopbai.com/images/2019/07/b005.jpg "pod noready")
+![pod noready](https://fblog.ooopiz.com/images/2019/07/b005.jpg "pod noready")
 
 在後續安裝完 cni 都可以解決
 
@@ -168,14 +168,14 @@ net.bridge.bridge-nf-call-iptables=1
 ### 安裝 cni 後
 再看一下節點狀態，都是 ready 狀態了
 
-![pod ready](https://fblog.loopbai.com/images/2019/07/b006.jpg "pod ready")
+![pod ready](https://fblog.ooopiz.com/images/2019/07/b006.jpg "pod ready")
 
 ## 移除控制節點的 Taints
 預設集群不會將 pod 安排在控制節點。  
 如果要建立一個單節點的集群必須執行如下的指令。  
 `$ kubectl taint nodes --all node-role.kubernetes.io/master-`
 
-![kubectl taint](https://fblog.loopbai.com/images/2019/07/b007.jpg "kubectl taint")
+![kubectl taint](https://fblog.ooopiz.com/images/2019/07/b007.jpg "kubectl taint")
 
 ## Test
 
@@ -184,4 +184,4 @@ net.bridge.bridge-nf-call-iptables=1
 `$ kubectl expose pod my-nginx --type=NodePort --name=my-ng-srv --port=80 --target-port=80`
 
 ### 成功（存取的 port 記得使用你自己分配到的 port）
-![kubernetes cluster](https://fblog.loopbai.com/images/2019/07/b008.jpg "kubernetes cluster")
+![kubernetes cluster](https://fblog.ooopiz.com/images/2019/07/b008.jpg "kubernetes cluster")

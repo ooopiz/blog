@@ -28,7 +28,7 @@ dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加�
 以 coreOS 為例，  
 我的檔案在 /run/systemd/system/docker.service  
 
-![dockerd -H tcp://0.0.0.0:2375](https://fblog.loopbai.com/images/2019/06/a001.jpg "docker -H tcp://0.0.0.0:2375")
+![dockerd -H tcp://0.0.0.0:2375](https://fblog.ooopiz.com/images/2019/06/a001.jpg "docker -H tcp://0.0.0.0:2375")
 
 修改完後，reload 並重啓
 
@@ -39,7 +39,7 @@ $ sudo systemctl restart docker
 
 接著就可以看到 service 的 port 已經打開了。
 
-![dockerd port listen](https://fblog.loopbai.com/images/2019/06/a002.jpg "dockerd prot listen")
+![dockerd port listen](https://fblog.ooopiz.com/images/2019/06/a002.jpg "dockerd prot listen")
 
 ### 連線測試
 一般我們 key 入 docker version，就可以看到一個 Client，一個 Server.  
@@ -48,7 +48,7 @@ $ sudo systemctl restart docker
 一樣是一個 Client 一個 Server，注意看會發現 Server 那邊的資訊已經不一樣了。  
 說明指令已經控制到遠端的 docker 了。
 
-![docker connecting remote daemon](https://fblog.loopbai.com/images/2019/06/a003.jpg "docker connecting remote daemon")
+![docker connecting remote daemon](https://fblog.ooopiz.com/images/2019/06/a003.jpg "docker connecting remote daemon")
 
 你可以在試試看下面這些指令，你應該可以發現不同了。(記得換成你在用的 IP)
 ```

@@ -107,7 +107,7 @@ net.ipv4.conf.ens5.rp_filter=0
   
 如果有紅色錯誤修正一下再執行至正確狀態
   
-![ipsec verify](https://fblog.loopbai.com/images/2019/05/b001.jpg "ipsec verify result")
+![ipsec verify](https://fblog.ooopiz.com/images/2019/05/b001.jpg "ipsec verify result")
 
 
 ## 開啟防火牆
@@ -155,9 +155,9 @@ $ systemctl enable iptables
 - 預先共用金鑰填入上方設定好的金鑰
 - TCP/IP 就照你的網段進行設定吧
 
-![Vigor lantolan](https://fblog.loopbai.com/images/2019/05/b002.jpg "vigor ipsec setting")
+![Vigor lantolan](https://fblog.ooopiz.com/images/2019/05/b002.jpg "vigor ipsec setting")
   
-![Vigor lantolan](https://fblog.loopbai.com/images/2019/05/b003.jpg "vigor ipsec setting")
+![Vigor lantolan](https://fblog.ooopiz.com/images/2019/05/b003.jpg "vigor ipsec setting")
 
 ## Reference
 

@@ -182,7 +182,7 @@
 
 <p>這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。</p>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b001.png" alt="kubernetes architecture" title="kubernetes architecture" />
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b001.png" alt="kubernetes architecture" title="kubernetes architecture" />
 (圖片來自WIKI)</p>
 
 <h2 id="master-節點的組件">Master 節點的組件</h2>
@@ -368,11 +368,11 @@ kubeadm join 10.0.2.15:6443 --token 86u3ts.46lvxxw10capjhr0 \
 </div>
 <p><em>上面 &hellip; 那邊會下載 image 回來，必須等待一下。</em></p>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b002.jpg" alt="kubeadm init" title="kubeadm init" /></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b002.jpg" alt="kubeadm init" title="kubeadm init" /></p>
 
 <p>完成後可以在 docker images 看到下載那些 image 回來。</p>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b003.jpg" alt="docker images" title="docker images" /></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b003.jpg" alt="docker images" title="docker images" /></p>
 
 <h2 id="kubectl-設定檔">kubectl 設定檔</h2>
 
@@ -392,7 +392,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config</pre></td></tr></table>
 <h3 id="還沒安裝-cni-前">還沒安裝 cni 前</h3>
 
 <p>看一下 node 的狀態 status 為 NotReady
-<img src="https://fblog.loopbai.com/images/2019/07/b004.jpg" alt="kubernetes noready" title="kubernetes noready" /></p>
+<img src="https://fblog.ooopiz.com/images/2019/07/b004.jpg" alt="kubernetes noready" title="kubernetes noready" /></p>
 
 <p>再看一下 pods 的狀態，有兩個 coredns 的 pods 尚未 ready</p>
 
@@ -400,7 +400,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config</pre></td></tr></table>
 
 <p><code>$ watch kubectl get pods --all-namespaces</code></p>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b005.jpg" alt="pod noready" title="pod noready" /></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b005.jpg" alt="pod noready" title="pod noready" /></p>
 
 <p>在後續安裝完 cni 都可以解決</p>
 
@@ -431,7 +431,7 @@ net.bridge.bridge-nf-call-iptables=1</pre></td></tr></table>
 
 <p>再看一下節點狀態，都是 ready 狀態了</p>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b006.jpg" alt="pod ready" title="pod ready" /></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b006.jpg" alt="pod ready" title="pod ready" /></p>
 
 <h2 id="移除控制節點的-taints">移除控制節點的 Taints</h2>
 
@@ -439,7 +439,7 @@ net.bridge.bridge-nf-call-iptables=1</pre></td></tr></table>
 如果要建立一個單節點的集群必須執行如下的指令。<br />
 <code>$ kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b007.jpg" alt="kubectl taint" title="kubectl taint" /></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b007.jpg" alt="kubectl taint" title="kubectl taint" /></p>
 
 <h2 id="test">Test</h2>
 
@@ -449,7 +449,7 @@ net.bridge.bridge-nf-call-iptables=1</pre></td></tr></table>
 
 <h3 id="成功-存取的-port-記得使用你自己分配到的-port">成功（存取的 port 記得使用你自己分配到的 port）</h3>
 
-<p><img src="https://fblog.loopbai.com/images/2019/07/b008.jpg" alt="kubernetes cluster" title="kubernetes cluster" /></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/07/b008.jpg" alt="kubernetes cluster" title="kubernetes cluster" /></p>
 
     </div>
 

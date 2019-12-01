@@ -19,7 +19,7 @@ Name=enp0s8
 Address=192.168.56.201/24
 ```
 
-![static ip](https://fblog.loopbai.com/images/2019/07/a001.jpg "static ip")
+![static ip](https://fblog.ooopiz.com/images/2019/07/a001.jpg "static ip")
 
 ## reboot
 

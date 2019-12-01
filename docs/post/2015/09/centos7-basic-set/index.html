@@ -177,7 +177,7 @@
 <p>每台電腦的網卡名稱不一定相同</p>
 </blockquote>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-01.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-01.png"></p>
 
 <p><code># systemctl stop NetworkManager</code></p>
 
@@ -185,13 +185,13 @@
 
 <p><code># systemctl restart network</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-02.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-02.png"></p>
 
 <h2 id="二-關閉selinux">二、關閉SELinux</h2>
 
 <p><code>#vi /etc/selinux/config</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-03.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-03.png"></p>
 
 <p><strong>這個設定reboot後才會生效</strong></p>
 
@@ -215,13 +215,13 @@
 
 <p><code># localectl</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-04.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-04.png"></p>
 
 <p>查看系統有哪些可用的語系</p>
 
 <p><code># localectl list-locales | grep zh</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-05.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-05.png"></p>
 
 <p>如果你要設定語系的話</p>
 
@@ -259,7 +259,7 @@
 
 <p><code># vi /etc/ntp.conf</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-06.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-06.png"></p>
 
 <h2 id="八-停用firewalld-改用iptabless">八、停用firewalld，改用iptabless</h2>
 
@@ -273,7 +273,7 @@
 
 <p><code># vi /etc/sysconfig/iptables</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201509/A01-07.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-07.png"></p>
 
 <p><code># systemctl start iptables</code></p>
 

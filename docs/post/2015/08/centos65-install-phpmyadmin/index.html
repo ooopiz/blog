@@ -192,7 +192,7 @@ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;;</pre></td>
 $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;</pre></td></tr></table>
 </div>
 </div>
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-01.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-01.png"></p>
 
 <h3 id="三-查看mysql使用者-新增使用者-給予權限">三、查看mysql使用者,新增使用者,給予權限</h3>
 
@@ -200,20 +200,20 @@ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;</pre></td></t
 
 <p><code>mysql&gt; select user, host from mysql.user;</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-02.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-02.png"></p>
 
 <p><code>mysql&gt; create user 'admin'@'%' identified by 'admin';</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-03.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-03.png"></p>
 
 <p><code>mysql&gt; grant all on *.* to 'admin'@'%';</code>
 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利</p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-04.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-04.png"></p>
 
 <h3 id="四-phpmyadmin-高級功能啟用">四、phpMyAdmin 高級功能啟用</h3>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-05.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-05.png"></p>
 
 <p>建立使用者pma
 <code>mysql&gt; create user 'pma'@'localhost' identified by 'pmapass';</code></p>
@@ -221,21 +221,21 @@ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;</pre></td></t
 <p>給予pma表phpmyadmin權限
 <code>mysql&gt; grant select, insert, update, delete on phpmyadmin.* to pma@localhost;</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-06.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-06.png"></p>
 
 <p>執行create_tables.sql啟用高級功能
 <code># mysql -u root -p &lt; /usr/share/nginx/html/phpMyAdmin/examples/create_tables.sql</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-07.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-07.png"></p>
 
 <p>編輯 config.inc.php 設定檔
 將下列的部分註解拿掉</p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-08.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-08.png"></p>
 
 <h3 id="五-完成-即可在phpmyadmin看到表phpmyadmin">五、完成，即可在phpMyAdmin看到表phpmyadmin</h3>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201508/A01-09.png"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201508/A01-09.png"></p>
 
     </div>
 

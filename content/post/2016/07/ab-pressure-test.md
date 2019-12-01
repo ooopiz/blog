@@ -21,7 +21,7 @@ draft: false
 
 `# ab -n 10000 -c 2000 -k http://127.0.0.1/`
 
-<img desc="" src="//fblog.loopbai.com/images/201607/A07-01.png">
+<img desc="" src="//fblog.ooopiz.com/images/201607/A07-01.png">
 
 <div style="color:blue">
 Google後了解是系統設定的限制

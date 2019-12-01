@@ -20,7 +20,7 @@ draft: false
 
 ### 1.下載JDK
 首先到<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">官方網址</a>下載你需要的JDK版本
-<img src="//fblog.loopbai.com/images/201509/A05-01.png">
+<img src="//fblog.ooopiz.com/images/201509/A05-01.png">
 
 
 ### 2.安裝rpm包
@@ -36,14 +36,14 @@ alternatives –install <b style="color:red;"><連結> <名稱> <路徑> <優先
 使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本
 `# alternatives --config java`
-<img src="//fblog.loopbai.com/images/201509/A05-02.png">
+<img src="//fblog.ooopiz.com/images/201509/A05-02.png">
 
 
 ### 4.檢查安裝是否正常
 `# java -version`
 
 `# javac -version`
-<img src="//fblog.loopbai.com/images/201509/A05-03.png">
+<img src="//fblog.ooopiz.com/images/201509/A05-03.png">
 
 ### 5.設定環境變數
 設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile
@@ -56,7 +56,7 @@ CLASSPATH=./:$JAVA_HOME/lib:JAVA_HOME/jre/lib
 PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 export PATH CLASSPATH JAVA_HOME
 ```
-<img src="//fblog.loopbai.com/images/201509/A05-04.png">
+<img src="//fblog.ooopiz.com/images/201509/A05-04.png">
 
 ### 6.reboot
 可以的話reboot一下吧~
@@ -77,4 +77,4 @@ public class HelloJava {
 ### 執行
 `# java HelloJava`
 `# java -cp . HelloJava` <b style="color:#F8ECE0;">(暫時不知道為什麼要這樣子才可以)</b>
-<img src="//fblog.loopbai.com/images/201509/A05-05.png">
+<img src="//fblog.ooopiz.com/images/201509/A05-05.png">

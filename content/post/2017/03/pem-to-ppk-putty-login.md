@@ -11,19 +11,19 @@ draft: false
 ## pem 轉 ppk
 1.載入pem
   
-<img src="http://fblog.loopbai.com/images/2017/m03-a01.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-a01.jpg">
   
 2.如果看不到檔案請選all file
   
-<img src="http://fblog.loopbai.com/images/2017/m03-a02.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-a02.jpg">
   
 3.載入後選擇save private key
   
-<img src="http://fblog.loopbai.com/images/2017/m03-a03.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-a03.jpg">
   
 4.輸入檔名生成ppk檔
   
-<img src="http://fblog.loopbai.com/images/2017/m03-a04.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-a04.jpg">
   
 ## putty設定登入
   
@@ -31,19 +31,19 @@ draft: false
   
 2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)
   
-<img src="http://fblog.loopbai.com/images/2017/m03-b01.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-b01.jpg">
   
 3.輸入用戶名稱
   
-<img src="http://fblog.loopbai.com/images/2017/m03-b02.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-b02.jpg">
   
 4.載入ppk檔
   
-<img src="http://fblog.loopbai.com/images/2017/m03-b03.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-b03.jpg">
   
 5.記得回來按一下存檔
   
-<img src="http://fblog.loopbai.com/images/2017/m03-b04.jpg">
+<img src="http://fblog.ooopiz.com/images/2017/m03-b04.jpg">
 
 ## linux or Cmder登入方式
   

@@ -155,7 +155,7 @@
 
 <p>前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，</p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M11-A01-01.jpg"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-01.jpg"></p>
 
 <p>使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，</p>
 
@@ -177,7 +177,7 @@
 
 <p><code># adjtimex --compare</code> 或 <code># adjtimex -c</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M11-A01-02.jpg"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-02.jpg"></p>
 
 <p>圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．</p>
 
@@ -189,7 +189,7 @@
 
 <p><code># adjtimex -c</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M11-A01-03.jpg"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-03.jpg"></p>
 
 <h2 id="這邊還有約-0-8的偏差-但其實已經相當接近-要修正更精密的差距必須用-f參數">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</h2>
 
@@ -207,7 +207,7 @@
 
 <p><code># adjtimex -f 16384000</code></p>
 
-<p><img desc="" src="//fblog.loopbai.com/images/201609/M11-A01-04.jpg"></p>
+<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-04.jpg"></p>
 
     </div>
 

@@ -31,9 +31,9 @@ Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
 
 ### 7.測試Tomcat是否正常
 開啟瀏覽器，輸入【http://IP位址:8080】
-<img src="//fblog.loopbai.com/images/201509/A06-01.png">
+<img src="//fblog.ooopiz.com/images/201509/A06-01.png">
 
 ***
 
 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。
-<img src="//fblog.loopbai.com/images/201509/A06-02.png">
+<img src="//fblog.ooopiz.com/images/201509/A06-02.png">

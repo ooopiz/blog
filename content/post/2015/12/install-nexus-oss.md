@@ -10,7 +10,7 @@ Nexus OSS是用來架設maven私有倉庫的好幫手
   
 <a href="http://www.sonatype.org/nexus/" target="_blank">下載網址</a>
   
-<img src="//fblog.loopbai.com/images/201512/A01-01.jpg">
+<img src="//fblog.ooopiz.com/images/201512/A01-01.jpg">
 
 ## 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)
 `# tar zxvf nexus-2.11.4-01-bundle.tar.gz`

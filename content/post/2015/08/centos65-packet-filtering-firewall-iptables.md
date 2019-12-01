@@ -42,7 +42,7 @@ CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必�
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
 ```
-<img src="//fblog.loopbai.com/images/201508/001.png">
+<img src="//fblog.ooopiz.com/images/201508/001.png">
 
 ### 設定完iptables記得必須重新啟動防火牆
 `service iptables restart` 或 `/etc/init.d/iptables restart`

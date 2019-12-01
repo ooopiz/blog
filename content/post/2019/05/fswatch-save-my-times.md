@@ -38,7 +38,7 @@ done
 
 ## Demo
 
-![Auto compilar demo](https://fblog.loopbai.com/images/2019/05/c001.gif "Auto compilar demo")
+![Auto compilar demo](https://fblog.ooopiz.com/images/2019/05/c001.gif "Auto compilar demo")
 
 ## Reference
 - [OS X使用fswatch+rsync自动检测文件夹改动并同步](https://my.oschina.net/mengshuai/blog/618354 "OS X使用fswatch+rsync自动检测文件夹改动并同步")
