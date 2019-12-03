@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="安裝 Nginx 1.9&#43;" />
-<meta property="og:description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on" />
+<meta property="og:description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/" />
 <meta property="article:published_time" content="2016-05-05T02:47:01+08:00" />
 <meta property="article:modified_time" content="2016-05-05T02:47:01+08:00" />
 <meta itemprop="name" content="安裝 Nginx 1.9&#43;">
-<meta itemprop="description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on">
-
-
+<meta itemprop="description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on">
 <meta itemprop="datePublished" content="2016-05-05T02:47:01&#43;08:00" />
 <meta itemprop="dateModified" content="2016-05-05T02:47:01&#43;08:00" />
-<meta itemprop="wordCount" content="51">
+<meta itemprop="wordCount" content="46">
 
 
 
-<meta itemprop="keywords" content="nginx," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="nginx," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安裝 Nginx 1.9&#43;"/>
-<meta name="twitter:description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on"/>
+<meta name="twitter:description" content="新增nginx.repo # vi /etc/yum.repos.d/nginx.repo [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,50 +130,30 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#新增nginx-repo">新增nginx.repo</a></li>
-<li><a href="#安裝nginx">安裝Nginx</a></li>
-<li><a href="#啟動服務">啟動服務</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#nginxrepo">新增nginx.repo</a></li>
+        <li><a href="#nginx">安裝Nginx</a></li>
+        <li><a href="#heading">啟動服務</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="新增nginx-repo">新增nginx.repo</h3>
-
+      <h3 id="nginxrepo">新增nginx.repo</h3>
 <p><code># vi /etc/yum.repos.d/nginx.repo</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-config nginx.repo" data-lang="config nginx.repo"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-config nginx.repo" data-lang="config nginx.repo">[nginx]
+<pre><code class="language-config" data-lang="config">[nginx]
 name=nginx repo
 baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
 gpgcheck=0
-enabled=1</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="安裝nginx">安裝Nginx</h3>
-
+enabled=1
+</code></pre><h3 id="nginx">安裝Nginx</h3>
 <p><code># yum install nginx</code></p>
-
-<h3 id="啟動服務">啟動服務</h3>
-
+<h3 id="heading">啟動服務</h3>
 <p><code># service nginx start</code></p>
-
 <p><code># chkconfig --levels 235 nginx on</code></p>
 
     </div>

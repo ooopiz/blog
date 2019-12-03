@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="Example 輸入 crontab -e 進入排程編輯 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # |" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/07/centos-crontab/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="CentOS crontab" />
-<meta property="og:description" content="Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -" />
+<meta property="og:description" content="Example 輸入 crontab -e 進入排程編輯 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # |" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/07/centos-crontab/" />
 <meta property="article:published_time" content="2015-07-27T01:35:01+08:00" />
 <meta property="article:modified_time" content="2015-07-27T01:35:01+08:00" />
 <meta itemprop="name" content="CentOS crontab">
-<meta itemprop="description" content="Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -">
-
-
+<meta itemprop="description" content="Example 輸入 crontab -e 進入排程編輯 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # |">
 <meta itemprop="datePublished" content="2015-07-27T01:35:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-07-27T01:35:01&#43;08:00" />
-<meta itemprop="wordCount" content="415">
+<meta itemprop="wordCount" content="116">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS crontab"/>
-<meta name="twitter:description" content="Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -"/>
+<meta name="twitter:description" content="Example 輸入 crontab -e 進入排程編輯 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # |"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,77 +130,26 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#example">Example</a></li>
-<li><a href="#instruction">Instruction</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#instruction">Instruction</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="example">Example</h2>
-
+      <h2 id="example">Example</h2>
 <p>輸入 <code>crontab -e</code> 進入排程編輯</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># Example of job definition:
+<pre><code># Example of job definition:
 # .---------------- minute (0 - 59)
 # |  .------------- hour (0 - 23)
 # |  |  .---------- day of month (1 - 31)
 # |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
 # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
 # |  |  |  |  |
-# *  *  *  *  * user-name command to be executed</pre></td></tr></table>
-</div>
-</div>
-<h2 id="instruction">Instruction</h2>
-
-<table>
-  <tr>
-    <th>特殊字符</th>
-    <th>代表意義</th>
-  </tr>
-  <tr>
-    <td>*(星號)</td>      
-    <td>代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 * ，<br />
-        就代表著『不論何月、何日的禮拜幾的 12:00 都執行後續指令』的意思！</td>
-  </tr>
-  <tr>
-    <td>,(逗號)</td>
-    <td>代表分隔時段的意思。舉例來說，如果要下達的工作是 3:00 與 6:00 時，就會是：<br />
-        0 3,6 * * * command<br />
-        時間參數還是有五欄，不過第二欄是 3,6 ，代表 3 與 6 都適用！</td>
-  </tr>
-  <tr>
-    <td>-(減號)</td>
-    <td>代表一段時間範圍內，舉例來說， 8 點到 12 點之間的每小時的 20 分都進行一項工作：<br />
-        20 8-12 * * * command<br />
-        仔細看到第二欄變成 8-12 喔！代表 8,9,10,11,12 都適用的意思！</td>
-  </tr>
-  <tr>
-    <td>/n(斜線)</td>
-    <td>那個 n 代表數字，亦即是『每隔 n 單位間隔』的意思，例如每五分鐘進行一次，則：<br />
-        */5 * * * * command<br />
-        很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！</td>
-  </tr>
-</table>
-  
-
+# *  *  *  *  * user-name command to be executed
+</code></pre><h2 id="instruction">Instruction</h2>
+<!-- raw HTML omitted -->
 <p><strong>crontab 產生的訊息會存放在<code>/var/spool/mail/root</code></strong></p>
 
     </div>

@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="1. Remove declaration from composer.json (in &amp;ldquo;require&amp;rdquo; section) 2. Remove Service Provider from &amp;ldquo;app/config/app.php&amp;rdquo; (reference in &amp;ldquo;providers&amp;rdquo; array) 3. Remove any Class Aliases from &amp;ldquo;app/config/app.php&amp;rdquo; 4. Remove any references to the package from your code :-) 5. Run &amp;ldquo;composer update&amp;rdquo; 6. Manually delete the published files" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="Remove declaration from composer.json (in &amp;ldquo;require&amp;rdquo; section) Remove Service Provider from &amp;ldquo;app/config/app.php&amp;rdquo; (reference in &amp;ldquo;providers&amp;rdquo; array) Remove any Class Aliases from &amp;ldquo;app/config/app.php&amp;rdquo; Remove any references to the package from your code :-) Run &amp;ldquo;composer update&amp;rdquo; Manually delete the published files" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Laravel 刪除套件" />
-<meta property="og:description" content="1. Remove declaration from composer.json (in &ldquo;require&rdquo; section) 2. Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) 3. Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; 4. Remove any references to the package from your code :-) 5. Run &ldquo;composer update&rdquo; 6. Manually delete the published files" />
+<meta property="og:description" content="Remove declaration from composer.json (in &ldquo;require&rdquo; section) Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; Remove any references to the package from your code :-) Run &ldquo;composer update&rdquo; Manually delete the published files" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/" />
 <meta property="article:published_time" content="2015-08-24T05:04:01+08:00" />
 <meta property="article:modified_time" content="2015-08-24T05:04:01+08:00" />
 <meta itemprop="name" content="Laravel 刪除套件">
-<meta itemprop="description" content="1. Remove declaration from composer.json (in &ldquo;require&rdquo; section) 2. Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) 3. Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; 4. Remove any references to the package from your code :-) 5. Run &ldquo;composer update&rdquo; 6. Manually delete the published files">
-
-
+<meta itemprop="description" content="Remove declaration from composer.json (in &ldquo;require&rdquo; section) Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; Remove any references to the package from your code :-) Run &ldquo;composer update&rdquo; Manually delete the published files">
 <meta itemprop="datePublished" content="2015-08-24T05:04:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-08-24T05:04:01&#43;08:00" />
-<meta itemprop="wordCount" content="46">
+<meta itemprop="wordCount" content="40">
 
 
 
-<meta itemprop="keywords" content="laravel," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="laravel," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Laravel 刪除套件"/>
-<meta name="twitter:description" content="1. Remove declaration from composer.json (in &ldquo;require&rdquo; section) 2. Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) 3. Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; 4. Remove any references to the package from your code :-) 5. Run &ldquo;composer update&rdquo; 6. Manually delete the published files"/>
+<meta name="twitter:description" content="Remove declaration from composer.json (in &ldquo;require&rdquo; section) Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array) Remove any Class Aliases from &ldquo;app/config/app.php&rdquo; Remove any references to the package from your code :-) Run &ldquo;composer update&rdquo; Manually delete the published files"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -132,17 +129,41 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <ul>
-<li>1. Remove declaration from composer.json (in &ldquo;require&rdquo; section)</li>
-<li>2. Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array)</li>
-<li>3. Remove any Class Aliases from &ldquo;app/config/app.php&rdquo;</li>
-<li>4. Remove any references to the package from your code :-)</li>
-<li>5. Run &ldquo;composer update&rdquo;</li>
-<li>6. Manually delete the published files</li>
+<li>
+<ol>
+<li>Remove declaration from composer.json (in &ldquo;require&rdquo; section)</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Remove Service Provider from &ldquo;app/config/app.php&rdquo; (reference in &ldquo;providers&rdquo; array)</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Remove any Class Aliases from &ldquo;app/config/app.php&rdquo;</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Remove any references to the package from your code :-)</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>Run &ldquo;composer update&rdquo;</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>Manually delete the published files</li>
+</ol>
+</li>
 </ul>
 
     </div>

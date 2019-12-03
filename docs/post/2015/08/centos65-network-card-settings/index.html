@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2015-08-21T09:29:01+08:00" />
 <meta itemprop="name" content="CentOS6.5 網卡基本設定">
 <meta itemprop="description" content="首先可以下指令顯示出所有的介面資訊 # ip link show 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-">
-
-
 <meta itemprop="datePublished" content="2015-08-21T09:29:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-08-21T09:29:01&#43;08:00" />
-<meta itemprop="wordCount" content="316">
+<meta itemprop="wordCount" content="309">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 網卡基本設定"/>
 <meta name="twitter:description" content="首先可以下指令顯示出所有的介面資訊 # ip link show 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-"/>
 
@@ -133,53 +130,30 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#首先可以下指令顯示出所有的介面資訊">首先可以下指令顯示出所有的介面資訊</a></li>
-</ul></li>
-<li><a href="#網卡設定檔的目錄一般會在-etc-sysconfig-network-scripts-ifcfg-eth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</a></li>
-<li><a href="#說明">說明</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#etcsysconfignetworkscriptsifcfgeth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</a></li>
+        <li><a href="#heading1">說明</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="首先可以下指令顯示出所有的介面資訊">首先可以下指令顯示出所有的介面資訊</h4>
-
+      <h4 id="heading">首先可以下指令顯示出所有的介面資訊</h4>
 <p><code># ip link show</code></p>
-
-<h3 id="網卡設定檔的目錄一般會在-etc-sysconfig-network-scripts-ifcfg-eth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">DEVICE=eth0
+<h3 id="etcsysconfignetworkscriptsifcfgeth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</h3>
+<pre><code>DEVICE=eth0
 BOOTPROTO=static
 BROADCAST=192.168.1.255
 IPADDR=192.168.1.2
 NETMASK=255.255.255.0
 NETWORK=192.168.1.0
-ONBOOT=yes</pre></td></tr></table>
-</div>
-</div>
-<h3 id="說明">說明</h3>
-
+ONBOOT=yes
+</code></pre><h3 id="heading1">說明</h3>
 <blockquote>
 <p>DEVICE 這個裝置的名稱
 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ）
@@ -189,14 +163,12 @@ NETMASL 子遮罩網路
 NETWORK 工作的網域
 ONBOOT 開機自動開啟網路卡</p>
 </blockquote>
-
-<p>在上面的例子中，我們以虛擬 IP 來作為示範，<br />
-假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），<br />
-NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），<br />
-NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。<br />
-如果你的網路位址是固定的，那上面的網址就跟著改變即可！<br />
+<p>在上面的例子中，我們以虛擬 IP 來作為示範，<br>
+假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），<br>
+NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），<br>
+NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。<br>
+如果你的網路位址是固定的，那上面的網址就跟著改變即可！<br>
 設定玩之後，網路服務重新啓動，指令為：</p>
-
 <p><code># service network restart</code></p>
 
     </div>

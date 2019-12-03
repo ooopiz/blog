@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="yum 和 wget 使用 proxy" />
-<meta property="og:description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使" />
+<meta property="og:description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/" />
 <meta property="article:published_time" content="2015-09-02T17:05:01+08:00" />
 <meta property="article:modified_time" content="2015-09-02T17:05:01+08:00" />
 <meta itemprop="name" content="yum 和 wget 使用 proxy">
-<meta itemprop="description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使">
-
-
+<meta itemprop="description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將">
 <meta itemprop="datePublished" content="2015-09-02T17:05:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-09-02T17:05:01&#43;08:00" />
-<meta itemprop="wordCount" content="212">
+<meta itemprop="wordCount" content="200">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="yum 和 wget 使用 proxy"/>
-<meta name="twitter:description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使"/>
+<meta name="twitter:description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,92 +130,49 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#yum-設定檔">yum 設定檔</a></li>
-<li><a href="#wget">wget</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#yum-">yum 設定檔</a></li>
+        <li><a href="#wget">wget</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="yum-設定檔">yum 設定檔</h3>
-
+      <h3 id="yum-">yum 設定檔</h3>
 <p>在設定檔中加入以下參數config /etc/yum.conf</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># The proxy server - proxy server:port number
+<pre><code># The proxy server - proxy server:port number
 http_proxy = proxy.xxxxxx.com.tw:3128
 # The account details for yum connections
 proxy_username=user_name
-proxy_password=user_password</pre></td></tr></table>
-</div>
-</div>
-<blockquote>
+proxy_password=user_password
+</code></pre><blockquote>
 <p>此設定參數可提供所有帳號使用
 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile
 (<em>有空再研究</em>)</p>
 </blockquote>
-
 <h3 id="wget">wget</h3>
-
 <p>在設定檔中加入以下參數config /etc/wgetrc</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">http_proxy = proxy.xxxxxx.com.tw:3128
+<pre><code>http_proxy = proxy.xxxxxx.com.tw:3128
 use_proxy = on
-wait = 15</pre></td></tr></table>
-</div>
-</div>
-<hr />
-
-<p><b style="color:red;">Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again</b></p>
-
+wait = 15
+</code></pre><hr>
+<p><!-- raw HTML omitted -->Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again<!-- raw HTML omitted --></p>
 <p>解決方法：</p>
-
 <p>編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下：
 config /etc/yum.repos.d/epel.repo</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[epel]
+<pre><code>[epel]
 name=Extra Packages for Enterprise Linux 6 - $basearch
 baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
 #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
 failovermethod=priority
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6</pre></td></tr></table>
-</div>
-</div>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+</code></pre>
     </div>
 
     

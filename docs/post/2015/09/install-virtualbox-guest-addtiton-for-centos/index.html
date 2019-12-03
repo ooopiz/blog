@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2015-09-09T09:49:01+08:00" />
 <meta itemprop="name" content="VirtualBox Guest Addtiton安裝 for Centos">
 <meta itemprop="description" content="我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示">
-
-
 <meta itemprop="datePublished" content="2015-09-09T09:49:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-09-09T09:49:01&#43;08:00" />
-<meta itemprop="wordCount" content="298">
+<meta itemprop="wordCount" content="293">
 
 
 
-<meta itemprop="keywords" content="virtualbox," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="virtualbox," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VirtualBox Guest Addtiton安裝 for Centos"/>
 <meta name="twitter:description" content="我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示"/>
 
@@ -133,75 +130,49 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#先把vboxguestadditions-iso-mount起來">先把VBoxGuestAdditions.iso mount起來</a></li>
-<li><a href="#執行vboxlinuxadditions-run">執行VBoxLinuxAdditions.run</a></li>
-<li><a href="#接著就可以mount本機分享給虛擬機的資料夾了">接著就可以mount本機分享給虛擬機的資料夾了</a>
-<ul>
-<li><a href="#在執行vboxlinuxadditions-run的時候你可能會遇到">在執行VBoxLinuxAdditions.run的時候你可能會遇到</a></li>
-</ul></li>
-<li><a href="#b-style-color-red-bzip2-command-not-found-b"><b style="color:red">bzip2 command not found</b></a></li>
-<li><a href="#b-style-color-red-building-the-main-guest-additions-module-失敗-b"><b style="color:red">Building the main Guest Additions module [失敗]</b></a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#vboxguestadditionsiso-mount">先把VBoxGuestAdditions.iso mount起來</a></li>
+        <li><a href="#vboxlinuxadditionsrun">執行VBoxLinuxAdditions.run</a></li>
+        <li><a href="#mount">接著就可以mount本機分享給虛擬機的資料夾了</a></li>
+        <li><a href="#b-stylecolorredbzip2-command-not-foundb">bzip2 command not found</a></li>
+        <li><a href="#b-stylecolorredbuilding-the-main-guest-additions-module-b">Building the main Guest Additions module [失敗]</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<blockquote>
+      <blockquote>
 <p>我在virtualbox上面安裝的是CentOS7的OS
 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你，
 你應該要安裝<strong>VirtualBox Guest Addtiton</strong></p>
 </blockquote>
-
 <p>那就讓我們來開始安裝吧</p>
-
-<h3 id="先把vboxguestadditions-iso-mount起來">先把VBoxGuestAdditions.iso mount起來</h3>
-
-<p><img src="//fblog.ooopiz.com/images/201509/A04-01.png"></p>
-
+<h3 id="vboxguestadditionsiso-mount">先把VBoxGuestAdditions.iso mount起來</h3>
+<!-- raw HTML omitted -->
 <p><code># mkdir /media/cdrom</code>
 <code># mount /dev/cdrom /media/cdrom</code>
-<img src="//fblog.ooopiz.com/images/201509/A04-02.png"></p>
-
-<h3 id="執行vboxlinuxadditions-run">執行VBoxLinuxAdditions.run</h3>
-
+<!-- raw HTML omitted --></p>
+<h3 id="vboxlinuxadditionsrun">執行VBoxLinuxAdditions.run</h3>
 <p><code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
-
-<h3 id="接著就可以mount本機分享給虛擬機的資料夾了">接著就可以mount本機分享給虛擬機的資料夾了</h3>
-
+<h3 id="mount">接著就可以mount本機分享給虛擬機的資料夾了</h3>
 <p><code># mkdir ~/new</code>
 <code># mount -t vboxsf New ~/new</code></p>
-
 <p>或者你需要有特定owner的mount
 <code># mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
-
-<hr />
-
-<h4 id="在執行vboxlinuxadditions-run的時候你可能會遇到">在執行VBoxLinuxAdditions.run的時候你可能會遇到</h4>
-
-<h3 id="b-style-color-red-bzip2-command-not-found-b"><b style="color:red">bzip2 command not found</b></h3>
-
-<p><img src="//fblog.ooopiz.com/images/201509/A04-03.png">
-<code># yum install bzip2 -y</code></p>
-
-<h3 id="b-style-color-red-building-the-main-guest-additions-module-失敗-b"><b style="color:red">Building the main Guest Additions module [失敗]</b></h3>
-
+<hr>
+<h4 id="vboxlinuxadditionsrun1">在執行VBoxLinuxAdditions.run的時候你可能會遇到</h4>
+<h3 id="b-stylecolorredbzip2-command-not-foundb"><!-- raw HTML omitted -->bzip2 command not found<!-- raw HTML omitted --></h3>
+<!-- raw HTML omitted -->
+<h3 id="b-stylecolorredbuilding-the-main-guest-additions-module-b"><!-- raw HTML omitted -->Building the main Guest Additions module [失敗]<!-- raw HTML omitted --></h3>
 <p><code># yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</code></p>
-
-<p><img src="//fblog.ooopiz.com/images/201509/A04-04.png"></p>
-
+<!-- raw HTML omitted -->
 <p>解完後在執行一次
 <code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
-
-<p><img src="//fblog.ooopiz.com/images/201509/A04-05.png"></p>
+<!-- raw HTML omitted -->
 
     </div>
 

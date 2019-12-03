@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2016-05-26T10:20:01+08:00" />
 <meta itemprop="name" content="CentOS7 安裝Postfix">
 <meta itemprop="description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果">
-
-
 <meta itemprop="datePublished" content="2016-05-26T10:20:01&#43;08:00" />
 <meta itemprop="dateModified" content="2016-05-26T10:20:01&#43;08:00" />
-<meta itemprop="wordCount" content="780">
+<meta itemprop="wordCount" content="752">
 
 
 
-<meta itemprop="keywords" content="postfix,smtp," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="postfix,smtp," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 安裝Postfix"/>
 <meta name="twitter:description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果"/>
 
@@ -133,89 +130,39 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#postfix介紹">Postfix介紹</a>
-<ul>
-<li><a href="#前置作業">前置作業</a></li>
-<li><a href="#1-開始安裝-postfix">1.開始安裝 Postfix</a></li>
-<li><a href="#2-設定-postfix">2.設定 Postfix</a></li>
-<li><a href="#smtp防火牆設置">SMTP防火牆設置</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#postfix">Postfix介紹</a>
+      <ul>
+        <li><a href="#heading">前置作業</a></li>
+        <li><a href="#1-postfix">1.開始安裝 Postfix</a></li>
+        <li><a href="#2-postfix">2.設定 Postfix</a></li>
+        <li><a href="#smtp">SMTP防火牆設置</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="postfix介紹">Postfix介紹</h2>
-
+      <h2 id="postfix">Postfix介紹</h2>
 <p>Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.</p>
-
-<h3 id="前置作業">前置作業</h3>
-
+<h3 id="heading">前置作業</h3>
 <p>在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:</p>
-
 <p>查詢是否安裝過</p>
-
 <p><code># rpm -qa | grep sendmail</code></p>
-
 <p><code># rpm -qa | grep exim</code></p>
-
 <p>移除</p>
-
 <p><code># yum remove sendmail</code></p>
-
 <p><code># yum remove exim</code></p>
-
 <p>為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:</p>
-
 <p>SELINUX=enforcing</p>
-
 <p>換成</p>
-
 <p>SELINUX=disabled</p>
-
-<h3 id="1-開始安裝-postfix">1.開始安裝 Postfix</h3>
-
+<h3 id="1-postfix">1.開始安裝 Postfix</h3>
 <p><code># yum install postfix</code></p>
-
-<h3 id="2-設定-postfix">2.設定 Postfix</h3>
-
+<h3 id="2-postfix">2.設定 Postfix</h3>
 <p>開啟 /etc/postfix/main.cf, 修改以下設定:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-config /etc/sysconfig/selinux" data-lang="config /etc/sysconfig/selinux"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-config /etc/sysconfig/selinux" data-lang="config /etc/sysconfig/selinux"># 系統的主機名稱
+<pre><code class="language-config" data-lang="config"># 系統的主機名稱
 myhostname = smtp.3grass.me
 
 # email伺服器的域名
@@ -239,47 +186,28 @@ mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
 mynetworks = 0.0.0.0
 
 # 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格
-home_mailbox = Maildir/</code></pre></td></tr></table>
-</div>
-</div>
-<blockquote>
+home_mailbox = Maildir/
+</code></pre><blockquote>
 <p>mynetworks:
 這可以設定成檔案的方式或是直接以IP/netmask來做設定。例如：
 mynetworks=192.168.1.0/24, 127.0.0.0/8
 而如果要用檔案方式：
 mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
-
+</blockquote>
+<blockquote>
 <p>注意：
 如果沒有設定mynetworks的話，記得把mynetworks_style改成host，不然同一個子網域的IP都可以透過你的機器relay信件(當然如果所有子網域的使用者你都認識的話倒還ok)
 如果有設定 mynetworks_style 以及 mynetwork 時，mynetworks的設定會取代掉mynetworks_style。</p>
 </blockquote>
-
 <p>測試發信</p>
-
 <p><code># mail -s &quot;title&quot; ricky@mail.com &lt;&lt;&lt; &quot;bady&quot;</code></p>
-
-<h3 id="smtp防火牆設置">SMTP防火牆設置</h3>
-
+<h3 id="smtp">SMTP防火牆設置</h3>
 <p>25 port全部開放</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config">-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT</code></pre></td></tr></table>
-</div>
-</div>
-<p>針對部分IP做開放</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config">-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT
--A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT</code></pre></td></tr></table>
-</div>
-</div>
+<pre><code class="language-config" data-lang="config">-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+</code></pre><p>針對部分IP做開放</p>
+<pre><code class="language-config" data-lang="config">-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT
+-A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT
+</code></pre>
     </div>
 
     

@@ -17,7 +17,7 @@
       <pubDate>Wed, 24 Jul 2019 17:01:37 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2019/07/coreos-static-ip/</guid>
-      <description>設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot</description>
+      <description>設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot</description>
     </item>
     
     <item>

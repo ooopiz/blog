@@ -26,7 +26,7 @@
       <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</guid>
-      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #</description>
+      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Wed, 02 Sep 2015 17:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/</guid>
-      <description>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使</description>
+      <description>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm 參考連結 MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
+      <description>一、更新rpm 參考連結MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.R</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
-      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對</description>
+      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Mon, 27 Jul 2015 01:35:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/07/centos-crontab/</guid>
-      <description>Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -</description>
+      <description>Example 輸入 crontab -e 進入排程編輯 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # |</description>
     </item>
     
   </channel>

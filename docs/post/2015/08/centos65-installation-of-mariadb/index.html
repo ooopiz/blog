@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="CentOS6.5 安裝MariaDB" />
-<meta property="og:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name" />
+<meta property="og:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/" />
 <meta property="article:published_time" content="2015-08-24T07:05:01+08:00" />
 <meta property="article:modified_time" content="2015-08-24T07:05:01+08:00" />
 <meta itemprop="name" content="CentOS6.5 安裝MariaDB">
-<meta itemprop="description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name">
-
-
+<meta itemprop="description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套">
 <meta itemprop="datePublished" content="2015-08-24T07:05:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-08-24T07:05:01&#43;08:00" />
-<meta itemprop="wordCount" content="441">
+<meta itemprop="wordCount" content="431">
 
 
 
-<meta itemprop="keywords" content="mariadb," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="mariadb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 安裝MariaDB"/>
-<meta name="twitter:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name"/>
+<meta name="twitter:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,106 +130,63 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#新增mariadb的知識庫-讓系統使用">新增MariaDB的知識庫，讓系統使用。</a></li>
-<li><a href="#更新套件庫">更新套件庫</a></li>
-<li><a href="#安裝-mariadb">安裝 MariaDB</a></li>
-<li><a href="#初始化-mariadb">初始化 MariaDB</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#mariadb">新增MariaDB的知識庫，讓系統使用。</a></li>
+        <li><a href="#heading">更新套件庫</a></li>
+        <li><a href="#-mariadb">安裝 MariaDB</a></li>
+        <li><a href="#-mariadb1">初始化 MariaDB</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="新增mariadb的知識庫-讓系統使用">新增MariaDB的知識庫，讓系統使用。</h3>
-
+      <h3 id="mariadb">新增MariaDB的知識庫，讓系統使用。</h3>
 <blockquote>
 <p>依照自己的系統在目錄下新增檔案
 <strong>32位元系統</strong></p>
 </blockquote>
-
 <p>config /etc/yum.repos.d/mariadb.repo</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[mariadb]
+<pre><code>[mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/5.5/centos6-x86
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1</pre></td></tr></table>
-</div>
-</div>
-<blockquote>
+gpgcheck=1
+</code></pre><blockquote>
 <p>64位元系統</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[mariadb]
+<pre><code>[mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/5.5/centos6-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1</pre></td></tr></table>
-</div>
-</div>
-<h3 id="更新套件庫">更新套件庫</h3>
-
+gpgcheck=1
+</code></pre><h3 id="heading">更新套件庫</h3>
 <p><code># yum update -y</code></p>
-
-<h3 id="安裝-mariadb">安裝 MariaDB</h3>
-
+<h3 id="-mariadb">安裝 MariaDB</h3>
 <blockquote>
 <p>安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣</p>
 </blockquote>
-
 <p><code># yum install MariaDB-devel MariaDB-client MariaDB-server -y</code></p>
-
 <p><code># service mysql start</code></p>
-
 <p><code># chkconfig mysql on</code></p>
-
-<h3 id="初始化-mariadb">初始化 MariaDB</h3>
-
+<h3 id="-mariadb1">初始化 MariaDB</h3>
 <blockquote>
 <p>執行這個初始化程式，過程跟MySQL一模一樣</p>
 </blockquote>
-
 <p><code># /usr/bin/mysql_secure_installation</code></p>
-
 <p>第一個問題，Enter current password for root (enter for none):
 請直接按下Enter，因為預設MariaDB沒有密碼。</p>
-
 <p>第二個問題，Change the root password? [Y/n]
 是否更改root密碼，極度建議您設定root密碼，請輸入Y</p>
-
 <p>第三個問題，Remove anonymous users? [Y/n]
 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了</p>
-
 <p>第四個問題，Disallow root login remotely? [Y/n]
 是否移除遠端root登入權限，視需求設定</p>
-
 <p>第五個問題，Remove test database and access to it? [Y/n]
 是否移除測試資料庫跟使用者，留著也沒用！移除請輸入Y</p>
-
 <p>第六個問題，Reload privilege tables now? [Y/n]
 是否刷新權限表，輸入Y完成所有初始化設定！</p>
 

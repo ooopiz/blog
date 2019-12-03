@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2016-11-04T10:26:01+08:00" />
 <meta itemprop="name" content="利用adjtimex來修正linux時間偏差">
 <meta itemprop="description" content="前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差">
-
-
 <meta itemprop="datePublished" content="2016-11-04T10:26:01&#43;08:00" />
 <meta itemprop="dateModified" content="2016-11-04T10:26:01&#43;08:00" />
 <meta itemprop="wordCount" content="415">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="利用adjtimex來修正linux時間偏差"/>
 <meta name="twitter:description" content="前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差"/>
 
@@ -133,81 +130,48 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#前言">前言：</a></li>
-<li><a href="#下載下來後選定一個版本後即可開始安裝">下載下來後選定一個版本後即可開始安裝</a></li>
-<li><a href="#先了解時間差">先了解時間差</a></li>
-<li><a href="#這邊我的-t校正值是9859">這邊我的-t校正值是9859</a></li>
-<li><a href="#再檢視一次">再檢視一次</a></li>
-<li><a href="#這邊還有約-0-8的偏差-但其實已經相當接近-要修正更精密的差距必須用-f參數">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</a></li>
-<li><a href="#這邊我的-f校正值是16384000">這邊我的-f校正值是16384000</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">前言：</a></li>
+    <li><a href="#heading1">下載下來後選定一個版本後即可開始安裝</a></li>
+    <li><a href="#heading2">先了解時間差</a></li>
+    <li><a href="#t9859">這邊我的-t校正值是9859</a></li>
+    <li><a href="#heading3">再檢視一次</a></li>
+    <li><a href="#08f">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</a></li>
+    <li><a href="#f16384000">這邊我的-f校正值是16384000</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="前言">前言：</h2>
-
+      <h2 id="heading">前言：</h2>
 <p>前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，</p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-01.jpg"></p>
-
+<!-- raw HTML omitted -->
 <p>使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，</p>
-
 <p><strong>最後採用linux本身時間糾偏的方式</strong></p>
-
-<p>主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(<strong><em>感謝神同事Leo協助突破盲腸</em></strong>)</p>
-
-<h2 id="下載下來後選定一個版本後即可開始安裝">下載下來後選定一個版本後即可開始安裝</h2>
-
+<p>主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(<em><strong>感謝神同事Leo協助突破盲腸</strong></em>)</p>
+<h2 id="heading1">下載下來後選定一個版本後即可開始安裝</h2>
 <p><a href="https://github.com/rogers0/adjtimex/tree/master">GITHUB - adjtimex</a></p>
-
 <p><code># ./configure</code></p>
-
 <p><code># make</code></p>
-
 <p><code># make install</code></p>
-
-<h2 id="先了解時間差">先了解時間差</h2>
-
+<h2 id="heading2">先了解時間差</h2>
 <p><code># adjtimex --compare</code> 或 <code># adjtimex -c</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-02.jpg"></p>
-
+<!-- raw HTML omitted -->
 <p>圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．</p>
-
-<h2 id="這邊我的-t校正值是9859">這邊我的-t校正值是9859</h2>
-
+<h2 id="t9859">這邊我的-t校正值是9859</h2>
 <p><code># adjtimex --tick 9859</code></p>
-
-<h2 id="再檢視一次">再檢視一次</h2>
-
+<h2 id="heading3">再檢視一次</h2>
 <p><code># adjtimex -c</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-03.jpg"></p>
-
-<h2 id="這邊還有約-0-8的偏差-但其實已經相當接近-要修正更精密的差距必須用-f參數">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="08f">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</h2>
 <p><strong>公式</strong></p>
-
 <p>f = 差值 * 100000 * 65536</p>
-
 <p>或</p>
-
 <p>f = error_ppm平均值 * 65536</p>
-
 <p>這裡 = 250 * 65536 = 16384000</p>
-
-<h2 id="這邊我的-f校正值是16384000">這邊我的-f校正值是16384000</h2>
-
+<h2 id="f16384000">這邊我的-f校正值是16384000</h2>
 <p><code># adjtimex -f 16384000</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-04.jpg"></p>
+<!-- raw HTML omitted -->
 
     </div>
 

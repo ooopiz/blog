@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-05-17T08:02:00+08:00" />
 <meta itemprop="name" content="IPsec Lan to Lan Vigor-2925 and AWS-ec2">
 <meta itemprop="description" content="前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的">
-
-
 <meta itemprop="datePublished" content="2019-05-17T08:02:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-17T08:02:00&#43;08:00" />
-<meta itemprop="wordCount" content="766">
+<meta itemprop="wordCount" content="728">
 
 
 
-<meta itemprop="keywords" content="ipsec,vigor,vpn," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ipsec,vigor,vpn," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IPsec Lan to Lan Vigor-2925 and AWS-ec2"/>
 <meta name="twitter:description" content="前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的"/>
 
@@ -133,96 +130,50 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#libreswan-簡介">libreSwan 簡介</a></li>
-<li><a href="#安裝-libreswan">安裝 libreswan</a></li>
-<li><a href="#設定-ipsec">設定 ipsec</a></li>
-<li><a href="#修改內核參數">修改內核參數</a></li>
-<li><a href="#檢查ipsec設定">檢查ipsec設定</a></li>
-<li><a href="#開啟防火牆">開啟防火牆</a></li>
-<li><a href="#啟動ipsec">啟動ipsec</a></li>
-<li><a href="#postrouting">postrouting</a></li>
-<li><a href="#vigor-2925-設定">Vigor 2925 設定</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">前言</a></li>
+    <li><a href="#libreswan-">libreSwan 簡介</a></li>
+    <li><a href="#-libreswan">安裝 libreswan</a></li>
+    <li><a href="#-ipsec">設定 ipsec</a></li>
+    <li><a href="#heading1">修改內核參數</a></li>
+    <li><a href="#ipsec">檢查ipsec設定</a></li>
+    <li><a href="#heading2">開啟防火牆</a></li>
+    <li><a href="#ipsec1">啟動ipsec</a></li>
+    <li><a href="#postrouting">postrouting</a></li>
+    <li><a href="#vigor-2925-">Vigor 2925 設定</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="前言">前言</h2>
-
-<p>簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，<br />
+      <h2 id="heading">前言</h2>
+<p>簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，<br>
 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。</p>
-
-<p>其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）<br />
+<p>其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）<br>
 一個月大概在台幣 1,000 左右 <a href="https://aws.amazon.com/tw/vpn/pricing/">AWS VPN pricing</a>。</p>
-
 <p>但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。</p>
-
 <p>目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。</p>
-
 <p>公司端：</p>
-
 <ul>
 <li>設備：Vigor 2925</li>
 <li>網段：192.168.0.0/24</li>
 </ul>
-
 <p>AWS 端：</p>
-
 <ul>
 <li>網段：172.21.0.0/16</li>
 <li>IPsec Server ： CentOS7, EIP</li>
 </ul>
-
-<h2 id="libreswan-簡介">libreSwan 簡介</h2>
-
-<p>libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。<br />
+<h2 id="libreswan-">libreSwan 簡介</h2>
+<p>libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。<br>
 在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan</p>
-
-<h2 id="安裝-libreswan">安裝 libreswan</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ yum install epel-release
-$ yum install libreswan</pre></td></tr></table>
-</div>
-</div>
-<h2 id="設定-ipsec">設定 ipsec</h2>
-
+<h2 id="-libreswan">安裝 libreswan</h2>
+<pre><code>$ yum install epel-release
+$ yum install libreswan
+</code></pre><h2 id="-ipsec">設定 ipsec</h2>
 <p>ipsec 啟動時會載入 /etc/ipsec.conf</p>
-
 <p><code>$ vi /etc/ipsec.d/ipsec.conf</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">conn IPsec
+<pre><code>conn IPsec
     authby=secret
     pfs=no
     auto=add
@@ -237,43 +188,13 @@ $ yum install libreswan</pre></td></tr></table>
     left=172.21.2.10
     leftsubnet=172.21.0.0/16
     rightsubnet=vhost:%priv
-    right=%any</pre></td></tr></table>
-</div>
-</div>
-<p>預先共享秘鑰啟動時會載入 /etc/ipsec.secrets</p>
-
+    right=%any
+</code></pre><p>預先共享秘鑰啟動時會載入 /etc/ipsec.secrets</p>
 <p><code>$ vi /etc/ipsec.d/ipsec.secrets</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">172.21.2.10 %any: PSK “pskyouwant&#34;</pre></td></tr></table>
-</div>
-</div>
-<h2 id="修改內核參數">修改內核參數</h2>
-
+<pre><code>172.21.2.10 %any: PSK “pskyouwant&quot;
+</code></pre><h2 id="heading1">修改內核參數</h2>
 <p><code>vi /etc/sysctl.conf</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vm.swappiness = 0
+<pre><code>vm.swappiness = 0
 net.ipv4.neigh.default.gc_stale_time=120
 net.ipv4.conf.all.rp_filter=0
 net.ipv4.conf.default.rp_filter=0
@@ -287,97 +208,48 @@ net.ipv4.conf.lo.arp_announce=2
 net.ipv4.ip_forward = 1
 net.ipv4.conf.default.accept_redirects = 0
 net.ipv4.conf.default.send_redirects = 0
-net.ipv4.conf.default.accept_source_route = 0</pre></td></tr></table>
-</div>
-</div>
-<p>額外新增一條，來符合 Aws 網卡名稱</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">net.ipv4.conf.ens5.rp_filter=0</pre></td></tr></table>
-</div>
-</div>
-<p>使配置生效</p>
-
+net.ipv4.conf.default.accept_source_route = 0
+</code></pre><p>額外新增一條，來符合 Aws 網卡名稱</p>
+<pre><code>net.ipv4.conf.ens5.rp_filter=0
+</code></pre><p>使配置生效</p>
 <p><code>$ sysctl -p</code></p>
-
-<h2 id="檢查ipsec設定">檢查ipsec設定</h2>
-
+<h2 id="ipsec">檢查ipsec設定</h2>
 <p><code>$ ipsec setup start</code></p>
-
 <p><code>$ ipsec verify</code></p>
-
 <p>如果有紅色錯誤修正一下再執行至正確狀態</p>
-
-<p><img src="https://fblog.ooopiz.com/images/2019/05/b001.jpg" alt="ipsec verify" title="ipsec verify result" /></p>
-
-<h2 id="開啟防火牆">開啟防火牆</h2>
-
+<p><img src="https://fblog.ooopiz.com/images/2019/05/b001.jpg" alt="ipsec verify" title="ipsec verify result"></p>
+<h2 id="heading2">開啟防火牆</h2>
 <p>可以針對欲連線的外部 IP 做白名單開放即可</p>
-
 <ul>
 <li>udp : 500</li>
 <li>udp : 4500</li>
 </ul>
-
-<h2 id="啟動ipsec">啟動ipsec</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ systemctl start ipsec
-$ systemctl enable ipsec</pre></td></tr></table>
-</div>
-</div>
-<h2 id="postrouting">postrouting</h2>
-
-<p>做完上面的步驟，應該就可以使用 IPsec 連線了，<br />
+<h2 id="ipsec1">啟動ipsec</h2>
+<pre><code>$ systemctl start ipsec
+$ systemctl enable ipsec
+</code></pre><h2 id="postrouting">postrouting</h2>
+<p>做完上面的步驟，應該就可以使用 IPsec 連線了，<br>
 但如果想要訪問 IPsec 那邊的 subnet，必須在 nat 上做封包處理。</p>
-
 <p>aws ec2 上的網卡是 ens5 就 -o ens5</p>
-
 <p><code>$ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o ens5 -j MASQUERADE</code></p>
-
 <p>為了避免重新開機後規則遺失，裝上 iptables-services 來管理 iptables 規則。</p>
-
 <p><code>$ yum install iptables-services</code></p>
-
 <p>儲存目前規則</p>
-
 <p><code>$ iptables-save &gt; /etc/sysconfig/iptables</code></p>
-
 <p>啟動服務</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$ systemctl start iptables
-$ systemctl enable iptables</pre></td></tr></table>
-</div>
-</div>
-<h2 id="vigor-2925-設定">Vigor 2925 設定</h2>
-
+<pre><code>$ systemctl start iptables
+$ systemctl enable iptables
+</code></pre><h2 id="vigor-2925-">Vigor 2925 設定</h2>
 <p>如下圖：</p>
-
 <ul>
 <li>撥出並且永遠連線</li>
 <li>撥出選 ipsec 通道，並填入 ipsec server 的 ip 位置</li>
 <li>預先共用金鑰填入上方設定好的金鑰</li>
 <li>TCP/IP 就照你的網段進行設定吧</li>
 </ul>
-
-<p><img src="https://fblog.ooopiz.com/images/2019/05/b002.jpg" alt="Vigor lantolan" title="vigor ipsec setting" /></p>
-
-<p><img src="https://fblog.ooopiz.com/images/2019/05/b003.jpg" alt="Vigor lantolan" title="vigor ipsec setting" /></p>
-
+<p><img src="https://fblog.ooopiz.com/images/2019/05/b002.jpg" alt="Vigor lantolan" title="vigor ipsec setting"></p>
+<p><img src="https://fblog.ooopiz.com/images/2019/05/b003.jpg" alt="Vigor lantolan" title="vigor ipsec setting"></p>
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="https://kkc.github.io/2018/03/21/IPSEC-note/">IPSec 筆記</a></li>
 <li><a href="https://segmentfault.com/a/1190000000646294">【译】IPSEC.CONF(5) － IPsec配置</a></li>

@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &amp;gt; Binary package &amp;gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &amp;gt; Binary package &amp;gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java public class TestMath { private Integer" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/12/php-call-java-class/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="php call java 類別" />
-<meta property="og:description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6" />
+<meta property="og:description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java public class TestMath { private Integer" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/12/php-call-java-class/" />
 <meta property="article:published_time" content="2016-12-21T03:23:01+08:00" />
 <meta property="article:modified_time" content="2016-12-21T03:23:01+08:00" />
 <meta itemprop="name" content="php call java 類別">
-<meta itemprop="description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6">
-
-
+<meta itemprop="description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java public class TestMath { private Integer">
 <meta itemprop="datePublished" content="2016-12-21T03:23:01&#43;08:00" />
 <meta itemprop="dateModified" content="2016-12-21T03:23:01&#43;08:00" />
-<meta itemprop="wordCount" content="353">
+<meta itemprop="wordCount" content="305">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="php call java 類別"/>
-<meta name="twitter:description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6"/>
+<meta name="twitter:description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java public class TestMath { private Integer"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,75 +130,27 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#寫一個jar來做測試">寫一個jar來做測試</a></li>
-<li><a href="#佈建php-java-bridge">佈建php/java bridge</a></li>
-<li><a href="#寫一個php測試">寫一個php測試</a></li>
-<li><a href="#其他">其他</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#jar">寫一個jar來做測試</a></li>
+    <li><a href="#phpjava-bridge">佈建php/java bridge</a></li>
+    <li><a href="#php">寫一個php測試</a></li>
+    <li><a href="#heading">其他</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><a href="http://php-java-bridge.sourceforge.net/pjb/">php-java-bridge 介紹</a></p>
-
+      <p><a href="http://php-java-bridge.sourceforge.net/pjb/">php-java-bridge 介紹</a></p>
 <p><a href="https://sourceforge.net/projects/php-java-bridge/">php-java-bridge 載點</a></p>
-
 <blockquote>
 <p>Files &gt; Binary package &gt; JavaBridgeTemplate621.war</p>
 </blockquote>
-
 <p>我下載到的版本是JavaBridgeTemplate621.war</p>
-
-<h2 id="寫一個jar來做測試">寫一個jar來做測試</h2>
-
+<h2 id="jar">寫一個jar來做測試</h2>
 <p><code># mkdir TestMath</code></p>
-
 <p><code># cd TestMath</code></p>
-
 <p><code># vi TestMath.java</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">public class TestMath {
+<pre><code>public class TestMath {
 
     private Integer num1;
     private Integer num2;
@@ -232,54 +181,24 @@
         return num1 - num2;
     }
 
-}</pre></td></tr></table>
-</div>
-</div>
-<p><code># javac TestMath.java</code></p>
-
+}
+</code></pre><p><code># javac TestMath.java</code></p>
 <p><code># touch MANIFEST.MF</code></p>
-
 <p><code># jar -cvfm TestMath.jar MANIFEST.MF ./</code></p>
-
-<h2 id="佈建php-java-bridge">佈建php/java bridge</h2>
-
+<h2 id="phpjava-bridge">佈建php/java bridge</h2>
 <p>jar放置到tomcat/lib中</p>
-
 <p><code># mv TestMath.jar tomcat/lib/</code></p>
-
 <p>將上面下載下來的war丟掉tomcat/webapps目錄中</p>
-
 <p>啟動tomcat即完成</p>
-
-<h2 id="寫一個php測試">寫一個php測試</h2>
-
+<h2 id="php">寫一個php測試</h2>
 <p>require的網址必須對應你丟入的war包名稱</p>
-
 <p><code># vi phpCallJava.php</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;?php
+<pre><code>&lt;?php
 
-require_once(&#34;http://localhost:8080/JavaBridge/java/Java.inc&#34;);
+require_once(&quot;http://localhost:8080/JavaBridge/java/Java.inc&quot;);
 
-//$TestMath = new java(&#34;TestMath&#34;);
-$TestMath = new java(&#34;TestMath&#34;, 5, 10);
+//$TestMath = new java(&quot;TestMath&quot;);
+$TestMath = new java(&quot;TestMath&quot;, 5, 10);
 
 $value = $TestMath-&gt;plus();
 echo $value;
@@ -287,16 +206,14 @@ echo $value;
 $value = $TestMath-&gt;minus();
 echo $value;
 
-?&gt;</pre></td></tr></table>
-</div>
-</div>
-<p><code># php -n -dallow_url_include=On phpCallJava.php</code></p>
-
-<h2 id="其他">其他</h2>
-
-<p>實際放在外部機器的話必須打開防火牆
-- tcp 8080
-- tcp 9267</p>
+?&gt;
+</code></pre><p><code># php -n -dallow_url_include=On phpCallJava.php</code></p>
+<h2 id="heading">其他</h2>
+<p>實際放在外部機器的話必須打開防火牆</p>
+<ul>
+<li>tcp 8080</li>
+<li>tcp 9267</li>
+</ul>
 
     </div>
 

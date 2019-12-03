@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-05-28T15:20:25+08:00" />
 <meta itemprop="name" content="Virtualbox 安裝 Coreos">
 <meta itemprop="description" content="到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開">
-
-
 <meta itemprop="datePublished" content="2019-05-28T15:20:25&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-28T15:20:25&#43;08:00" />
-<meta itemprop="wordCount" content="699">
+<meta itemprop="wordCount" content="679">
 
 
 
-<meta itemprop="keywords" content="virtualbox,coreos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="virtualbox,coreos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Virtualbox 安裝 Coreos"/>
 <meta name="twitter:description" content="到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開"/>
 
@@ -133,141 +130,88 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#到官網下載-coreos-iso-檔">到官網下載 coreOS ISO 檔</a></li>
-<li><a href="#virtualbox-新增機器">VirtualBox 新增機器</a></li>
-<li><a href="#開機">開機</a></li>
-<li><a href="#安裝到硬碟">安裝到硬碟</a>
-<ul>
-<li><a href="#先查看硬碟空間在那裡">先查看硬碟空間在那裡</a></li>
-<li><a href="#編寫-ignition-json">編寫 ignition.json</a></li>
-<li><a href="#安裝吧-coreos-install">安裝吧 coreos-install</a>
-<ul>
-<li><a href="#coreos-install-參數說明">coreos-install 參數說明</a></li>
-</ul></li>
-<li><a href="#安裝完成">安裝完成</a></li>
-<li><a href="#其它">其它</a>
-<ul>
-<li><a href="#關於-cloud-config-官網有提到已經不再積極開發-建議用-ignition-取代">關於 Cloud-Config，官網有提到已經不再積極開發，建議用 ignition 取代。</a></li>
-<li><a href="#安裝完後可以將-memory-調低一點-不會造成無法開機-但須符合你的服務需求">安裝完後可以將 memory 調低一點，不會造成無法開機，但須符合你的服務需求。</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#-coreos-iso-">到官網下載 coreOS ISO 檔</a></li>
+    <li><a href="#virtualbox-">VirtualBox 新增機器</a></li>
+    <li><a href="#heading">開機</a></li>
+    <li><a href="#heading1">安裝到硬碟</a>
+      <ul>
+        <li><a href="#heading2">先查看硬碟空間在那裡</a></li>
+        <li><a href="#-ignitionjson">編寫 ignition.json</a></li>
+        <li><a href="#-coreosinstall">安裝吧 coreos-install</a></li>
+        <li><a href="#heading3">安裝完成</a></li>
+        <li><a href="#heading4">其它</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="到官網下載-coreos-iso-檔">到官網下載 coreOS ISO 檔</h2>
-
+      <h2 id="-coreos-iso-">到官網下載 coreOS ISO 檔</h2>
 <p><a href="https://coreos.com/os/docs/latest/booting-with-iso.html">Booting CoreOS Container Linux from an ISO</a></p>
-
-<p>如標題，這份 ISO 僅是開機片而已，並無安裝動作，<br />
+<p>如標題，這份 ISO 僅是開機片而已，並無安裝動作，<br>
 如何安裝的部分下面會提到。</p>
-
-<h2 id="virtualbox-新增機器">VirtualBox 新增機器</h2>
-
-<p>選 Linux 64 bit 即可<br />
-<img src="https://fblog.ooopiz.com/images/2019/05/d001.jpg" alt="virtualbox-new-server" title="virtualbox-new-server" /></p>
-
-<p>掛載剛下載的 ISO 檔<br />
-<img src="https://fblog.ooopiz.com/images/2019/05/d002.jpg" alt="mount-coreos-iso" title="mount-coreos-iso" /></p>
-
-<h2 id="開機">開機</h2>
-
+<h2 id="virtualbox-">VirtualBox 新增機器</h2>
+<p>選 Linux 64 bit 即可<br>
+<img src="https://fblog.ooopiz.com/images/2019/05/d001.jpg" alt="virtualbox-new-server" title="virtualbox-new-server"></p>
+<p>掛載剛下載的 ISO 檔<br>
+<img src="https://fblog.ooopiz.com/images/2019/05/d002.jpg" alt="mount-coreos-iso" title="mount-coreos-iso"></p>
+<h2 id="heading">開機</h2>
 <p>官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。</p>
-
 <ul>
-<li><p>512 G - <span style="color:red"> <em>無限重開</em> </span></p></li>
-
-<li><p>1024 G - <span style="color:red"> <em>boot into emergency shell</em> </span>
-<img src="https://fblog.ooopiz.com/images/2019/05/d003.jpg" alt="emergency shell" title="emergency shell" /></p></li>
-
-<li><p>2048 G - OK
-<img src="https://fblog.ooopiz.com/images/2019/05/d004.jpg" alt="coreos boot" title="coreos boot" /></p></li>
+<li>
+<p>512 G - <!-- raw HTML omitted --> <em>無限重開</em> <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>1024 G - <!-- raw HTML omitted --> <em>boot into emergency shell</em> <!-- raw HTML omitted -->
+<img src="https://fblog.ooopiz.com/images/2019/05/d003.jpg" alt="emergency shell" title="emergency shell"></p>
+</li>
+<li>
+<p>2048 G - OK
+<img src="https://fblog.ooopiz.com/images/2019/05/d004.jpg" alt="coreos boot" title="coreos boot"></p>
+</li>
 </ul>
-
 <blockquote>
 <p>使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。</p>
 </blockquote>
-
-<h2 id="安裝到硬碟">安裝到硬碟</h2>
-
-<p>這個步驟要使用 coreos-install 這個指令來安裝硬碟，<br />
-當 ISO boot 的時候，該指令就已經內建在系統裡了。<br />
-要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，<br />
-這個檔案可以用來設定用戶、網路、儲存、服務等。。。<br />
-必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）<br />
+<h2 id="heading1">安裝到硬碟</h2>
+<p>這個步驟要使用 coreos-install 這個指令來安裝硬碟，<br>
+當 ISO boot 的時候，該指令就已經內建在系統裡了。<br>
+要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，<br>
+這個檔案可以用來設定用戶、網路、儲存、服務等。。。<br>
+必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）<br>
 否則裝好之後是無法使用 ssh login in 的。</p>
-
-<h3 id="先查看硬碟空間在那裡">先查看硬碟空間在那裡</h3>
-
+<h3 id="heading2">先查看硬碟空間在那裡</h3>
 <p><code>$ sudo fdisk -l</code></p>
-
-<p><img src="https://fblog.ooopiz.com/images/2019/05/d005.jpg" alt="fdisk -l" title="fdisk -l" /></p>
-
-<h3 id="編寫-ignition-json">編寫 ignition.json</h3>
-
+<p><img src="https://fblog.ooopiz.com/images/2019/05/d005.jpg" alt="fdisk -l" title="fdisk -l"></p>
+<h3 id="-ignitionjson">編寫 ignition.json</h3>
 <p>sshAuthorizedKeys 替換成你要登入的公鑰</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">{
-  &#34;ignition&#34;: {
-    &#34;config&#34;: {},
-    &#34;timeouts&#34;: {},
-    &#34;version&#34;: &#34;2.1.0&#34;
+<pre><code>{
+  &quot;ignition&quot;: {
+    &quot;config&quot;: {},
+    &quot;timeouts&quot;: {},
+    &quot;version&quot;: &quot;2.1.0&quot;
   },
-  &#34;networkd&#34;: {},
-  &#34;passwd&#34;: {
-    &#34;users&#34;: [
+  &quot;networkd&quot;: {},
+  &quot;passwd&quot;: {
+    &quot;users&quot;: [
       {
-        &#34;name&#34;: &#34;core&#34;,
-        &#34;sshAuthorizedKeys&#34;: [
-          &#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGdByTgSVHq.......&#34;
+        &quot;name&quot;: &quot;core&quot;,
+        &quot;sshAuthorizedKeys&quot;: [
+          &quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGdByTgSVHq.......&quot;
         ]
       }
     ]
   },
-  &#34;storage&#34;: {},
-  &#34;systemd&#34;: {}
-}</pre></td></tr></table>
-</div>
-</div>
-<h3 id="安裝吧-coreos-install">安裝吧 coreos-install</h3>
-
+  &quot;storage&quot;: {},
+  &quot;systemd&quot;: {}
+}
+</code></pre><h3 id="-coreosinstall">安裝吧 coreos-install</h3>
 <p><code>$ sudo coreos-install -d /dev/sda -C stable -i ~/ignition.json</code></p>
-
-<p><img src="https://fblog.ooopiz.com/images/2019/05/d006.jpg" alt="coreos-install" title="coreos-install" /></p>
-
-<h4 id="coreos-install-參數說明">coreos-install 參數說明</h4>
-
+<p><img src="https://fblog.ooopiz.com/images/2019/05/d006.jpg" alt="coreos-install" title="coreos-install"></p>
+<h4 id="coreosinstall-">coreos-install 參數說明</h4>
 <ul>
 <li>-d DEVICE   Install Container Linux to the given device.</li>
 <li>-V VERSION  Version to install (e.g. current)</li>
@@ -282,24 +226,16 @@
 <li>-n          Copy generated network units to the root partition.</li>
 <li>-v          Super verbose, for debugging.</li>
 </ul>
-
-<h3 id="安裝完成">安裝完成</h3>
-
-<p>安裝完成後重新開機 coreOS，就是硬碟開機了，<br />
+<h3 id="heading3">安裝完成</h3>
+<p>安裝完成後重新開機 coreOS，就是硬碟開機了，<br>
 並可以使用你剛剛設定的公私鑰對進行登入。</p>
-
-<h3 id="其它">其它</h3>
-
-<h4 id="關於-cloud-config-官網有提到已經不再積極開發-建議用-ignition-取代">關於 Cloud-Config，官網有提到已經不再積極開發，建議用 ignition 取代。</h4>
-
+<h3 id="heading4">其它</h3>
+<h4 id="-cloudconfig-ignition-">關於 Cloud-Config，官網有提到已經不再積極開發，建議用 ignition 取代。</h4>
 <blockquote>
 <p><a href="https://coreos.com/os/docs/latest/cloud-config.html">coreos-cloudinit</a> is no longer under active development and has been superseded by Ignition.</p>
 </blockquote>
-
-<h4 id="安裝完後可以將-memory-調低一點-不會造成無法開機-但須符合你的服務需求">安裝完後可以將 memory 調低一點，不會造成無法開機，但須符合你的服務需求。</h4>
-
+<h4 id="-memory-">安裝完後可以將 memory 調低一點，不會造成無法開機，但須符合你的服務需求。</h4>
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="https://gist.github.com/noonat/9fc170ea0c6ddea69c58">noonat/coreos-virtualbox.md</a></li>
 <li><a href="https://coreos.com/os/docs/latest/installing-to-disk.html">Installing CoreOS Container Linux to disk</a></li>

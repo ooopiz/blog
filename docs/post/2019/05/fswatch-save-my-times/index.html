@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-05-23T23:27:58+08:00" />
 <meta itemprop="name" content="Fswatch Save My Times">
 <meta itemprop="description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找">
-
-
 <meta itemprop="datePublished" content="2019-05-23T23:27:58&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-23T23:27:58&#43;08:00" />
-<meta itemprop="wordCount" content="214">
+<meta itemprop="wordCount" content="198">
 
 
 
-<meta itemprop="keywords" content="fswatch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="fswatch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fswatch Save My Times"/>
 <meta name="twitter:description" content="Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找"/>
 
@@ -133,81 +130,46 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#fswatch-可以用來檢測資料夾與文件的變更">Fswatch 可以用來檢測資料夾與文件的變更</a></li>
-<li><a href="#安裝">安裝</a></li>
-<li><a href="#腳本">腳本</a></li>
-<li><a href="#demo">Demo</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#fswatch-">Fswatch 可以用來檢測資料夾與文件的變更</a></li>
+    <li><a href="#heading">安裝</a></li>
+    <li><a href="#heading1">腳本</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="fswatch-可以用來檢測資料夾與文件的變更">Fswatch 可以用來檢測資料夾與文件的變更</h2>
-
-<p>最近在用 vim 練習 golang，真的是 go run 到手累心也累，<br />
-就到網路上搜看看有沒有可以監控檔案存檔事件的工具，<br />
+      <h2 id="fswatch-">Fswatch 可以用來檢測資料夾與文件的變更</h2>
+<p>最近在用 vim 練習 golang，真的是 go run 到手累心也累，<br>
+就到網路上搜看看有沒有可以監控檔案存檔事件的工具，<br>
 於是找到了這款 Mac 可以使用的 <a href="https://github.com/emcrisostomo/fswatch" title="Fswatch">Fswatch</a></p>
-
-<h2 id="安裝">安裝</h2>
-
-<p>mac 上安裝就直接<br />
+<h2 id="heading">安裝</h2>
+<p>mac 上安裝就直接<br>
 <code>brew install fswatch</code></p>
-
-<h2 id="腳本">腳本</h2>
-
-<p>因為我只要監控 go file 有沒有異動，<br />
+<h2 id="heading1">腳本</h2>
+<p>因為我只要監控 go file 有沒有異動，<br>
 如果有的話幫我 compilar，所以腳本中有限定 .go 檔。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="nv">BASEDIR</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span>
+<pre><code>#!/bin/bash
 
-fswatch <span class="s2">&#34;</span><span class="nv">$BASEDIR</span><span class="s2">&#34;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> file
-<span class="k">do</span>
-    <span class="nv">filename</span><span class="o">=</span><span class="k">$(</span>basename -- <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span><span class="k">)</span>
-    <span class="nv">extension</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span><span class="s2">&#34;</span>
-    <span class="nv">filename</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">filename</span><span class="p">%.*</span><span class="si">}</span><span class="s2">&#34;</span>
+BASEDIR=$(dirname &quot;$0&quot;)
 
-    <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$extension</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;go&#34;</span> <span class="o">]</span>
-    <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&#34;=============================================\n\n&#34;</span>
-        <span class="nb">time</span> go run <span class="si">${</span><span class="nv">file</span><span class="si">}</span>
-    <span class="k">fi</span>
-<span class="k">done</span></pre></td></tr></table>
-</div>
-</div>
-<h2 id="demo">Demo</h2>
+fswatch &quot;$BASEDIR&quot; | while read file
+do
+    filename=$(basename -- &quot;$file&quot;)
+    extension=&quot;${filename##*.}&quot;
+    filename=&quot;${filename%.*}&quot;
 
-<p><img src="https://fblog.ooopiz.com/images/2019/05/c001.gif" alt="Auto compilar demo" title="Auto compilar demo" /></p>
-
+    if [ &quot;$extension&quot; = &quot;go&quot; ]
+    then
+        echo &quot;=============================================\n\n&quot;
+        time go run ${file}
+    fi
+done
+</code></pre><h2 id="demo">Demo</h2>
+<p><img src="https://fblog.ooopiz.com/images/2019/05/c001.gif" alt="Auto compilar demo" title="Auto compilar demo"></p>
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="https://my.oschina.net/mengshuai/blog/618354" title="OS X使用fswatch+rsync自动检测文件夹改动并同步">OS X使用fswatch+rsync自动检测文件夹改动并同步</a></li>
 </ul>

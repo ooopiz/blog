@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2015-09-01T03:07:01+08:00" />
 <meta itemprop="name" content="CentOS7 基礎設定">
 <meta itemprop="description" content="一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同">
-
-
 <meta itemprop="datePublished" content="2015-09-01T03:07:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-09-01T03:07:01&#43;08:00" />
 <meta itemprop="wordCount" content="530">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 基礎設定"/>
 <meta name="twitter:description" content="一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同"/>
 
@@ -133,27 +130,22 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#一-啟用網卡-停用networkmanger">一、啟用網卡，停用NetworkManger</a></li>
-<li><a href="#二-關閉selinux">二、關閉SELinux</a></li>
-<li><a href="#三-關閉usedns">三、關閉UseDNS</a></li>
-<li><a href="#四-調整時區">四、調整時區</a></li>
-<li><a href="#五-調整語系">五、調整語系</a></li>
-<li><a href="#六-修改hostname">六、修改Hostname</a></li>
-<li><a href="#七-同步時間">七、同步時間</a></li>
-<li><a href="#八-停用firewalld-改用iptabless">八、停用firewalld，改用iptabless</a></li>
-<li><a href="#九-更新一下">九、更新一下</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#networkmanger">一、啟用網卡，停用NetworkManger</a></li>
+    <li><a href="#selinux">二、關閉SELinux</a></li>
+    <li><a href="#usedns">三、關閉UseDNS</a></li>
+    <li><a href="#heading">四、調整時區</a></li>
+    <li><a href="#heading1">五、調整語系</a></li>
+    <li><a href="#hostname">六、修改Hostname</a></li>
+    <li><a href="#heading2">七、同步時間</a></li>
+    <li><a href="#firewalldiptabless">八、停用firewalld，改用iptabless</a></li>
+    <li><a href="#heading3">九、更新一下</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<ul>
+      <ul>
 <li>一、啟用網卡，停用NetworkManger</li>
 <li>二、關閉SELinux</li>
 <li>三、關閉UseDNS</li>
@@ -164,125 +156,66 @@
 <li>八、停用firewalld，改用iptabless</li>
 <li>九、更新一下</li>
 </ul>
-
-<hr />
-
-<h2 id="一-啟用網卡-停用networkmanger">一、啟用網卡，停用NetworkManger</h2>
-
+<hr>
+<h2 id="networkmanger">一、啟用網卡，停用NetworkManger</h2>
 <p>先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)</p>
-
 <p><code># cd /etc/sysconfig/network-scripts</code></p>
-
 <blockquote>
 <p>每台電腦的網卡名稱不一定相同</p>
 </blockquote>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-01.png"></p>
-
+<!-- raw HTML omitted -->
 <p><code># systemctl stop NetworkManager</code></p>
-
 <p><code># systemctl disable NetworkManager</code></p>
-
 <p><code># systemctl restart network</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-02.png"></p>
-
-<h2 id="二-關閉selinux">二、關閉SELinux</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="selinux">二、關閉SELinux</h2>
 <p><code>#vi /etc/selinux/config</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-03.png"></p>
-
+<!-- raw HTML omitted -->
 <p><strong>這個設定reboot後才會生效</strong></p>
-
-<h2 id="三-關閉usedns">三、關閉UseDNS</h2>
-
+<h2 id="usedns">三、關閉UseDNS</h2>
 <p>登入SSH需要等很久的話，可以從這個設定獲得改善</p>
-
 <p><code># vi /etc/ssh/sshd_config</code> 將 UseDNS yes 改成 no</p>
-
 <p><code># systemctl restart sshd</code></p>
-
-<h2 id="四-調整時區">四、調整時區</h2>
-
+<h2 id="heading">四、調整時區</h2>
 <p><code># rm /etc/localtime</code></p>
-
 <p><code># ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p>
-
-<h2 id="五-調整語系">五、調整語系</h2>
-
+<h2 id="heading1">五、調整語系</h2>
 <p>檢查系統目前使用的語系</p>
-
 <p><code># localectl</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-04.png"></p>
-
+<!-- raw HTML omitted -->
 <p>查看系統有哪些可用的語系</p>
-
 <p><code># localectl list-locales | grep zh</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-05.png"></p>
-
+<!-- raw HTML omitted -->
 <p>如果你要設定語系的話</p>
-
 <p><code># localectl set-locale LANG=zh_TW.utf8</code></p>
-
-<h2 id="六-修改hostname">六、修改Hostname</h2>
-
+<h2 id="hostname">六、修改Hostname</h2>
 <p><strong>查看主機 hostname</strong></p>
-
 <p><code># hostnamectl</code></p>
-
 <p><strong>設定 hostname</strong></p>
-
 <p><code># hostnamectl set-hostname new_hostname</code></p>
-
-<h2 id="七-同步時間">七、同步時間</h2>
-
+<h2 id="heading2">七、同步時間</h2>
 <p>安裝的packages</p>
-
 <p><code># yum install ntp ntpdate ntp-doc</code></p>
-
 <p>設定開機就啟動NTP Daemon</p>
-
 <p><code># systemctl enable ntpd</code></p>
-
 <p>系統時間與time.stdtime.gov.tw的NTP server做校時</p>
-
 <p><code># ntpdate time.stdtime.gov.tw</code></p>
-
 <p>啟動系統的NTP Daemon</p>
-
 <p><code># systemctl start ntpd</code></p>
-
 <p>設定要校時的NTP server</p>
-
 <p><code># vi /etc/ntp.conf</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-06.png"></p>
-
-<h2 id="八-停用firewalld-改用iptabless">八、停用firewalld，改用iptabless</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="firewalldiptabless">八、停用firewalld，改用iptabless</h2>
 <p><code># systemctl stop firewalld</code></p>
-
 <p><code># systemctl disable firewalld</code></p>
-
 <p><code># yum install iptables-services</code></p>
-
 <p>設定你的防火牆</p>
-
 <p><code># vi /etc/sysconfig/iptables</code></p>
-
-<p><img desc="" src="//fblog.ooopiz.com/images/201509/A01-07.png"></p>
-
+<!-- raw HTML omitted -->
 <p><code># systemctl start iptables</code></p>
-
 <p><code># systemctl enable iptables</code></p>
-
-<h2 id="九-更新一下">九、更新一下</h2>
-
+<h2 id="heading3">九、更新一下</h2>
 <p>送他一個</p>
-
 <p><code># yum update -y</code></p>
 
     </div>

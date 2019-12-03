@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="安裝 Nexus OSS" />
-<meta property="og:description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo" />
+<meta property="og:description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/" />
 <meta property="article:published_time" content="2015-12-14T01:27:01+08:00" />
 <meta property="article:modified_time" content="2015-12-14T01:27:01+08:00" />
 <meta itemprop="name" content="安裝 Nexus OSS">
-<meta itemprop="description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo">
-
-
+<meta itemprop="description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo">
 <meta itemprop="datePublished" content="2015-12-14T01:27:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-12-14T01:27:01&#43;08:00" />
-<meta itemprop="wordCount" content="130">
+<meta itemprop="wordCount" content="127">
 
 
 
-<meta itemprop="keywords" content="maven,nexus," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="maven,nexus," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安裝 Nexus OSS"/>
-<meta name="twitter:description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo"/>
+<meta name="twitter:description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,66 +130,33 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#nexus-oss">Nexus OSS</a></li>
-<li><a href="#下載至您要放置的目錄下即可開始操作以下流程-這裡放置在-usr-local">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#nexus-oss">Nexus OSS</a></li>
+    <li><a href="#usrlocal">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="nexus-oss">Nexus OSS</h2>
-
+      <h2 id="nexus-oss">Nexus OSS</h2>
 <p>Nexus OSS是用來架設maven私有倉庫的好幫手
 安裝其實非常容易</p>
-
-<p><a href="http://www.sonatype.org/nexus/" target="_blank">下載網址</a></p>
-
-<p><img src="//fblog.ooopiz.com/images/201512/A01-01.jpg"></p>
-
-<h2 id="下載至您要放置的目錄下即可開始操作以下流程-這裡放置在-usr-local">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</h2>
-
+<p><!-- raw HTML omitted -->下載網址<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="usrlocal">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</h2>
 <p><code># tar zxvf nexus-2.11.4-01-bundle.tar.gz</code></p>
-
 <p><code># ln -s nexus-2.11.4-01/ nexus</code></p>
-
 <p><code># chown -R nexus:nexus nexus</code></p>
-
 <p><code># chown -R nexus:nexus nexus-2.11.4-01/</code></p>
-
 <p><code># chown -R nexus:nexus sonatype-work/</code></p>
-
 <p>修改下面兩個設定</p>
-
 <p><code># vi /nexus-2.11.4-01/bin/nexus</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config">NEXUS_HOME=&#34;/usr/local/nexus/nexus&#34;
-RUN_AS_USER=nexus</code></pre></td></tr></table>
-</div>
-</div>
-<p>修改Port</p>
-
+<pre><code class="language-config" data-lang="config">NEXUS_HOME=&quot;/usr/local/nexus/nexus&quot;
+RUN_AS_USER=nexus
+</code></pre><p>修改Port</p>
 <p><code># vi /nexus-2.11.4-01/conf/nexus.properties</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-config" data-lang="config">application-port=18081</code></pre></td></tr></table>
-</div>
-</div>
-<p>啟動</p>
-
+<pre><code class="language-config" data-lang="config">application-port=18081
+</code></pre><p>啟動</p>
 <p><code># sh /var/opt/nexus/nexus/bin/nexus start</code></p>
 
     </div>

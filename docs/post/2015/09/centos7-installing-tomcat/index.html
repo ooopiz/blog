@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="CentOS7 安裝Tomcat" />
-<meta property="og:description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #" />
+<meta property="og:description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/" />
 <meta property="article:published_time" content="2015-09-30T06:10:01+08:00" />
 <meta property="article:modified_time" content="2015-09-30T06:10:01+08:00" />
 <meta itemprop="name" content="CentOS7 安裝Tomcat">
-<meta itemprop="description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #">
-
-
+<meta itemprop="description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #">
 <meta itemprop="datePublished" content="2015-09-30T06:10:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-09-30T06:10:01&#43;08:00" />
 <meta itemprop="wordCount" content="271">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 安裝Tomcat"/>
-<meta name="twitter:description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #"/>
+<meta name="twitter:description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,67 +130,47 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-切換目錄到-usr-local">1.切換目錄到 /usr/local</a></li>
-<li><a href="#2-下載tomcat">2.下載Tomcat</a></li>
-<li><a href="#3-解壓縮">3.解壓縮</a></li>
-<li><a href="#4-更改資料夾名稱">4.更改資料夾名稱</a></li>
-<li><a href="#5-啟動或停止tomcat">5.啟動或停止Tomcat</a></li>
-<li><a href="#6-防火牆設定">6.防火牆設定</a></li>
-<li><a href="#7-測試tomcat是否正常">7.測試Tomcat是否正常</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-usrlocal">1.切換目錄到 /usr/local</a></li>
+        <li><a href="#2tomcat">2.下載Tomcat</a></li>
+        <li><a href="#3">3.解壓縮</a></li>
+        <li><a href="#4">4.更改資料夾名稱</a></li>
+        <li><a href="#5tomcat">5.啟動或停止Tomcat</a></li>
+        <li><a href="#6">6.防火牆設定</a></li>
+        <li><a href="#7tomcat">7.測試Tomcat是否正常</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="1-切換目錄到-usr-local">1.切換目錄到 /usr/local</h3>
-
+      <h3 id="1-usrlocal">1.切換目錄到 /usr/local</h3>
 <p>我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
 <code># cd /usr/local</code></p>
-
-<h3 id="2-下載tomcat">2.下載Tomcat</h3>
-
-<p><a href="http://tomcat.apache.org" target="_blank">Tomcat官網</a>
+<h3 id="2tomcat">2.下載Tomcat</h3>
+<p><!-- raw HTML omitted -->Tomcat官網<!-- raw HTML omitted -->
 到官網下載你爽爽的版本
 <code># wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz</code></p>
-
-<h3 id="3-解壓縮">3.解壓縮</h3>
-
+<h3 id="3">3.解壓縮</h3>
 <p><code># tar -zxvf apache-tomcat-7.0.57.tar.gz</code></p>
-
-<h3 id="4-更改資料夾名稱">4.更改資料夾名稱</h3>
-
+<h3 id="4">4.更改資料夾名稱</h3>
 <p><code># mv apache-tomcat-7.0.57 tomcat7</code></p>
-
-<h3 id="5-啟動或停止tomcat">5.啟動或停止Tomcat</h3>
-
+<h3 id="5tomcat">5.啟動或停止Tomcat</h3>
 <p><strong>啟動Tomcat 7</strong>
 <code># /usr/local/tomcat7/bin/startup.sh</code></p>
-
 <p><strong>停止Tomcat 7</strong>
 <code># /usr/local/tomcat7/bin/shutdown.sh</code></p>
-
-<h3 id="6-防火牆設定">6.防火牆設定</h3>
-
+<h3 id="6">6.防火牆設定</h3>
 <p>Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線</p>
-
-<h3 id="7-測試tomcat是否正常">7.測試Tomcat是否正常</h3>
-
-<p>開啟瀏覽器，輸入【<a href="http://IP位址:8080】">http://IP位址:8080】</a>
-<img src="//fblog.ooopiz.com/images/201509/A06-01.png"></p>
-
-<hr />
-
-<p>若要測試範例網頁是否可以執行，輸入【<a href="http://IP:8080/examples/jsp/">http://IP:8080/examples/jsp/</a> 】，點選其中一個Execute即可以測試。
-<img src="//fblog.ooopiz.com/images/201509/A06-02.png"></p>
+<h3 id="7tomcat">7.測試Tomcat是否正常</h3>
+<p>開啟瀏覽器，輸入【http://IP位址:8080】
+<!-- raw HTML omitted --></p>
+<hr>
+<p>若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。
+<!-- raw HTML omitted --></p>
 
     </div>
 

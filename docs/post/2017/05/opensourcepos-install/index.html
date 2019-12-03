@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require * php-gd * php-bcmath * php-intl" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="opensourcepos 安裝" />
-<meta property="og:description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require * php-gd * php-bcmath * php-intl" />
+<meta property="og:description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/" />
 <meta property="article:published_time" content="2017-05-15T07:46:01+08:00" />
 <meta property="article:modified_time" content="2017-05-15T07:46:01+08:00" />
 <meta itemprop="name" content="opensourcepos 安裝">
-<meta itemprop="description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require * php-gd * php-bcmath * php-intl">
-
-
+<meta itemprop="description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl">
 <meta itemprop="datePublished" content="2017-05-15T07:46:01&#43;08:00" />
 <meta itemprop="dateModified" content="2017-05-15T07:46:01&#43;08:00" />
-<meta itemprop="wordCount" content="265">
+<meta itemprop="wordCount" content="245">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="opensourcepos 安裝"/>
-<meta name="twitter:description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require * php-gd * php-bcmath * php-intl"/>
+<meta name="twitter:description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,103 +130,58 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#環境準備">環境準備：</a></li>
-<li><a href="#下載程式">下載程式：</a></li>
-<li><a href="#設置權限">設置權限：</a></li>
-<li><a href="#匯入資料-db資訊依照自己的資訊填入">匯入資料：(db資訊依照自己的資訊填入)</a></li>
-<li><a href="#設定檔">設定檔：</a></li>
-<li><a href="#apache設定">apache設定</a></li>
-<li><a href="#登入畫面">登入畫面</a></li>
-<li><a href="#登入成功畫面">登入成功畫面</a></li>
-<li><a href="#切換語系">切換語系</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">環境準備：</a></li>
+    <li><a href="#heading1">下載程式：</a></li>
+    <li><a href="#heading2">設置權限：</a></li>
+    <li><a href="#db">匯入資料：(db資訊依照自己的資訊填入)</a></li>
+    <li><a href="#heading3">設定檔：</a></li>
+    <li><a href="#apache">apache設定</a></li>
+    <li><a href="#heading4">登入畫面</a></li>
+    <li><a href="#heading5">登入成功畫面</a></li>
+    <li><a href="#heading6">切換語系</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><a href="https://phppointofsale.com/">php pos 商用版</a></p>
-
+      <p><a href="https://phppointofsale.com/">php pos 商用版</a></p>
 <p><a href="https://github.com/jekkos/opensourcepos">開源版本 opensourcepos</a></p>
-
 <p>OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了</p>
-
-<hr />
-
-<h2 id="環境準備">環境準備：</h2>
-
+<hr>
+<h2 id="heading">環境準備：</h2>
 <p>安裝lamp</p>
-
-<p>php require
-* php-gd
-* php-bcmath
-* php-intl
-* php-sockets
-* php-mcrypt
-* php-curl installed and enabled.</p>
-
-<h2 id="下載程式">下載程式：</h2>
-
+<p>php require</p>
+<ul>
+<li>php-gd</li>
+<li>php-bcmath</li>
+<li>php-intl</li>
+<li>php-sockets</li>
+<li>php-mcrypt</li>
+<li>php-curl installed and enabled.</li>
+</ul>
+<h2 id="heading1">下載程式：</h2>
 <p><code># cd /var/www</code>
 <code># git clone https://github.com/jekkos/opensourcepos.git</code></p>
-
 <p><code># mv opensourcepos pos</code>
 <code># cd /var/www/pos</code></p>
-
 <p>看你要使用哪個版本 使用git指令切過去
 <code># git checkout tags/3.0.2 -b b_3.0.2</code></p>
-
-<h2 id="設置權限">設置權限：</h2>
-
+<h2 id="heading2">設置權限：</h2>
 <p><code># chown -R apache:apache /var/www/pos</code></p>
-
-<h2 id="匯入資料-db資訊依照自己的資訊填入">匯入資料：(db資訊依照自己的資訊填入)</h2>
-
+<h2 id="db">匯入資料：(db資訊依照自己的資訊填入)</h2>
 <p><code># mysql pos /var/www/pos/database/database.sql</code></p>
-
-<h2 id="設定檔">設定檔：</h2>
-
+<h2 id="heading3">設定檔：</h2>
 <p><code># cd /var/www/pos/application/config</code>
 <code># cp database.php.tmpl database.php</code></p>
-
 <p><code># vi database.php</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;
-$db[&#39;default&#39;][&#39;username&#39;] = &#39;db_user&#39;;
-$db[&#39;default&#39;][&#39;password&#39;] = &#39;db_pass&#39;;
-$db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;;</pre></td></tr></table>
-</div>
-</div>
-<h2 id="apache設定">apache設定</h2>
-
+<pre><code>$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'db_user';
+$db['default']['password'] = 'db_pass';
+$db['default']['database'] = 'pos';
+</code></pre><h2 id="apache">apache設定</h2>
 <p><code>vi /etc/httpd/conf.d/pos.conf</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;VirtualHost *:80&gt;
+<pre><code>&lt;VirtualHost *:80&gt;
 DocumentRoot /var/www/pos/public
   &lt;Directory /var/www/pos&gt;
     DirectoryIndex index.php index.html
@@ -238,22 +190,15 @@ DocumentRoot /var/www/pos/public
     Order deny,allow
     Allow from all
   &lt;/Directory&gt;
-&lt;/VirtualHost&gt;</pre></td></tr></table>
-</div>
-</div>
-<h2 id="登入畫面">登入畫面</h2>
-
+&lt;/VirtualHost&gt;
+</code></pre><h2 id="heading4">登入畫面</h2>
 <p>帳號：admin
 密碼：pointofsale
-<img src="//fblog.ooopiz.com/images/2017/m05-a01.jpg"></p>
-
-<h2 id="登入成功畫面">登入成功畫面</h2>
-
-<p><img src="//fblog.ooopiz.com/images/2017/m05-a02.jpg"></p>
-
-<h2 id="切換語系">切換語系</h2>
-
-<p><img src="//fblog.ooopiz.com/images/2017/m05-b01.jpg"></p>
+<!-- raw HTML omitted --></p>
+<h2 id="heading5">登入成功畫面</h2>
+<!-- raw HTML omitted -->
+<h2 id="heading6">切換語系</h2>
+<!-- raw HTML omitted -->
 
     </div>
 

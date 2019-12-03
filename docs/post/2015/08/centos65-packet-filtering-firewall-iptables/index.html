@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
+<meta name="author" content="馬丁" /><meta name="description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/" />
@@ -34,30 +34,27 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="CentOS6.5 防火牆設定iptables" />
-<meta property="og:description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對" />
+<meta property="og:description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/" />
 <meta property="article:published_time" content="2015-08-21T10:05:01+08:00" />
 <meta property="article:modified_time" content="2015-08-21T10:05:01+08:00" />
 <meta itemprop="name" content="CentOS6.5 防火牆設定iptables">
-<meta itemprop="description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對">
-
-
+<meta itemprop="description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl">
 <meta itemprop="datePublished" content="2015-08-21T10:05:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-08-21T10:05:01&#43;08:00" />
-<meta itemprop="wordCount" content="191">
+<meta itemprop="wordCount" content="175">
 
 
 
-<meta itemprop="keywords" content="centos,iptables," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos,iptables," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 防火牆設定iptables"/>
-<meta name="twitter:description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. Service PORT FTP 21 SSH 22 HTTP 80 HTTPS 443 MySQL 3306 將對"/>
+<meta name="twitter:description" content="CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,80 +130,33 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#將對應的資訊加入iptables設定檔中">將對應的資訊加入iptables設定檔中</a></li>
-<li><a href="#設定完iptables記得必須重新啟動防火牆">設定完iptables記得必須重新啟動防火牆</a></li>
-<li><a href="#查看有打開的port">查看有打開的Port</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#iptables">將對應的資訊加入iptables設定檔中</a></li>
+        <li><a href="#iptables1">設定完iptables記得必須重新啟動防火牆</a></li>
+        <li><a href="#port">查看有打開的Port</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
+      <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
 比較常用的Port..</p>
-
-<table>
-<tr>
-<th>Service</th>
-<th>PORT</th>
-</tr>
-<tr>
-<td>FTP</td>
-<td>21</td>
-</tr>
-<tr>
-<td>SSH</td>
-<td>22</td>
-</tr>
-<tr>
-<td>HTTP</td>
-<td>80</td>
-</tr>
-<tr>
-<td>HTTPS</td>
-<td>443</td>
-</tr>
-<tr>
-<td>MySQL</td>
-<td>3306</td>
-</tr>
-</table>
-
-<h3 id="將對應的資訊加入iptables設定檔中">將對應的資訊加入iptables設定檔中</h3>
-
+<!-- raw HTML omitted -->
+<h3 id="iptables">將對應的資訊加入iptables設定檔中</h3>
 <p>/etc/sysconfig/iptables</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+<pre><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</pre></td></tr></table>
-</div>
-</div>
-<p><img src="//fblog.ooopiz.com/images/201508/001.png"></p>
-
-<h3 id="設定完iptables記得必須重新啟動防火牆">設定完iptables記得必須重新啟動防火牆</h3>
-
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+</code></pre><!-- raw HTML omitted -->
+<h3 id="iptables1">設定完iptables記得必須重新啟動防火牆</h3>
 <p><code>service iptables restart</code> 或 <code>/etc/init.d/iptables restart</code></p>
-
-<h3 id="查看有打開的port">查看有打開的Port</h3>
-
+<h3 id="port">查看有打開的Port</h3>
 <p><code>netstat -tnlp</code></p>
-
 <p><code>netstat -tlp</code></p>
 
     </div>

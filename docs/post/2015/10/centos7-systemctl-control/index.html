@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/" />
@@ -34,7 +34,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2015-10-01T05:24:01+08:00" />
 <meta itemprop="name" content="CentOS7 Tomcat增加systemctl控制">
 <meta itemprop="description" content="1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Ja">
-
-
 <meta itemprop="datePublished" content="2015-10-01T05:24:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-10-01T05:24:01&#43;08:00" />
-<meta itemprop="wordCount" content="343">
+<meta itemprop="wordCount" content="326">
 
 
 
-<meta itemprop="keywords" content="centos,tomcat," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos,tomcat," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 Tomcat增加systemctl控制"/>
 <meta name="twitter:description" content="1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Ja"/>
 
@@ -133,71 +130,36 @@
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#1-增加啟動參數">1.增加啟動參數</a></li>
-<li><a href="#2-增加tomcat-service">2.增加tomcat.service</a>
-<ul>
-<li><a href="#查看全部服務">查看全部服務：</a></li>
-<li><a href="#查看服務">查看服務</a></li>
-<li><a href="#啟動服務">啟動服務</a></li>
-<li><a href="#停止服務">停止服務</a></li>
-<li><a href="#重啟服務">重啟服務</a></li>
-<li><a href="#增加開機自動啟動">增加開機自動啟動</a></li>
-<li><a href="#刪除開機自動啟動">刪除開機自動啟動</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#1">1.增加啟動參數</a></li>
+    <li><a href="#2tomcatservice">2.增加tomcat.service</a>
+      <ul>
+        <li><a href="#heading">查看全部服務：</a></li>
+        <li><a href="#heading1">查看服務</a></li>
+        <li><a href="#heading2">啟動服務</a></li>
+        <li><a href="#heading3">停止服務</a></li>
+        <li><a href="#heading4">重啟服務</a></li>
+        <li><a href="#heading5">增加開機自動啟動</a></li>
+        <li><a href="#heading6">刪除開機自動啟動</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="1-增加啟動參數">1.增加啟動參數</h2>
-
+      <h2 id="1">1.增加啟動參數</h2>
 <p>在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存</p>
-
 <p><strong>範例如下:</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#add tomcat pid  
-CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34;  
+<pre><code>#add tomcat pid  
+CATALINA_PID=&quot;$CATALINA_BASE/tomcat7.pid&quot;  
 #add java opts  
-JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34;</pre></td></tr></table>
-</div>
-</div>
-<h2 id="2-增加tomcat-service">2.增加tomcat.service</h2>
-
+JAVA_OPTS=&quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&quot;
+</code></pre><h2 id="2tomcatservice">2.增加tomcat.service</h2>
 <p>在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。
 <code># vi /usr/lib/systemd/system/tomcat7.service</code></p>
-
 <p>PIDFile就指到tomcat所在的目錄</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Description=Tomcat  
+<pre><code>Description=Tomcat  
 After=syslog.target network.target remote-fs.target nss-lookup.target  
    
 [Service]  
@@ -209,45 +171,27 @@ ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true  
    
 [Install]  
-WantedBy=multi-user.target </pre></td></tr></table>
-</div>
-</div>
-<blockquote>
+WantedBy=multi-user.target 
+</code></pre><blockquote>
 <p>[unit]設定服務的描述
 [service]設定服務的啟動，停止等
 [install]設定使用用戶</p>
 </blockquote>
-
-<hr />
-
-<h3 id="查看全部服務">查看全部服務：</h3>
-
+<hr>
+<h3 id="heading">查看全部服務：</h3>
 <p>systemctl list-unit-files &ndash;type service</p>
-
-<h3 id="查看服務">查看服務</h3>
-
+<h3 id="heading1">查看服務</h3>
 <p>systemctl status name.service</p>
-
-<h3 id="啟動服務">啟動服務</h3>
-
+<h3 id="heading2">啟動服務</h3>
 <p>systemctl start name.service</p>
-
-<h3 id="停止服務">停止服務</h3>
-
+<h3 id="heading3">停止服務</h3>
 <p>systemctl stop name.service</p>
-
-<h3 id="重啟服務">重啟服務</h3>
-
+<h3 id="heading4">重啟服務</h3>
 <p>systemctl restart name.service</p>
-
-<h3 id="增加開機自動啟動">增加開機自動啟動</h3>
-
+<h3 id="heading5">增加開機自動啟動</h3>
 <p>systemctl enable name.service</p>
-
-<h3 id="刪除開機自動啟動">刪除開機自動啟動</h3>
-
+<h3 id="heading6">刪除開機自動啟動</h3>
 <p>systemctl disable name.service</p>
-
 <blockquote>
 <p>.service 可以省略</p>
 </blockquote>
