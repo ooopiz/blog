@@ -11,20 +11,25 @@ tags: ["virtualbox"]
 那就讓我們來開始安裝吧
 
 ### 先把VBoxGuestAdditions.iso mount起來
-<img src="//fblog.ooopiz.com/images/201509/A04-01.png">
+
+![](https://fblog.ooopiz.com/images/201509/A04-01.png "")
 
 `# mkdir /media/cdrom`
+
 `# mount /dev/cdrom /media/cdrom`
-<img src="//fblog.ooopiz.com/images/201509/A04-02.png">
+
+![](https://fblog.ooopiz.com/images/201509/A04-02.png "")
 
 ### 執行VBoxLinuxAdditions.run
 `# sh /media/cdrom/VBoxLinuxAdditions.run`
 
 ### 接著就可以mount本機分享給虛擬機的資料夾了
 `# mkdir ~/new`
+
 `# mount -t vboxsf New ~/new`
 
 或者你需要有特定owner的mount
+
 `# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new`
 
 
@@ -32,16 +37,18 @@ tags: ["virtualbox"]
 
 #### 在執行VBoxLinuxAdditions.run的時候你可能會遇到
 ### <b style="color:red">bzip2 command not found</b>
-<img src="//fblog.ooopiz.com/images/201509/A04-03.png">
+![](https://fblog.ooopiz.com/images/201509/A04-03.png "")
+
 `# yum install bzip2 -y`
 
 ### <b style="color:red">Building the main Guest Additions module [失敗]</b>
 `# yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y`
 
-<img src="//fblog.ooopiz.com/images/201509/A04-04.png">
+![](https://fblog.ooopiz.com/images/201509/A04-04.png "")
 
 
 解完後在執行一次
+
 `# sh /media/cdrom/VBoxLinuxAdditions.run`
 
-<img src="//fblog.ooopiz.com/images/201509/A04-05.png">
+![](https://fblog.ooopiz.com/images/201509/A04-05.png "")
