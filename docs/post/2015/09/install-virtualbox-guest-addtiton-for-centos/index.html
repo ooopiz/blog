@@ -48,7 +48,7 @@
 <meta itemprop="description" content="我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示">
 <meta itemprop="datePublished" content="2015-09-09T09:49:01&#43;08:00" />
 <meta itemprop="dateModified" content="2015-09-09T09:49:01&#43;08:00" />
-<meta itemprop="wordCount" content="293">
+<meta itemprop="wordCount" content="298">
 
 
 
@@ -152,27 +152,28 @@
 </blockquote>
 <p>那就讓我們來開始安裝吧</p>
 <h3 id="vboxguestadditionsiso-mount">先把VBoxGuestAdditions.iso mount起來</h3>
-<!-- raw HTML omitted -->
-<p><code># mkdir /media/cdrom</code>
-<code># mount /dev/cdrom /media/cdrom</code>
-<!-- raw HTML omitted --></p>
+<p><img src="https://fblog.ooopiz.com/images/201509/A04-01.png" alt="" title=""></p>
+<p><code># mkdir /media/cdrom</code></p>
+<p><code># mount /dev/cdrom /media/cdrom</code></p>
+<p><img src="https://fblog.ooopiz.com/images/201509/A04-02.png" alt="" title=""></p>
 <h3 id="vboxlinuxadditionsrun">執行VBoxLinuxAdditions.run</h3>
 <p><code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
 <h3 id="mount">接著就可以mount本機分享給虛擬機的資料夾了</h3>
-<p><code># mkdir ~/new</code>
-<code># mount -t vboxsf New ~/new</code></p>
-<p>或者你需要有特定owner的mount
-<code># mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
+<p><code># mkdir ~/new</code></p>
+<p><code># mount -t vboxsf New ~/new</code></p>
+<p>或者你需要有特定owner的mount</p>
+<p><code># mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
 <hr>
 <h4 id="vboxlinuxadditionsrun1">在執行VBoxLinuxAdditions.run的時候你可能會遇到</h4>
 <h3 id="b-stylecolorredbzip2-command-not-foundb"><!-- raw HTML omitted -->bzip2 command not found<!-- raw HTML omitted --></h3>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A04-03.png" alt="" title=""></p>
+<p><code># yum install bzip2 -y</code></p>
 <h3 id="b-stylecolorredbuilding-the-main-guest-additions-module-b"><!-- raw HTML omitted -->Building the main Guest Additions module [失敗]<!-- raw HTML omitted --></h3>
 <p><code># yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</code></p>
-<!-- raw HTML omitted -->
-<p>解完後在執行一次
-<code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A04-04.png" alt="" title=""></p>
+<p>解完後在執行一次</p>
+<p><code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
+<p><img src="https://fblog.ooopiz.com/images/201509/A04-05.png" alt="" title=""></p>
 
     </div>
 
