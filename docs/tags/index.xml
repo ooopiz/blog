@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 29 Jul 2019 17:18:19 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2020 00:03:19 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.ooopiz.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>l2tp</title>
+      <link>https://blog.ooopiz.com/tags/l2tp/</link>
+      <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/tags/l2tp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpn</title>
+      <link>https://blog.ooopiz.com/tags/vpn/</link>
+      <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://blog.ooopiz.com/tags/windows/</link>
+      <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/tags/windows/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>kubernetes</title>
@@ -71,15 +98,6 @@
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/tags/vigor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vpn</title>
-      <link>https://blog.ooopiz.com/tags/vpn/</link>
-      <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
-      
-      <guid>https://blog.ooopiz.com/tags/vpn/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 29 Jul 2019 17:18:19 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2020 00:03:19 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Window10_l2tp_vpn_設定</title>
+      <link>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</link>
+      <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</guid>
+      <description>Window10_l2tp_vpn_設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先</description>
+    </item>
     
     <item>
       <title>建立一個單節點的 kubernetes cluster (kubeadm)</title>
