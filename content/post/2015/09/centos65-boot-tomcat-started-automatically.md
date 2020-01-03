@@ -4,8 +4,11 @@ date: 2015-09-30T21:50:01+08:00
 draft: false
 tags: ["tomcat"]
 ---
+
 ### 1.設定啟動腳本
+
 在目錄/etc/init.d新增一個tomcat的腳本
+
 `# vi /etc/init.d/tomcat`
 
 **記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下**

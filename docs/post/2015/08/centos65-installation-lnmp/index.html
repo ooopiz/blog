@@ -191,7 +191,7 @@ CentOS 7
 選擇你要的版本做修改即可</p>
 </blockquote>
 <p><code># vi /etc/yum.repos.d/remi.repo</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201508/002.png" alt=""></p>
 <h3 id="-php">安裝 PHP</h3>
 <p><code># yum install php</code></p>
 <h3 id="php-lib">安裝其他PHP Lib</h3>
@@ -208,7 +208,7 @@ magic_quotes_gpc = Off
 </code></pre><h3 id="php-session">設定php session檔的權限</h3>
 <p><code># mkdir /var/lib/php/session</code></p>
 <p><code># chown -R nginx:nginx /var/lib/php/session</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201508/003.png" alt=""></p>
 <h3 id="phpfpm">設定php-fpm</h3>
 <blockquote>
 <p>預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
@@ -235,7 +235,7 @@ php_admin_flag[log_errors] = on
         root   /usr/share/nginx/html;
         index  index.php index.html index.htm;
     }
-</code></pre><!-- raw HTML omitted -->
+</code></pre><p><img src="https://fblog.ooopiz.com/images/201508/004.png" alt=""></p>
 <blockquote>
 <p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。</p>
 </blockquote>
@@ -246,7 +246,7 @@ fastcgi_index  index.php;
 fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
 include        fastcgi_params;
 }
-</code></pre><!-- raw HTML omitted -->
+</code></pre><p><img src="https://fblog.ooopiz.com/images/201508/005.png" alt=""></p>
 <h2 id="mysql1">五、安裝MySQL</h2>
 <p>安裝 MySQL</p>
 <p><code># yum install mysql mysql-server</code></p>

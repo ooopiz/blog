@@ -341,7 +341,7 @@
       <pubDate>Wed, 02 Sep 2015 16:56:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/</guid>
-      <description>官方網站安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop</description>
+      <description>官方網站 安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop</description>
     </item>
     
     <item>

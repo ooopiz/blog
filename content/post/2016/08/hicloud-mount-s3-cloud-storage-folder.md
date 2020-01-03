@@ -11,8 +11,8 @@ draft: false
 說明：s3fs base on fuse所以伺服器上必須有fuse的lib
   
 示意圖：
-  
-<img desc="" src="https://fblog.ooopiz.com/images/201608/A01-01.png">
+
+![](https://fblog.ooopiz.com/images/201608/A01-01.png)
   
 Resource：
 
@@ -101,11 +101,9 @@ All USER
 `# make install`
 
 ### 三、設定
-
 安裝完成後會在/usr/local/lib產生連結，將這個路徑加入到/etc/ld.so.conf然後執行`ldconfig `刷新
   
 `# export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig`
 
 ## 結語
-
 感覺上s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了

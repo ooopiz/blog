@@ -7,7 +7,7 @@ draft: false
 
 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，
   
-<img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-01.jpg">
+![](https://fblog.ooopiz.com/images/201609/M11-A01-01.jpg)
   
 使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，
   
@@ -29,7 +29,7 @@ draft: false
 
 `# adjtimex --compare` 或 `# adjtimex -c`
   
-<img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-02.jpg">
+![](https://fblog.ooopiz.com/images/201609/M11-A01-02.jpg)
   
 圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
 
@@ -41,7 +41,7 @@ draft: false
 
 `# adjtimex -c`
   
-<img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-03.jpg">
+![](https://fblog.ooopiz.com/images/201609/M11-A01-03.jpg)
 
 ## 這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數
 
@@ -59,4 +59,4 @@ f = error_ppm平均值 * 65536
 
 `# adjtimex -f 16384000`
   
-<img desc="" src="//fblog.ooopiz.com/images/201609/M11-A01-04.jpg">
+![](https://fblog.ooopiz.com/images/201609/M11-A01-04.jpg)

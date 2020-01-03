@@ -15,24 +15,24 @@ draft: false
   
 建立一個協作平台
   
-<img desc="A03-01.png" src="//fblog.ooopiz.com/images/201609/A03-01.png" />
+![](https://fblog.ooopiz.com/images/201609/A03-01.png)
   
 一開始你可能會想把這兩個東西拿掉
   
-<img desc="A03-02.png" src="//fblog.ooopiz.com/images/201609/A03-02.png" />
+![](https://fblog.ooopiz.com/images/201609/A03-02.png)
   
 管理協作平台
   
-<img desc="A03-03.png" src="//fblog.ooopiz.com/images/201609/A03-03.png" />
+![](https://fblog.ooopiz.com/images/201609/A03-03.png)
   
 設定搜尋功能
   
-<img desc="A03-04.png" src="//fblog.ooopiz.com/images/201609/A03-04.png" />
+![](https://fblog.ooopiz.com/images/201609/A03-04.png)
   
 編輯協作平台版面配置
   
-<img desc="A03-05.png" src="//fblog.ooopiz.com/images/201609/A03-05.png" />
+![](https://fblog.ooopiz.com/images/201609/A03-05.png)
   
 恩你看了就知道了~~~ 啾
   
-<img desc="A03-06.png" src="//fblog.ooopiz.com/images/201609/A03-06.png" />
+![](https://fblog.ooopiz.com/images/201609/A03-06.png)

@@ -145,7 +145,7 @@
     <div class="post-content">
       <h2 id="heading">前言：</h2>
 <p>前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，</p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201609/M11-A01-01.jpg" alt=""></p>
 <p>使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，</p>
 <p><strong>最後採用linux本身時間糾偏的方式</strong></p>
 <p>主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(<em><strong>感謝神同事Leo協助突破盲腸</strong></em>)</p>
@@ -156,13 +156,13 @@
 <p><code># make install</code></p>
 <h2 id="heading2">先了解時間差</h2>
 <p><code># adjtimex --compare</code> 或 <code># adjtimex -c</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201609/M11-A01-02.jpg" alt=""></p>
 <p>圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．</p>
 <h2 id="t9859">這邊我的-t校正值是9859</h2>
 <p><code># adjtimex --tick 9859</code></p>
 <h2 id="heading3">再檢視一次</h2>
 <p><code># adjtimex -c</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201609/M11-A01-03.jpg" alt=""></p>
 <h2 id="08f">這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數</h2>
 <p><strong>公式</strong></p>
 <p>f = 差值 * 100000 * 65536</p>
@@ -171,7 +171,7 @@
 <p>這裡 = 250 * 65536 = 16384000</p>
 <h2 id="f16384000">這邊我的-f校正值是16384000</h2>
 <p><code># adjtimex -f 16384000</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201609/M11-A01-04.jpg" alt=""></p>
 
     </div>
 

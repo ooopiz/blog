@@ -13,17 +13,17 @@ Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接
 Mac就必須自己手動新增一下
 
 VirtualBox->喜好設定
-<img src="//fblog.ooopiz.com/images/201509/A03-01.png">
+![](https://fblog.ooopiz.com/images/201509/A03-01.png)
 
 ***
 
 ### 設定2張介面卡
 #### 1. NAT
-<img src="//fblog.ooopiz.com/images/201509/A03-02.png">
+![](https://fblog.ooopiz.com/images/201509/A03-02.png)
 
 #### 2. 僅限主機介面卡
-<img src="//fblog.ooopiz.com/images/201509/A03-03.png">
+![](https://fblog.ooopiz.com/images/201509/A03-03.png)
 
 <b style="color:red;">VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</b>
 
-<img src="//fblog.ooopiz.com/images/201509/A03-04.png">
+![](https://fblog.ooopiz.com/images/201509/A03-04.png)

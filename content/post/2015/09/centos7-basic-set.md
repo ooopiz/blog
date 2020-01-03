@@ -23,7 +23,7 @@ tags: ["centos"]
 
 >每台電腦的網卡名稱不一定相同
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-01.png">
+![](https://fblog.ooopiz.com/images/201509/A01-01.png)
 
 `# systemctl stop NetworkManager`
 
@@ -31,12 +31,12 @@ tags: ["centos"]
 
 `# systemctl restart network`
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-02.png">
+![](https://fblog.ooopiz.com/images/201509/A01-02.png)
 
 ## 二、關閉SELinux
 `#vi /etc/selinux/config`
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-03.png">
+![](https://fblog.ooopiz.com/images/201509/A01-03.png)
 
 **這個設定reboot後才會生效**
 
@@ -57,13 +57,13 @@ tags: ["centos"]
 
 `# localectl`
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-04.png">
+![](https://fblog.ooopiz.com/images/201509/A01-04.png)
 
 查看系統有哪些可用的語系
 
 `# localectl list-locales | grep zh`
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-05.png">
+![](https://fblog.ooopiz.com/images/201509/A01-05.png)
 
 如果你要設定語系的話
 
@@ -99,7 +99,7 @@ tags: ["centos"]
 
 `# vi /etc/ntp.conf`
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-06.png">
+![](https://fblog.ooopiz.com/images/201509/A01-06.png)
 
 ## 八、停用firewalld，改用iptabless
 `# systemctl stop firewalld`
@@ -112,7 +112,7 @@ tags: ["centos"]
 
 `# vi /etc/sysconfig/iptables`
 
-<img desc="" src="//fblog.ooopiz.com/images/201509/A01-07.png">
+![](https://fblog.ooopiz.com/images/201509/A01-07.png)
 
 `# systemctl start iptables`
 

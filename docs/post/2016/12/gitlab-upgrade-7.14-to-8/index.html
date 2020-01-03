@@ -172,7 +172,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧</p>
 <p><a href="https://about.gitlab.com/downloads/#centos7">gitlab 官網有美美的教學，自己來吧</a></p>
 <p>其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]</p>
-<!-- raw HTML omitted -->
+<p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-02.jpg" alt=""></p>
 <p><code># sudo /opt/gitlab/embedded/bin/runsvdir-start &amp;</code></p>
 <p><code># sudo gitlab-ctl reconfigure</code></p>
 <p>Ref:</p>
@@ -192,7 +192,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 <h4 id="6">6.執行檢查</h4>
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
 <p>檢查時有出現一些問題</p>
-<!-- raw HTML omitted -->
+<p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-01.jpg" alt=""></p>
 <p>解</p>
 <p><code># gitlab-rake gitlab:satellites:create RAILS_ENV=production</code></p>
 <p>再檢查一次</p>
@@ -218,9 +218,9 @@ recovery，以免意外發生時手忙腳亂．</p>
 <li>更換伺服器必須將舊伺服器/etc/ssh/ssh_host_*複製到新伺服器</li>
 <li>匯入備份檔時rebuild keys file必須選yes</li>
 </ol>
-<!-- raw HTML omitted -->
+<p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-03.jpg" alt=""></p>
 <h2 id="heading3">完成</h2>
-<!-- raw HTML omitted -->
+<p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-04.jpg" alt=""></p>
 
     </div>
 

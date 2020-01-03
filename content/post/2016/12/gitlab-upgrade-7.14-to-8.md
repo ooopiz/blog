@@ -44,7 +44,7 @@ recovery，以免意外發生時手忙腳亂．
   
 其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]
   
-<img desc="" src="https:////fblog.ooopiz.com/images/201609/M12-A01-02.jpg">
+![](https:////fblog.ooopiz.com/images/201609/M12-A01-02.jpg)
   
 `# sudo /opt/gitlab/embedded/bin/runsvdir-start &`
   
@@ -81,7 +81,7 @@ mv to `/var/opt/gitlab/backups/`
   
 檢查時有出現一些問題
   
-<img desc="" src="https://fblog.ooopiz.com/images/201609/M12-A01-01.jpg">
+![](https:////fblog.ooopiz.com/images/201609/M12-A01-01.jpg)
   
 解
   
@@ -127,8 +127,7 @@ mv to `/var/opt/gitlab/backups/`
 1. 更換伺服器必須將舊伺服器/etc/ssh/ssh_host_*複製到新伺服器
 2. 匯入備份檔時rebuild keys file必須選yes
 
-<img desc="" src="//fblog.ooopiz.com/images/201609/M12-A01-03.jpg">
+![](https:////fblog.ooopiz.com/images/201609/M12-A01-03.jpg)
 
 ## 完成
-
-<img desc="" src="https://fblog.ooopiz.com/images/201609/M12-A01-04.jpg">
+![](https:////fblog.ooopiz.com/images/201609/M12-A01-04.jpg)

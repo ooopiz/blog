@@ -132,8 +132,23 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#puttyopenssh-pem">putty不支援openssh, 所以手上有pem檔的話需要做一次轉換</a></li>
-    <li><a href="#pem--ppk">pem 轉 ppk</a></li>
-    <li><a href="#putty">putty設定登入</a></li>
+    <li><a href="#pem--ppk">pem 轉 ppk</a>
+      <ul>
+        <li><a href="#1pem">1.載入pem</a></li>
+        <li><a href="#2all-file">2.如果看不到檔案請選all file</a></li>
+        <li><a href="#3save-private-key">3.載入後選擇save private key</a></li>
+        <li><a href="#4ppk">4.輸入檔名生成ppk檔</a></li>
+      </ul>
+    </li>
+    <li><a href="#putty">putty設定登入</a>
+      <ul>
+        <li><a href="#1ppk">1.轉換完成的ppk檔放置到你想保存的位置</a></li>
+        <li><a href="#2putty-">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</a></li>
+        <li><a href="#3">3.輸入用戶名稱</a></li>
+        <li><a href="#4ppk1">4.載入ppk檔</a></li>
+        <li><a href="#5">5.記得回來按一下存檔</a></li>
+      </ul>
+    </li>
     <li><a href="#linux-or-cmder">linux or Cmder登入方式</a></li>
   </ul>
 </nav>
@@ -144,24 +159,24 @@
 <p>前往下載
 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">puttygen.exe</a></p>
 <h2 id="pem--ppk">pem 轉 ppk</h2>
-<p>1.載入pem</p>
-<!-- raw HTML omitted -->
-<p>2.如果看不到檔案請選all file</p>
-<!-- raw HTML omitted -->
-<p>3.載入後選擇save private key</p>
-<!-- raw HTML omitted -->
-<p>4.輸入檔名生成ppk檔</p>
-<!-- raw HTML omitted -->
+<h3 id="1pem">1.載入pem</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-a01.jpg" alt=""></p>
+<h3 id="2all-file">2.如果看不到檔案請選all file</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-a02.jpg" alt=""></p>
+<h3 id="3save-private-key">3.載入後選擇save private key</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-a03.jpg" alt=""></p>
+<h3 id="4ppk">4.輸入檔名生成ppk檔</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-a04.jpg" alt=""></p>
 <h2 id="putty">putty設定登入</h2>
-<p>1.轉換完成的ppk檔放置到你想保存的位置</p>
-<p>2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</p>
-<!-- raw HTML omitted -->
-<p>3.輸入用戶名稱</p>
-<!-- raw HTML omitted -->
-<p>4.載入ppk檔</p>
-<!-- raw HTML omitted -->
-<p>5.記得回來按一下存檔</p>
-<!-- raw HTML omitted -->
+<h3 id="1ppk">1.轉換完成的ppk檔放置到你想保存的位置</h3>
+<h3 id="2putty-">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-b01.jpg" alt=""></p>
+<h3 id="3">3.輸入用戶名稱</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-b02.jpg" alt=""></p>
+<h3 id="4ppk1">4.載入ppk檔</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-b03.jpg" alt=""></p>
+<h3 id="5">5.記得回來按一下存檔</h3>
+<p><img src="https://fblog.ooopiz.com/images/2017/m03-b04.jpg" alt=""></p>
 <h2 id="linux-or-cmder">linux or Cmder登入方式</h2>
 <p><code>ssh -i xxx.pem username@192.168.1.1</code></p>
 <p>改port的話</p>

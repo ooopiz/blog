@@ -163,14 +163,14 @@
 <blockquote>
 <p>每台電腦的網卡名稱不一定相同</p>
 </blockquote>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-01.png" alt=""></p>
 <p><code># systemctl stop NetworkManager</code></p>
 <p><code># systemctl disable NetworkManager</code></p>
 <p><code># systemctl restart network</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-02.png" alt=""></p>
 <h2 id="selinux">二、關閉SELinux</h2>
 <p><code>#vi /etc/selinux/config</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-03.png" alt=""></p>
 <p><strong>這個設定reboot後才會生效</strong></p>
 <h2 id="usedns">三、關閉UseDNS</h2>
 <p>登入SSH需要等很久的話，可以從這個設定獲得改善</p>
@@ -182,10 +182,10 @@
 <h2 id="heading1">五、調整語系</h2>
 <p>檢查系統目前使用的語系</p>
 <p><code># localectl</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-04.png" alt=""></p>
 <p>查看系統有哪些可用的語系</p>
 <p><code># localectl list-locales | grep zh</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-05.png" alt=""></p>
 <p>如果你要設定語系的話</p>
 <p><code># localectl set-locale LANG=zh_TW.utf8</code></p>
 <h2 id="hostname">六、修改Hostname</h2>
@@ -204,14 +204,14 @@
 <p><code># systemctl start ntpd</code></p>
 <p>設定要校時的NTP server</p>
 <p><code># vi /etc/ntp.conf</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-06.png" alt=""></p>
 <h2 id="firewalldiptabless">八、停用firewalld，改用iptabless</h2>
 <p><code># systemctl stop firewalld</code></p>
 <p><code># systemctl disable firewalld</code></p>
 <p><code># yum install iptables-services</code></p>
 <p>設定你的防火牆</p>
 <p><code># vi /etc/sysconfig/iptables</code></p>
-<!-- raw HTML omitted -->
+<p><img src="https://fblog.ooopiz.com/images/201509/A01-07.png" alt=""></p>
 <p><code># systemctl start iptables</code></p>
 <p><code># systemctl enable iptables</code></p>
 <h2 id="heading3">九、更新一下</h2>

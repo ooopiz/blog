@@ -25,7 +25,7 @@ CentOS 7
 >選擇你要的版本做修改即可
 
 `# vi /etc/yum.repos.d/remi.repo`
-<img src="//fblog.ooopiz.com/images/201508/002.png">
+![](https://fblog.ooopiz.com/images/201508/002.png)
 
 ### 安裝 PHP
 
@@ -54,7 +54,7 @@ magic_quotes_gpc = Off
 `# mkdir /var/lib/php/session`
 `# chown -R nginx:nginx /var/lib/php/session`
 
-<img src="//fblog.ooopiz.com/images/201508/003.png">
+![](https://fblog.ooopiz.com/images/201508/003.png)
 
 ### 設定php-fpm
 >預設的 Pool 設定檔為 `/etc/php-fpm.d/www.conf` ，您可以適需要產生多組 Pool 來負責不同的網站服務。
@@ -86,7 +86,7 @@ php_admin_flag[log_errors] = on
         index  index.php index.html index.htm;
     }
 ```
-<img src="//fblog.ooopiz.com/images/201508/004.png">
+![](https://fblog.ooopiz.com/images/201508/004.png)
 
 >加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。
 >/etc/nginx/conf.d/default.conf
@@ -100,7 +100,7 @@ fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
 include        fastcgi_params;
 }
 ```
-<img src="//fblog.ooopiz.com/images/201508/005.png">
+![](https://fblog.ooopiz.com/images/201508/005.png)
 
 ## 四、啟動服務
 

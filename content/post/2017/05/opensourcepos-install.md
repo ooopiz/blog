@@ -70,13 +70,13 @@ DocumentRoot /var/www/pos/public
 ```
 
 ## 登入畫面
-帳號：admin
-密碼：pointofsale
-<img src="//fblog.ooopiz.com/images/2017/m05-a01.jpg">
+- 帳號：admin
+- 密碼：pointofsale
 
+![](https://fblog.ooopiz.com/images/2017/m05-a01.jpg)
 
 ## 登入成功畫面
-<img src="//fblog.ooopiz.com/images/2017/m05-a02.jpg">
+![](https://fblog.ooopiz.com/images/2017/m05-a02.jpg)
 
 ## 切換語系
-<img src="//fblog.ooopiz.com/images/2017/m05-b01.jpg">
+![](https://fblog.ooopiz.com/images/2017/m05-b01.jpg)
