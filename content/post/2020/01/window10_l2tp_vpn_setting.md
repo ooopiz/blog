@@ -1,11 +1,11 @@
 ---
-title: "Window10_l2tp_vpn_設定"
+title: "Window10 l2tp vpn 設定"
 date: 2020-01-04T00:03:19+08:00
 draft: false
 tags: ["windows", "l2tp", "vpn"]
 ---
 
-# Window10_l2tp_vpn_設定
+# Window10 l2tp vpn 設定
 
 ## 開啟 Windows 設定
 ![](https://fblog.ooopiz.com/images/2020/01/a001.png)

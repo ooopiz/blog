@@ -6,18 +6,27 @@
     <description>Recent content in vpn on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 04 Jan 2020 00:03:19 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2020 02:20:14 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.ooopiz.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Window10_l2tp_vpn_設定</title>
+      <title>Macos L2tp vpn 設定</title>
+      <link>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</link>
+      <pubDate>Sat, 04 Jan 2020 02:20:14 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</guid>
+      <description>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服</description>
+    </item>
+    
+    <item>
+      <title>Window10 l2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</link>
       <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</guid>
-      <description>Window10_l2tp_vpn_設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先</description>
+      <description>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線</description>
     </item>
     
     <item>
