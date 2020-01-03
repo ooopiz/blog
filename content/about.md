@@ -5,3 +5,4 @@ draft: false
 comment: false
 ---
 
+![](http://fblog.ooopiz.com/logo/vector/default-monochrome.svg)
