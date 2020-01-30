@@ -54,7 +54,7 @@ After=zookeeper.service
 [Service]
 Type=simple
 User=kafka
-Group=kafkaadvertised.listeners：生產者和消費者連接的地址，kafka會把該地址註冊到zookeeper中，所以只能為除0.0.0.0之外的合法ip或域名 ，默認和listeners的配置一致。
+Group=kafkaa
 ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
 ExecStop=/opt/kafka/bin/kafka-server-stop.sh
 
