@@ -1,7 +1,7 @@
 ---
 title: "Kafka 基本設定與用法"
 date: 2020-01-30T22:33:26+08:00
-draft: true
+draft: flase
 tags: ["kafka", "zookeeper"]
 ---
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kafka on 馬丁沒有派對</title>
+    <link>https://blog.ooopiz.com/tags/kafka/</link>
+    <description>Recent content in kafka on 馬丁沒有派對</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 30 Jan 2020 22:33:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.ooopiz.com/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kafka 基本設定與用法</title>
+      <link>https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/</link>
+      <pubDate>Thu, 30 Jan 2020 22:33:26 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/</guid>
+      <description>Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service [Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties</description>
+    </item>
+    
+  </channel>
+</rss>
