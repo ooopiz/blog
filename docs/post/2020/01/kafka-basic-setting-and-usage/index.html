@@ -170,7 +170,7 @@
 <p><code>$ chown -R kafka:kafka /opt/kafka*</code></p>
 <h3 id="-systemd--">設定 systemd 的 守護進程</h3>
 <p><code>$ vi /etc/systemd/system/zookeeper.service</code></p>
-<pre><code>[Unit]
+<pre><code class="language-config" data-lang="config">[Unit]
 Description=zookeeper
 After=syslog.target network.target
 
@@ -185,7 +185,7 @@ ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh
 WantedBy=multi-user.target
 
 </code></pre><p><code>$ vi /etc/systemd/system/kafka.service</code></p>
-<pre><code>[Unit]
+<pre><code class="language-config" data-lang="config">[Unit]
 Description=Apache Kafka
 Requires=zookeeper.service
 After=zookeeper.service
@@ -202,9 +202,9 @@ WantedBy=multi-user.target
 
 </code></pre><h3 id="kafka-">kafka 設定</h3>
 <p>先設定一個主機名稱給hosts</p>
-<p><img src="https://fblog.ooopiz.com/images/2020/01/c001.png" alt=""></p>
+<p><img src="https://fblog.ooopiz.com/images/2020/01/c001.png" alt="host"></p>
 <p>接著到你 kafka 安裝的目錄下 找到 config/server.properties 設定檔修改設定</p>
-<p><img src="https://fblog.ooopiz.com/images/2020/01/c002.png" alt=""></p>
+<p><img src="https://fblog.ooopiz.com/images/2020/01/c002.png" alt="server.preperties"></p>
 <ul>
 <li>listeners：啓動kafka服務監聽的ip和端口，這邊不需特別設定</li>
 <li>advertised.listeners：consumer 和 producer 連接的地址，kafka會把該地址註冊到zookeeper中，如果你沒設定要連線的 ip 或 域名，外部是連不上來的</li>
@@ -241,7 +241,7 @@ WantedBy=multi-user.target
 <p>左邊是 consumer，右邊是 producer，
 訂閱者先向 Kafka 訂閱 DemoTopic 這個 topic，
 消息傳送者在向 kafka 傳送消息</p>
-<p><img src="https://fblog.ooopiz.com/images/2020/01/c004.gif" alt=""></p>
+<p><img src="https://fblog.ooopiz.com/images/2020/01/c004.gif" alt="demo"></p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://medium.com/@dindanovitasari/install-kafka-in-rhel-7-f15d10a07246">Install Kafka in RHEL 7</a></li>
@@ -259,7 +259,7 @@ WantedBy=multi-user.target
       <nav class="post-nav">
         <a class="prev" href="/post/2020/02/macos-generator-iso-from-dir/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">你知道怎麼在 Mac 上，把資料夾轉成 ISO 檔嗎？</span>
+            <span class="prev-text nav-default">你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/2020/01/macos-l2tp-settup/">

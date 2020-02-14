@@ -6,12 +6,15 @@ tags: ["macos", "l2tp", "vpn"]
 ---
 
 # Macos L2tp vpn 設定
+
 ## 打開網路偏好設定
+
 ![](https://fblog.ooopiz.com/images/2020/01/b001.jpg)
 
 ![](https://fblog.ooopiz.com/images/2020/01/b002.jpg)
 
 ## 點加號新增 VPN
+
 - 介面 VPN
 - IPSec 的 L2TP
 - 輸入任意的服務名稱
@@ -19,17 +22,20 @@ tags: ["macos", "l2tp", "vpn"]
 ![](https://fblog.ooopiz.com/images/2020/01/b003.jpg)
 
 ## 輸入伺服器位置與帳號
+
 - 完成後點選認證設定
 
 ![](https://fblog.ooopiz.com/images/2020/01/b004.jpg)
 
 ## 認證設定
+
 - 輸入密碼
 - 輸入共享密鑰
 
 ![](https://fblog.ooopiz.com/images/2020/01/b005.jpg)
 
 ## 設定服務順序（重要）
+
 - 點選齒輪設定服務順序
 
 ![](https://fblog.ooopiz.com/images/2020/01/b006.jpg)
