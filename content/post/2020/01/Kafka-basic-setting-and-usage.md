@@ -125,6 +125,28 @@ kafka service
 
 ![demo](https://fblog.ooopiz.com/images/2020/01/c004.gif)
 
+### 其它
+
+List topic
+
+`$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181 --topic FirstKafkaTopic`
+
+List all topic
+
+`$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181`
+
+Describe topic
+
+`$ /opt/kafka/bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic FirstKafkaTopic`
+
+create
+
+`$ /opt/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic FirstKafkaTopic`
+
+delete
+
+`$ /opt/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic FirstKafkaTopic`
+
 ## Reference
 
 - [Install Kafka in RHEL 7](https://medium.com/@dindanovitasari/install-kafka-in-rhel-7-f15d10a07246)

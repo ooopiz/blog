@@ -48,7 +48,7 @@
 <meta itemprop="description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service [Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties">
 <meta itemprop="datePublished" content="2020-01-30T22:33:26&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-30T22:33:26&#43;08:00" />
-<meta itemprop="wordCount" content="540">
+<meta itemprop="wordCount" content="588">
 
 
 
@@ -148,6 +148,7 @@
         <li><a href="#kafkaconsoleconsumershconsumer">/kafka-console-consumer.sh（消費者、訂閱、Consumer）</a></li>
         <li><a href="#kafkaconsoleproducershproducer">/kafka-console-producer.sh（生產者、producer）</a></li>
         <li><a href="#dmeo">dmeo</a></li>
+        <li><a href="#heading4">其它</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -242,6 +243,17 @@ WantedBy=multi-user.target
 訂閱者先向 Kafka 訂閱 DemoTopic 這個 topic，
 消息傳送者在向 kafka 傳送消息</p>
 <p><img src="https://fblog.ooopiz.com/images/2020/01/c004.gif" alt="demo"></p>
+<h3 id="heading4">其它</h3>
+<p>List topic</p>
+<p><code>$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181 --topic FirstKafkaTopic</code></p>
+<p>List all topic</p>
+<p><code>$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181</code></p>
+<p>Describe topic</p>
+<p><code>$ /opt/kafka/bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic FirstKafkaTopic</code></p>
+<p>create</p>
+<p><code>$ /opt/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic FirstKafkaTopic</code></p>
+<p>delete</p>
+<p><code>$ /opt/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic FirstKafkaTopic</code></p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://medium.com/@dindanovitasari/install-kafka-in-rhel-7-f15d10a07246">Install Kafka in RHEL 7</a></li>
