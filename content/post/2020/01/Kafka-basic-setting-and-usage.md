@@ -147,6 +147,22 @@ delete
 
 `$ /opt/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic FirstKafkaTopic`
 
+### 一些測試心得
+
+1. (partition 數量 >= 相同 group id 的 consumer 數量時) consumer 會被分配讀特定的 partition
+2. consumer 不能同時 設定 group id 與 partition id （kakfk：Options group and partition cannot be specified together.）
+3. consumer 指定特定的 partition id 代表每次 run 起來的 group id 不同
+4. topic partiton 數量可以增加不能減少
+5. kafka 會紀錄每個 group id 與 topic 的 offset（讀到第幾筆資料）
+
+```
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                        HOST            CLIENT-ID
+g1              mt              0          4               4               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
+g1              mt              1          8               8               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
+g1              mt              2          5               5               0               consumer-g1-1-3d0c9f80-68f1-4213-9453-b3fe63d8c37c /127.0.0.1      consumer-g1-1
+```
+
+
 ## Reference
 
 - [Install Kafka in RHEL 7](https://medium.com/@dindanovitasari/install-kafka-in-rhel-7-f15d10a07246)

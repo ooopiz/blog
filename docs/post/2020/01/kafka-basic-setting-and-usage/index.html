@@ -48,7 +48,7 @@
 <meta itemprop="description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service [Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties">
 <meta itemprop="datePublished" content="2020-01-30T22:33:26&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-30T22:33:26&#43;08:00" />
-<meta itemprop="wordCount" content="588">
+<meta itemprop="wordCount" content="754">
 
 
 
@@ -149,6 +149,7 @@
         <li><a href="#kafkaconsoleproducershproducer">/kafka-console-producer.sh（生產者、producer）</a></li>
         <li><a href="#dmeo">dmeo</a></li>
         <li><a href="#heading4">其它</a></li>
+        <li><a href="#heading5">一些測試心得</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -254,7 +255,19 @@ WantedBy=multi-user.target
 <p><code>$ /opt/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic FirstKafkaTopic</code></p>
 <p>delete</p>
 <p><code>$ /opt/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic FirstKafkaTopic</code></p>
-<h2 id="reference">Reference</h2>
+<h3 id="heading5">一些測試心得</h3>
+<ol>
+<li>(partition 數量 &gt;= 相同 group id 的 consumer 數量時) consumer 會被分配讀特定的 partition</li>
+<li>consumer 不能同時 設定 group id 與 partition id （kakfk：Options group and partition cannot be specified together.）</li>
+<li>consumer 指定特定的 partition id 代表每次 run 起來的 group id 不同</li>
+<li>topic partiton 數量可以增加不能減少</li>
+<li>kafka 會紀錄每個 group id 與 topic 的 offset（讀到第幾筆資料）</li>
+</ol>
+<pre><code>GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                        HOST            CLIENT-ID
+g1              mt              0          4               4               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
+g1              mt              1          8               8               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
+g1              mt              2          5               5               0               consumer-g1-1-3d0c9f80-68f1-4213-9453-b3fe63d8c37c /127.0.0.1      consumer-g1-1
+</code></pre><h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://medium.com/@dindanovitasari/install-kafka-in-rhel-7-f15d10a07246">Install Kafka in RHEL 7</a></li>
 <li><a href="https://linuxconfig.org/how-to-install-kafka-on-redhat-8">How to install kafka on RHEL 8</a></li>
