@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Ansible Synchronize Why Permission Denied - 馬丁沒有派對</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="馬丁" /><meta name="description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的" /><meta name="keywords" content="devops, 技術, 後端工程師" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Ansible Synchronize Why Permission Denied" />
+<meta property="og:description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/" />
+<meta property="article:published_time" content="2021-01-28T15:37:22+08:00" />
+<meta property="article:modified_time" content="2021-01-28T15:37:22+08:00" />
+<meta itemprop="name" content="Ansible Synchronize Why Permission Denied">
+<meta itemprop="description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的">
+<meta itemprop="datePublished" content="2021-01-28T15:37:22&#43;08:00" />
+<meta itemprop="dateModified" content="2021-01-28T15:37:22&#43;08:00" />
+<meta itemprop="wordCount" content="817">
+
+
+
+<meta itemprop="keywords" content="ansible," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ansible Synchronize Why Permission Denied"/>
+<meta name="twitter:description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script data-ad-client="ca-pub-3680083267042451" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">馬丁沒有派對</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">馬丁沒有派對</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Ansible Synchronize Why Permission Denied</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> Thu, 28 Jan 2021 15:37:22 &#43;0800 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-ansible--synchronize-">關於 ansible 的 Synchronize 模組問題</a></li>
+    <li><a href="#heading">發現問題</a></li>
+    <li><a href="#heading1">測試</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="-ansible--synchronize-">關於 ansible 的 Synchronize 模組問題</h2>
+<p>關於 ansible 的使用上，synchroize 是一個很棒的模組，
+如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，
+但以效能來說，synchroize 這個模組大概會是首選，因為底層其是透過 rsync 的指令傳輸資料。</p>
+<p>不過 synchroize 這個模組卻是時靈時不靈。
+筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。
+執行到有 synchroize 這個模組有時還是會報出 permission deied。</p>
+<p>become_user: root, become_method: sudo, 模組的參數試了又試。
+還是很難理解到底那個環節出了問題。</p>
+<ul>
+<li><img src="https://fblog.ooopiz.com/images/2021/01/a001.jpg" alt=""></li>
+</ul>
+<h2 id="heading">發現問題</h2>
+<p>一般來說 ansible 使用上都是透過 ssh 控制遠程的目標伺服器。
+筆者的 asnible script 寫了很多安裝佈署的步驟，其中當然也包含了 synchroize 模組。</p>
+<p>為了符合單機離線安裝的情境，做這類佈署時我會直接將 inventory 的主機直接指定本地端的 IP，直接在本地執行安裝腳本。</p>
+<p>一台 Server 可能會有多個網卡跟IP（127.0.0.1 or 192.168.x.x）
+就在某次我將 inventory 目標主機指定成 127.0.0.1 果然發生一樣的問題。</p>
+<p>當我發現目標機器是 127.0.0.1 時就會出問題，
+目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。</p>
+<p>我大概可以猜測 synchroize 模組針對 localhsot or 127.0.0.1 的目標機器可能有不同的處理流程</p>
+<h2 id="heading1">測試</h2>
+<ol>
+<li>
+<p>先寫了一個 playbook 來進行測試</p>
+<pre><code></code></pre></li>
+</ol>
+<hr>
+<ul>
+<li>
+<p>name:
+hosts: all
+become: yes
+become_user: root
+become_method: sudo
+gather_facts: false</p>
+<p>tasks:</p>
+<ul>
+<li>name: &lsquo;rsync migrations dist dir&rsquo;
+synchronize:
+src:  &ldquo;{{ lookup(&lsquo;env&rsquo;, &lsquo;PWD&rsquo;) }}/dist/&rdquo;
+dest: &ldquo;/var/lib/migrations/dist/&rdquo;
+delete: yes
+rsync_opts:
+- &ldquo;&ndash;chown=ricky:ricky&rdquo;</li>
+</ul>
+</li>
+</ul>
+<pre><code>
+2. 接著我在 synchroize 模組源碼中，追蹤到兩個明確的變數差異
+
+* target: 127.0.0.1
+  ```
+  {'src': '/home/ubuntu/test/dist/', 'dest': '/var/lib/migrations/dist/', 'delete': True, '_local_rsync_path': 'rsync', '_local_rsync_password': '123456', 'rsync_path': 'sudo rsync'}
+  ```
+
+* target: 192.168.56.103
+  ```
+  {'src': '/home/ubuntu/test/dist/', 'dest': 'ubuntu@192.168.56.103:/var/lib/migrations/dist/', 'delete': True, '_local_rsync_path': 'rsync', '_local_rsync_password': '123456', 'rsync_path': 'sudo rsync'}
+  ```
+
+3. 推測 ansible 具體執行的指令
+
+* target: 127.0.0.1
+  `rsync /home/ubuntu/test/dist/ /var/lib/migrations/dist/`
+
+* target: 192.168.56.103
+  `rsync /home/ubuntu/test/dist/ ubuntu@192.168.56.103:/var/lib/migrations/dist/`
+
+4. 追蹤導致上方變數不同的原因 (plugins/action/synchronize.py)
+
+在源碼中插入 debug message（7, 8, 9, z, 等...）
+
+&gt; 這段程式碼有一連串在判斷目標機器是否是 local 的邏輯
+
+* ![](https://fblog.ooopiz.com/images/2021/01/a003.jpg)
+
+執行結果左邊目標是 127.0.0.1
+右邊目標是 192.168.56.103
+
+可以發現變數具體被改變的地方在 8～9 號之間
+
+* ![](https://fblog.ooopiz.com/images/2021/01/a002.jpg)
+
+直接看了一下 self._process_remote 的 function
+可以知道在這個狀況下 C.LOCALHOST 應該是起了決定性的作用
+
+* ![](https://fblog.ooopiz.com/images/2021/01/a004.jpg)
+
+找到 C.LOCALHOST 定義的地方 ( ./constants.py )
+
+* ![](https://fblog.ooopiz.com/images/2021/01/a005.jpg)
+
+## 結論
+
+原本預期當 inventory 指定 127.0.0.1 時
+所有的 task 均會透過 `ssh ubuntu@127.0.0.1` 去執行腳本，
+
+事實上在 Synchronize 這個模組運行時，卻是將其視為 locally 的操作，
+也就是 rsync local-dir local-dir
+
+因此 become_sudo 跟 become_user 的無效化造成 permission denied 也算是稍微可以理解。
+</code></pre>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ansible/">ansible</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2020/02/macos-generator-iso-from-dir/">
+            <span class="next-text nav-default">你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'blog-ooopiz';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://blog.ooopiz.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">馬丁</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66438778-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

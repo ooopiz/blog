@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 13 Feb 2020 20:20:54 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jan 2021 15:37:22 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ansible Synchronize Why Permission Denied</title>
+      <link>https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/</link>
+      <pubDate>Thu, 28 Jan 2021 15:37:22 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/</guid>
+      <description>關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的</description>
+    </item>
     
     <item>
       <title>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</title>
