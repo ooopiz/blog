@@ -9,13 +9,13 @@ tags: ["ansible"]
 
 關於 ansible 的使用上，synchroize 是一個很棒的模組，  
 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，  
-但以效能來說，synchroize 這個模組大概會是首選，因為底層其是透過 rsync 的指令傳輸資料。  
+但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。  
 
 不過 synchroize 這個模組卻是時靈時不靈。  
 筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。  
 執行到有 synchroize 這個模組有時還是會報出 permission deied。  
 
-become_user: root, become_method: sudo, 模組的參數試了又試。  
+become_user: root, become_method: sudo, 跟模組參數試了又試。  
 還是很難理解到底那個環節出了問題。  
 
 ![](https://fblog.ooopiz.com/images/2021/01/a001.jpg)
@@ -38,7 +38,7 @@ become_user: root, become_method: sudo, 模組的參數試了又試。
 
 ## 測試
 
-### 1. 先寫了一個 playbook 來進行測試
+### 1. 先寫了一個 playbook 來 play 測試一下
 
 ```
 ---
@@ -59,7 +59,7 @@ become_user: root, become_method: sudo, 模組的參數試了又試。
           - "--chown=ricky:ricky"
 ```
 
-### 2. 接著我在 synchroize 模組源碼中，追蹤到兩個明確的變數差異
+### 2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異
 
 * target: 127.0.0.1
   ```
@@ -101,16 +101,16 @@ become_user: root, become_method: sudo, 模組的參數試了又試。
 
 ![](https://fblog.ooopiz.com/images/2021/01/a004.jpg)
 
-找到 C.LOCALHOST 定義的地方 ( constants.py )
+找到 C.LOCALHOST 定義的地方 ( constants.py )  
 
 ![](https://fblog.ooopiz.com/images/2021/01/a005.jpg)
 
 ## 結論
 
 原本預期當 inventory 指定 127.0.0.1 時  
-所有的 task 均會透過 `ssh ubuntu@127.0.0.1` 去執行腳本，  
+所有的 task 均會透過 `ssh ubuntu@127.0.0.1` 執行腳本，  
 
 事實上在 Synchronize 這個模組運行時，卻是將其視為 locally 的操作，  
 也就是 rsync local-dir local-dir  
 
-因此 become_sudo 跟 become_user 的無效化造成 permission denied 也算是稍微可以理解。
+因此 become_sudo 跟 become_user 的無效化造成 permission denied 也算是稍微可以理解。  

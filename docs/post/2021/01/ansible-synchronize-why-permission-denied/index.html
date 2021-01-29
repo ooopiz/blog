@@ -48,7 +48,7 @@
 <meta itemprop="description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的">
 <meta itemprop="datePublished" content="2021-01-28T15:37:22&#43;08:00" />
 <meta itemprop="dateModified" content="2021-01-28T15:37:22&#43;08:00" />
-<meta itemprop="wordCount" content="808">
+<meta itemprop="wordCount" content="807">
 
 
 
@@ -138,8 +138,8 @@
     <li><a href="#heading">發現問題</a></li>
     <li><a href="#heading1">測試</a>
       <ul>
-        <li><a href="#1--playbook-">1. 先寫了一個 playbook 來進行測試</a></li>
-        <li><a href="#2--synchroize-">2. 接著我在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</a></li>
+        <li><a href="#1--playbook--play-">1. 先寫了一個 playbook 來 play 測試一下</a></li>
+        <li><a href="#2--synchroize-">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</a></li>
         <li><a href="#3--ansible-">3. 推測 ansible 具體執行的指令</a></li>
         <li><a href="#4--pluginsactionsynchronizepy">4. 追蹤導致上方變數不同的原因 (plugins/action/synchronize.py)</a></li>
       </ul>
@@ -153,11 +153,11 @@
       <h2 id="-ansible--synchronize-">關於 ansible 的 Synchronize 模組問題</h2>
 <p>關於 ansible 的使用上，synchroize 是一個很棒的模組，<br>
 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，<br>
-但以效能來說，synchroize 這個模組大概會是首選，因為底層其是透過 rsync 的指令傳輸資料。</p>
+但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。</p>
 <p>不過 synchroize 這個模組卻是時靈時不靈。<br>
 筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。<br>
 執行到有 synchroize 這個模組有時還是會報出 permission deied。</p>
-<p>become_user: root, become_method: sudo, 模組的參數試了又試。<br>
+<p>become_user: root, become_method: sudo, 跟模組參數試了又試。<br>
 還是很難理解到底那個環節出了問題。</p>
 <p><img src="https://fblog.ooopiz.com/images/2021/01/a001.jpg" alt=""></p>
 <h2 id="heading">發現問題</h2>
@@ -171,7 +171,7 @@
 目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。</p>
 <p>我大概可以猜測 synchroize 模組針對 localhsot or 127.0.0.1 的目標機器可能有不同的處理流程</p>
 <h2 id="heading1">測試</h2>
-<h3 id="1--playbook-">1. 先寫了一個 playbook 來進行測試</h3>
+<h3 id="1--playbook--play-">1. 先寫了一個 playbook 來 play 測試一下</h3>
 <pre><code>---
 - name:
   hosts: all
@@ -188,7 +188,7 @@
         delete: yes
         rsync_opts:
           - &quot;--chown=ricky:ricky&quot;
-</code></pre><h3 id="2--synchroize-">2. 接著我在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</h3>
+</code></pre><h3 id="2--synchroize-">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</h3>
 <ul>
 <li>
 <p>target: 127.0.0.1</p>
@@ -227,7 +227,7 @@
 <p><img src="https://fblog.ooopiz.com/images/2021/01/a005.jpg" alt=""></p>
 <h2 id="heading2">結論</h2>
 <p>原本預期當 inventory 指定 127.0.0.1 時<br>
-所有的 task 均會透過 <code>ssh ubuntu@127.0.0.1</code> 去執行腳本，</p>
+所有的 task 均會透過 <code>ssh ubuntu@127.0.0.1</code> 執行腳本，</p>
 <p>事實上在 Synchronize 這個模組運行時，卻是將其視為 locally 的操作，<br>
 也就是 rsync local-dir local-dir</p>
 <p>因此 become_sudo 跟 become_user 的無效化造成 permission denied 也算是稍微可以理解。</p>
