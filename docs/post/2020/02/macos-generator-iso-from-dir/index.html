@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2020-02-13T20:20:54+08:00" />
 <meta itemprop="name" content="你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？">
 <meta itemprop="description" content="先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。 雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。 我在">
-<meta itemprop="datePublished" content="2020-02-13T20:20:54&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-13T20:20:54&#43;08:00" />
+<meta itemprop="datePublished" content="2020-02-13T20:20:54+08:00" />
+<meta itemprop="dateModified" content="2020-02-13T20:20:54+08:00" />
 <meta itemprop="wordCount" content="481">
 
 
 
-<meta itemprop="keywords" content="macos," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="macos," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？"/>
 <meta name="twitter:description" content="先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。 雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。 我在"/>
 
@@ -134,39 +135,39 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">先聊個天</a></li>
-    <li><a href="#heading1">資料夾轉成映像檔</a></li>
-    <li><a href="#-cdr-to-iso">轉檔 cdr to iso</a></li>
-    <li><a href="#-virtualbox-">在 VirtualBox 掛載</a></li>
-    <li><a href="#heading2">燒錄在光碟的檔名變短</a></li>
-    <li><a href="#heading3">重點</a></li>
+    <li><a href="#先聊個天">先聊個天</a></li>
+    <li><a href="#資料夾轉成映像檔">資料夾轉成映像檔</a></li>
+    <li><a href="#轉檔-cdr-to-iso">轉檔 cdr to iso</a></li>
+    <li><a href="#在-virtualbox-掛載">在 VirtualBox 掛載</a></li>
+    <li><a href="#燒錄在光碟的檔名變短">燒錄在光碟的檔名變短</a></li>
+    <li><a href="#重點">重點</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">先聊個天</h2>
+      <h2 id="先聊個天">先聊個天</h2>
 <p>很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。</p>
 <p>雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。</p>
 <p>我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb</p>
 <p>就是沒有檔案打包 ISO 檔的</p>
 <p>終於&hellip;</p>
-<h2 id="heading1">資料夾轉成映像檔</h2>
+<h2 id="資料夾轉成映像檔">資料夾轉成映像檔</h2>
 <p>磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片</p>
 <p><img src="https://fblog.ooopiz.com/images/2020/02/a001.jpg" alt="add"></p>
 <p>於是它把我的檔案製作成了 .cdr</p>
-<h2 id="-cdr-to-iso">轉檔 cdr to iso</h2>
+<h2 id="轉檔-cdr-to-iso">轉檔 cdr to iso</h2>
 <p>最先我找到的指令是這一句</p>
 <p><code>$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr</code></p>
 <p><img src="https://fblog.ooopiz.com/images/2020/02/a002.jpg" alt="hdiutil"></p>
 <p>成功轉檔</p>
-<h2 id="-virtualbox-">在 VirtualBox 掛載</h2>
+<h2 id="在-virtualbox-掛載">在 VirtualBox 掛載</h2>
 <p>用 virtualbox 的 VM 掛載 ISO 試試</p>
 <p><img src="https://fblog.ooopiz.com/images/2020/02/a003.jpg" alt="mount">
 <img src="https://fblog.ooopiz.com/images/2020/02/a004.jpg" alt="mount"></p>
 <p>掛載成功</p>
-<h2 id="heading2">燒錄在光碟的檔名變短</h2>
+<h2 id="燒錄在光碟的檔名變短">燒錄在光碟的檔名變短</h2>
 <p>後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。</p>
 <p>在各種格式下的檔案名稱有其長度的限制</p>
 <p>ISO 9600</p>
@@ -183,7 +184,7 @@
 <p>UDF：255個字元</p>
 <p>於是將轉檔的指令改成 -udf</p>
 <p><code>$ hdiutil makehybrid -iso -udf -o rpms.iso rpms.cdr</code></p>
-<h2 id="heading3">重點</h2>
+<h2 id="重點">重點</h2>
 <p>講了這麼多這裡才是重點，上面的流程我做了幾次真心覺得麻煩，想說 hdiutil 難道不能幫我直接做成 ISO 嗎？</p>
 <p>終於終於讓我找到解法了</p>
 <p><code>$ hdiutil makehybrid -iso -udf -o rpms.iso ~/Download/rpms</code></p>

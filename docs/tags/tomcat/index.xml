@@ -6,11 +6,7 @@
     <description>Recent content in tomcat on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.ooopiz.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS7 Tomcat增加systemctl控制</title>
       <link>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</link>

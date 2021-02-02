@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="官方網站 安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop" /><meta name="keywords" content="devops, 技術, 後端工程師" />
+<meta name="author" content="馬丁" /><meta name="description" content="官方網站 安裝 1 2 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or 1 2 3 # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop" /><meta name="keywords" content="devops, 技術, 後端工程師" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/" />
@@ -39,22 +39,23 @@
 
 
 <meta property="og:title" content="CentOS6.5 流量監控工具(iftop)" />
-<meta property="og:description" content="官方網站 安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop" />
+<meta property="og:description" content="官方網站 安裝 1 2 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or 1 2 3 # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/" />
 <meta property="article:published_time" content="2015-09-02T16:56:01+08:00" />
 <meta property="article:modified_time" content="2015-09-02T16:56:01+08:00" />
 <meta itemprop="name" content="CentOS6.5 流量監控工具(iftop)">
-<meta itemprop="description" content="官方網站 安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop">
-<meta itemprop="datePublished" content="2015-09-02T16:56:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-09-02T16:56:01&#43;08:00" />
-<meta itemprop="wordCount" content="32">
+<meta itemprop="description" content="官方網站 安裝 1 2 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or 1 2 3 # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop">
+<meta itemprop="datePublished" content="2015-09-02T16:56:01+08:00" />
+<meta itemprop="dateModified" content="2015-09-02T16:56:01+08:00" />
+<meta itemprop="wordCount" content="37">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 流量監控工具(iftop)"/>
-<meta name="twitter:description" content="官方網站 安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop"/>
+<meta name="twitter:description" content="官方網站 安裝 1 2 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or 1 2 3 # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,8 +137,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">安裝</a></li>
-        <li><a href="#heading1">執行</a></li>
+        <li><a href="#安裝">安裝</a></li>
+        <li><a href="#執行">執行</a></li>
       </ul>
     </li>
   </ul>
@@ -146,14 +147,31 @@
 </div>
     <div class="post-content">
       <p><a href="http://www.ex-parrot.com/~pdw/iftop/">官方網站</a></p>
-<h3 id="heading">安裝</h3>
-<pre><code># rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+<h3 id="安裝">安裝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 # yum install iftop -y
-</code></pre><p>or</p>
-<pre><code># wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+</code></pre></td></tr></table>
+</div>
+</div><p>or</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 # rpm -ivh epel-release-6-8.noarch.rpm
 # yum install iftop -y
-</code></pre><h3 id="heading1">執行</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="執行">執行</h3>
 <p><code># iftop</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201509/A02-01.png" alt=""></p>
 

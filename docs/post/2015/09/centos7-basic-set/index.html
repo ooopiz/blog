@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2015-09-01T03:07:01+08:00" />
 <meta itemprop="name" content="CentOS7 基礎設定">
 <meta itemprop="description" content="一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同">
-<meta itemprop="datePublished" content="2015-09-01T03:07:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-09-01T03:07:01&#43;08:00" />
+<meta itemprop="datePublished" content="2015-09-01T03:07:01+08:00" />
+<meta itemprop="dateModified" content="2015-09-01T03:07:01+08:00" />
 <meta itemprop="wordCount" content="530">
 
 
 
-<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 基礎設定"/>
 <meta name="twitter:description" content="一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同"/>
 
@@ -134,15 +135,15 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#networkmanger">一、啟用網卡，停用NetworkManger</a></li>
-    <li><a href="#selinux">二、關閉SELinux</a></li>
-    <li><a href="#usedns">三、關閉UseDNS</a></li>
-    <li><a href="#heading">四、調整時區</a></li>
-    <li><a href="#heading1">五、調整語系</a></li>
-    <li><a href="#hostname">六、修改Hostname</a></li>
-    <li><a href="#heading2">七、同步時間</a></li>
-    <li><a href="#firewalldiptabless">八、停用firewalld，改用iptabless</a></li>
-    <li><a href="#heading3">九、更新一下</a></li>
+    <li><a href="#一啟用網卡停用networkmanger">一、啟用網卡，停用NetworkManger</a></li>
+    <li><a href="#二關閉selinux">二、關閉SELinux</a></li>
+    <li><a href="#三關閉usedns">三、關閉UseDNS</a></li>
+    <li><a href="#四調整時區">四、調整時區</a></li>
+    <li><a href="#五調整語系">五、調整語系</a></li>
+    <li><a href="#六修改hostname">六、修改Hostname</a></li>
+    <li><a href="#七同步時間">七、同步時間</a></li>
+    <li><a href="#八停用firewalld改用iptabless">八、停用firewalld，改用iptabless</a></li>
+    <li><a href="#九更新一下">九、更新一下</a></li>
   </ul>
 </nav>
   </div>
@@ -160,7 +161,7 @@
 <li>九、更新一下</li>
 </ul>
 <hr>
-<h2 id="networkmanger">一、啟用網卡，停用NetworkManger</h2>
+<h2 id="一啟用網卡停用networkmanger">一、啟用網卡，停用NetworkManger</h2>
 <p>先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)</p>
 <p><code># cd /etc/sysconfig/network-scripts</code></p>
 <blockquote>
@@ -171,18 +172,18 @@
 <p><code># systemctl disable NetworkManager</code></p>
 <p><code># systemctl restart network</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201509/A01-02.png" alt=""></p>
-<h2 id="selinux">二、關閉SELinux</h2>
+<h2 id="二關閉selinux">二、關閉SELinux</h2>
 <p><code>#vi /etc/selinux/config</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201509/A01-03.png" alt=""></p>
 <p><strong>這個設定reboot後才會生效</strong></p>
-<h2 id="usedns">三、關閉UseDNS</h2>
+<h2 id="三關閉usedns">三、關閉UseDNS</h2>
 <p>登入SSH需要等很久的話，可以從這個設定獲得改善</p>
 <p><code># vi /etc/ssh/sshd_config</code> 將 UseDNS yes 改成 no</p>
 <p><code># systemctl restart sshd</code></p>
-<h2 id="heading">四、調整時區</h2>
+<h2 id="四調整時區">四、調整時區</h2>
 <p><code># rm /etc/localtime</code></p>
 <p><code># ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></p>
-<h2 id="heading1">五、調整語系</h2>
+<h2 id="五調整語系">五、調整語系</h2>
 <p>檢查系統目前使用的語系</p>
 <p><code># localectl</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201509/A01-04.png" alt=""></p>
@@ -191,12 +192,12 @@
 <p><img src="https://fblog.ooopiz.com/images/201509/A01-05.png" alt=""></p>
 <p>如果你要設定語系的話</p>
 <p><code># localectl set-locale LANG=zh_TW.utf8</code></p>
-<h2 id="hostname">六、修改Hostname</h2>
+<h2 id="六修改hostname">六、修改Hostname</h2>
 <p><strong>查看主機 hostname</strong></p>
 <p><code># hostnamectl</code></p>
 <p><strong>設定 hostname</strong></p>
 <p><code># hostnamectl set-hostname new_hostname</code></p>
-<h2 id="heading2">七、同步時間</h2>
+<h2 id="七同步時間">七、同步時間</h2>
 <p>安裝的packages</p>
 <p><code># yum install ntp ntpdate ntp-doc</code></p>
 <p>設定開機就啟動NTP Daemon</p>
@@ -208,7 +209,7 @@
 <p>設定要校時的NTP server</p>
 <p><code># vi /etc/ntp.conf</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201509/A01-06.png" alt=""></p>
-<h2 id="firewalldiptabless">八、停用firewalld，改用iptabless</h2>
+<h2 id="八停用firewalld改用iptabless">八、停用firewalld，改用iptabless</h2>
 <p><code># systemctl stop firewalld</code></p>
 <p><code># systemctl disable firewalld</code></p>
 <p><code># yum install iptables-services</code></p>
@@ -217,7 +218,7 @@
 <p><img src="https://fblog.ooopiz.com/images/201509/A01-07.png" alt=""></p>
 <p><code># systemctl start iptables</code></p>
 <p><code># systemctl enable iptables</code></p>
-<h2 id="heading3">九、更新一下</h2>
+<h2 id="九更新一下">九、更新一下</h2>
 <p>送他一個</p>
 <p><code># yum update -y</code></p>
 

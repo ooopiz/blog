@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2015-07-25T12:22:01+08:00" />
 <meta itemprop="name" content="Laravel5.0 升級5.1">
 <meta itemprop="description" content="1. 修改composer.json &quot;laravel/framework&quot;: &quot;5.0.*&quot; 修改為 &quot;laravel/framework&quot;: &quot;5.1.*&quot; 2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為">
-<meta itemprop="datePublished" content="2015-07-25T12:22:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-07-25T12:22:01&#43;08:00" />
-<meta itemprop="wordCount" content="179">
+<meta itemprop="datePublished" content="2015-07-25T12:22:01+08:00" />
+<meta itemprop="dateModified" content="2015-07-25T12:22:01+08:00" />
+<meta itemprop="wordCount" content="181">
 
 
 
-<meta itemprop="keywords" content="laravel," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="laravel," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Laravel5.0 升級5.1"/>
 <meta name="twitter:description" content="1. 修改composer.json &quot;laravel/framework&quot;: &quot;5.0.*&quot; 修改為 &quot;laravel/framework&quot;: &quot;5.1.*&quot; 2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為"/>
 
@@ -136,11 +137,11 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#1-composerjson">1. 修改composer.json</a></li>
-        <li><a href="#2-bootstrapcachegitignore">2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為:</a></li>
-        <li><a href="#3-bootstrapautoloadphp">3. 修改bootstrap下的autoload.php</a></li>
-        <li><a href="#4--composer-update">4. 執行 composer update</a></li>
-        <li><a href="#5-">5. 確認目錄權限###</a></li>
+        <li><a href="#1-修改composerjson">1. 修改composer.json</a></li>
+        <li><a href="#2-在bootstrap目錄下建立一個目錄cache並新增一個文件gitignore內容為">2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為:</a></li>
+        <li><a href="#3-修改bootstrap下的autoloadphp">3. 修改bootstrap下的autoload.php</a></li>
+        <li><a href="#4-執行-composer-update">4. 執行 composer update</a></li>
+        <li><a href="#5-確認目錄權限">5. 確認目錄權限###</a></li>
       </ul>
     </li>
   </ul>
@@ -148,18 +149,26 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="1-composerjson">1. 修改composer.json</h3>
+      <h3 id="1-修改composerjson">1. 修改composer.json</h3>
 <p><code>&quot;laravel/framework&quot;: &quot;5.0.*&quot;</code> 修改為 <code>&quot;laravel/framework&quot;: &quot;5.1.*&quot;</code></p>
-<h3 id="2-bootstrapcachegitignore">2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為:</h3>
-<pre><code class="language-config" data-lang="config">*
+<h3 id="2-在bootstrap目錄下建立一個目錄cache並新增一個文件gitignore內容為">2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為:</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">*
 !.gitignore
-</code></pre><h3 id="3-bootstrapautoloadphp">3. 修改bootstrap下的autoload.php</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-修改bootstrap下的autoloadphp">3. 修改bootstrap下的autoload.php</h3>
 <p><code>$compiledPath = __DIR__.'/../vendor/compiled.php';</code>
 修改為
 <code>$compiledPath = __DIR__.'/cache/compiled.php';</code></p>
-<h3 id="4--composer-update">4. 執行 composer update</h3>
+<h3 id="4-執行-composer-update">4. 執行 composer update</h3>
 <p><code># composer update</code></p>
-<h3 id="5-">5. 確認目錄權限###</h3>
+<h3 id="5-確認目錄權限">5. 確認目錄權限###</h3>
 <p>安裝 Laravel 之後，你必須設定一些權限。<!-- raw HTML omitted -->storage<!-- raw HTML omitted --> 和 <!-- raw HTML omitted -->bootstrap/cache<!-- raw HTML omitted --> 目錄必須讓伺服器有寫入權限。</p>
 
     </div>

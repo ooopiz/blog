@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2017/03/pem-to-ppk-putty-login/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2017-03-21T02:21:01+08:00" />
 <meta itemprop="name" content="pem轉ppk putty 登入">
 <meta itemprop="description" content="putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe pem 轉 ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選">
-<meta itemprop="datePublished" content="2017-03-21T02:21:01&#43;08:00" />
-<meta itemprop="dateModified" content="2017-03-21T02:21:01&#43;08:00" />
+<meta itemprop="datePublished" content="2017-03-21T02:21:01+08:00" />
+<meta itemprop="dateModified" content="2017-03-21T02:21:01+08:00" />
 <meta itemprop="wordCount" content="220">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="pem轉ppk putty 登入"/>
 <meta name="twitter:description" content="putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe pem 轉 ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選"/>
 
@@ -134,53 +135,53 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#puttyopenssh-pem">putty不支援openssh, 所以手上有pem檔的話需要做一次轉換</a></li>
-    <li><a href="#pem--ppk">pem 轉 ppk</a>
+    <li><a href="#putty不支援openssh-所以手上有pem檔的話需要做一次轉換">putty不支援openssh, 所以手上有pem檔的話需要做一次轉換</a></li>
+    <li><a href="#pem-轉-ppk">pem 轉 ppk</a>
       <ul>
-        <li><a href="#1pem">1.載入pem</a></li>
-        <li><a href="#2all-file">2.如果看不到檔案請選all file</a></li>
-        <li><a href="#3save-private-key">3.載入後選擇save private key</a></li>
-        <li><a href="#4ppk">4.輸入檔名生成ppk檔</a></li>
+        <li><a href="#1載入pem">1.載入pem</a></li>
+        <li><a href="#2如果看不到檔案請選all-file">2.如果看不到檔案請選all file</a></li>
+        <li><a href="#3載入後選擇save-private-key">3.載入後選擇save private key</a></li>
+        <li><a href="#4輸入檔名生成ppk檔">4.輸入檔名生成ppk檔</a></li>
       </ul>
     </li>
-    <li><a href="#putty">putty設定登入</a>
+    <li><a href="#putty設定登入">putty設定登入</a>
       <ul>
-        <li><a href="#1ppk">1.轉換完成的ppk檔放置到你想保存的位置</a></li>
-        <li><a href="#2putty-">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</a></li>
-        <li><a href="#3">3.輸入用戶名稱</a></li>
-        <li><a href="#4ppk1">4.載入ppk檔</a></li>
-        <li><a href="#5">5.記得回來按一下存檔</a></li>
+        <li><a href="#1轉換完成的ppk檔放置到你想保存的位置">1.轉換完成的ppk檔放置到你想保存的位置</a></li>
+        <li><a href="#2開啟putty-以下為範例照自己的機器與檔案資訊填寫">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</a></li>
+        <li><a href="#3輸入用戶名稱">3.輸入用戶名稱</a></li>
+        <li><a href="#4載入ppk檔">4.載入ppk檔</a></li>
+        <li><a href="#5記得回來按一下存檔">5.記得回來按一下存檔</a></li>
       </ul>
     </li>
-    <li><a href="#linux-or-cmder">linux or Cmder登入方式</a></li>
+    <li><a href="#linux-or-cmder登入方式">linux or Cmder登入方式</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="puttyopenssh-pem">putty不支援openssh, 所以手上有pem檔的話需要做一次轉換</h2>
+      <h2 id="putty不支援openssh-所以手上有pem檔的話需要做一次轉換">putty不支援openssh, 所以手上有pem檔的話需要做一次轉換</h2>
 <p>前往下載
 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">puttygen.exe</a></p>
-<h2 id="pem--ppk">pem 轉 ppk</h2>
-<h3 id="1pem">1.載入pem</h3>
+<h2 id="pem-轉-ppk">pem 轉 ppk</h2>
+<h3 id="1載入pem">1.載入pem</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-a01.jpg" alt=""></p>
-<h3 id="2all-file">2.如果看不到檔案請選all file</h3>
+<h3 id="2如果看不到檔案請選all-file">2.如果看不到檔案請選all file</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-a02.jpg" alt=""></p>
-<h3 id="3save-private-key">3.載入後選擇save private key</h3>
+<h3 id="3載入後選擇save-private-key">3.載入後選擇save private key</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-a03.jpg" alt=""></p>
-<h3 id="4ppk">4.輸入檔名生成ppk檔</h3>
+<h3 id="4輸入檔名生成ppk檔">4.輸入檔名生成ppk檔</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-a04.jpg" alt=""></p>
-<h2 id="putty">putty設定登入</h2>
-<h3 id="1ppk">1.轉換完成的ppk檔放置到你想保存的位置</h3>
-<h3 id="2putty-">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</h3>
+<h2 id="putty設定登入">putty設定登入</h2>
+<h3 id="1轉換完成的ppk檔放置到你想保存的位置">1.轉換完成的ppk檔放置到你想保存的位置</h3>
+<h3 id="2開啟putty-以下為範例照自己的機器與檔案資訊填寫">2.開啟putty (以下為範例照自己的機器與檔案資訊填寫)</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-b01.jpg" alt=""></p>
-<h3 id="3">3.輸入用戶名稱</h3>
+<h3 id="3輸入用戶名稱">3.輸入用戶名稱</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-b02.jpg" alt=""></p>
-<h3 id="4ppk1">4.載入ppk檔</h3>
+<h3 id="4載入ppk檔">4.載入ppk檔</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-b03.jpg" alt=""></p>
-<h3 id="5">5.記得回來按一下存檔</h3>
+<h3 id="5記得回來按一下存檔">5.記得回來按一下存檔</h3>
 <p><img src="https://fblog.ooopiz.com/images/2017/m03-b04.jpg" alt=""></p>
-<h2 id="linux-or-cmder">linux or Cmder登入方式</h2>
+<h2 id="linux-or-cmder登入方式">linux or Cmder登入方式</h2>
 <p><code>ssh -i xxx.pem username@192.168.1.1</code></p>
 <p>改port的話</p>
 <p>ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</p>

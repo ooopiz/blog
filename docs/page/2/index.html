@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/" />
@@ -46,7 +46,8 @@
 <meta property="og:url" content="https://blog.ooopiz.com/" />
 <meta property="og:updated_time" content="2021-01-28T15:37:22+08:00" />
 <meta itemprop="name" content="馬丁沒有派對">
-<meta itemprop="description" content="我把青春都寫在blog上了 😜😜"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="我把青春都寫在blog上了 😜😜">
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="馬丁沒有派對"/>
 <meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
 
@@ -237,7 +238,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Output is &ldquo;7&rdquo; $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });
+      Output is &ldquo;7&rdquo; 1 2 3 4 5 6 7 8 9 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined 1 2 3 4 5 6 7 8 9 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });
     </div>
     <div class="read-more">
       <a href="/post/2016/07/differences-have-javascript-var/" class="read-more-link">Read more..</a>
@@ -294,7 +295,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      新增nginx.repo # vi /etc/yum.repos.d/nginx.repo [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on
+      新增nginx.repo # vi /etc/yum.repos.d/nginx.repo 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on
     </div>
     <div class="read-more">
       <a href="/post/2016/05/installing-nginx-19/" class="read-more-link">Read more..</a>
@@ -313,7 +314,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP
+      一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、
     </div>
     <div class="read-more">
       <a href="/post/2016/05/install-php56/" class="read-more-link">Read more..</a>
@@ -408,7 +409,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.
+      tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 5 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JD
     </div>
     <div class="read-more">
       <a href="/post/2015/09/centos7-install-jdk/" class="read-more-link">Read more..</a>
@@ -465,7 +466,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將
+      yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使
     </div>
     <div class="read-more">
       <a href="/post/2015/09/wget-and-yum-with-proxy/" class="read-more-link">Read more..</a>
@@ -484,7 +485,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      官方網站 安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop
+      官方網站 安裝 1 2 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or 1 2 3 # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop
     </div>
     <div class="read-more">
       <a href="/post/2015/09/centos-traffic-monitoring-tool-iftop/" class="read-more-link">Read more..</a>

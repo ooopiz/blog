@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot" /><meta name="keywords" content="devops, 技術, 後端工程師" />
+<meta name="author" content="馬丁" /><meta name="description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot" /><meta name="keywords" content="devops, 技術, 後端工程師" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/07/coreos-static-ip/" />
@@ -39,22 +39,23 @@
 
 
 <meta property="og:title" content="CoreOS Static Ip 固定 IP 設定" />
-<meta property="og:description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot" />
+<meta property="og:description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2019/07/coreos-static-ip/" />
 <meta property="article:published_time" content="2019-07-24T17:01:37+08:00" />
 <meta property="article:modified_time" content="2019-07-24T17:01:37+08:00" />
 <meta itemprop="name" content="CoreOS Static Ip 固定 IP 設定">
-<meta itemprop="description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot">
-<meta itemprop="datePublished" content="2019-07-24T17:01:37&#43;08:00" />
-<meta itemprop="dateModified" content="2019-07-24T17:01:37&#43;08:00" />
-<meta itemprop="wordCount" content="28">
+<meta itemprop="description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot">
+<meta itemprop="datePublished" content="2019-07-24T17:01:37+08:00" />
+<meta itemprop="dateModified" content="2019-07-24T17:01:37+08:00" />
+<meta itemprop="wordCount" content="33">
 
 
 
-<meta itemprop="keywords" content="coreos," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="coreos," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CoreOS Static Ip 固定 IP 設定"/>
-<meta name="twitter:description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot"/>
+<meta name="twitter:description" content="設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -134,22 +135,33 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#-static-ip">設定 static ip</a></li>
+    <li><a href="#設定-static-ip">設定 static ip</a></li>
     <li><a href="#reboot">reboot</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="-static-ip">設定 static ip</h2>
+      <h2 id="設定-static-ip">設定 static ip</h2>
 <p>副檔名必須是.network</p>
 <p><code>$ vi /etc/systemd/network/enp0s8.network</code></p>
-<pre><code>[Match]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Match]
 Name=enp0s8
  
 [Network]
 Address=192.168.56.201/24
-</code></pre><p><img src="https://fblog.ooopiz.com/images/2019/07/a001.jpg" alt="static ip" title="static ip"></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://fblog.ooopiz.com/images/2019/07/a001.jpg" alt="static ip" title="static ip"></p>
 <h2 id="reboot">reboot</h2>
 <p><code>sudo reboot</code></p>
 

@@ -6,18 +6,14 @@
     <description>Recent content in nginx on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 05 May 2016 02:47:01 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.ooopiz.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 05 May 2016 02:47:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>安裝 Nginx 1.9&#43;</title>
       <link>https://blog.ooopiz.com/post/2016/05/installing-nginx-19/</link>
       <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/05/installing-nginx-19/</guid>
-      <description>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on</description>
+      <description>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx 啟動服務 # service nginx start # chkconfig --levels 235 nginx on</description>
     </item>
     
     <item>
@@ -26,7 +22,7 @@
       <pubDate>Mon, 24 Aug 2015 07:01:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/</guid>
-      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y 安裝 Nginx</description>
+      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum</description>
     </item>
     
     <item>
@@ -35,7 +31,7 @@
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm 參考連結MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.R</description>
+      <description>一、更新rpm 參考連結MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
     </item>
     
   </channel>

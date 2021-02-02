@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2016-10-04T02:09:01+08:00" />
 <meta itemprop="name" content="CentOS yum 安裝bind9">
 <meta itemprop="description" content="安裝 # sudo yum install bind bind-utils -y # service named start # chkconfig named on 防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT # service iptables save # service iptables restart 設定 預設ne">
-<meta itemprop="datePublished" content="2016-10-04T02:09:01&#43;08:00" />
-<meta itemprop="dateModified" content="2016-10-04T02:09:01&#43;08:00" />
-<meta itemprop="wordCount" content="489">
+<meta itemprop="datePublished" content="2016-10-04T02:09:01+08:00" />
+<meta itemprop="dateModified" content="2016-10-04T02:09:01+08:00" />
+<meta itemprop="wordCount" content="557">
 
 
 
-<meta itemprop="keywords" content="dns,bind," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="dns,bind," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS yum 安裝bind9"/>
 <meta name="twitter:description" content="安裝 # sudo yum install bind bind-utils -y # service named start # chkconfig named on 防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT # service iptables save # service iptables restart 設定 預設ne"/>
 
@@ -134,44 +135,81 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">安裝</a>
+    <li><a href="#安裝">安裝</a>
       <ul>
-        <li><a href="#heading1">防火牆設定</a></li>
-        <li><a href="#heading2">設定</a></li>
-        <li><a href="#heading5">指令</a></li>
+        <li><a href="#防火牆設定">防火牆設定</a></li>
+        <li><a href="#設定">設定</a></li>
+        <li><a href="#指令">指令</a></li>
       </ul>
     </li>
-    <li><a href="#bind">查bind版本</a>
+    <li><a href="#查bind版本">查bind版本</a>
       <ul>
-        <li><a href="#heading7">方法一</a></li>
-        <li><a href="#heading8">方法二</a></li>
+        <li><a href="#方法一">方法一</a></li>
+        <li><a href="#方法二">方法二</a></li>
       </ul>
     </li>
-    <li><a href="#heading9">隱藏版本資訊</a></li>
+    <li><a href="#隱藏版本資訊">隱藏版本資訊</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">安裝</h2>
+      <h2 id="安裝">安裝</h2>
 <p><code># sudo yum install bind bind-utils -y</code></p>
 <p><code># service named start</code></p>
 <p><code># chkconfig named on</code></p>
-<h3 id="heading1">防火牆設定</h3>
+<h3 id="防火牆設定">防火牆設定</h3>
 <p><code># iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT </code></p>
 <p><code># iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT</code></p>
 <p><code># service iptables save</code></p>
 <p><code># service iptables restart</code></p>
-<h3 id="heading2">設定</h3>
-<h4 id="nemedconf-bind-982rc1redhat982047rc1el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</h4>
+<h3 id="設定">設定</h3>
+<h4 id="預設nemedconf檔-bind-982rc1-redhat-982-047rc1el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)</h4>
 <p>以下為yum安裝後產生的預設named.conf設定檔</p>
-<pre><code>options {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">options {
         listen-on port 53 { 127.0.0.1; };
         listen-on-v6 port 53 { ::1; };
-        directory       &quot;/var/named&quot;;
-        dump-file       &quot;/var/named/data/cache_dump.db&quot;;
-        statistics-file &quot;/var/named/data/named_stats.txt&quot;;
-        memstatistics-file &quot;/var/named/data/named_mem_stats.txt&quot;;
+        directory       &#34;/var/named&#34;;
+        dump-file       &#34;/var/named/data/cache_dump.db&#34;;
+        statistics-file &#34;/var/named/data/named_stats.txt&#34;;
+        memstatistics-file &#34;/var/named/data/named_mem_stats.txt&#34;;
         allow-query     { localhost; };
         recursion yes;
 
@@ -179,44 +217,93 @@
         dnssec-validation yes;
 
         /* Path to ISC DLV key */
-        bindkeys-file &quot;/etc/named.iscdlv.key&quot;;
+        bindkeys-file &#34;/etc/named.iscdlv.key&#34;;
 
-        managed-keys-directory &quot;/var/named/dynamic&quot;;
+        managed-keys-directory &#34;/var/named/dynamic&#34;;
 };
 
 logging {
         channel default_debug {
-                file &quot;data/named.run&quot;;
+                file &#34;data/named.run&#34;;
                 severity dynamic;
         };
 };
 
-zone &quot;.&quot; IN {
+zone &#34;.&#34; IN {
         type hint;
-        file &quot;named.ca&quot;;
+        file &#34;named.ca&#34;;
 };
 
-include &quot;/etc/named.rfc1912.zones&quot;;
-include &quot;/etc/named.root.key&quot;;
-</code></pre><h4 id="heading3">修改設定</h4>
+include &#34;/etc/named.rfc1912.zones&#34;;
+include &#34;/etc/named.root.key&#34;;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="修改設定">修改設定</h4>
 <p>修改options設定，允許查詢來源</p>
 <p><code># vi /etc/named.conf</code></p>
-<pre><code>options {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">options {
         //(其他參數略...)
         listen-on port 53 { any; };
         listen-on-v6 port 53 { any; };
         allow-query { any; };
-        version &quot;zzz&quot;;
+        version &#34;zzz&#34;;
 };
-</code></pre><h4 id="heading4">新增正解設定檔</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="新增正解設定檔">新增正解設定檔</h4>
 <p><code># vi /etc/named.conf</code></p>
-<pre><code>zone  &quot;example.com&quot; {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">zone  &#34;example.com&#34; {
         type master;
-        file  &quot;forward.example.com.zone&quot;;
+        file  &#34;forward.example.com.zone&#34;;
 };
-</code></pre><h4 id="namedconfexamplecomzonevarnamed">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="namedconf中指examplecom的域名zone檔因此必須在預設根目錄varnamed的路徑新增一個檔案">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案</h4>
 <p><code># vi /var/named/forward.example.com.zone</code></p>
-<pre><code>; zone file for example.tld
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">; zone file for example.tld
 $TTL 1200     ; 14400 4 hours - default TTL for zone
 $ORIGIN example.com.
 ;; SOA Resource Record
@@ -236,22 +323,34 @@ www           IN      CNAME   @
 @             IN      AAAA    2001:b034:2000:1000:1000::38
 ;; FTP Server Resource Records
 ftp           IN      A       192.168.0.3
-</code></pre><h3 id="heading5">指令</h3>
-<h4 id="heading6">檢查設定檔(可以用以下指令來檢查設定是否正確)</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="指令">指令</h3>
+<h4 id="檢查設定檔可以用以下指令來檢查設定是否正確">檢查設定檔(可以用以下指令來檢查設定是否正確)</h4>
 <p><code># named-checkconf /etc/named.conf</code></p>
-<h2 id="bind">查bind版本</h2>
-<h3 id="heading7">方法一</h3>
+<h2 id="查bind版本">查bind版本</h2>
+<h3 id="方法一">方法一</h3>
 <p><code># nslookup -debug -class=chaos -query=txt version.bind &lt;NameServer IP&gt;</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201609/A02-02.jpg" alt=""></p>
-<h3 id="heading8">方法二</h3>
+<h3 id="方法二">方法二</h3>
 <p><code># dig @&lt;NameServer IP&gt; version.bind chaos txt</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201609/A02-01.jpg" alt=""></p>
-<h2 id="heading9">隱藏版本資訊</h2>
-<pre><code>options {
+<h2 id="隱藏版本資訊">隱藏版本資訊</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">options {
         //(其他參數略...)
-        version &quot;ZZZ&quot;;
+        version &#34;ZZZ&#34;;
 };
-</code></pre>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

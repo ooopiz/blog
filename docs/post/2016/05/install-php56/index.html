@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP" /><meta name="keywords" content="devops, 技術, 後端工程師" />
+<meta name="author" content="馬丁" /><meta name="description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、" /><meta name="keywords" content="devops, 技術, 後端工程師" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/05/install-php56/" />
@@ -39,22 +39,23 @@
 
 
 <meta property="og:title" content="安裝 PHP5.6" />
-<meta property="og:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP" />
+<meta property="og:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/05/install-php56/" />
 <meta property="article:published_time" content="2016-05-05T02:38:01+08:00" />
 <meta property="article:modified_time" content="2016-05-05T02:38:01+08:00" />
 <meta itemprop="name" content="安裝 PHP5.6">
-<meta itemprop="description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP">
-<meta itemprop="datePublished" content="2016-05-05T02:38:01&#43;08:00" />
-<meta itemprop="dateModified" content="2016-05-05T02:38:01&#43;08:00" />
-<meta itemprop="wordCount" content="479">
+<meta itemprop="description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、">
+<meta itemprop="datePublished" content="2016-05-05T02:38:01+08:00" />
+<meta itemprop="dateModified" content="2016-05-05T02:38:01+08:00" />
+<meta itemprop="wordCount" content="514">
 
 
 
-<meta itemprop="keywords" content="php," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安裝 PHP5.6"/>
-<meta name="twitter:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP"/>
+<meta name="twitter:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo 1 2 3 4 5 CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -134,38 +135,49 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#rpm">一、更新rpm</a>
+    <li><a href="#一更新rpm">一、更新rpm</a>
       <ul>
-        <li><a href="#remi-phpremirepoenabled01">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</a></li>
+        <li><a href="#remi源-最新的php版本需要修改remirepo中的enabled0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</a></li>
       </ul>
     </li>
-    <li><a href="#php">二、安裝PHP</a>
+    <li><a href="#二安裝php">二、安裝PHP</a>
       <ul>
-        <li><a href="#-php">安裝 PHP</a></li>
-        <li><a href="#php-lib">安裝其他PHP Lib</a></li>
-        <li><a href="#php-phpfpm">設定php, php-fpm</a></li>
-        <li><a href="#php1">設定php</a></li>
-        <li><a href="#php-session">設定php session檔的權限</a></li>
-        <li><a href="#phpfpm">設定php-fpm</a></li>
-        <li><a href="#-log-">設定 Log 檔的權限</a></li>
+        <li><a href="#安裝-php">安裝 PHP</a></li>
+        <li><a href="#安裝其他php-lib">安裝其他PHP Lib</a></li>
+        <li><a href="#設定php-php-fpm">設定php, php-fpm</a></li>
+        <li><a href="#設定php">設定php</a></li>
+        <li><a href="#設定php-session檔的權限">設定php session檔的權限</a></li>
+        <li><a href="#設定php-fpm">設定php-fpm</a></li>
+        <li><a href="#設定-log-檔的權限">設定 Log 檔的權限</a></li>
       </ul>
     </li>
-    <li><a href="#nginx">三、設定Nginx</a></li>
-    <li><a href="#heading">四、啟動服務</a></li>
+    <li><a href="#三設定nginx">三、設定Nginx</a></li>
+    <li><a href="#四啟動服務">四、啟動服務</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="rpm">一、更新rpm</h2>
-<h3 id="remi-phpremirepoenabled01">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</h3>
+      <h2 id="一更新rpm">一、更新rpm</h2>
+<h3 id="remi源-最新的php版本需要修改remirepo中的enabled0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</h3>
 <p><code># vi /etc/yum.repos.d/remi.repo</code></p>
-<pre><code>CentOS 6
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CentOS 6
 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
 
 CentOS 7
 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm`
-</code></pre><h2 id="php">二、安裝PHP</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="二安裝php">二、安裝PHP</h2>
 <blockquote>
 <p>想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
 路徑：/etc/yum.repos.d/remi.repo
@@ -175,31 +187,60 @@ CentOS 7
 </blockquote>
 <p><code># vi /etc/yum.repos.d/remi.repo</code>
 <img src="https://fblog.ooopiz.com/images/201508/002.png" alt=""></p>
-<h3 id="-php">安裝 PHP</h3>
+<h3 id="安裝-php">安裝 PHP</h3>
 <p><code># yum install php</code></p>
-<h3 id="php-lib">安裝其他PHP Lib</h3>
+<h3 id="安裝其他php-lib">安裝其他PHP Lib</h3>
 <p><code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
-<h3 id="php-phpfpm">設定php, php-fpm</h3>
-<h3 id="php1">設定php</h3>
+<h3 id="設定php-php-fpm">設定php, php-fpm</h3>
+<h3 id="設定php">設定php</h3>
 <blockquote>
 <p>設定內容如下(/etc/php.ini)：</p>
 </blockquote>
-<pre><code>cgi.fix_pathinfo=0
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cgi.fix_pathinfo=0
 session.save_handler = files
-session.save_path = &quot;/var/lib/php/session&quot;
-date.timezone = &quot;Asia/Taipei&quot;
+session.save_path = &#34;/var/lib/php/session&#34;
+date.timezone = &#34;Asia/Taipei&#34;
 error_reporting = E_ALL &amp; ~E_NOTICE
 display_errors = On
 magic_quotes_gpc = Off
-</code></pre><h3 id="php-session">設定php session檔的權限</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="設定php-session檔的權限">設定php session檔的權限</h3>
 <p><code># mkdir /var/lib/php/session</code>
 <code># chown -R nginx:nginx /var/lib/php/session</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201508/003.png" alt=""></p>
-<h3 id="phpfpm">設定php-fpm</h3>
+<h3 id="設定php-fpm">設定php-fpm</h3>
 <blockquote>
 <p>預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
 </blockquote>
-<pre><code>listen = 127.0.0.1:9000
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">listen = 127.0.0.1:9000
 listen.allowed_clients = 127.0.0.1
 user = nginx
 group = nginx
@@ -211,30 +252,55 @@ pm.max_spare_servers = 35
 slowlog = /var/log/php-fpm/www-slow.log
 php_admin_value[error_log] = /var/log/php-fpm/www-error.log
 php_admin_flag[log_errors] = on
-</code></pre><h3 id="-log-">設定 Log 檔的權限</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="設定-log-檔的權限">設定 Log 檔的權限</h3>
 <p><code># chown -R nginx:nginx /var/log/php-fpm</code></p>
-<h2 id="nginx">三、設定Nginx</h2>
+<h2 id="三設定nginx">三、設定Nginx</h2>
 <blockquote>
 <p>加入一個 index.php</p>
 </blockquote>
-<pre><code>    location / {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    location / {
         root   /usr/share/nginx/html;
         index  index.php index.html index.htm;
     }
-</code></pre><p><img src="https://fblog.ooopiz.com/images/201508/004.png" alt=""></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://fblog.ooopiz.com/images/201508/004.png" alt=""></p>
 <blockquote>
 <p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。
 /etc/nginx/conf.d/default.conf</p>
 </blockquote>
-<pre><code>location ~ \.php$ {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">location ~ \.php$ {
 root /usr/share/nginx/html;
 fastcgi_pass   127.0.0.1:9000;
 fastcgi_index  index.php;
 fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
 include        fastcgi_params;
 }
-</code></pre><p><img src="https://fblog.ooopiz.com/images/201508/005.png" alt=""></p>
-<h2 id="heading">四、啟動服務</h2>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://fblog.ooopiz.com/images/201508/005.png" alt=""></p>
+<h2 id="四啟動服務">四、啟動服務</h2>
 <p><code># service php-fpm start</code>
 <code># chkconfig --levels 235 php-fpm on</code></p>
 

@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y 安裝 Nginx" /><meta name="keywords" content="devops, 技術, 後端工程師" />
+<meta name="author" content="馬丁" /><meta name="description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum" /><meta name="keywords" content="devops, 技術, 後端工程師" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/" />
@@ -39,22 +39,23 @@
 
 
 <meta property="og:title" content="CentOS6.5 安裝Nginx" />
-<meta property="og:description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y 安裝 Nginx" />
+<meta property="og:description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/" />
 <meta property="article:published_time" content="2015-08-24T07:01:01+08:00" />
 <meta property="article:modified_time" content="2015-08-24T07:01:01+08:00" />
 <meta itemprop="name" content="CentOS6.5 安裝Nginx">
-<meta itemprop="description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y 安裝 Nginx">
-<meta itemprop="datePublished" content="2015-08-24T07:01:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-08-24T07:01:01&#43;08:00" />
-<meta itemprop="wordCount" content="95">
+<meta itemprop="description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum">
+<meta itemprop="datePublished" content="2015-08-24T07:01:01+08:00" />
+<meta itemprop="dateModified" content="2015-08-24T07:01:01+08:00" />
+<meta itemprop="wordCount" content="100">
 
 
 
-<meta itemprop="keywords" content="nginx," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="nginx," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 安裝Nginx"/>
-<meta name="twitter:description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y 安裝 Nginx"/>
+<meta name="twitter:description" content="新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下 1 2 3 4 5 [nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,11 +137,11 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#-nginx-">新增 Nginx 官方所提供的第三方套件庫</a></li>
-        <li><a href="#heading">更新套件庫</a></li>
-        <li><a href="#-nginx">安裝 Nginx</a></li>
-        <li><a href="#-nginx1">執行 Nginx</a></li>
-        <li><a href="#heading1">開機時自動啟動</a></li>
+        <li><a href="#新增-nginx-官方所提供的第三方套件庫">新增 Nginx 官方所提供的第三方套件庫</a></li>
+        <li><a href="#更新套件庫">更新套件庫</a></li>
+        <li><a href="#安裝-nginx">安裝 Nginx</a></li>
+        <li><a href="#執行-nginx">執行 Nginx</a></li>
+        <li><a href="#開機時自動啟動">開機時自動啟動</a></li>
       </ul>
     </li>
   </ul>
@@ -148,20 +149,31 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="-nginx-">新增 Nginx 官方所提供的第三方套件庫</h3>
+      <h3 id="新增-nginx-官方所提供的第三方套件庫">新增 Nginx 官方所提供的第三方套件庫</h3>
 <p>新增一個檔案<code>/etc/yum.repos.d/nginx.repo</code>內容如下</p>
-<pre><code class="language-config" data-lang="config">[nginx]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[nginx]
 name=nginx repo
 baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
 gpgcheck=0
 enabled=1
-</code></pre><h3 id="heading">更新套件庫</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="更新套件庫">更新套件庫</h3>
 <p><code># yum update -y</code></p>
-<h3 id="-nginx">安裝 Nginx</h3>
+<h3 id="安裝-nginx">安裝 Nginx</h3>
 <p><code># yum install nginx</code></p>
-<h3 id="-nginx1">執行 Nginx</h3>
+<h3 id="執行-nginx">執行 Nginx</h3>
 <p><code># service nginx start</code></p>
-<h3 id="heading1">開機時自動啟動</h3>
+<h3 id="開機時自動啟動">開機時自動啟動</h3>
 <p><code># sudo chkconfig --levels 235 nginx on</code></p>
 
     </div>

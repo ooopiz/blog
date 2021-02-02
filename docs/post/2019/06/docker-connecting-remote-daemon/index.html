@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2019-06-04T20:22:08+08:00" />
 <meta itemprop="name" content="Docker cli 連線到遠端的 dockerd daemon">
 <meta itemprop="description" content="docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本">
-<meta itemprop="datePublished" content="2019-06-04T20:22:08&#43;08:00" />
-<meta itemprop="dateModified" content="2019-06-04T20:22:08&#43;08:00" />
-<meta itemprop="wordCount" content="445">
+<meta itemprop="datePublished" content="2019-06-04T20:22:08+08:00" />
+<meta itemprop="dateModified" content="2019-06-04T20:22:08+08:00" />
+<meta itemprop="wordCount" content="452">
 
 
 
-<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker cli 連線到遠端的 dockerd daemon"/>
 <meta name="twitter:description" content="docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本"/>
 
@@ -134,11 +135,11 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#docker--clientserver-">docker 是 client/server 的架構</a></li>
-    <li><a href="#-docker-daemon">如何連線到遠端的 docker daemon</a>
+    <li><a href="#docker-是-clientserver-的架構">docker 是 client/server 的架構</a></li>
+    <li><a href="#如何連線到遠端的-docker-daemon">如何連線到遠端的 docker daemon</a>
       <ul>
         <li><a href="#dockerd-port-listen">dockerd port listen</a></li>
-        <li><a href="#heading">連線測試</a></li>
+        <li><a href="#連線測試">連線測試</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -147,7 +148,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="docker--clientserver-">docker 是 client/server 的架構</h2>
+      <h2 id="docker-是-clientserver-的架構">docker 是 client/server 的架構</h2>
 <p>昨天在網路上看到一句話，大意是：</p>
 <blockquote>
 <p>docker 是 client / server 的架構，
@@ -155,7 +156,7 @@
 </blockquote>
 <p>才赫然發現 docker 別有洞天吶。<br>
 原來每天在敲的 docker 指令都是在操控本機的 docker daemon。</p>
-<h2 id="-docker-daemon">如何連線到遠端的 docker daemon</h2>
+<h2 id="如何連線到遠端的-docker-daemon">如何連線到遠端的 docker daemon</h2>
 <p>有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。</p>
 <p>今天馬上用我 virtualbox 中的 coreOS 進行測試一下。</p>
 <h3 id="dockerd-port-listen">dockerd port listen</h3>
@@ -166,24 +167,49 @@
 我的檔案在 /run/systemd/system/docker.service</p>
 <p><img src="https://fblog.ooopiz.com/images/2019/06/a001.jpg" alt="dockerd -H tcp://0.0.0.0:2375" title="docker -H tcp://0.0.0.0:2375"></p>
 <p>修改完後，reload 並重啓</p>
-<pre><code>$ sudo systemctl daemon-reload
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
-</code></pre><p>接著就可以看到 service 的 port 已經打開了。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>接著就可以看到 service 的 port 已經打開了。</p>
 <p><img src="https://fblog.ooopiz.com/images/2019/06/a002.jpg" alt="dockerd port listen" title="dockerd prot listen"></p>
-<h3 id="heading">連線測試</h3>
+<h3 id="連線測試">連線測試</h3>
 <p>一般我們 key 入 docker version，就可以看到一個 Client，一個 Server.</p>
 <p>現在改輸入 docker -H tcp://remote_ip:port version<br>
 一樣是一個 Client 一個 Server，注意看會發現 Server 那邊的資訊已經不一樣了。<br>
 說明指令已經控制到遠端的 docker 了。</p>
 <p><img src="https://fblog.ooopiz.com/images/2019/06/a003.jpg" alt="docker connecting remote daemon" title="docker connecting remote daemon"></p>
 <p>你可以在試試看下面這些指令，你應該可以發現不同了。(記得換成你在用的 IP)</p>
-<pre><code>$ docker -H tcp://192.168.56.101:2375 images
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ docker -H tcp://192.168.56.101:2375 images
 $ docker -H tcp://192.168.56.101:2375 ps
 $ docker -H tcp://192.168.56.101:2375 ps -a
-</code></pre><p>每次都要打 -H 也是蠻煩的。你也可以</p>
-<pre><code>$ export DOCKER_HOST=&quot;tcp://192.168.56.101:2375&quot;
+</code></pre></td></tr></table>
+</div>
+</div><p>每次都要打 -H 也是蠻煩的。你也可以</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export DOCKER_HOST=&#34;tcp://192.168.56.101:2375&#34;
 $ docker version
-</code></pre><h2 id="reference">Reference</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://nickjanetakis.com/blog/docker-tip-73-connecting-to-a-remote-docker-daemon">Docker Tip #73: Connecting to a Remote Docker Daemon</a></li>
 <li><a href="https://docs.docker.com/engine/reference/commandline/dockerd/">docs.docker.com</a></li>

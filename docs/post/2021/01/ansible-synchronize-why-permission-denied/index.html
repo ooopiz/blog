@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2021-01-28T15:37:22+08:00" />
 <meta itemprop="name" content="Ansible Synchronize Why Permission Denied">
 <meta itemprop="description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的">
-<meta itemprop="datePublished" content="2021-01-28T15:37:22&#43;08:00" />
-<meta itemprop="dateModified" content="2021-01-28T15:37:22&#43;08:00" />
-<meta itemprop="wordCount" content="807">
+<meta itemprop="datePublished" content="2021-01-28T15:37:22+08:00" />
+<meta itemprop="dateModified" content="2021-01-28T15:37:22+08:00" />
+<meta itemprop="wordCount" content="825">
 
 
 
-<meta itemprop="keywords" content="ansible," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ansible," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ansible Synchronize Why Permission Denied"/>
 <meta name="twitter:description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的"/>
 
@@ -134,23 +135,23 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#-ansible--synchronize-">關於 ansible 的 Synchronize 模組問題</a></li>
-    <li><a href="#heading">發現問題</a></li>
-    <li><a href="#heading1">測試</a>
+    <li><a href="#關於-ansible-的-synchronize-模組問題">關於 ansible 的 Synchronize 模組問題</a></li>
+    <li><a href="#發現問題">發現問題</a></li>
+    <li><a href="#測試">測試</a>
       <ul>
-        <li><a href="#1--playbook--play-">1. 先寫了一個 playbook 來 play 測試一下</a></li>
-        <li><a href="#2--synchroize-">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</a></li>
-        <li><a href="#3--ansible-">3. 推測 ansible 具體執行的指令</a></li>
-        <li><a href="#4--pluginsactionsynchronizepy">4. 追蹤導致上方變數不同的原因 (plugins/action/synchronize.py)</a></li>
+        <li><a href="#1-先寫了一個-playbook-來-play-測試一下">1. 先寫了一個 playbook 來 play 測試一下</a></li>
+        <li><a href="#2-接著在-synchroize-模組源碼中追蹤到兩個明確的變數差異">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</a></li>
+        <li><a href="#3-推測-ansible-具體執行的指令">3. 推測 ansible 具體執行的指令</a></li>
+        <li><a href="#4-追蹤導致上方變數不同的原因-pluginsactionsynchronizepy">4. 追蹤導致上方變數不同的原因 (plugins/action/synchronize.py)</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">結論</a></li>
+    <li><a href="#結論">結論</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="-ansible--synchronize-">關於 ansible 的 Synchronize 模組問題</h2>
+      <h2 id="關於-ansible-的-synchronize-模組問題">關於 ansible 的 Synchronize 模組問題</h2>
 <p>關於 ansible 的使用上，synchroize 是一個很棒的模組，<br>
 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，<br>
 但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。</p>
@@ -160,7 +161,7 @@
 <p>become_user: root, become_method: sudo, 跟模組參數試了又試。<br>
 還是很難理解到底那個環節出了問題。</p>
 <p><img src="https://fblog.ooopiz.com/images/2021/01/a001.jpg" alt=""></p>
-<h2 id="heading">發現問題</h2>
+<h2 id="發現問題">發現問題</h2>
 <p>一般來說 ansible 使用上都是透過 ssh 控制遠程的目標伺服器。<br>
 筆者的 asnible script 寫了很多安裝佈署的步驟，其中當然也包含了 synchroize 模組。</p>
 <p>為了符合單機離線安裝的情境，做這類佈署時我會直接將 inventory 的主機直接指定本地端的 IP，<br>
@@ -170,9 +171,29 @@
 <p>當我發現目標機器是 127.0.0.1 時就會出問題，<br>
 目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。</p>
 <p>我大概可以猜測 synchroize 模組針對 localhsot or 127.0.0.1 的目標機器可能有不同的處理流程</p>
-<h2 id="heading1">測試</h2>
-<h3 id="1--playbook--play-">1. 先寫了一個 playbook 來 play 測試一下</h3>
-<pre><code>---
+<h2 id="測試">測試</h2>
+<h3 id="1-先寫了一個-playbook-來-play-測試一下">1. 先寫了一個 playbook 來 play 測試一下</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">---
 - name:
   hosts: all
   become: yes
@@ -181,25 +202,41 @@
   gather_facts: false
 
   tasks:
-    - name: 'rsync migrations dist dir'
+    - name: &#39;rsync migrations dist dir&#39;
       synchronize:
-        src:  &quot;{{ lookup('env', 'PWD') }}/dist/&quot;
-        dest: &quot;/var/lib/migrations/dist/&quot;
+        src:  &#34;{{ lookup(&#39;env&#39;, &#39;PWD&#39;) }}/dist/&#34;
+        dest: &#34;/var/lib/migrations/dist/&#34;
         delete: yes
         rsync_opts:
-          - &quot;--chown=ricky:ricky&quot;
-</code></pre><h3 id="2--synchroize-">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</h3>
+          - &#34;--chown=ricky:ricky&#34;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-接著在-synchroize-模組源碼中追蹤到兩個明確的變數差異">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</h3>
 <ul>
 <li>
 <p>target: 127.0.0.1</p>
-<pre><code>{'src': '/home/ubuntu/test/dist/', 'dest': '/var/lib/migrations/dist/', 'delete': True, '_local_rsync_path': 'rsync', '_local_rsync_password': '123456', 'rsync_path': 'sudo rsync'}
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;src&#39;: &#39;/home/ubuntu/test/dist/&#39;, &#39;dest&#39;: &#39;/var/lib/migrations/dist/&#39;, &#39;delete&#39;: True, &#39;_local_rsync_path&#39;: &#39;rsync&#39;, &#39;_local_rsync_password&#39;: &#39;123456&#39;, &#39;rsync_path&#39;: &#39;sudo rsync&#39;}
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>target: 192.168.56.103</p>
-<pre><code>{'src': '/home/ubuntu/test/dist/', 'dest': 'ubuntu@192.168.56.103:/var/lib/migrations/dist/', 'delete': True, '_local_rsync_path': 'rsync', '_local_rsync_password': '123456', 'rsync_path': 'sudo rsync'}
-</code></pre></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;src&#39;: &#39;/home/ubuntu/test/dist/&#39;, &#39;dest&#39;: &#39;ubuntu@192.168.56.103:/var/lib/migrations/dist/&#39;, &#39;delete&#39;: True, &#39;_local_rsync_path&#39;: &#39;rsync&#39;, &#39;_local_rsync_password&#39;: &#39;123456&#39;, &#39;rsync_path&#39;: &#39;sudo rsync&#39;}
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
-<h3 id="3--ansible-">3. 推測 ansible 具體執行的指令</h3>
+<h3 id="3-推測-ansible-具體執行的指令">3. 推測 ansible 具體執行的指令</h3>
 <ul>
 <li>
 <p>target: 127.0.0.1</p>
@@ -210,7 +247,7 @@
 <p><code>rsync /home/ubuntu/test/dist/ ubuntu@192.168.56.103:/var/lib/migrations/dist/</code></p>
 </li>
 </ul>
-<h3 id="4--pluginsactionsynchronizepy">4. 追蹤導致上方變數不同的原因 (plugins/action/synchronize.py)</h3>
+<h3 id="4-追蹤導致上方變數不同的原因-pluginsactionsynchronizepy">4. 追蹤導致上方變數不同的原因 (plugins/action/synchronize.py)</h3>
 <p>在源碼中插入 debug message（7, 8, 9, z, 等&hellip;）</p>
 <blockquote>
 <p>這段程式碼有一連串在判斷目標機器是否是 local 的邏輯</p>
@@ -225,7 +262,7 @@
 <p><img src="https://fblog.ooopiz.com/images/2021/01/a004.jpg" alt=""></p>
 <p>找到 C.LOCALHOST 定義的地方 ( constants.py )</p>
 <p><img src="https://fblog.ooopiz.com/images/2021/01/a005.jpg" alt=""></p>
-<h2 id="heading2">結論</h2>
+<h2 id="結論">結論</h2>
 <p>原本預期當 inventory 指定 127.0.0.1 時<br>
 所有的 task 均會透過 <code>ssh ubuntu@127.0.0.1</code> 執行腳本，</p>
 <p>事實上在 Synchronize 這個模組運行時，卻是將其視為 locally 的操作，<br>

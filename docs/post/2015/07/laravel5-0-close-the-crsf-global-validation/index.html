@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2015-07-25T08:13:01+08:00" />
 <meta itemprop="name" content="Laravel5.0 關閉CSRF全局驗證">
 <meta itemprop="description" content="修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27">
-<meta itemprop="datePublished" content="2015-07-25T08:13:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-07-25T08:13:01&#43;08:00" />
+<meta itemprop="datePublished" content="2015-07-25T08:13:01+08:00" />
+<meta itemprop="dateModified" content="2015-07-25T08:13:01+08:00" />
 <meta itemprop="wordCount" content="180">
 
 
 
-<meta itemprop="keywords" content="laravel," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="laravel," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Laravel5.0 關閉CSRF全局驗證"/>
 <meta name="twitter:description" content="修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27"/>
 
@@ -170,33 +171,33 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">class Kernel extends HttpKernel {
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Kernel</span> <span class="k">extends</span> <span class="nx">HttpKernel</span> <span class="p">{</span>
 
-    /**
-     * The application&#39;s global HTTP middleware stack.
-     *
-     * @var array
-     */
-    protected $middleware = [
-        &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;,
-        &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;,
-        &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;,
-        &#39;Illuminate\Session\Middleware\StartSession&#39;,
-        &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;,
-    ];
-    /**
-     * The application&#39;s route middleware.
-     *
-     * @var array
-     */
-    protected $routeMiddleware = [
-        &#39;auth&#39; =&gt; &#39;App\Http\Middleware\Authenticate&#39;,
-        &#39;auth.basic&#39; =&gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;,
-        &#39;guest&#39; =&gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;,
-        &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;,
-    ];
+    <span class="sd">/**
+</span><span class="sd">     * The application&#39;s global HTTP middleware stack.
+</span><span class="sd">     *
+</span><span class="sd">     * @var array
+</span><span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$middleware</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Illuminate\Session\Middleware\StartSession&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="sd">/**
+</span><span class="sd">     * The application&#39;s route middleware.
+</span><span class="sd">     *
+</span><span class="sd">     * @var array
+</span><span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$routeMiddleware</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;auth&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Http\Middleware\Authenticate&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;auth.basic&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;guest&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Http\Middleware\RedirectIfAuthenticated&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;csrf&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Http\Middleware\VerifyCsrfToken&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
 
-}
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方
@@ -209,10 +210,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$router-&gt;group([&#39;middleware&#39; =&gt; &#39;csrf&#39;], function($router)
-{
-  // Protected routes
-})
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$router</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">([</span><span class="s1">&#39;middleware&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;csrf&#39;</span><span class="p">],</span> <span class="k">function</span><span class="p">(</span><span class="nv">$router</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Protected routes
+</span><span class="c1"></span><span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
 </div>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2015-08-24T02:00:01+08:00" />
 <meta itemprop="name" content="CentOS6.5 安裝phpMyAdmin">
 <meta itemprop="description" content="一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本 wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin rm phpMyAdmin-4.1.12-all-languages.tar.gz 二、設定config.inc.p">
-<meta itemprop="datePublished" content="2015-08-24T02:00:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-08-24T02:00:01&#43;08:00" />
-<meta itemprop="wordCount" content="355">
+<meta itemprop="datePublished" content="2015-08-24T02:00:01+08:00" />
+<meta itemprop="dateModified" content="2015-08-24T02:00:01+08:00" />
+<meta itemprop="wordCount" content="359">
 
 
 
-<meta itemprop="keywords" content="phpmyadmin," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="phpmyadmin," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 安裝phpMyAdmin"/>
 <meta name="twitter:description" content="一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本 wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin rm phpMyAdmin-4.1.12-all-languages.tar.gz 二、設定config.inc.p"/>
 
@@ -136,11 +137,11 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#phpmyadmin">一、安裝phpMyAdmin</a></li>
-        <li><a href="#configincphp">二、設定config.inc.php</a></li>
-        <li><a href="#mysql">三、查看mysql使用者,新增使用者,給予權限</a></li>
-        <li><a href="#phpmyadmin-">四、phpMyAdmin 高級功能啟用</a></li>
-        <li><a href="#phpmyadminphpmyadmin">五、完成，即可在phpMyAdmin看到表phpmyadmin</a></li>
+        <li><a href="#一安裝phpmyadmin">一、安裝phpMyAdmin</a></li>
+        <li><a href="#二設定configincphp">二、設定config.inc.php</a></li>
+        <li><a href="#三查看mysql使用者新增使用者給予權限">三、查看mysql使用者,新增使用者,給予權限</a></li>
+        <li><a href="#四phpmyadmin-高級功能啟用">四、phpMyAdmin 高級功能啟用</a></li>
+        <li><a href="#五完成即可在phpmyadmin看到表phpmyadmin">五、完成，即可在phpMyAdmin看到表phpmyadmin</a></li>
       </ul>
     </li>
   </ul>
@@ -148,7 +149,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="phpmyadmin">一、安裝phpMyAdmin</h3>
+      <h3 id="一安裝phpmyadmin">一、安裝phpMyAdmin</h3>
 <blockquote>
 <p>phpMyAdmin對應php版本會有影響，請挑選適合的版本</p>
 </blockquote>
@@ -156,17 +157,33 @@
 <p><code>tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
 <p><code>mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin</code></p>
 <p><code>rm phpMyAdmin-4.1.12-all-languages.tar.gz</code></p>
-<h3 id="configincphp">二、設定config.inc.php</h3>
+<h3 id="二設定configincphp">二、設定config.inc.php</h3>
 <p>路徑:/usr/share/nginx/html/phpMyAdmin
 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
 <code># cp config.sample.inc.php config.inc.php</code></p>
-<pre><code> /* Authentication type */
-$cfg['Servers'][$i]['auth_type'] = 'cookies';
-</code></pre><p>改成</p>
-<pre><code>/* Authentication type */
-$cfg['Servers'][$i]['auth_type'] = 'http';
-</code></pre><p><img src="https://fblog.ooopiz.com/images/201508/A01-01.png" alt=""></p>
-<h3 id="mysql">三、查看mysql使用者,新增使用者,給予權限</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> /* Authentication type */
+$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;;
+</code></pre></td></tr></table>
+</div>
+</div><p>改成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/* Authentication type */
+$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://fblog.ooopiz.com/images/201508/A01-01.png" alt=""></p>
+<h3 id="三查看mysql使用者新增使用者給予權限">三、查看mysql使用者,新增使用者,給予權限</h3>
 <p><code># mysql -u root -p -h 127.0.0.1</code></p>
 <p><code>mysql&gt; select user, host from mysql.user;</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201508/A01-02.png" alt=""></p>
@@ -175,7 +192,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 <p><code>mysql&gt; grant all on *.* to 'admin'@'%';</code>
 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利</p>
 <p><img src="https://fblog.ooopiz.com/images/201508/A01-04.png" alt=""></p>
-<h3 id="phpmyadmin-">四、phpMyAdmin 高級功能啟用</h3>
+<h3 id="四phpmyadmin-高級功能啟用">四、phpMyAdmin 高級功能啟用</h3>
 <p><img src="https://fblog.ooopiz.com/images/201508/A01-05.png" alt=""></p>
 <p>建立使用者pma
 <code>mysql&gt; create user 'pma'@'localhost' identified by 'pmapass';</code></p>
@@ -188,7 +205,7 @@ $cfg['Servers'][$i]['auth_type'] = 'http';
 <p>編輯 config.inc.php 設定檔
 將下列的部分註解拿掉</p>
 <p><img src="https://fblog.ooopiz.com/images/201508/A01-08.png" alt=""></p>
-<h3 id="phpmyadminphpmyadmin">五、完成，即可在phpMyAdmin看到表phpmyadmin</h3>
+<h3 id="五完成即可在phpmyadmin看到表phpmyadmin">五、完成，即可在phpMyAdmin看到表phpmyadmin</h3>
 <p><img src="https://fblog.ooopiz.com/images/201508/A01-09.png" alt=""></p>
 
     </div>

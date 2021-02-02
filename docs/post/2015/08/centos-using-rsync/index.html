@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2015-08-31T13:06:01+08:00" />
 <meta itemprop="name" content="CentOS 使用rsync">
 <meta itemprop="description" content="rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器． 首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync 如">
-<meta itemprop="datePublished" content="2015-08-31T13:06:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-08-31T13:06:01&#43;08:00" />
-<meta itemprop="wordCount" content="532">
+<meta itemprop="datePublished" content="2015-08-31T13:06:01+08:00" />
+<meta itemprop="dateModified" content="2015-08-31T13:06:01+08:00" />
+<meta itemprop="wordCount" content="538">
 
 
 
-<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS 使用rsync"/>
 <meta name="twitter:description" content="rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器． 首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync 如"/>
 
@@ -162,13 +163,25 @@ or
 <p><strong>產生金鑰</strong>
 <code># ssh-keygen -t rsa</code>
 <strong>輸入上述指令後，下面三個問題都直接enter即可</strong></p>
-<pre><code class="language-config" data-lang="config">Generating public/private rsa key pair.
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Generating public/private rsa key pair.
 Enter file in which to save the key (/home/or1/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/or1/.ssh/id_rsa.
 Your public key has been saved in /home/or1/.ssh/id_rsa.pub.
-</code></pre><p><strong>至此即產生完金鑰與私鑰，再透過下面的指令把私鑰上傳至欲登入的主機</strong></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>至此即產生完金鑰與私鑰，再透過下面的指令把私鑰上傳至欲登入的主機</strong></p>
 <blockquote>
 <p>這個動作會在你要登入的主機，產生authorized_keys</p>
 </blockquote>

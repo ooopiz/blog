@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/12/gitlab-upgrade-7.14-to-8/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2016-12-08T13:22:01+08:00" />
 <meta itemprop="name" content="GitLab 7.14升級8.X">
 <meta itemprop="description" content="簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時">
-<meta itemprop="datePublished" content="2016-12-08T13:22:01&#43;08:00" />
-<meta itemprop="dateModified" content="2016-12-08T13:22:01&#43;08:00" />
+<meta itemprop="datePublished" content="2016-12-08T13:22:01+08:00" />
+<meta itemprop="dateModified" content="2016-12-08T13:22:01+08:00" />
 <meta itemprop="wordCount" content="962">
 
 
 
-<meta itemprop="keywords" content="gitlab," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="gitlab," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitLab 7.14升級8.X"/>
 <meta name="twitter:description" content="簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時"/>
 
@@ -134,22 +135,22 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">簡介</a></li>
-    <li><a href="#heading1">流程</a>
+    <li><a href="#簡介">簡介</a></li>
+    <li><a href="#流程">流程</a>
       <ul>
-        <li><a href="#-7143-">舊機器 7.14.3 備份</a></li>
-        <li><a href="#-7143">新機器版本 7.14.3</a></li>
-        <li><a href="#8144">新機器8.14.4</a></li>
+        <li><a href="#舊機器-7143-備份">舊機器 7.14.3 備份</a></li>
+        <li><a href="#新機器版本-7143">新機器版本 7.14.3</a></li>
+        <li><a href="#新機器8144">新機器8.14.4</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">注意事項</a></li>
-    <li><a href="#heading3">完成</a></li>
+    <li><a href="#注意事項">注意事項</a></li>
+    <li><a href="#完成">完成</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">簡介</h2>
+      <h2 id="簡介">簡介</h2>
 <p>上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下
 recovery，以免意外發生時手忙腳亂．</p>
 <p>目前版本：gitlab-ce-7.14.3-ce.1.el7.x86_64
@@ -163,14 +164,14 @@ recovery，以免意外發生時手忙腳亂．</p>
 <p>預計先將7.14.3的備份檔匯入第一台伺服器，之後進行升級，
 然後因為個人有點龜毛，再用升級好機器備份出8.14.4版的備份檔，
 來到全新的新版機器(8.14.4)再進行匯入</p>
-<h2 id="heading1">流程</h2>
-<h3 id="-7143-">舊機器 7.14.3 備份</h3>
-<h4 id="1-backup">1. 備份backup檔</h4>
+<h2 id="流程">流程</h2>
+<h3 id="舊機器-7143-備份">舊機器 7.14.3 備份</h3>
+<h4 id="1-備份backup檔">1. 備份backup檔</h4>
 <p>在原本的機器上下指令備份gitlab資料</p>
 <p><code># gitlab-rake gitlab:backup:create</code></p>
-<h3 id="-7143">新機器版本 7.14.3</h3>
+<h3 id="新機器版本-7143">新機器版本 7.14.3</h3>
 <p>這台機器要先裝好 7.14.3，匯入備份檔，再用 yum 更新到 8.14.4。</p>
-<h4 id="1">1.安裝</h4>
+<h4 id="1安裝">1.安裝</h4>
 <p>我自己都用Omnibus
 所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧</p>
 <p><a href="https://about.gitlab.com/downloads/#centos7">gitlab 官網有美美的教學，自己來吧</a></p>
@@ -182,17 +183,17 @@ recovery，以免意外發生時手忙腳亂．</p>
 <ul>
 <li><a href="https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430">Freeze on ruby_block[supervise_redis_sleep] action run</a></li>
 </ul>
-<h4 id="2-backup">2. 匯入backup檔</h4>
+<h4 id="2-匯入backup檔">2. 匯入backup檔</h4>
 <p>我將backup檔copy到新伺服器的備份目錄下，執行recovery時，程序會自動將檔案recovery回去</p>
 <p>mv to <code>/var/opt/gitlab/backups/</code></p>
-<h4 id="3">3.開始前先停止相關數據服務連線</h4>
+<h4 id="3開始前先停止相關數據服務連線">3.開始前先停止相關數據服務連線</h4>
 <p><code># gitlab-ctl stop unicorn</code></p>
 <p><code># gitlab-ctl stop sidekiq</code></p>
-<h4 id="41393513186">4.從1393513186編號備份中復原(看你的檔案編號是啥鬼)</h4>
+<h4 id="4從1393513186編號備份中復原看你的檔案編號是啥鬼">4.從1393513186編號備份中復原(看你的檔案編號是啥鬼)</h4>
 <p><code># gitlab-rake gitlab:backup:restore BACKUP=1393513186</code></p>
-<h4 id="5gitlab">5.啟動Gitlab</h4>
+<h4 id="5啟動gitlab">5.啟動Gitlab</h4>
 <p><code># gitlab-ctl start</code></p>
-<h4 id="6">6.執行檢查</h4>
+<h4 id="6執行檢查">6.執行檢查</h4>
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
 <p>檢查時有出現一些問題</p>
 <p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-01.jpg" alt=""></p>
@@ -200,29 +201,29 @@ recovery，以免意外發生時手忙腳亂．</p>
 <p><code># gitlab-rake gitlab:satellites:create RAILS_ENV=production</code></p>
 <p>再檢查一次</p>
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
-<h4 id="7">7.版本升級</h4>
+<h4 id="7版本升級">7.版本升級</h4>
 <p>這邊是我的操作流程，有試過直接yum install gitlab-ce會有一點問題，
 所以我前面加了一步gitlab-ctl upgrade很像就比較正常了</p>
 <p><code># gitlab-ctl upgrade</code></p>
 <p><code># yum install gitlab-ce</code></p>
 <p><code># gitlab-ctl reconfigure</code></p>
 <p><code># gitlab-ctl restart</code></p>
-<h4 id="88144backup">8.匯出新版本(8.14.4)backup檔</h4>
+<h4 id="8匯出新版本8144backup檔">8.匯出新版本(8.14.4)backup檔</h4>
 <p><code># gitlab-rake gitlab:backup:create</code></p>
-<h3 id="8144">新機器8.14.4</h3>
+<h3 id="新機器8144">新機器8.14.4</h3>
 <p><code># gitlab-ctl stop unicorn</code></p>
 <p><code># gitlab-ctl stop sidekiq</code></p>
 <p><code># gitlab-rake gitlab:backup:restore BACKUP=14XXXXXXX</code></p>
 <p><code># gitlab-ctl start</code></p>
 <p><code># gitlab-rake gitlab:check SANITIZE=true</code></p>
-<h2 id="heading2">注意事項</h2>
+<h2 id="注意事項">注意事項</h2>
 <p>為了避免更換伺服器與重新匯入備份檔時known_host失效</p>
 <ol>
 <li>更換伺服器必須將舊伺服器/etc/ssh/ssh_host_*複製到新伺服器</li>
 <li>匯入備份檔時rebuild keys file必須選yes</li>
 </ol>
 <p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-03.jpg" alt=""></p>
-<h2 id="heading3">完成</h2>
+<h2 id="完成">完成</h2>
 <p><img src="https:////fblog.ooopiz.com/images/201609/M12-A01-04.jpg" alt=""></p>
 
     </div>

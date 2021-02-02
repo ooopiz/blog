@@ -6,11 +6,7 @@
     <description>Recent content in docker on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.ooopiz.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker cli 連線到遠端的 dockerd daemon</title>
       <link>https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/</link>

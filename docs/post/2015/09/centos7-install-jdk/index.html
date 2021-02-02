@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="馬丁" /><meta name="description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&amp;quot; &amp;quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&amp;quot; tar zxvf jdk-7u79-linux-x64.tar.gz # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2." /><meta name="keywords" content="devops, 技術, 後端工程師" />
+<meta name="author" content="馬丁" /><meta name="description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&amp;quot; &amp;quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&amp;quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 5 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JD" /><meta name="keywords" content="devops, 技術, 後端工程師" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/" />
@@ -39,22 +39,23 @@
 
 
 <meta property="og:title" content="CentOS7 安裝JDK 64 Bit" />
-<meta property="og:description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2." />
+<meta property="og:description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 5 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JD" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/" />
 <meta property="article:published_time" content="2015-09-30T05:13:01+08:00" />
 <meta property="article:modified_time" content="2015-09-30T05:13:01+08:00" />
 <meta itemprop="name" content="CentOS7 安裝JDK 64 Bit">
-<meta itemprop="description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.">
-<meta itemprop="datePublished" content="2015-09-30T05:13:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-09-30T05:13:01&#43;08:00" />
-<meta itemprop="wordCount" content="473">
+<meta itemprop="description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 5 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JD">
+<meta itemprop="datePublished" content="2015-09-30T05:13:01+08:00" />
+<meta itemprop="dateModified" content="2015-09-30T05:13:01+08:00" />
+<meta itemprop="wordCount" content="482">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 安裝JDK 64 Bit"/>
-<meta name="twitter:description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2."/>
+<meta name="twitter:description" content="tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 5 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JD"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,20 +137,20 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#targz-">tar.gz 安裝</a></li>
-        <li><a href="#rpm-">rpm 安裝</a></li>
-        <li><a href="#1jdk">1.下載JDK</a></li>
-        <li><a href="#2rpm">2.安裝rpm包</a></li>
-        <li><a href="#3alternativesjdk">3.alternatives管理JDK版本</a></li>
-        <li><a href="#4">4.檢查安裝是否正常</a></li>
-        <li><a href="#5">5.設定環境變數</a></li>
+        <li><a href="#targz-安裝">tar.gz 安裝</a></li>
+        <li><a href="#rpm-安裝">rpm 安裝</a></li>
+        <li><a href="#1下載jdk">1.下載JDK</a></li>
+        <li><a href="#2安裝rpm包">2.安裝rpm包</a></li>
+        <li><a href="#3alternatives管理jdk版本">3.alternatives管理JDK版本</a></li>
+        <li><a href="#4檢查安裝是否正常">4.檢查安裝是否正常</a></li>
+        <li><a href="#5設定環境變數">5.設定環境變數</a></li>
         <li><a href="#6reboot">6.reboot</a></li>
       </ul>
     </li>
     <li><a href="#hellojava">HelloJava</a>
       <ul>
-        <li><a href="#heading">編譯</a></li>
-        <li><a href="#heading1">執行</a></li>
+        <li><a href="#編譯">編譯</a></li>
+        <li><a href="#執行">執行</a></li>
       </ul>
     </li>
   </ul>
@@ -157,23 +158,34 @@
   </div>
 </div>
     <div class="post-content">
-      <h3 id="targz-">tar.gz 安裝</h3>
+      <h3 id="targz-安裝">tar.gz 安裝</h3>
 <p><code>cd /opt</code></p>
 <p><code>wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot;</code></p>
 <p><code>tar zxvf jdk-7u79-linux-x64.tar.gz</code></p>
-<pre><code># alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2
 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2
 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar
 # alternatives --set javac /opt/jdk1.7.0_79/bin/javac 
 
-</code></pre><h3 id="rpm-">rpm 安裝</h3>
-<h3 id="1jdk">1.下載JDK</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="rpm-安裝">rpm 安裝</h3>
+<h3 id="1下載jdk">1.下載JDK</h3>
 <p>首先到<!-- raw HTML omitted -->官方網址<!-- raw HTML omitted -->下載你需要的JDK版本
 <img src="https://fblog.ooopiz.com/images/201509/A05-01.png" alt=""></p>
-<h3 id="2rpm">2.安裝rpm包</h3>
+<h3 id="2安裝rpm包">2.安裝rpm包</h3>
 <p>會自動安裝到/usr/java下</p>
 <p><code># rpm -Uvh jdk-8u25-linux-x64.rpm</code></p>
-<h3 id="3alternativesjdk">3.alternatives管理JDK版本</h3>
+<h3 id="3alternatives管理jdk版本">3.alternatives管理JDK版本</h3>
 <p>在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下:
 alternatives –install <!-- raw HTML omitted -->&lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;<!-- raw HTML omitted --></p>
 <p><code># alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1</code></p>
@@ -181,19 +193,29 @@ alternatives –install <!-- raw HTML omitted -->&lt;連結&gt; &lt;名稱&gt; &
 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本</p>
 <p><code># alternatives --config java</code></p>
 <p><img src="https://fblog.ooopiz.com/images/201509/A05-02.png" alt=""></p>
-<h3 id="4">4.檢查安裝是否正常</h3>
+<h3 id="4檢查安裝是否正常">4.檢查安裝是否正常</h3>
 <p><code># java -version</code></p>
 <p><code># javac -version</code>
 <img src="https://fblog.ooopiz.com/images/201509/A05-03.png" alt=""></p>
-<h3 id="5">5.設定環境變數</h3>
+<h3 id="5設定環境變數">5.設定環境變數</h3>
 <p>設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile
 <code># vi /etc/profile</code></p>
 <p>最底下加上變數(JAVA_HOME目錄可能不同)</p>
-<pre><code class="language-config" data-lang="config">JAVA_HOME=/usr/java/jdk1.8.0_25
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">JAVA_HOME=/usr/java/jdk1.8.0_25
 CLASSPATH=./:$JAVA_HOME/lib:JAVA_HOME/jre/lib
 PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 export PATH CLASSPATH JAVA_HOME
-</code></pre><p><img src="https://fblog.ooopiz.com/images/201509/A05-04.png" alt=""></p>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://fblog.ooopiz.com/images/201509/A05-04.png" alt=""></p>
 <h3 id="6reboot">6.reboot</h3>
 <p>可以的話reboot一下吧~</p>
 <hr>
@@ -208,15 +230,15 @@ export PATH CLASSPATH JAVA_HOME
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloJava</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello! Java!&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello! Java!&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading">編譯</h3>
+</div><h3 id="編譯">編譯</h3>
 <p><code># javac HelloJava.java</code></p>
-<h3 id="heading1">執行</h3>
+<h3 id="執行">執行</h3>
 <p><code># java HelloJava</code></p>
 <p><code># java -cp . HelloJava</code></p>
 <p><!-- raw HTML omitted -->(暫時不知道為什麼要這樣子才可以)<!-- raw HTML omitted --></p>

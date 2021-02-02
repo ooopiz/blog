@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/05/docker-volume-create/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2019-05-10T07:22:01+08:00" />
 <meta itemprop="name" content="關於 Docker volume create">
 <meta itemprop="description" content="前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。 原本我都是使用 -v 對應到我 host 機器的目錄 ex : -v $(pwd)/nginx-cache:/var/cache/nginx 後來很好奇 docker volume create 的用途還有存放路徑。 於">
-<meta itemprop="datePublished" content="2019-05-10T07:22:01&#43;08:00" />
-<meta itemprop="dateModified" content="2019-05-10T07:22:01&#43;08:00" />
+<meta itemprop="datePublished" content="2019-05-10T07:22:01+08:00" />
+<meta itemprop="dateModified" content="2019-05-10T07:22:01+08:00" />
 <meta itemprop="wordCount" content="355">
 
 
 
-<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="關於 Docker volume create"/>
 <meta name="twitter:description" content="前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。 原本我都是使用 -v 對應到我 host 機器的目錄 ex : -v $(pwd)/nginx-cache:/var/cache/nginx 後來很好奇 docker volume create 的用途還有存放路徑。 於"/>
 
@@ -134,12 +135,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">前言</a></li>
+    <li><a href="#前言">前言</a></li>
     <li><a href="#docker-volume-create">docker volume create</a></li>
     <li><a href="#docker-volume-create-in-mac">docker volume create In Mac</a></li>
-    <li><a href="#heading1">你可能會遇到的問題</a>
+    <li><a href="#你可能會遇到的問題">你可能會遇到的問題</a>
       <ul>
-        <li><a href="#-tty-">一、你可能會遇到你連入 tty 之後裡面都是亂碼</a></li>
+        <li><a href="#一你可能會遇到你連入-tty-之後裡面都是亂碼">一、你可能會遇到你連入 tty 之後裡面都是亂碼</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference.</a></li>
@@ -148,7 +149,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="heading">前言</h2>
+      <h2 id="前言">前言</h2>
 <p>某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。<br>
 原本我都是使用 -v 對應到我 host 機器的目錄<br>
 ex :</p>
@@ -167,14 +168,14 @@ ex :</p>
 進到 tty 之後就可以在 /var/lib/docker/volums 看到 create 的目錄名稱了。</p>
 <p><code>$ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty</code></p>
 <p><img src="https://fblog.ooopiz.com/images/2019/05/a002.jpg" alt="docker volume store" title="docker volume store"></p>
-<h2 id="heading1">你可能會遇到的問題</h2>
-<h3 id="-tty-">一、你可能會遇到你連入 tty 之後裡面都是亂碼</h3>
+<h2 id="你可能會遇到的問題">你可能會遇到的問題</h2>
+<h3 id="一你可能會遇到你連入-tty-之後裡面都是亂碼">一、你可能會遇到你連入 tty 之後裡面都是亂碼</h3>
 <p>如果有發生顯示混亂的問題，有可能是你 screen 連進 tty ，<br>
-接著使用 <code>ctrl` `a</code> + <code>d</code> detach screen ，又 screen tty 一次，就會產生畫面混亂。</p>
+接著使用 <code>ctrl</code> <code>a</code> + <code>d</code> detach screen ，又 screen tty 一次，就會產生畫面混亂。</p>
 <p>正確的做法是：</p>
 <ul>
-<li>使用 <code>ctrl` `a</code> + <code>d</code> detach screen，就用 screen -r 來重新連結 screen</li>
-<li>或者用 <code>ctrl` `a</code> + <code>k</code> 來結束這個 screen</li>
+<li>使用 <code>ctrl</code> <code>a</code> + <code>d</code> detach screen，就用 screen -r 來重新連結 screen</li>
+<li>或者用 <code>ctrl</code> <code>a</code> + <code>k</code> 來結束這個 screen</li>
 </ul>
 <h2 id="reference">Reference.</h2>
 <ul>

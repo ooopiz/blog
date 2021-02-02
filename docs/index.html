@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/" />
@@ -46,7 +46,8 @@
 <meta property="og:url" content="https://blog.ooopiz.com/" />
 <meta property="og:updated_time" content="2021-01-28T15:37:22+08:00" />
 <meta itemprop="name" content="馬丁沒有派對">
-<meta itemprop="description" content="我把青春都寫在blog上了 😜😜"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="我把青春都寫在blog上了 😜😜">
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="馬丁沒有派對"/>
 <meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
 
@@ -161,7 +162,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service [Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties
+      Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service 1 2 3 4 5 6 7 8 9 10
     </div>
     <div class="read-more">
       <a href="/post/2020/01/kafka-basic-setting-and-usage/" class="read-more-link">Read more..</a>
@@ -237,7 +238,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot
+      設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot
     </div>
     <div class="read-more">
       <a href="/post/2019/07/coreos-static-ip/" class="read-more-link">Read more..</a>
@@ -408,7 +409,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java public class TestMath { private Integer
+      php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6
     </div>
     <div class="read-more">
       <a href="/post/2016/12/php-call-java-class/" class="read-more-link">Read more..</a>

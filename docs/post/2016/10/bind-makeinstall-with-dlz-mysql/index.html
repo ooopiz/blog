@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2016-10-17T15:46:01+08:00" />
 <meta itemprop="name" content="bind make安裝搭配 dlz mysql">
 <meta itemprop="description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI">
-<meta itemprop="datePublished" content="2016-10-17T15:46:01&#43;08:00" />
-<meta itemprop="dateModified" content="2016-10-17T15:46:01&#43;08:00" />
-<meta itemprop="wordCount" content="1492">
+<meta itemprop="datePublished" content="2016-10-17T15:46:01+08:00" />
+<meta itemprop="dateModified" content="2016-10-17T15:46:01+08:00" />
+<meta itemprop="wordCount" content="1575">
 
 
 
-<meta itemprop="keywords" content="dns,bind," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="dns,bind," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="bind make安裝搭配 dlz mysql"/>
 <meta name="twitter:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI"/>
 
@@ -134,27 +135,27 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#binddlz-">Bind-dlz 簡介</a></li>
+    <li><a href="#bind-dlz-簡介">Bind-dlz 簡介</a></li>
     <li><a href="#reference">Reference</a></li>
-    <li><a href="#bind--mysql">Bind 安裝 (MySQL篇)</a>
+    <li><a href="#bind-安裝-mysql篇">Bind 安裝 (MySQL篇)</a>
       <ul>
-        <li><a href="#heading">前置作業</a></li>
-        <li><a href="#heading1">開始安裝</a></li>
+        <li><a href="#前置作業">前置作業</a></li>
+        <li><a href="#開始安裝">開始安裝</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">其他指令參考</a></li>
-    <li><a href="#heading3">疑難排解</a>
+    <li><a href="#其他指令參考">其他指令參考</a></li>
+    <li><a href="#疑難排解">疑難排解</a>
       <ul>
-        <li><a href="#mysqlh">一、找不到mysql.h時</a></li>
-        <li><a href="#usrlibmysql">二、如果抓不到/usr/lib/mysql</a></li>
-        <li><a href="#usrlibmysql1">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</a></li>
+        <li><a href="#一找不到mysqlh時">一、找不到mysql.h時</a></li>
+        <li><a href="#二如果抓不到usrlibmysql">二、如果抓不到/usr/lib/mysql</a></li>
+        <li><a href="#三承二但是也有可能無效死都要抓usrlibmysql只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">其他</a>
+    <li><a href="#其他">其他</a>
       <ul>
-        <li><a href="#rndc-key">生成rndc key</a></li>
-        <li><a href="#namedca">更新named.ca</a></li>
-        <li><a href="#dlzzone-for-mysql">dlz官方提供zone for mysql</a></li>
+        <li><a href="#生成rndc-key">生成rndc key</a></li>
+        <li><a href="#更新namedca">更新named.ca</a></li>
+        <li><a href="#dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</a></li>
       </ul>
     </li>
     <li><a href="#dns-security-reference">DNS security reference</a></li>
@@ -163,7 +164,7 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="binddlz-">Bind-dlz 簡介</h2>
+      <h2 id="bind-dlz-簡介">Bind-dlz 簡介</h2>
 <ol>
 <li>BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。</li>
 <li>BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。</li>
@@ -176,35 +177,35 @@
 <ul>
 <li><a href="http://www.coctec.com/docs/service/show-post-12776.html">智能DNS(Bind dlz)在企業中的應用</a></li>
 </ul>
-<h2 id="bind--mysql">Bind 安裝 (MySQL篇)</h2>
+<h2 id="bind-安裝-mysql篇">Bind 安裝 (MySQL篇)</h2>
 <p>bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)</p>
 <ul>
 <li>&ndash;with-dlz-mysql</li>
 <li>&ndash;with-dlz-postgres</li>
 </ul>
-<h3 id="heading">前置作業</h3>
+<h3 id="前置作業">前置作業</h3>
 <p>一、到官網或FTP站下載安裝檔</p>
 <ul>
 <li><a href="https://www.isc.org/downloads/">Bind官網</a></li>
 <li><a href="http://ftp.isc.org/isc/bind9/">FTP站</a></li>
 </ul>
 <p>二、安裝MySQL資料庫</p>
-<h3 id="heading1">開始安裝</h3>
-<h4 id="1--53-port">1. 防火牆設定(開啟 53 port)</h4>
+<h3 id="開始安裝">開始安裝</h3>
+<h4 id="1-防火牆設定開啟-53-port">1. 防火牆設定(開啟 53 port)</h4>
 <p><code># iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT</code></p>
 <p><code># -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT</code></p>
 <p><code># service iptables save</code></p>
 <p><code># service iptables restart</code></p>
-<h4 id="2-bind">2. 移除舊有的bind安裝</h4>
+<h4 id="2-移除舊有的bind安裝">2. 移除舊有的bind安裝</h4>
 <p><code># rpm -qa | grep &quot;^bind&quot;</code></p>
 <p><code># yum remove bind</code></p>
-<h4 id="3-">3. 安装依賴套件</h4>
+<h4 id="3-安装依賴套件">3. 安装依賴套件</h4>
 <p><code># yum install gcc openssl openssl-devel mysql-devel</code></p>
-<h4 id="41-with-mysql">4-1. 編譯with mysql</h4>
+<h4 id="4-1-編譯with-mysql">4-1. 編譯with mysql</h4>
 <p><code># ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile</code></p>
-<h4 id="42-with-postgres">4-2. 編譯with postgres</h4>
+<h4 id="4-2-編譯with-postgres">4-2. 編譯with postgres</h4>
 <p><code># ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres</code></p>
-<h5 id="-configure-help-">編譯配置項說明(完整的功能配置項可使用: ./configure &ndash;help 查看):</h5>
+<h5 id="編譯配置項說明完整的功能配置項可使用-configure---help-查看">編譯配置項說明(完整的功能配置項可使用: ./configure &ndash;help 查看):</h5>
 <table>
 <thead>
 <tr>
@@ -247,12 +248,47 @@
 </tr>
 </tbody>
 </table>
-<h4 id="5-">5. 編譯安裝</h4>
+<h4 id="5-編譯安裝">5. 編譯安裝</h4>
 <p><code># make</code></p>
 <p><code># make install</code></p>
-<h4 id="6-">6. 設定</h4>
+<h4 id="6-設定">6. 設定</h4>
 <p><code># vi named.conf</code></p>
-<pre><code>options {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">options {
     listen-on port 53 { any; };
     listen-on-v6 port 53 { ::1; };
     allow-query     { any; };
@@ -262,28 +298,30 @@
     allow-recursion { none; };
     recursion no;
 
-    version &quot;zzz&quot;;
+    version &#34;zzz&#34;;
 };
 
 logging {
     channel default_debug {
-        file &quot;var/bind9.log&quot; versions 3 size 10m;
+        file &#34;var/bind9.log&#34; versions 3 size 10m;
         severity dynamic;
         print-time yes;
         print-severity yes;
     };
 };
 
-include &quot;etc/bind.keys&quot;;
+include &#34;etc/bind.keys&#34;;
 
-dlz &quot;mysql zone&quot; {
-    database &quot;mysql
+dlz &#34;mysql zone&#34; {
+    database &#34;mysql
       {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
-      {select zone from dns_records where zone='$zone$' limit 1}
+      {select zone from dns_records where zone=&#39;$zone$&#39; limit 1}
       {select ttl, type, mx_priority, data, resp_person, serial, refresh,
-retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}&quot;;
+retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
 };
-</code></pre><h4 id="7-named">7. 創建named用戶與群組</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="7-創建named用戶與群組">7. 創建named用戶與群組</h4>
 <p><code># groupadd named</code></p>
 <p>依據你的目錄建立用戶</p>
 <p><code># adduser -d /var/named -g named -s /bin/false named</code></p>
@@ -312,9 +350,44 @@ retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record
 </table>
 <p>給予目錄權限</p>
 <p><code># chown -R named:named ./var</code></p>
-<h4 id="8-schema-and-record">8. 資料庫中建立Schema and Record</h4>
+<h4 id="8-資料庫中建立schema-and-record">8. 資料庫中建立Schema and Record</h4>
 <h5 id="schema-example">Schema Example</h5>
-<pre><code>CREATE DATABASE  IF NOT EXISTS `dns_data`;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CREATE DATABASE  IF NOT EXISTS `dns_data`;
 USE `dns_data`;
 
 CREATE TABLE `dns_records` (
@@ -345,23 +418,44 @@ CREATE TABLE `xfr_table` (
   KEY `client_index` (`client`(20))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-</code></pre><h5 id="record-example">Record Example</h5>
-<pre><code>INSERT INTO `dns_records`
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="record-example">Record Example</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">INSERT INTO `dns_records`
 ( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`)
 VALUES
 /* SOA */
-('example.com','@','SOA','ns1.example.com.',3600,NULL,10800,7200,604800,86400,2015091101,'master.example.com.','ns1.example.com.'),
-('example.com','@','NS','ns1.example.com.',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-('example.com','ns1','A','192.168.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(&#39;example.com&#39;,&#39;@&#39;,&#39;SOA&#39;,&#39;ns1.example.com.&#39;,3600,NULL,10800,7200,604800,86400,2015091101,&#39;master.example.com.&#39;,&#39;ns1.example.com.&#39;),
+(&#39;example.com&#39;,&#39;@&#39;,&#39;NS&#39;,&#39;ns1.example.com.&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(&#39;example.com&#39;,&#39;ns1&#39;,&#39;A&#39;,&#39;192.168.0.1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 
 /* A AAAA CNAME Record */
-('example.com','@','A','127.0.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-('example.com','@','AAAA','::1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-('example.com','www','CNAME','@',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(&#39;example.com&#39;,&#39;@&#39;,&#39;A&#39;,&#39;127.0.0.1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(&#39;example.com&#39;,&#39;@&#39;,&#39;AAAA&#39;,&#39;::1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(&#39;example.com&#39;,&#39;www&#39;,&#39;CNAME&#39;,&#39;@&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 
-</code></pre><h4 id="9-">9. 啟動</h4>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="9-啟動">9. 啟動</h4>
 <p><code># sbin/named -c etc/named.conf -u named</code></p>
-<h2 id="heading2">其他指令參考</h2>
+<h2 id="其他指令參考">其他指令參考</h2>
 <p>檢查設定檔</p>
 <p><code># sbin/named-checkconf etc/named.conf</code></p>
 <p>啟動</p>
@@ -372,29 +466,49 @@ VALUES
 <p><code># sbin/named -g</code></p>
 <p>啟動(指定設定檔)
 <code># /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf</code></p>
-<h2 id="heading3">疑難排解</h2>
-<h3 id="mysqlh">一、找不到mysql.h時</h3>
+<h2 id="疑難排解">疑難排解</h2>
+<h3 id="一找不到mysqlh時">一、找不到mysql.h時</h3>
 <p><code># yum install mysql-devel</code></p>
-<h3 id="usrlibmysql">二、如果抓不到/usr/lib/mysql</h3>
+<h3 id="二如果抓不到usrlibmysql">二、如果抓不到/usr/lib/mysql</h3>
 <p>編譯加上</p>
-<pre><code>--with-mysql-libraries=/usr/lib64/mysql/
-</code></pre><h3 id="usrlibmysql1">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">--with-mysql-libraries=/usr/lib64/mysql/
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="三承二但是也有可能無效死都要抓usrlibmysql只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</h3>
 <p><code># ln -s /usr/lib64/mysql/ /usr/lib/mysql</code></p>
-<h2 id="heading4">其他</h2>
-<h3 id="rndc-key">生成rndc key</h3>
+<h2 id="其他">其他</h2>
+<h3 id="生成rndc-key">生成rndc key</h3>
 <p><code># sbin/rndc-confgen -a -r /dev/urandom</code></p>
-<h3 id="namedca">更新named.ca</h3>
+<h3 id="更新namedca">更新named.ca</h3>
 <p>頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件</p>
-<p>最新資訊可以到<a href="ftp://rs.internic.net/domain"><a href="ftp://rs.internic.net/domain">ftp://rs.internic.net/domain</a></a> 下載。</p>
-<h3 id="dlzzone-for-mysql">dlz官方提供zone for mysql</h3>
-<pre><code>dlz &quot;mysql zone&quot; {
-   database &quot;mysql
+<p>最新資訊可以到<a href="ftp://rs.internic.net/domain">ftp://rs.internic.net/domain</a> 下載。</p>
+<h3 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">dlz &#34;mysql zone&#34; {
+   database &#34;mysql
       {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
-      {select zone from dns_records where zone='$zone$' limit 1}
+      {select zone from dns_records where zone=&#39;$zone$&#39; limit 1}
       {select ttl, type, mx_priority, data, resp_person, serial, refresh,
-retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}&quot;;
+retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
 };
-</code></pre><h2 id="dns-security-reference">DNS security reference</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dns-security-reference">DNS security reference</h2>
 <ul>
 <li><a href="http://www.lijyyh.com/2012/07/dns-dns-server-security-management.html">DNS伺服器安全性管理實務</a></li>
 <li><a href="http://wiki.weithenn.org/cgi-bin/wiki.pl?Study_DNS-DNS_%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E3%80%81%E5%AE%89%E5%85%A8%E3%80%81%E6%AA%A2%E6%B8%AC">Study DNS-DNS 進階設定、安全、檢測</a></li>

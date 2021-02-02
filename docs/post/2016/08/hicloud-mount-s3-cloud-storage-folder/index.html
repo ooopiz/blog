@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2016-08-09T02:07:01+08:00" />
 <meta itemprop="name" content="Hicloud S3雲儲存資料夾掛載">
 <meta itemprop="description" content="hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器 主機環境：CentOS 6.4 說明：s3fs base on fuse所以伺服器上必須有fuse的l">
-<meta itemprop="datePublished" content="2016-08-09T02:07:01&#43;08:00" />
-<meta itemprop="dateModified" content="2016-08-09T02:07:01&#43;08:00" />
-<meta itemprop="wordCount" content="531">
+<meta itemprop="datePublished" content="2016-08-09T02:07:01+08:00" />
+<meta itemprop="dateModified" content="2016-08-09T02:07:01+08:00" />
+<meta itemprop="wordCount" content="534">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hicloud S3雲儲存資料夾掛載"/>
 <meta name="twitter:description" content="hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器 主機環境：CentOS 6.4 說明：s3fs base on fuse所以伺服器上必須有fuse的l"/>
 
@@ -134,30 +135,30 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#hicloud-s3">hicloud S3雲儲存</a></li>
-    <li><a href="#s3fsfuse-">s3fs-fuse 安裝</a>
+    <li><a href="#hicloud-s3雲儲存">hicloud S3雲儲存</a></li>
+    <li><a href="#s3fs-fuse-安裝">s3fs-fuse 安裝</a>
       <ul>
-        <li><a href="#s3fsfuse">一、下載s3fs-fuse源碼進行安裝</a></li>
-        <li><a href="#heading">二、安裝所需套件</a></li>
-        <li><a href="#heading1">三、安裝步驟</a></li>
-        <li><a href="#heading2">四、設定</a></li>
-        <li><a href="#heading3">五、掛載</a></li>
+        <li><a href="#一下載s3fs-fuse源碼進行安裝">一、下載s3fs-fuse源碼進行安裝</a></li>
+        <li><a href="#二安裝所需套件">二、安裝所需套件</a></li>
+        <li><a href="#三安裝步驟">三、安裝步驟</a></li>
+        <li><a href="#四設定">四、設定</a></li>
+        <li><a href="#五掛載">五、掛載</a></li>
       </ul>
     </li>
-    <li><a href="#libfuse-">libfuse 安裝</a>
+    <li><a href="#libfuse-安裝">libfuse 安裝</a>
       <ul>
-        <li><a href="#release">一、下載源碼編譯安裝或者下載release版本安裝</a></li>
-        <li><a href="#heading4">二、安裝</a></li>
-        <li><a href="#heading5">三、設定</a></li>
+        <li><a href="#一下載源碼編譯安裝或者下載release版本安裝">一、下載源碼編譯安裝或者下載release版本安裝</a></li>
+        <li><a href="#二安裝">二、安裝</a></li>
+        <li><a href="#三設定">三、設定</a></li>
       </ul>
     </li>
-    <li><a href="#heading6">結語</a></li>
+    <li><a href="#結語">結語</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="hicloud-s3">hicloud S3雲儲存</h2>
+      <h2 id="hicloud-s3雲儲存">hicloud S3雲儲存</h2>
 <p>目的：將s3的bucket掛載到Caas雲伺服器</p>
 <p>主機環境：CentOS 6.4</p>
 <p>說明：s3fs base on fuse所以伺服器上必須有fuse的lib</p>
@@ -167,10 +168,10 @@
 <ul>
 <li><a href="http://s3help.cloudbox.hinet.net/index.php/2015-02-12-07-14-27">Hicloud S3 文檔</a></li>
 </ul>
-<h2 id="s3fsfuse-">s3fs-fuse 安裝</h2>
-<h3 id="s3fsfuse">一、下載s3fs-fuse源碼進行安裝</h3>
+<h2 id="s3fs-fuse-安裝">s3fs-fuse 安裝</h2>
+<h3 id="一下載s3fs-fuse源碼進行安裝">一、下載s3fs-fuse源碼進行安裝</h3>
 <p><a href="https://github.com/s3fs-fuse/s3fs-fuse">Github s3fs-fuse</a></p>
-<h3 id="heading">二、安裝所需套件</h3>
+<h3 id="二安裝所需套件">二、安裝所需套件</h3>
 <p>CentOS7</p>
 <p><code># sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></p>
 <p>CentOS6</p>
@@ -178,31 +179,40 @@
 <blockquote>
 <p>fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．</p>
 </blockquote>
-<h3 id="heading1">三、安裝步驟</h3>
+<h3 id="三安裝步驟">三、安裝步驟</h3>
 <p><code># git clone https://github.com/s3fs-fuse/s3fs-fuse.git</code></p>
 <p><code># cd s3fs-fuse</code></p>
 <p><code># ./autogen.sh</code></p>
 <p><code># ./configure -prefix=/usr</code></p>
 <p><code># make</code></p>
 <p><code># make install</code></p>
-<h3 id="heading2">四、設定</h3>
+<h3 id="四設定">四、設定</h3>
 <p>要存取Hicloud的s3必須先申請一組access key與secret key</p>
 <p>將key info寫入設定檔中</p>
 <p><code># vi /etc/passwd-s3fs</code></p>
-<pre><code>#Access Key:Secret Key 以冒號(:)區隔
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#Access Key:Secret Key 以冒號(:)區隔
 #ex: 
 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec
-</code></pre><h3 id="heading3">五、掛載</h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="五掛載">五、掛載</h3>
 <p>Only ROOT</p>
 <p><code># s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123</code></p>
 <p>All USER</p>
 <p><code># s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other</code></p>
 <!-- raw HTML omitted -->
-<h2 id="libfuse-">libfuse 安裝</h2>
-<h3 id="release">一、下載源碼編譯安裝或者下載release版本安裝</h3>
+<h2 id="libfuse-安裝">libfuse 安裝</h2>
+<h3 id="一下載源碼編譯安裝或者下載release版本安裝">一、下載源碼編譯安裝或者下載release版本安裝</h3>
 <p><a href="https://github.com/libfuse/libfuse">Github libfuse</a></p>
 <p><a href="https://github.com/libfuse/libfuse/releases">Github libfuse release</a></p>
-<h3 id="heading4">二、安裝</h3>
+<h3 id="二安裝">二、安裝</h3>
 <blockquote>
 <p>檢查版本如果&lt;2.8.4必須安裝至大於的版本</p>
 </blockquote>
@@ -212,10 +222,10 @@
 <p><code># ./configure</code></p>
 <p><code># make -j8</code></p>
 <p><code># make install</code></p>
-<h3 id="heading5">三、設定</h3>
+<h3 id="三設定">三、設定</h3>
 <p>安裝完成後會在/usr/local/lib產生連結，將這個路徑加入到/etc/ld.so.conf然後執行<code>ldconfig </code>刷新</p>
 <p><code># export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</code></p>
-<h2 id="heading6">結語</h2>
+<h2 id="結語">結語</h2>
 <p>感覺上s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了</p>
 
     </div>

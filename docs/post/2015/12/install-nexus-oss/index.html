@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/" />
@@ -46,13 +46,14 @@
 <meta property="article:modified_time" content="2015-12-14T01:27:01+08:00" />
 <meta itemprop="name" content="安裝 Nexus OSS">
 <meta itemprop="description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo">
-<meta itemprop="datePublished" content="2015-12-14T01:27:01&#43;08:00" />
-<meta itemprop="dateModified" content="2015-12-14T01:27:01&#43;08:00" />
-<meta itemprop="wordCount" content="127">
+<meta itemprop="datePublished" content="2015-12-14T01:27:01+08:00" />
+<meta itemprop="dateModified" content="2015-12-14T01:27:01+08:00" />
+<meta itemprop="wordCount" content="130">
 
 
 
-<meta itemprop="keywords" content="maven,nexus," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="maven,nexus," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安裝 Nexus OSS"/>
 <meta name="twitter:description" content="Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo"/>
 
@@ -135,7 +136,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#nexus-oss">Nexus OSS</a></li>
-    <li><a href="#usrlocal">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</a></li>
+    <li><a href="#下載至您要放置的目錄下即可開始操作以下流程這裡放置在usrlocal">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</a></li>
   </ul>
 </nav>
   </div>
@@ -146,7 +147,7 @@
 安裝其實非常容易</p>
 <p><!-- raw HTML omitted -->下載網址<!-- raw HTML omitted --></p>
 <p><img src="https://fblog.ooopiz.com/images/201512/A01-01.jpg" alt=""></p>
-<h2 id="usrlocal">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</h2>
+<h2 id="下載至您要放置的目錄下即可開始操作以下流程這裡放置在usrlocal">下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)</h2>
 <p><code># tar zxvf nexus-2.11.4-01-bundle.tar.gz</code></p>
 <p><code># ln -s nexus-2.11.4-01/ nexus</code></p>
 <p><code># chown -R nexus:nexus nexus</code></p>
@@ -154,12 +155,27 @@
 <p><code># chown -R nexus:nexus sonatype-work/</code></p>
 <p>修改下面兩個設定</p>
 <p><code># vi /nexus-2.11.4-01/bin/nexus</code></p>
-<pre><code class="language-config" data-lang="config">NEXUS_HOME=&quot;/usr/local/nexus/nexus&quot;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">NEXUS_HOME=&#34;/usr/local/nexus/nexus&#34;
 RUN_AS_USER=nexus
-</code></pre><p>修改Port</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>修改Port</p>
 <p><code># vi /nexus-2.11.4-01/conf/nexus.properties</code></p>
-<pre><code class="language-config" data-lang="config">application-port=18081
-</code></pre><p>啟動</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">application-port=18081
+</code></pre></td></tr></table>
+</div>
+</div><p>啟動</p>
 <p><code># sh /var/opt/nexus/nexus/bin/nexus start</code></p>
 
     </div>
