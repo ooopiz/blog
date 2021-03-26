@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ooopiz.com/post/</loc>
+    <lastmod>2021-03-26T20:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ooopiz.com/tags/</loc>
+    <lastmod>2021-03-26T20:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ooopiz.com/tags/windows/</loc>
+    <lastmod>2021-03-26T20:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</loc>
+    <lastmod>2021-03-26T20:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ooopiz.com/</loc>
+    <lastmod>2021-03-26T20:50:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ooopiz.com/tags/ansible/</loc>
     <lastmod>2021-01-28T15:37:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -10,27 +45,6 @@
   
   <url>
     <loc>https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/</loc>
-    <lastmod>2021-01-28T15:37:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ooopiz.com/post/</loc>
-    <lastmod>2021-01-28T15:37:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ooopiz.com/tags/</loc>
-    <lastmod>2021-01-28T15:37:22+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ooopiz.com/</loc>
     <lastmod>2021-01-28T15:37:22+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -94,13 +108,6 @@
   
   <url>
     <loc>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</loc>
-    <lastmod>2020-01-04T00:03:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ooopiz.com/tags/windows/</loc>
     <lastmod>2020-01-04T00:03:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

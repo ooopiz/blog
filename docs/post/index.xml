@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 28 Jan 2021 15:37:22 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Mar 2021 20:50:49 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 10 設定好用的拼音輸入法</title>
+      <link>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</link>
+      <pubDate>Fri, 26 Mar 2021 20:50:49 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</guid>
+      <description>前言 已經好幾年沒用 Windows 電腦工作了， 筆者近期換了一份工作，公司提供 Windows 電腦。 一直沒有在 Windows 上找到好用的拼音輸入法，中文輸入整個手殘。 ( 兩年前嘗試用拼</description>
+    </item>
+    
     <item>
       <title>Ansible Synchronize Why Permission Denied</title>
       <link>https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/</link>
