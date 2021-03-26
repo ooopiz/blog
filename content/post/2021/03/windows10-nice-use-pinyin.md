@@ -46,7 +46,7 @@ tags: ["windows"]
   ![](https://fblog.ooopiz.com/images/2021/03/a011.jpg)
 
 * 微軟拼音的拼音輸入法 設定  
-  (主要就是使用 Windows 內建的中國拼音輸入法的拼音，在設定成繁體即可)
+  (主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可)
 
   ![](https://fblog.ooopiz.com/images/2021/03/a021.jpg)
 
