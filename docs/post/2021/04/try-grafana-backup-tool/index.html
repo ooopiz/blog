@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Grafana 備份工具 - grafana-backup-tool - 馬丁沒有派對</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="馬丁" /><meta name="description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan" /><meta name="keywords" content="devops, 技術, 後端工程師" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.80.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Grafana 備份工具 - grafana-backup-tool" />
+<meta property="og:description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/" />
+<meta property="article:published_time" content="2021-04-01T01:02:25+08:00" />
+<meta property="article:modified_time" content="2021-04-01T01:02:25+08:00" />
+<meta itemprop="name" content="Grafana 備份工具 - grafana-backup-tool">
+<meta itemprop="description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan">
+<meta itemprop="datePublished" content="2021-04-01T01:02:25+08:00" />
+<meta itemprop="dateModified" content="2021-04-01T01:02:25+08:00" />
+<meta itemprop="wordCount" content="362">
+
+
+
+<meta itemprop="keywords" content="grafana," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Grafana 備份工具 - grafana-backup-tool"/>
+<meta name="twitter:description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script data-ad-client="ca-pub-3680083267042451" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">馬丁沒有派對</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">馬丁沒有派對</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Grafana 備份工具 - grafana-backup-tool</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> Thu, 01 Apr 2021 01:02:25 &#43;0800 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#説明">説明</a></li>
+    <li><a href="#情境">情境</a></li>
+    <li><a href="#步驟">步驟</a>
+      <ul>
+        <li><a href="#一-安裝-grafana-backup-tool">一. 安裝 grafana-backup-tool</a></li>
+        <li><a href="#二-建立-api-token">二. 建立 API Token</a></li>
+        <li><a href="#三-設定檔">三. 設定檔</a></li>
+        <li><a href="#四-備份-from-grafanaexamplecom">四. 備份 from grafana.example.com</a></li>
+        <li><a href="#五-還原-to-newgrafanaexamplecom">五. 還原 to new.grafana.example.com</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="説明">説明</h2>
+<p>最近剛好要做 Grafana 的資料遷移，<br>
+理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題，<br>
+但牽涉到版本升級，有點不確定性。<br>
+剛好看到一個不錯的工具 grafana-backup-tool，是透過 api 的方式進行備份還原，<br>
+正好試用看看，平常備份也可以使用。</p>
+<h2 id="情境">情境</h2>
+<ul>
+<li>Grafana 資料遷移 - 域名為假設域名
+<ul>
+<li>原站 - <a href="http://grafana.example.com">http://grafana.example.com</a> (version: 6.4.3)</li>
+<li>新站 - <a href="http://new.grafana.example.com">http://new.grafana.example.com</a> (version: 7.3.4)</li>
+</ul>
+</li>
+</ul>
+<h2 id="步驟">步驟</h2>
+<h3 id="一-安裝-grafana-backup-tool">一. 安裝 grafana-backup-tool</h3>
+<p>隨便找一台可以訪問到 Grafana site 的 Linux</p>
+<p><code>pip install grafana-backup</code></p>
+<h3 id="二-建立-api-token">二. 建立 API Token</h3>
+<p>在要備份 與 要還原的 Grafana 都建立 API KEY</p>
+<p><img src="https://fblog.ooopiz.com/images/2021/03/b001.jpg" alt="api key">
+<img src="https://fblog.ooopiz.com/images/2021/03/b002.jpg" alt="api key"></p>
+<h3 id="三-設定檔">三. 設定檔</h3>
+<p>建立備份目標的設定檔 grafana.json (token 填入上方所建立的)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+  &#34;grafana&#34;: {
+    &#34;url&#34;: &#34;http://grafana.example.com&#34;,
+    &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;,
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+  &#34;grafana&#34;: {
+    &#34;url&#34;: &#34;http://new.grafana.example.com&#34;,
+    &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;,
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="四-備份-from-grafanaexamplecom">四. 備份 from grafana.example.com</h3>
+<p><code>grafana-backup save --config=grafana.json</code></p>
+<p><img src="https://fblog.ooopiz.com/images/2021/03/b003.jpg" alt="grafana backup"></p>
+<p>備份檔路徑</p>
+<p><img src="https://fblog.ooopiz.com/images/2021/03/b004.jpg" alt="output"></p>
+<ul>
+<li>
+<p>備份的内容可包含</p>
+<ul>
+<li>folders</li>
+<li>dashboards</li>
+<li>datasources</li>
+<li>alert-channels</li>
+<li>organizations (需設定 GRAFANA_ADMIN_ACCOUNT and GRAFANA_ADMIN_PASSWORD )</li>
+<li>users (需設定 GRAFANA_ADMIN_ACCOUNT and GRAFANA_ADMIN_PASSWORD )</li>
+</ul>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    &#34;grafana&#34;: {
+        ...
+
+        &#34;admin_account&#34;: &#34;admin&#34;,
+        &#34;admin_password&#34;: &#34;admin&#34;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="五-還原-to-newgrafanaexamplecom">五. 還原 to new.grafana.example.com</h3>
+<ul>
+<li>
+<p>全部還原</p>
+<ul>
+<li><code>grafana-backup save --config=grafana-new.json _OUTPUT_/202103310331.tar.gz</code></li>
+</ul>
+</li>
+<li>
+<p>逐項還原</p>
+<ul>
+<li><code>grafana-backup restore --config=grafana-new.json _OUTPUT_/202103310331.tar.gz --components=datasources</code></li>
+<li><code>grafana-backup restore --config=grafana-new.json _OUTPUT_/202103310331.tar.gz --components=folders,dashboards</code></li>
+<li><code>grafana-backup restore --config=grafana-new.json _OUTPUT_/202103310331.tar.gz --components=alert-channels</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://github.com/ysde/grafana-backup-tool">https://github.com/ysde/grafana-backup-tool</a></li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/grafana/">grafana</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2021/03/windows10-nice-use-pinyin/">
+            <span class="next-text nav-default">Windows 10 設定好用的拼音輸入法</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'blog-ooopiz';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://blog.ooopiz.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">馬丁</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-66438778-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

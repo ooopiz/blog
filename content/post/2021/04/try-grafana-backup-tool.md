@@ -1,7 +1,7 @@
 ---
 title: "Grafana 備份工具 - grafana-backup-tool"
 date: 2021-04-01T01:02:25+08:00
-draft: true
+draft: false
 tags: ["grafana"]
 ---
 

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 馬丁沒有派對</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 26 Mar 2021 20:50:49 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 01:02:25 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grafana 備份工具 - grafana-backup-tool</title>
+      <link>https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/</link>
+      <pubDate>Thu, 01 Apr 2021 01:02:25 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/</guid>
+      <description>説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan</description>
+    </item>
+    
     <item>
       <title>Windows 10 設定好用的拼音輸入法</title>
       <link>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</link>
