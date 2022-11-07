@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="Hicloud S3雲儲存資料夾掛載" />
 <meta property="og:description" content="hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器 主機環境：CentOS 6.4 說明：s3fs base on fuse所以伺服器上必須有fuse的l" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-08-09T02:07:01+08:00" />
 <meta property="article:modified_time" content="2016-08-09T02:07:01+08:00" />
+
 <meta itemprop="name" content="Hicloud S3雲儲存資料夾掛載">
-<meta itemprop="description" content="hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器 主機環境：CentOS 6.4 說明：s3fs base on fuse所以伺服器上必須有fuse的l">
-<meta itemprop="datePublished" content="2016-08-09T02:07:01+08:00" />
+<meta itemprop="description" content="hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器 主機環境：CentOS 6.4 說明：s3fs base on fuse所以伺服器上必須有fuse的l"><meta itemprop="datePublished" content="2016-08-09T02:07:01+08:00" />
 <meta itemprop="dateModified" content="2016-08-09T02:07:01+08:00" />
 <meta itemprop="wordCount" content="534">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hicloud S3雲儲存資料夾掛載"/>
 <meta name="twitter:description" content="hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器 主機環境：CentOS 6.4 說明：s3fs base on fuse所以伺服器上必須有fuse的l"/>
 
@@ -192,15 +188,15 @@
 <p><code># vi /etc/passwd-s3fs</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#Access Key:Secret Key 以冒號(:)區隔
-#ex: 
-2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#Access Key:Secret Key 以冒號(:)區隔
+</span></span><span class="line"><span class="cl">#ex: 
+</span></span><span class="line"><span class="cl">2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="五掛載">五、掛載</h3>
 <p>Only ROOT</p>
@@ -290,7 +286,7 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

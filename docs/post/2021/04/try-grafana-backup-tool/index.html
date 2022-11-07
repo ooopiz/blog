@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="Grafana 備份工具 - grafana-backup-tool" />
 <meta property="og:description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-01T01:02:25+08:00" />
 <meta property="article:modified_time" content="2021-04-01T01:02:25+08:00" />
+
 <meta itemprop="name" content="Grafana 備份工具 - grafana-backup-tool">
-<meta itemprop="description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan">
-<meta itemprop="datePublished" content="2021-04-01T01:02:25+08:00" />
+<meta itemprop="description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan"><meta itemprop="datePublished" content="2021-04-01T01:02:25+08:00" />
 <meta itemprop="dateModified" content="2021-04-01T01:02:25+08:00" />
 <meta itemprop="wordCount" content="362">
-
-
-
-<meta itemprop="keywords" content="grafana," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="grafana," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Grafana 備份工具 - grafana-backup-tool"/>
 <meta name="twitter:description" content="説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan"/>
 
@@ -179,7 +175,7 @@
 <p>建立備份目標的設定檔 grafana.json (token 填入上方所建立的)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -187,18 +183,18 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
-  &#34;grafana&#34;: {
-    &#34;url&#34;: &#34;http://grafana.example.com&#34;,
-    &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;,
-  }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;grafana&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;url&#34;: &#34;http://grafana.example.com&#34;,
+</span></span><span class="line"><span class="cl">    &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;,
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -206,13 +202,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
-  &#34;grafana&#34;: {
-    &#34;url&#34;: &#34;http://new.grafana.example.com&#34;,
-    &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;,
-  }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;grafana&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;url&#34;: &#34;http://new.grafana.example.com&#34;,
+</span></span><span class="line"><span class="cl">    &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;,
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="四-備份-from-grafanaexamplecom">四. 備份 from grafana.example.com</h3>
 <p><code>grafana-backup save --config=grafana.json</code></p>
@@ -235,7 +231,7 @@
 <p>Example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -245,15 +241,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
-    &#34;grafana&#34;: {
-        ...
-
-        &#34;admin_account&#34;: &#34;admin&#34;,
-        &#34;admin_password&#34;: &#34;admin&#34;
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;grafana&#34;: {
+</span></span><span class="line"><span class="cl">        ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        &#34;admin_account&#34;: &#34;admin&#34;,
+</span></span><span class="line"><span class="cl">        &#34;admin_password&#34;: &#34;admin&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="五-還原-to-newgrafanaexamplecom">五. 還原 to new.grafana.example.com</h3>
 <ul>
@@ -337,7 +333,7 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

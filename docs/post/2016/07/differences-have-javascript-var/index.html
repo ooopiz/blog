@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="javascript 有沒有var的差別" />
 <meta property="og:description" content="Output is &ldquo;7&rdquo; 1 2 3 4 5 6 7 8 9 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined 1 2 3 4 5 6 7 8 9 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-07-21T14:54:01+08:00" />
 <meta property="article:modified_time" content="2016-07-21T14:54:01+08:00" />
+
 <meta itemprop="name" content="javascript 有沒有var的差別">
-<meta itemprop="description" content="Output is &ldquo;7&rdquo; 1 2 3 4 5 6 7 8 9 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined 1 2 3 4 5 6 7 8 9 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });">
-<meta itemprop="datePublished" content="2016-07-21T14:54:01+08:00" />
+<meta itemprop="description" content="Output is &ldquo;7&rdquo; 1 2 3 4 5 6 7 8 9 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined 1 2 3 4 5 6 7 8 9 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });"><meta itemprop="datePublished" content="2016-07-21T14:54:01+08:00" />
 <meta itemprop="dateModified" content="2016-07-21T14:54:01+08:00" />
 <meta itemprop="wordCount" content="65">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="javascript 有沒有var的差別"/>
 <meta name="twitter:description" content="Output is &ldquo;7&rdquo; 1 2 3 4 5 6 7 8 9 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined 1 2 3 4 5 6 7 8 9 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); });"/>
 
@@ -141,7 +137,7 @@
 <p>Output is &ldquo;7&rdquo;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -152,21 +148,21 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$(document).ready(function () {
-    x = 6;
-});
-$(document).ready(function () {
-    x = 7;
-});
-$(document).ready(function () {
-    alert(x);
-});
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$(document).ready(function () {
+</span></span><span class="line"><span class="cl">    x = 6;
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">$(document).ready(function () {
+</span></span><span class="line"><span class="cl">    x = 7;
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">$(document).ready(function () {
+</span></span><span class="line"><span class="cl">    alert(x);
+</span></span><span class="line"><span class="cl">});
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>x is not defined</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -177,16 +173,16 @@ $(document).ready(function () {
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$(document).ready(function () {
-    var x = 6;
-});
-$(document).ready(function () {
-    var x = 7;
-});
-$(document).ready(function () {
-    alert(x);
-});
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$(document).ready(function () {
+</span></span><span class="line"><span class="cl">    var x = 6;
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">$(document).ready(function () {
+</span></span><span class="line"><span class="cl">    var x = 7;
+</span></span><span class="line"><span class="cl">});
+</span></span><span class="line"><span class="cl">$(document).ready(function () {
+</span></span><span class="line"><span class="cl">    alert(x);
+</span></span><span class="line"><span class="cl">});
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -251,7 +247,7 @@ $(document).ready(function () {
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="Docker cli 連線到遠端的 dockerd daemon" />
 <meta property="og:description" content="docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-06-04T20:22:08+08:00" />
 <meta property="article:modified_time" content="2019-06-04T20:22:08+08:00" />
+
 <meta itemprop="name" content="Docker cli 連線到遠端的 dockerd daemon">
-<meta itemprop="description" content="docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本">
-<meta itemprop="datePublished" content="2019-06-04T20:22:08+08:00" />
+<meta itemprop="description" content="docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本"><meta itemprop="datePublished" content="2019-06-04T20:22:08+08:00" />
 <meta itemprop="dateModified" content="2019-06-04T20:22:08+08:00" />
 <meta itemprop="wordCount" content="452">
-
-
-
-<meta itemprop="keywords" content="docker," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker cli 連線到遠端的 dockerd daemon"/>
 <meta name="twitter:description" content="docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本"/>
 
@@ -169,13 +165,13 @@
 <p>修改完後，reload 並重啓</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo systemctl daemon-reload
-$ sudo systemctl restart docker
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">$ sudo systemctl restart docker
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>接著就可以看到 service 的 port 已經打開了。</p>
 <p><img src="https://fblog.ooopiz.com/images/2019/06/a002.jpg" alt="dockerd port listen" title="dockerd prot listen"></p>
@@ -188,26 +184,26 @@ $ sudo systemctl restart docker
 <p>你可以在試試看下面這些指令，你應該可以發現不同了。(記得換成你在用的 IP)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ docker -H tcp://192.168.56.101:2375 images
-$ docker -H tcp://192.168.56.101:2375 ps
-$ docker -H tcp://192.168.56.101:2375 ps -a
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ docker -H tcp://192.168.56.101:2375 images
+</span></span><span class="line"><span class="cl">$ docker -H tcp://192.168.56.101:2375 ps
+</span></span><span class="line"><span class="cl">$ docker -H tcp://192.168.56.101:2375 ps -a
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>每次都要打 -H 也是蠻煩的。你也可以</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export DOCKER_HOST=&#34;tcp://192.168.56.101:2375&#34;
-$ docker version
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ export DOCKER_HOST=&#34;tcp://192.168.56.101:2375&#34;
+</span></span><span class="line"><span class="cl">$ docker version
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>
 <ul>
@@ -279,7 +275,7 @@ $ docker version
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

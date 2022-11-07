@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="opensourcepos 安裝" />
 <meta property="og:description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-05-15T07:46:01+08:00" />
 <meta property="article:modified_time" content="2017-05-15T07:46:01+08:00" />
+
 <meta itemprop="name" content="opensourcepos 安裝">
-<meta itemprop="description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl">
-<meta itemprop="datePublished" content="2017-05-15T07:46:01+08:00" />
+<meta itemprop="description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl"><meta itemprop="datePublished" content="2017-05-15T07:46:01+08:00" />
 <meta itemprop="dateModified" content="2017-05-15T07:46:01+08:00" />
 <meta itemprop="wordCount" content="259">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="opensourcepos 安裝"/>
 <meta name="twitter:description" content="php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl"/>
 
@@ -181,23 +177,23 @@
 <p><code># vi database.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;
-$db[&#39;default&#39;][&#39;username&#39;] = &#39;db_user&#39;;
-$db[&#39;default&#39;][&#39;password&#39;] = &#39;db_pass&#39;;
-$db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;
+</span></span><span class="line"><span class="cl">$db[&#39;default&#39;][&#39;username&#39;] = &#39;db_user&#39;;
+</span></span><span class="line"><span class="cl">$db[&#39;default&#39;][&#39;password&#39;] = &#39;db_pass&#39;;
+</span></span><span class="line"><span class="cl">$db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="apache設定">apache設定</h2>
 <p><code>vi /etc/httpd/conf.d/pos.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -209,17 +205,17 @@ $db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;;
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;VirtualHost *:80&gt;
-DocumentRoot /var/www/pos/public
-  &lt;Directory /var/www/pos&gt;
-    DirectoryIndex index.php index.html
-    Options FollowSymLinks MultiViews ExecCGI
-    AllowOverride All
-    Order deny,allow
-    Allow from all
-  &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;VirtualHost *:80&gt;
+</span></span><span class="line"><span class="cl">DocumentRoot /var/www/pos/public
+</span></span><span class="line"><span class="cl">  &lt;Directory /var/www/pos&gt;
+</span></span><span class="line"><span class="cl">    DirectoryIndex index.php index.html
+</span></span><span class="line"><span class="cl">    Options FollowSymLinks MultiViews ExecCGI
+</span></span><span class="line"><span class="cl">    AllowOverride All
+</span></span><span class="line"><span class="cl">    Order deny,allow
+</span></span><span class="line"><span class="cl">    Allow from all
+</span></span><span class="line"><span class="cl">  &lt;/Directory&gt;
+</span></span><span class="line"><span class="cl">&lt;/VirtualHost&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="登入畫面">登入畫面</h2>
 <ul>
@@ -294,7 +290,7 @@ DocumentRoot /var/www/pos/public
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

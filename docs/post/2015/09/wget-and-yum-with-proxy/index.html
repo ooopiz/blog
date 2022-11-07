@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="yum 和 wget 使用 proxy" />
 <meta property="og:description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-09-02T17:05:01+08:00" />
 <meta property="article:modified_time" content="2015-09-02T17:05:01+08:00" />
+
 <meta itemprop="name" content="yum 和 wget 使用 proxy">
-<meta itemprop="description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使">
-<meta itemprop="datePublished" content="2015-09-02T17:05:01+08:00" />
+<meta itemprop="description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使"><meta itemprop="datePublished" content="2015-09-02T17:05:01+08:00" />
 <meta itemprop="dateModified" content="2015-09-02T17:05:01+08:00" />
-<meta itemprop="wordCount" content="216">
-
-
-
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="212">
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="yum 和 wget 使用 proxy"/>
 <meta name="twitter:description" content="yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使"/>
 
@@ -150,19 +146,19 @@
 <p>在設定檔中加入以下參數config /etc/yum.conf</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># The proxy server - proxy server:port number
-http_proxy = proxy.xxxxxx.com.tw:3128
-# The account details for yum connections
-proxy_username=user_name
-proxy_password=user_password
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># The proxy server - proxy server:port number
+</span></span><span class="line"><span class="cl">http_proxy = proxy.xxxxxx.com.tw:3128
+</span></span><span class="line"><span class="cl"># The account details for yum connections
+</span></span><span class="line"><span class="cl">proxy_username=user_name
+</span></span><span class="line"><span class="cl">proxy_password=user_password
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>此設定參數可提供所有帳號使用
@@ -173,15 +169,15 @@ proxy_password=user_password
 <p>在設定檔中加入以下參數config /etc/wgetrc</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">http_proxy = proxy.xxxxxx.com.tw:3128
-use_proxy = on
-wait = 15
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http_proxy = proxy.xxxxxx.com.tw:3128
+</span></span><span class="line"><span class="cl">use_proxy = on
+</span></span><span class="line"><span class="cl">wait = 15
+</span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <p><!-- raw HTML omitted -->Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again<!-- raw HTML omitted --></p>
@@ -190,7 +186,7 @@ wait = 15
 config /etc/yum.repos.d/epel.repo</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -200,15 +196,15 @@ config /etc/yum.repos.d/epel.repo</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[epel]
-name=Extra Packages for Enterprise Linux 6 - $basearch
-baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
-#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
-failovermethod=priority
-enabled=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[epel]
+</span></span><span class="line"><span class="cl">name=Extra Packages for Enterprise Linux 6 - $basearch
+</span></span><span class="line"><span class="cl">baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
+</span></span><span class="line"><span class="cl">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch
+</span></span><span class="line"><span class="cl">failovermethod=priority
+</span></span><span class="line"><span class="cl">enabled=1
+</span></span><span class="line"><span class="cl">gpgcheck=1
+</span></span><span class="line"><span class="cl">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -275,7 +271,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

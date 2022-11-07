@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="CentOS6.5 安裝MariaDB" />
 <meta property="og:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-08-24T07:05:01+08:00" />
 <meta property="article:modified_time" content="2015-08-24T07:05:01+08:00" />
+
 <meta itemprop="name" content="CentOS6.5 安裝MariaDB">
-<meta itemprop="description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name">
-<meta itemprop="datePublished" content="2015-08-24T07:05:01+08:00" />
+<meta itemprop="description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name"><meta itemprop="datePublished" content="2015-08-24T07:05:01+08:00" />
 <meta itemprop="dateModified" content="2015-08-24T07:05:01+08:00" />
 <meta itemprop="wordCount" content="441">
-
-
-
-<meta itemprop="keywords" content="mariadb," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="mariadb," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 安裝MariaDB"/>
 <meta name="twitter:description" content="新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo 1 2 3 4 5 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 1 2 3 4 5 [mariadb] name"/>
 
@@ -156,38 +152,38 @@
 <p>config /etc/yum.repos.d/mariadb.repo</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[mariadb]
-name = MariaDB
-baseurl = http://yum.mariadb.org/5.5/centos6-x86
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[mariadb]
+</span></span><span class="line"><span class="cl">name = MariaDB
+</span></span><span class="line"><span class="cl">baseurl = http://yum.mariadb.org/5.5/centos6-x86
+</span></span><span class="line"><span class="cl">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+</span></span><span class="line"><span class="cl">gpgcheck=1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>64位元系統</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[mariadb]
-name = MariaDB
-baseurl = http://yum.mariadb.org/5.5/centos6-amd64
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[mariadb]
+</span></span><span class="line"><span class="cl">name = MariaDB
+</span></span><span class="line"><span class="cl">baseurl = http://yum.mariadb.org/5.5/centos6-amd64
+</span></span><span class="line"><span class="cl">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+</span></span><span class="line"><span class="cl">gpgcheck=1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="更新套件庫">更新套件庫</h3>
 <p><code># yum update -y</code></p>
@@ -280,7 +276,7 @@ gpgcheck=1
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="Gitlab-ce 版本升級與容器化" />
 <meta property="og:description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-11-01T10:45:51+08:00" />
 <meta property="article:modified_time" content="2018-11-01T10:45:51+08:00" />
+
 <meta itemprop="name" content="Gitlab-ce 版本升級與容器化">
-<meta itemprop="description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還">
-<meta itemprop="datePublished" content="2018-11-01T10:45:51+08:00" />
+<meta itemprop="description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還"><meta itemprop="datePublished" content="2018-11-01T10:45:51+08:00" />
 <meta itemprop="dateModified" content="2018-11-01T10:45:51+08:00" />
-<meta itemprop="wordCount" content="803">
-
-
-
-<meta itemprop="keywords" content="gitlab," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="800">
+<meta itemprop="keywords" content="gitlab," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gitlab-ce 版本升級與容器化"/>
 <meta name="twitter:description" content="升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還"/>
 
@@ -199,7 +195,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -217,29 +213,27 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">web:
-  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
-  container_name: gitlab
-  restart: always
-  hostname: &#39;git.example.com&#39;
-  environment:
-    TZ: Asia/Taipei
-    GITLAB_OMNIBUS_CONFIG: |
-      external_url &#39;http://git.example.com&#39;
-      # Add any other gitlab.rb configuration here, each on its own line
-  ports:
-    - &#39;22:22&#39;
-    - &#39;80:80&#39;
-    - &#39;443:443&#39;
-  volumes:
-    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
-    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
-    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">web:
+</span></span><span class="line"><span class="cl">  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
+</span></span><span class="line"><span class="cl">  container_name: gitlab
+</span></span><span class="line"><span class="cl">  restart: always
+</span></span><span class="line"><span class="cl">  hostname: &#39;git.example.com&#39;
+</span></span><span class="line"><span class="cl">  environment:
+</span></span><span class="line"><span class="cl">    TZ: Asia/Taipei
+</span></span><span class="line"><span class="cl">    GITLAB_OMNIBUS_CONFIG: |
+</span></span><span class="line"><span class="cl">      external_url &#39;http://git.example.com&#39;
+</span></span><span class="line"><span class="cl">      # Add any other gitlab.rb configuration here, each on its own line
+</span></span><span class="line"><span class="cl">  ports:
+</span></span><span class="line"><span class="cl">    - &#39;22:22&#39;
+</span></span><span class="line"><span class="cl">    - &#39;80:80&#39;
+</span></span><span class="line"><span class="cl">    - &#39;443:443&#39;
+</span></span><span class="line"><span class="cl">  volumes:
+</span></span><span class="line"><span class="cl">    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
+</span></span><span class="line"><span class="cl">    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
+</span></span><span class="line"><span class="cl">    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="使用上方的docker-compose-啟動-gitlab-ce">使用上方的docker-compose 啟動 gitlab-ce</h3>
 <p><code>$ docker-compose up -d</code></p>
@@ -317,7 +311,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -338,32 +332,30 @@
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">web:
-#  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
-#  image: &#39;gitlab/gitlab-ce:9.2.10-ce.0&#39;
-#  image: &#39;gitlab/gitlab-ce:10.8.7-ce.0&#39;
-  image: &#39;gitlab/gitlab-ce:11.3.4-ce.0&#39;
-  container_name: gitlab
-  restart: always
-  hostname: &#39;git.example.com&#39;
-  environment:
-    TZ: Asia/Taipei
-    GITLAB_OMNIBUS_CONFIG: |
-      external_url &#39;http://git.example.com&#39;
-      # Add any other gitlab.rb configuration here, each on its own line
-  ports:
-    - &#39;22:22&#39;
-    - &#39;80:80&#39;
-    - &#39;443:443&#39;
-  volumes:
-    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
-    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
-    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">web:
+</span></span><span class="line"><span class="cl">#  image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39;
+</span></span><span class="line"><span class="cl">#  image: &#39;gitlab/gitlab-ce:9.2.10-ce.0&#39;
+</span></span><span class="line"><span class="cl">#  image: &#39;gitlab/gitlab-ce:10.8.7-ce.0&#39;
+</span></span><span class="line"><span class="cl">  image: &#39;gitlab/gitlab-ce:11.3.4-ce.0&#39;
+</span></span><span class="line"><span class="cl">  container_name: gitlab
+</span></span><span class="line"><span class="cl">  restart: always
+</span></span><span class="line"><span class="cl">  hostname: &#39;git.example.com&#39;
+</span></span><span class="line"><span class="cl">  environment:
+</span></span><span class="line"><span class="cl">    TZ: Asia/Taipei
+</span></span><span class="line"><span class="cl">    GITLAB_OMNIBUS_CONFIG: |
+</span></span><span class="line"><span class="cl">      external_url &#39;http://git.example.com&#39;
+</span></span><span class="line"><span class="cl">      # Add any other gitlab.rb configuration here, each on its own line
+</span></span><span class="line"><span class="cl">  ports:
+</span></span><span class="line"><span class="cl">    - &#39;22:22&#39;
+</span></span><span class="line"><span class="cl">    - &#39;80:80&#39;
+</span></span><span class="line"><span class="cl">    - &#39;443:443&#39;
+</span></span><span class="line"><span class="cl">  volumes:
+</span></span><span class="line"><span class="cl">    - &#39;/srv/gitlab/config:/etc/gitlab&#39;
+</span></span><span class="line"><span class="cl">    - &#39;/srv/gitlab/logs:/var/log/gitlab&#39;
+</span></span><span class="line"><span class="cl">    - &#39;/srv/gitlab/data:/var/opt/gitlab&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="gitlab-ce9210-ce0">gitlab-ce:9.2.10-ce.0</h3>
 <p><img src="https://fblog.ooopiz.com/images/2018/11/a003.png" alt="gitlab-ce:9.2.10" title="gitlab-ce:9.2.10"></p>
@@ -374,7 +366,7 @@
 <h3 id="升級完成後在統一調整-gitlabrb-的參數">升級完成後，在統一調整 gitlab.rb 的參數</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -382,19 +374,17 @@
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ vi gitlab.rb
-
-//=========
-external_url &#39;http://git.example.com’
-gitlab_rails[&#39;gitlab_email_from&#39;] = &#39;gitlab@example.com&#39;
-gitlab_rails[&#39;gitlab_email_display_name&#39;] = &#39;GitLab&#39;
-
-...
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ vi gitlab.rb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//=========
+</span></span><span class="line"><span class="cl">external_url &#39;http://git.example.com’
+</span></span><span class="line"><span class="cl">gitlab_rails[&#39;gitlab_email_from&#39;] = &#39;gitlab@example.com&#39;
+</span></span><span class="line"><span class="cl">gitlab_rails[&#39;gitlab_email_display_name&#39;] = &#39;GitLab&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -461,7 +451,7 @@ gitlab_rails[&#39;gitlab_email_display_name&#39;] = &#39;GitLab&#39;
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

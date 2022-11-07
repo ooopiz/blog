@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="IPsec Lan to Lan Vigor-2925 and AWS-ec2" />
 <meta property="og:description" content="前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-05-17T08:02:00+08:00" />
 <meta property="article:modified_time" content="2019-05-17T08:02:00+08:00" />
+
 <meta itemprop="name" content="IPsec Lan to Lan Vigor-2925 and AWS-ec2">
-<meta itemprop="description" content="前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的">
-<meta itemprop="datePublished" content="2019-05-17T08:02:00+08:00" />
+<meta itemprop="description" content="前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的"><meta itemprop="datePublished" content="2019-05-17T08:02:00+08:00" />
 <meta itemprop="dateModified" content="2019-05-17T08:02:00+08:00" />
 <meta itemprop="wordCount" content="766">
-
-
-
-<meta itemprop="keywords" content="ipsec,vigor,vpn," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ipsec,vigor,vpn," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IPsec Lan to Lan Vigor-2925 and AWS-ec2"/>
 <meta name="twitter:description" content="前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的"/>
 
@@ -174,20 +170,20 @@
 <h2 id="安裝-libreswan">安裝 libreswan</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ yum install epel-release
-$ yum install libreswan
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ yum install epel-release
+</span></span><span class="line"><span class="cl">$ yum install libreswan
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="設定-ipsec">設定 ipsec</h2>
 <p>ipsec 啟動時會載入 /etc/ipsec.conf</p>
 <p><code>$ vi /etc/ipsec.d/ipsec.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -205,39 +201,39 @@ $ yum install libreswan
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">conn IPsec
-    authby=secret
-    pfs=no
-    auto=add
-    keyingtries=3
-    dpddelay=30
-    dpdtimeout=120
-    dpdaction=clear
-    rekey=no
-    ikelifetime=8h
-    keylife=1h
-    type=tunnel
-    left=172.21.2.10
-    leftsubnet=172.21.0.0/16
-    rightsubnet=vhost:%priv
-    right=%any
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">conn IPsec
+</span></span><span class="line"><span class="cl">    authby=secret
+</span></span><span class="line"><span class="cl">    pfs=no
+</span></span><span class="line"><span class="cl">    auto=add
+</span></span><span class="line"><span class="cl">    keyingtries=3
+</span></span><span class="line"><span class="cl">    dpddelay=30
+</span></span><span class="line"><span class="cl">    dpdtimeout=120
+</span></span><span class="line"><span class="cl">    dpdaction=clear
+</span></span><span class="line"><span class="cl">    rekey=no
+</span></span><span class="line"><span class="cl">    ikelifetime=8h
+</span></span><span class="line"><span class="cl">    keylife=1h
+</span></span><span class="line"><span class="cl">    type=tunnel
+</span></span><span class="line"><span class="cl">    left=172.21.2.10
+</span></span><span class="line"><span class="cl">    leftsubnet=172.21.0.0/16
+</span></span><span class="line"><span class="cl">    rightsubnet=vhost:%priv
+</span></span><span class="line"><span class="cl">    right=%any
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>預先共享秘鑰啟動時會載入 /etc/ipsec.secrets</p>
 <p><code>$ vi /etc/ipsec.d/ipsec.secrets</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">172.21.2.10 %any: PSK “pskyouwant&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">172.21.2.10 %any: PSK “pskyouwant&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="修改內核參數">修改內核參數</h2>
 <p><code>vi /etc/sysctl.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -254,31 +250,31 @@ $ yum install libreswan
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">vm.swappiness = 0
-net.ipv4.neigh.default.gc_stale_time=120
-net.ipv4.conf.all.rp_filter=0
-net.ipv4.conf.default.rp_filter=0
-net.ipv4.conf.default.arp_announce = 2
-net.ipv4.conf.all.arp_announce=2
-net.ipv4.tcp_max_tw_buckets = 5000
-net.ipv4.tcp_syncookies = 1
-net.ipv4.tcp_max_syn_backlog = 1024
-net.ipv4.tcp_synack_retries = 2
-net.ipv4.conf.lo.arp_announce=2
-net.ipv4.ip_forward = 1
-net.ipv4.conf.default.accept_redirects = 0
-net.ipv4.conf.default.send_redirects = 0
-net.ipv4.conf.default.accept_source_route = 0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vm.swappiness = 0
+</span></span><span class="line"><span class="cl">net.ipv4.neigh.default.gc_stale_time=120
+</span></span><span class="line"><span class="cl">net.ipv4.conf.all.rp_filter=0
+</span></span><span class="line"><span class="cl">net.ipv4.conf.default.rp_filter=0
+</span></span><span class="line"><span class="cl">net.ipv4.conf.default.arp_announce = 2
+</span></span><span class="line"><span class="cl">net.ipv4.conf.all.arp_announce=2
+</span></span><span class="line"><span class="cl">net.ipv4.tcp_max_tw_buckets = 5000
+</span></span><span class="line"><span class="cl">net.ipv4.tcp_syncookies = 1
+</span></span><span class="line"><span class="cl">net.ipv4.tcp_max_syn_backlog = 1024
+</span></span><span class="line"><span class="cl">net.ipv4.tcp_synack_retries = 2
+</span></span><span class="line"><span class="cl">net.ipv4.conf.lo.arp_announce=2
+</span></span><span class="line"><span class="cl">net.ipv4.ip_forward = 1
+</span></span><span class="line"><span class="cl">net.ipv4.conf.default.accept_redirects = 0
+</span></span><span class="line"><span class="cl">net.ipv4.conf.default.send_redirects = 0
+</span></span><span class="line"><span class="cl">net.ipv4.conf.default.accept_source_route = 0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>額外新增一條，來符合 Aws 網卡名稱</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">net.ipv4.conf.ens5.rp_filter=0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">net.ipv4.conf.ens5.rp_filter=0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使配置生效</p>
 <p><code>$ sysctl -p</code></p>
@@ -296,13 +292,13 @@ net.ipv4.conf.default.accept_source_route = 0
 <h2 id="啟動ipsec">啟動ipsec</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ systemctl start ipsec
-$ systemctl enable ipsec
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ systemctl start ipsec
+</span></span><span class="line"><span class="cl">$ systemctl enable ipsec
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="postrouting">postrouting</h2>
 <p>做完上面的步驟，應該就可以使用 IPsec 連線了，<br>
@@ -316,13 +312,13 @@ $ systemctl enable ipsec
 <p>啟動服務</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ systemctl start iptables
-$ systemctl enable iptables
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ systemctl start iptables
+</span></span><span class="line"><span class="cl">$ systemctl enable iptables
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="vigor-2925-設定">Vigor 2925 設定</h2>
 <p>如下圖：</p>
@@ -407,7 +403,7 @@ $ systemctl enable iptables
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

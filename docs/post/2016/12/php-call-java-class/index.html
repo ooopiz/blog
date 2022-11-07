@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/12/php-call-java-class/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="php call java 類別" />
 <meta property="og:description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2016/12/php-call-java-class/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2016/12/php-call-java-class/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-12-21T03:23:01+08:00" />
 <meta property="article:modified_time" content="2016-12-21T03:23:01+08:00" />
+
 <meta itemprop="name" content="php call java 類別">
-<meta itemprop="description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6">
-<meta itemprop="datePublished" content="2016-12-21T03:23:01+08:00" />
+<meta itemprop="description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6"><meta itemprop="datePublished" content="2016-12-21T03:23:01+08:00" />
 <meta itemprop="dateModified" content="2016-12-21T03:23:01+08:00" />
 <meta itemprop="wordCount" content="351">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="php call java 類別"/>
 <meta name="twitter:description" content="php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6"/>
 
@@ -156,7 +152,7 @@
 <p><code># vi TestMath.java</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -190,39 +186,39 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">public class TestMath {
-
-    private Integer num1;
-    private Integer num2;
-
-    public TestMath() {
-        this.num1 = 0;
-        this.num2 = 0;
-    }
-
-    public TestMath(Integer n1, Integer n2) {
-        this.num1 = n1;
-        this.num2 = n2;
-    }
-
-    public void setNum1(Integer n) {
-        this.num1 = n;
-    }
-
-    public void setNum2(Integer n) {
-        this.num2 = n;
-    }
-
-    public Integer plus() {
-        return num1 + num2;
-    }
-
-    public Integer minus() {
-        return num1 - num2;
-    }
-
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class TestMath {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    private Integer num1;
+</span></span><span class="line"><span class="cl">    private Integer num2;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public TestMath() {
+</span></span><span class="line"><span class="cl">        this.num1 = 0;
+</span></span><span class="line"><span class="cl">        this.num2 = 0;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public TestMath(Integer n1, Integer n2) {
+</span></span><span class="line"><span class="cl">        this.num1 = n1;
+</span></span><span class="line"><span class="cl">        this.num2 = n2;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public void setNum1(Integer n) {
+</span></span><span class="line"><span class="cl">        this.num1 = n;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public void setNum2(Integer n) {
+</span></span><span class="line"><span class="cl">        this.num2 = n;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public Integer plus() {
+</span></span><span class="line"><span class="cl">        return num1 + num2;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    public Integer minus() {
+</span></span><span class="line"><span class="cl">        return num1 - num2;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code># javac TestMath.java</code></p>
 <p><code># touch MANIFEST.MF</code></p>
@@ -237,7 +233,7 @@
 <p><code># vi phpCallJava.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -253,21 +249,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
-
-require_once(&#34;http://localhost:8080/JavaBridge/java/Java.inc&#34;);
-
-//$TestMath = new java(&#34;TestMath&#34;);
-$TestMath = new java(&#34;TestMath&#34;, 5, 10);
-
-$value = $TestMath-&gt;plus();
-echo $value;
-
-$value = $TestMath-&gt;minus();
-echo $value;
-
-?&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">require_once(&#34;http://localhost:8080/JavaBridge/java/Java.inc&#34;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//$TestMath = new java(&#34;TestMath&#34;);
+</span></span><span class="line"><span class="cl">$TestMath = new java(&#34;TestMath&#34;, 5, 10);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$value = $TestMath-&gt;plus();
+</span></span><span class="line"><span class="cl">echo $value;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$value = $TestMath-&gt;minus();
+</span></span><span class="line"><span class="cl">echo $value;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">?&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code># php -n -dallow_url_include=On phpCallJava.php</code></p>
 <h2 id="其他">其他</h2>
@@ -339,7 +335,7 @@ echo $value;
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="CentOS6.5 Tomcat開機自動啟動" />
 <meta property="og:description" content="1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat 記得修改你的JAVA_HOME, CATALINA_HOME到你所" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-09-30T21:50:01+08:00" />
 <meta property="article:modified_time" content="2015-09-30T21:50:01+08:00" />
+
 <meta itemprop="name" content="CentOS6.5 Tomcat開機自動啟動">
-<meta itemprop="description" content="1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat 記得修改你的JAVA_HOME, CATALINA_HOME到你所">
-<meta itemprop="datePublished" content="2015-09-30T21:50:01+08:00" />
+<meta itemprop="description" content="1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat 記得修改你的JAVA_HOME, CATALINA_HOME到你所"><meta itemprop="datePublished" content="2015-09-30T21:50:01+08:00" />
 <meta itemprop="dateModified" content="2015-09-30T21:50:01+08:00" />
 <meta itemprop="wordCount" content="369">
-
-
-
-<meta itemprop="keywords" content="tomcat," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tomcat," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS6.5 Tomcat開機自動啟動"/>
 <meta name="twitter:description" content="1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本 # vi /etc/init.d/tomcat 記得修改你的JAVA_HOME, CATALINA_HOME到你所"/>
 
@@ -156,7 +152,7 @@
 <p><strong>記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -206,55 +202,55 @@
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#startup script for jakarta tomcat
-#
-# chkconfig: - 85 20
-# description: Tomcat running
-# processname: tomcat7
-# pidfile: /var/run/tomcat.pid # config:# Source function library.
-. /etc/rc.d/init.d/functions
-# Source networking configuration.
-. /etc/sysconfig/network
-# Check that networking is up.
-[ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment.
-export JAVA_HOME=/usr/java/jdk1.8.0_25
-export CATALINA_HOME=/usr/local/tomcat7
-export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34;
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar
-export PATH=$JAVA_HOME/bin:$PATH
-[ -f /usr/local/tomcat7/bin/startup.sh ] || exit 0 [ -f /usr/local/tomcat7/bin/shutdown.sh ] || exit 0
-export PATH=$PATH:/usr/bin:/usr/lib/bin
-# See how we were called.
-case &#34;$1&#34; in
-        start)
-                # Start daemon.
-                echo -n &#34;Starting Tomcat: &#34;
-                /usr/local/tomcat7/bin/startup.sh
-                RETVAL=$?
-                echo
-                        [ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/tomcat ;;
-        stop)
-                # Stop daemons.
-                echo -n &#34;Shutting down Tomcat: &#34;
-                /usr/local/tomcat7/bin/shutdown.sh
-                RETVAL=$?
-                echo
-                        [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/tomcat ;;
-        restart)
-                $0 stop
-                $0 start
-        ;;
-        condrestart)
-                [ -e /var/lock/subsys/tomcat ] &amp;&amp; $0 restart ;;
-        status)
-               status tomcat
-        ;;
-        *)
-                echo &#34;Usage: $0 {start|stop|restart|status}&#34;
-        exit 1
-esac
-        exit 0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#startup script for jakarta tomcat
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># chkconfig: - 85 20
+</span></span><span class="line"><span class="cl"># description: Tomcat running
+</span></span><span class="line"><span class="cl"># processname: tomcat7
+</span></span><span class="line"><span class="cl"># pidfile: /var/run/tomcat.pid # config:# Source function library.
+</span></span><span class="line"><span class="cl">. /etc/rc.d/init.d/functions
+</span></span><span class="line"><span class="cl"># Source networking configuration.
+</span></span><span class="line"><span class="cl">. /etc/sysconfig/network
+</span></span><span class="line"><span class="cl"># Check that networking is up.
+</span></span><span class="line"><span class="cl">[ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment.
+</span></span><span class="line"><span class="cl">export JAVA_HOME=/usr/java/jdk1.8.0_25
+</span></span><span class="line"><span class="cl">export CATALINA_HOME=/usr/local/tomcat7
+</span></span><span class="line"><span class="cl">export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34;
+</span></span><span class="line"><span class="cl">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar
+</span></span><span class="line"><span class="cl">export PATH=$JAVA_HOME/bin:$PATH
+</span></span><span class="line"><span class="cl">[ -f /usr/local/tomcat7/bin/startup.sh ] || exit 0 [ -f /usr/local/tomcat7/bin/shutdown.sh ] || exit 0
+</span></span><span class="line"><span class="cl">export PATH=$PATH:/usr/bin:/usr/lib/bin
+</span></span><span class="line"><span class="cl"># See how we were called.
+</span></span><span class="line"><span class="cl">case &#34;$1&#34; in
+</span></span><span class="line"><span class="cl">        start)
+</span></span><span class="line"><span class="cl">                # Start daemon.
+</span></span><span class="line"><span class="cl">                echo -n &#34;Starting Tomcat: &#34;
+</span></span><span class="line"><span class="cl">                /usr/local/tomcat7/bin/startup.sh
+</span></span><span class="line"><span class="cl">                RETVAL=$?
+</span></span><span class="line"><span class="cl">                echo
+</span></span><span class="line"><span class="cl">                        [ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/tomcat ;;
+</span></span><span class="line"><span class="cl">        stop)
+</span></span><span class="line"><span class="cl">                # Stop daemons.
+</span></span><span class="line"><span class="cl">                echo -n &#34;Shutting down Tomcat: &#34;
+</span></span><span class="line"><span class="cl">                /usr/local/tomcat7/bin/shutdown.sh
+</span></span><span class="line"><span class="cl">                RETVAL=$?
+</span></span><span class="line"><span class="cl">                echo
+</span></span><span class="line"><span class="cl">                        [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/tomcat ;;
+</span></span><span class="line"><span class="cl">        restart)
+</span></span><span class="line"><span class="cl">                $0 stop
+</span></span><span class="line"><span class="cl">                $0 start
+</span></span><span class="line"><span class="cl">        ;;
+</span></span><span class="line"><span class="cl">        condrestart)
+</span></span><span class="line"><span class="cl">                [ -e /var/lock/subsys/tomcat ] &amp;&amp; $0 restart ;;
+</span></span><span class="line"><span class="cl">        status)
+</span></span><span class="line"><span class="cl">               status tomcat
+</span></span><span class="line"><span class="cl">        ;;
+</span></span><span class="line"><span class="cl">        *)
+</span></span><span class="line"><span class="cl">                echo &#34;Usage: $0 {start|stop|restart|status}&#34;
+</span></span><span class="line"><span class="cl">        exit 1
+</span></span><span class="line"><span class="cl">esac
+</span></span><span class="line"><span class="cl">        exit 0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="2修改執行權限">2.修改執行權限</h3>
 <p><code># chmod 755 /etc/init.d/tomcat</code></p>
@@ -335,7 +331,7 @@ esac
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

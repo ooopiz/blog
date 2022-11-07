@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="Ansible Synchronize Why Permission Denied" />
 <meta property="og:description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-01-28T15:37:22+08:00" />
 <meta property="article:modified_time" content="2021-01-28T15:37:22+08:00" />
+
 <meta itemprop="name" content="Ansible Synchronize Why Permission Denied">
-<meta itemprop="description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的">
-<meta itemprop="datePublished" content="2021-01-28T15:37:22+08:00" />
+<meta itemprop="description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的"><meta itemprop="datePublished" content="2021-01-28T15:37:22+08:00" />
 <meta itemprop="dateModified" content="2021-01-28T15:37:22+08:00" />
 <meta itemprop="wordCount" content="825">
-
-
-
-<meta itemprop="keywords" content="ansible," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ansible," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ansible Synchronize Why Permission Denied"/>
 <meta name="twitter:description" content="關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的"/>
 
@@ -175,7 +171,7 @@
 <h3 id="1-先寫了一個-playbook-來-play-測試一下">1. 先寫了一個 playbook 來 play 測試一下</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,23 +189,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">---
-- name:
-  hosts: all
-  become: yes
-  become_user: root
-  become_method: sudo
-  gather_facts: false
-
-  tasks:
-    - name: &#39;rsync migrations dist dir&#39;
-      synchronize:
-        src:  &#34;{{ lookup(&#39;env&#39;, &#39;PWD&#39;) }}/dist/&#34;
-        dest: &#34;/var/lib/migrations/dist/&#34;
-        delete: yes
-        rsync_opts:
-          - &#34;--chown=ricky:ricky&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">- name:
+</span></span><span class="line"><span class="cl">  hosts: all
+</span></span><span class="line"><span class="cl">  become: yes
+</span></span><span class="line"><span class="cl">  become_user: root
+</span></span><span class="line"><span class="cl">  become_method: sudo
+</span></span><span class="line"><span class="cl">  gather_facts: false
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  tasks:
+</span></span><span class="line"><span class="cl">    - name: &#39;rsync migrations dist dir&#39;
+</span></span><span class="line"><span class="cl">      synchronize:
+</span></span><span class="line"><span class="cl">        src:  &#34;{{ lookup(&#39;env&#39;, &#39;PWD&#39;) }}/dist/&#34;
+</span></span><span class="line"><span class="cl">        dest: &#34;/var/lib/migrations/dist/&#34;
+</span></span><span class="line"><span class="cl">        delete: yes
+</span></span><span class="line"><span class="cl">        rsync_opts:
+</span></span><span class="line"><span class="cl">          - &#34;--chown=ricky:ricky&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="2-接著在-synchroize-模組源碼中追蹤到兩個明確的變數差異">2. 接著在 synchroize 模組源碼中，追蹤到兩個明確的變數差異</h3>
 <ul>
@@ -217,22 +213,22 @@
 <p>target: 127.0.0.1</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;src&#39;: &#39;/home/ubuntu/test/dist/&#39;, &#39;dest&#39;: &#39;/var/lib/migrations/dist/&#39;, &#39;delete&#39;: True, &#39;_local_rsync_path&#39;: &#39;rsync&#39;, &#39;_local_rsync_password&#39;: &#39;123456&#39;, &#39;rsync_path&#39;: &#39;sudo rsync&#39;}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{&#39;src&#39;: &#39;/home/ubuntu/test/dist/&#39;, &#39;dest&#39;: &#39;/var/lib/migrations/dist/&#39;, &#39;delete&#39;: True, &#39;_local_rsync_path&#39;: &#39;rsync&#39;, &#39;_local_rsync_password&#39;: &#39;123456&#39;, &#39;rsync_path&#39;: &#39;sudo rsync&#39;}
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>target: 192.168.56.103</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;src&#39;: &#39;/home/ubuntu/test/dist/&#39;, &#39;dest&#39;: &#39;ubuntu@192.168.56.103:/var/lib/migrations/dist/&#39;, &#39;delete&#39;: True, &#39;_local_rsync_path&#39;: &#39;rsync&#39;, &#39;_local_rsync_password&#39;: &#39;123456&#39;, &#39;rsync_path&#39;: &#39;sudo rsync&#39;}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{&#39;src&#39;: &#39;/home/ubuntu/test/dist/&#39;, &#39;dest&#39;: &#39;ubuntu@192.168.56.103:/var/lib/migrations/dist/&#39;, &#39;delete&#39;: True, &#39;_local_rsync_path&#39;: &#39;rsync&#39;, &#39;_local_rsync_password&#39;: &#39;123456&#39;, &#39;rsync_path&#39;: &#39;sudo rsync&#39;}
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -333,7 +329,7 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

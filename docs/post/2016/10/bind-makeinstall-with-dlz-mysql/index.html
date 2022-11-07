@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="bind make安裝搭配 dlz mysql" />
 <meta property="og:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-17T15:46:01+08:00" />
 <meta property="article:modified_time" content="2016-10-17T15:46:01+08:00" />
+
 <meta itemprop="name" content="bind make安裝搭配 dlz mysql">
-<meta itemprop="description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI">
-<meta itemprop="datePublished" content="2016-10-17T15:46:01+08:00" />
+<meta itemprop="description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI"><meta itemprop="datePublished" content="2016-10-17T15:46:01+08:00" />
 <meta itemprop="dateModified" content="2016-10-17T15:46:01+08:00" />
-<meta itemprop="wordCount" content="1575">
-
-
-
-<meta itemprop="keywords" content="dns,bind," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1573">
+<meta itemprop="keywords" content="dns,bind," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="bind make安裝搭配 dlz mysql"/>
 <meta name="twitter:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI"/>
 
@@ -255,7 +251,7 @@
 <p><code># vi named.conf</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -288,38 +284,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">options {
-    listen-on port 53 { any; };
-    listen-on-v6 port 53 { ::1; };
-    allow-query     { any; };
-
-    allow-transfer { none; };
-    allow-update { none; };
-    allow-recursion { none; };
-    recursion no;
-
-    version &#34;zzz&#34;;
-};
-
-logging {
-    channel default_debug {
-        file &#34;var/bind9.log&#34; versions 3 size 10m;
-        severity dynamic;
-        print-time yes;
-        print-severity yes;
-    };
-};
-
-include &#34;etc/bind.keys&#34;;
-
-dlz &#34;mysql zone&#34; {
-    database &#34;mysql
-      {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
-      {select zone from dns_records where zone=&#39;$zone$&#39; limit 1}
-      {select ttl, type, mx_priority, data, resp_person, serial, refresh,
-retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
-};
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">options {
+</span></span><span class="line"><span class="cl">    listen-on port 53 { any; };
+</span></span><span class="line"><span class="cl">    listen-on-v6 port 53 { ::1; };
+</span></span><span class="line"><span class="cl">    allow-query     { any; };
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    allow-transfer { none; };
+</span></span><span class="line"><span class="cl">    allow-update { none; };
+</span></span><span class="line"><span class="cl">    allow-recursion { none; };
+</span></span><span class="line"><span class="cl">    recursion no;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    version &#34;zzz&#34;;
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">logging {
+</span></span><span class="line"><span class="cl">    channel default_debug {
+</span></span><span class="line"><span class="cl">        file &#34;var/bind9.log&#34; versions 3 size 10m;
+</span></span><span class="line"><span class="cl">        severity dynamic;
+</span></span><span class="line"><span class="cl">        print-time yes;
+</span></span><span class="line"><span class="cl">        print-severity yes;
+</span></span><span class="line"><span class="cl">    };
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">include &#34;etc/bind.keys&#34;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">dlz &#34;mysql zone&#34; {
+</span></span><span class="line"><span class="cl">    database &#34;mysql
+</span></span><span class="line"><span class="cl">      {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
+</span></span><span class="line"><span class="cl">      {select zone from dns_records where zone=&#39;$zone$&#39; limit 1}
+</span></span><span class="line"><span class="cl">      {select ttl, type, mx_priority, data, resp_person, serial, refresh,
+</span></span><span class="line"><span class="cl">retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
+</span></span><span class="line"><span class="cl">};
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="7-創建named用戶與群組">7. 創建named用戶與群組</h4>
 <p><code># groupadd named</code></p>
@@ -354,7 +350,7 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 <h5 id="schema-example">Schema Example</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -384,46 +380,44 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 </span><span class="lnt">28
 </span><span class="lnt">29
 </span><span class="lnt">30
-</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">CREATE DATABASE  IF NOT EXISTS `dns_data`;
-USE `dns_data`;
-
-CREATE TABLE `dns_records` (
-  `ser_no` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `zone` varchar(255) DEFAULT NULL,
-  `host` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `data` varchar(255) DEFAULT NULL,
-  `ttl` int(11) DEFAULT NULL,
-  `mx_priority` int(11) DEFAULT NULL,
-  `refresh` int(11) DEFAULT NULL,
-  `retry` int(11) DEFAULT NULL,
-  `expire` int(11) DEFAULT NULL,
-  `minimum` int(11) DEFAULT NULL,
-  `serial` bigint(20) DEFAULT NULL,
-  `resp_person` varchar(255) DEFAULT NULL,
-  `primary_ns` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ser_no`),
-  KEY `host_index` (`host`(20)) USING BTREE,
-  KEY `type_index` (`type`(8)),
-  KEY `zone_index` (`zone`(30))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `xfr_table` (
-  `zone` varchar(255) NOT NULL,
-  `client` varchar(255) NOT NULL,
-  KEY `zone_client_index` (`zone`(30)),
-  KEY `client_index` (`client`(20))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">dns_data</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">USE</span><span class="w"> </span><span class="o">`</span><span class="n">dns_data</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">dns_records</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">ser_no</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">unsigned</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="kp">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">zone</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">host</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">type</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">data</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">ttl</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">mx_priority</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">refresh</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">retry</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">expire</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">minimum</span><span class="o">`</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">serial</span><span class="o">`</span><span class="w"> </span><span class="kt">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">resp_person</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">primary_ns</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">ser_no</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">host_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">host</span><span class="o">`</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">type_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">type</span><span class="o">`</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">zone_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">zone</span><span class="o">`</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="kp">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">xfr_table</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">zone</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">client</span><span class="o">`</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">zone_client_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">zone</span><span class="o">`</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">client_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">client</span><span class="o">`</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="kp">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="record-example">Record Example</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -435,23 +429,21 @@ CREATE TABLE `xfr_table` (
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">INSERT INTO `dns_records`
-( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`)
-VALUES
-/* SOA */
-(&#39;example.com&#39;,&#39;@&#39;,&#39;SOA&#39;,&#39;ns1.example.com.&#39;,3600,NULL,10800,7200,604800,86400,2015091101,&#39;master.example.com.&#39;,&#39;ns1.example.com.&#39;),
-(&#39;example.com&#39;,&#39;@&#39;,&#39;NS&#39;,&#39;ns1.example.com.&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(&#39;example.com&#39;,&#39;ns1&#39;,&#39;A&#39;,&#39;192.168.0.1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-
-/* A AAAA CNAME Record */
-(&#39;example.com&#39;,&#39;@&#39;,&#39;A&#39;,&#39;127.0.0.1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(&#39;example.com&#39;,&#39;@&#39;,&#39;AAAA&#39;,&#39;::1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(&#39;example.com&#39;,&#39;www&#39;,&#39;CNAME&#39;,&#39;@&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">dns_records</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w"> </span><span class="o">`</span><span class="n">zone</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">host</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">type</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">data</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">ttl</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">mx_priority</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">refresh</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">retry</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">expire</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">minimum</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">serial</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">resp_person</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">primary_ns</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">VALUES</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* SOA */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;SOA&#39;</span><span class="p">,</span><span class="s1">&#39;ns1.example.com.&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="mi">10800</span><span class="p">,</span><span class="mi">7200</span><span class="p">,</span><span class="mi">604800</span><span class="p">,</span><span class="mi">86400</span><span class="p">,</span><span class="mi">2015091101</span><span class="p">,</span><span class="s1">&#39;master.example.com.&#39;</span><span class="p">,</span><span class="s1">&#39;ns1.example.com.&#39;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;NS&#39;</span><span class="p">,</span><span class="s1">&#39;ns1.example.com.&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;ns1&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* A AAAA CNAME Record */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;AAAA&#39;</span><span class="p">,</span><span class="s1">&#39;::1&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;www&#39;</span><span class="p">,</span><span class="s1">&#39;CNAME&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">,</span><span class="no">NULL</span><span class="p">),</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="9-啟動">9. 啟動</h4>
 <p><code># sbin/named -c etc/named.conf -u named</code></p>
@@ -473,11 +465,11 @@ VALUES
 <p>編譯加上</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">--with-mysql-libraries=/usr/lib64/mysql/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--with-mysql-libraries=/usr/lib64/mysql/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="三承二但是也有可能無效死都要抓usrlibmysql只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他</h3>
 <p><code># ln -s /usr/lib64/mysql/ /usr/lib/mysql</code></p>
@@ -490,7 +482,7 @@ VALUES
 <h3 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -499,14 +491,14 @@ VALUES
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">dlz &#34;mysql zone&#34; {
-   database &#34;mysql
-      {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
-      {select zone from dns_records where zone=&#39;$zone$&#39; limit 1}
-      {select ttl, type, mx_priority, data, resp_person, serial, refresh,
-retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
-};
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dlz &#34;mysql zone&#34; {
+</span></span><span class="line"><span class="cl">   database &#34;mysql
+</span></span><span class="line"><span class="cl">      {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin}
+</span></span><span class="line"><span class="cl">      {select zone from dns_records where zone=&#39;$zone$&#39; limit 1}
+</span></span><span class="line"><span class="cl">      {select ttl, type, mx_priority, data, resp_person, serial, refresh,
+</span></span><span class="line"><span class="cl">retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
+</span></span><span class="line"><span class="cl">};
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="dns-security-reference">DNS security reference</h2>
 <ul>
@@ -580,7 +572,7 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

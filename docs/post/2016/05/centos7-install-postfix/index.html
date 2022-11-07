@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/" />
@@ -41,19 +41,15 @@
 <meta property="og:title" content="CentOS7 安裝Postfix" />
 <meta property="og:description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-05-26T10:20:01+08:00" />
 <meta property="article:modified_time" content="2016-05-26T10:20:01+08:00" />
+
 <meta itemprop="name" content="CentOS7 安裝Postfix">
-<meta itemprop="description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果">
-<meta itemprop="datePublished" content="2016-05-26T10:20:01+08:00" />
+<meta itemprop="description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果"><meta itemprop="datePublished" content="2016-05-26T10:20:01+08:00" />
 <meta itemprop="dateModified" content="2016-05-26T10:20:01+08:00" />
 <meta itemprop="wordCount" content="780">
-
-
-
-<meta itemprop="keywords" content="postfix,smtp," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="postfix,smtp," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CentOS7 安裝Postfix"/>
 <meta name="twitter:description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server. 前置作業 在開始前, 如果"/>
 
@@ -168,7 +164,7 @@
 <p>開啟 /etc/postfix/main.cf, 修改以下設定:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,32 +191,32 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 系統的主機名稱
-myhostname = smtp.3grass.me
-
-# email伺服器的域名
-mydomain = 3grass.me
-
-# 指定本地發送郵件中來源和傳遞顯示的域名
-myorigin = $mydomain
-
-# 設置網路介面以便Postfix能接收到郵件
-# 預設值是all，如果你的機器有多張網路卡，但又不想要全部都開放 relay，就可以指定只開放給某張網路卡
-inet_interfaces = all
-
-inet_protocols = all
-
-# 指定哪些郵件地址允許在本地發送郵件
-# 這是一組被信任的允許通過伺服器發送或傳遞郵件的IP地址。用戶試圖通過發送從此處未列出的IP地址的原始伺服器的郵件將被拒絕
-mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
-
-# 受信任SMTP的列表，具體的說，受信任的SMTP客戶端允許通過Postfix傳遞郵件
-# 0.0.0.0 表示不限制
-mynetworks = 0.0.0.0
-
-# 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格
-home_mailbox = Maildir/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 系統的主機名稱
+</span></span><span class="line"><span class="cl">myhostname = smtp.3grass.me
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># email伺服器的域名
+</span></span><span class="line"><span class="cl">mydomain = 3grass.me
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 指定本地發送郵件中來源和傳遞顯示的域名
+</span></span><span class="line"><span class="cl">myorigin = $mydomain
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 設置網路介面以便Postfix能接收到郵件
+</span></span><span class="line"><span class="cl"># 預設值是all，如果你的機器有多張網路卡，但又不想要全部都開放 relay，就可以指定只開放給某張網路卡
+</span></span><span class="line"><span class="cl">inet_interfaces = all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">inet_protocols = all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 指定哪些郵件地址允許在本地發送郵件
+</span></span><span class="line"><span class="cl"># 這是一組被信任的允許通過伺服器發送或傳遞郵件的IP地址。用戶試圖通過發送從此處未列出的IP地址的原始伺服器的郵件將被拒絕
+</span></span><span class="line"><span class="cl">mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 受信任SMTP的列表，具體的說，受信任的SMTP客戶端允許通過Postfix傳遞郵件
+</span></span><span class="line"><span class="cl"># 0.0.0.0 表示不限制
+</span></span><span class="line"><span class="cl">mynetworks = 0.0.0.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格
+</span></span><span class="line"><span class="cl">home_mailbox = Maildir/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>mynetworks:
@@ -240,22 +236,22 @@ mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
 <p>25 port全部開放</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>針對部分IP做開放</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT
--A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT
+</span></span><span class="line"><span class="cl">-A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -323,7 +319,7 @@ mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

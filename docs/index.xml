@@ -319,7 +319,7 @@
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</guid>
-      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo</description>
+      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo</description>
     </item>
     
     <item>
@@ -346,7 +346,7 @@
       <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</guid>
-      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #</description>
+      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #</description>
     </item>
     
     <item>
@@ -355,7 +355,7 @@
       <pubDate>Wed, 30 Sep 2015 05:13:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/</guid>
-      <description>tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&amp;quot; &amp;quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&amp;quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 5 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JD</description>
+      <description>tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &amp;quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&amp;quot; &amp;quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&amp;quot; tar zxvf jdk-7u79-linux-x64.tar.gz 1 2 3 4 # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK</description>
     </item>
     
     <item>
@@ -481,7 +481,7 @@
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm 參考連結MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
+      <description>一、更新rpm 參考連結 MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
     </item>
     
     <item>
