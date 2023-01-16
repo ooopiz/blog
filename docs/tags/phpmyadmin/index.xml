@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>phpmyadmin on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/phpmyadmin/</link>
     <description>Recent content in phpmyadmin on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Mon, 24 Aug 2015 02:00:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/phpmyadmin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS6.5 安裝phpMyAdmin</title>
@@ -13,7 +16,18 @@
       <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/</guid>
-      <description>一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本 wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin rm phpMyAdmin-4.1.12-all-languages.tar.gz 二、設定config.inc.p</description>
+      <description>一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本
+wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
+tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
+mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
+rm phpMyAdmin-4.1.12-all-languages.tar.gz
+二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
+/* Authentication type */ $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;auth_type&amp;#39;] = &amp;#39;cookies&amp;#39;; 改成
+/* Authentication type */ $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;auth_type&amp;#39;] = &amp;#39;http&amp;#39;; 三、查看mysql使用者,新增使用者,給予權限 # mysql -u root -p -h 127.0.0.1
+mysql&amp;gt; select user, host from mysql.user;
+mysql&amp;gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
+mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
+四、phpMyAdmin 高級功能啟用 建立使用者pma mysql&amp;gt; create user &#39;pma&#39;@&#39;localhost&#39; identified by &#39;pmapass&#39;;</description>
     </item>
     
   </channel>

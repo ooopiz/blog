@@ -1,378 +1,410 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en" dir="auto">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>馬丁沒有派對</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="generator" content="Hugo 0.105.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>馬丁沒有派對</title>
+<meta name="keywords" content="devops, 運維, 後端">
+<meta name="description" content="我把青春都寫在blog上了 😜😜">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.ooopiz.com/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ooopiz.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.ooopiz.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.ooopiz.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.ooopiz.com/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="馬丁" /><meta name="description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜" /><meta name="keywords" content="技術文章, 【*】端工程師, 我是一條it狗, 如果你看到這裡了，那麼恭喜，你也是一條it狗" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.ooopiz.com/" />
-  <link href="https://blog.ooopiz.com/index.xml" rel="alternate" type="application/rss+xml" title="馬丁沒有派對" />
-  <link href="https://blog.ooopiz.com/index.xml" rel="feed" type="application/rss+xml" title="馬丁沒有派對" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.3371d3a8.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="馬丁沒有派對" />
-<meta property="og:description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.ooopiz.com/" />
-<meta property="og:updated_time" content="2020-01-04T00:03:19+08:00" />
-<meta itemprop="name" content="馬丁沒有派對">
-<meta itemprop="description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="馬丁沒有派對"/>
-<meta name="twitter:description" content="俗話說的好，取之於網路用之於網路，寫寫一些文章，欺騙自己還在進步。😜😜"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">馬丁沒有派對</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">馬丁沒有派對</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/centos7-installing-tomcat/">CentOS7 安裝Tomcat</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 30 Sep 2015 06:10:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網到官網下載你爽爽的版本 #
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/centos7-installing-tomcat/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/centos7-install-jdk/">CentOS7 安裝JDK 64 Bit</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 30 Sep 2015 05:13:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      tar.gz 安裝 cd /opt wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot; tar zxvf jdk-7u79-linux-x64.tar.gz # alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/centos7-install-jdk/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/install-virtualbox-guest-addtiton-for-centos/">VirtualBox Guest Addtiton安裝 for Centos</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 09 Sep 2015 09:49:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/install-virtualbox-guest-addtiton-for-centos/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/">VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 09 Sep 2015 09:10:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線 Windows環境
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/wget-and-yum-with-proxy/">yum 和 wget 使用 proxy</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 02 Sep 2015 17:05:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/wget-and-yum-with-proxy/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/centos-traffic-monitoring-tool-iftop/">CentOS6.5 流量監控工具(iftop)</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 02 Sep 2015 16:56:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      官方網站安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or # wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/centos-traffic-monitoring-tool-iftop/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/09/centos7-basic-set/">CentOS7 基礎設定</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Tue, 01 Sep 2015 03:07:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/09/centos7-basic-set/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/08/centos-using-rsync/">CentOS 使用rsync</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Mon, 31 Aug 2015 13:06:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器． 首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync 如
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/08/centos-using-rsync/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/08/reinstall-mac/">重灌Mac</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Sun, 30 Aug 2015 14:14:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      重開機時，按住command + R 會跳出如下面圖片的介面． 就可以開始進行清理硬碟與重灌OS X的作業
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/08/reinstall-mac/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2015/08/centos65-installation-of-mariadb/">CentOS6.5 安裝MariaDB</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Mon, 24 Aug 2015 07:05:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統 config /etc/yum.repos.d/mariadb.repo [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套
-    </div>
-    <div class="read-more">
-      <a href="/post/2015/08/centos65-installation-of-mariadb/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/3/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
-    <a class="next" href="/page/5/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
-        </div>
-        
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-  <a href="https://blog.ooopiz.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">馬丁</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-<script type="application/javascript">
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-66438778-2', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="馬丁沒有派對" />
+<meta property="og:description" content="我把青春都寫在blog上了 😜😜" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blog.ooopiz.com/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="og:site_name" content="馬丁沒有派對" />
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
+<meta name="twitter:title" content="馬丁沒有派對"/>
+<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "馬丁沒有派對",
+  "url": "https://blog.ooopiz.com",
+  "description": "我把青春都寫在blog上了 😜😜",
+  "thumbnailUrl": "https://blog.ooopiz.com/favicon.ico",
+  "sameAs": [
+      
+  ]
+}
+</script>
+</head>
 
+<body class="list dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
 
+</script>
 
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ooopiz.com" accesskey="h" title="馬丁沒有派對 (Alt + H)">
+                <img src="https://blog.ooopiz.com/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">馬丁沒有派對</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ooopiz.com/" title="Home">
+                    <span class="active">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/post/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CentOS7 安裝Postfix
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+查詢是否安裝過
+# rpm -qa | grep sendmail
+# rpm -qa | grep exim
+移除
+# yum remove sendmail
+# yum remove exim
+為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
+SELINUX=enforcing
+換成
+SELINUX=disabled
+1.開始安裝 Postfix # yum install postfix...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>安裝 Nginx 1.9&#43;
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx
+啟動服務 # service nginx start
+# chkconfig --levels 235 nginx on</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-05-05 02:47:01 +0800 CST'>May 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 Nginx 1.9&#43;" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>安裝 PHP5.6
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
+CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
+安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-05-05 02:38:01 +0800 CST'>May 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 PHP5.6" href="https://blog.ooopiz.com/post/2016/05/install-php56/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>安裝 Nexus OSS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
+下載網址
+下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
+# ln -s nexus-2.11.4-01/ nexus
+# chown -R nexus:nexus nexus
+# chown -R nexus:nexus nexus-2.11.4-01/
+# chown -R nexus:nexus sonatype-work/
+修改下面兩個設定
+# vi /nexus-2.11.4-01/bin/nexus
+NEXUS_HOME=&#34;/usr/local/nexus/nexus&#34; RUN_AS_USER=nexus 修改Port
+# vi /nexus-2.11.4-01/conf/nexus.properties
+application-port=18081 啟動
+# sh /var/opt/nexus/nexus/bin/nexus start</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-12-14 01:27:01 +0800 CST'>December 14, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 Nexus OSS" href="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CentOS7 Tomcat增加systemctl控制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
+範例如下:
+#add tomcat pid CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34; #add java opts JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34; 2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
+PIDFile就指到tomcat所在的目錄
+Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
+查看全部服務： systemctl list-unit-files –type service
+查看服務 systemctl status name.service
+啟動服務 systemctl start name.service
+停止服務 systemctl stop name.service
+重啟服務 systemctl restart name.service
+增加開機自動啟動 systemctl enable name.service...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-10-01 05:24:01 +0800 CST'>October 1, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 Tomcat增加systemctl控制" href="https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CentOS6.5 Tomcat開機自動啟動
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本
+# vi /etc/init.d/tomcat
+記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下
+#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup....</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-30 21:50:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS6.5 Tomcat開機自動啟動" href="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CentOS7 安裝Tomcat
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
+# cd /usr/local
+2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
+# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+5.啟動或停止Tomcat 啟動Tomcat 7
+# /usr/local/tomcat7/bin/startup.sh
+停止Tomcat 7
+# /usr/local/tomcat7/bin/shutdown.sh
+6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
+若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-30 06:10:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝Tomcat" href="https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CentOS7 安裝JDK 64 Bit
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tar.gz 安裝 cd /opt
+wget --no-cookies --no-check-certificate --header &#34;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&#34; &#34;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&#34;
+tar zxvf jdk-7u79-linux-x64.tar.gz
+# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下
+# rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;
+# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+# alternatives --config java...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-30 05:13:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝JDK 64 Bit" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>VirtualBox Guest Addtiton安裝 for Centos
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+那就讓我們來開始安裝吧
+先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
+# mount /dev/cdrom /media/cdrom
+執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
+# mount -t vboxsf New ~/new
+或者你需要有特定owner的mount
+# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
+Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
+解完後在執行一次
+# sh /media/cdrom/VBoxLinuxAdditions.run</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-09 09:10:01 +0800 CST'>September 9, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://blog.ooopiz.com/page/3/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://blog.ooopiz.com/page/5/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://blog.ooopiz.com">馬丁沒有派對</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
+
 </html>

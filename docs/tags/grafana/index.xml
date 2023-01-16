@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>grafana on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/grafana/</link>
     <description>Recent content in grafana on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Thu, 01 Apr 2021 01:02:25 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grafana 備份工具 - grafana-backup-tool</title>
@@ -13,7 +16,16 @@
       <pubDate>Thu, 01 Apr 2021 01:02:25 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/</guid>
-      <description>説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan</description>
+      <description>説明 最近剛好要做 Grafana 的資料遷移，
+理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題，
+但牽涉到版本升級，有點不確定性。
+剛好看到一個不錯的工具 grafana-backup-tool，是透過 api 的方式進行備份還原，
+正好試用看看，平常備份也可以使用。
+情境 Grafana 資料遷移 - 域名為假設域名 原站 - http://grafana.example.com (version: 6.4.3) 新站 - http://new.grafana.example.com (version: 7.3.4) 步驟 一. 安裝 grafana-backup-tool 隨便找一台可以訪問到 Grafana site 的 Linux
+pip install grafana-backup
+二. 建立 API Token 在要備份 與 要還原的 Grafana 都建立 API KEY
+三. 設定檔 建立備份目標的設定檔 grafana.json (token 填入上方所建立的)
+{ &amp;#34;grafana&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;http://grafana.example.com&amp;#34;, &amp;#34;token&amp;#34;: &amp;#34;{YOUR_GRAFANA_TOKEN}&amp;#34;, } } 建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)</description>
     </item>
     
   </channel>

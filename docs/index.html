@@ -1,560 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en" dir="auto">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>馬丁沒有派對</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="馬丁" /><meta name="description" content="我把青春都寫在blog上了 😜😜" /><meta name="keywords" content="devops, 技術, 後端工程師" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.105.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.ooopiz.com/" />
-  <link href="https://blog.ooopiz.com/index.xml" rel="alternate" type="application/rss+xml" title="馬丁沒有派對" />
-  <link href="https://blog.ooopiz.com/index.xml" rel="feed" type="application/rss+xml" title="馬丁沒有派對" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="馬丁沒有派對" />
-<meta property="og:description" content="我把青春都寫在blog上了 😜😜" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.ooopiz.com/" />
-
-<meta itemprop="name" content="馬丁沒有派對">
-<meta itemprop="description" content="我把青春都寫在blog上了 😜😜"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="馬丁沒有派對"/>
-<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">馬丁沒有派對</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-
-  
-
-
-</nav>
-
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">馬丁沒有派對</a>
-</div>
-
-
-
-
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2021/04/try-grafana-backup-tool/">Grafana 備份工具 - grafana-backup-tool</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 01 Apr 2021 01:02:25 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      説明 最近剛好要做 Grafana 的資料遷移， 理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題， 但牽涉到版本升級，有點不確定性。 剛好看到一個不錯的工具 grafan
-    </div>
-    <div class="read-more">
-      <a href="/post/2021/04/try-grafana-backup-tool/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2021/03/windows10-nice-use-pinyin/">Windows 10 設定好用的拼音輸入法</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Fri, 26 Mar 2021 20:50:49 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言 已經好幾年沒使用 Windows 電腦工作了， 筆者的目前的工作機又剛好是 Windows OS。 一直沒有在 Windows 上找到好用的拼音輸入法，中文輸入整個手殘。 ( 兩年前嘗試用拼音
-    </div>
-    <div class="read-more">
-      <a href="/post/2021/03/windows10-nice-use-pinyin/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2021/01/ansible-synchronize-why-permission-denied/">Ansible Synchronize Why Permission Denied</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 28 Jan 2021 15:37:22 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的
-    </div>
-    <div class="read-more">
-      <a href="/post/2021/01/ansible-synchronize-why-permission-denied/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2020/02/macos-generator-iso-from-dir/">你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 13 Feb 2020 20:20:54 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。 雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。 我在
-    </div>
-    <div class="read-more">
-      <a href="/post/2020/02/macos-generator-iso-from-dir/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2020/01/kafka-basic-setting-and-usage/">Kafka 基本設定與用法</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 30 Jan 2020 22:33:26 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service 1 2 3 4 5 6 7 8 9 10
-    </div>
-    <div class="read-more">
-      <a href="/post/2020/01/kafka-basic-setting-and-usage/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2020/01/macos-l2tp-settup/">Macos L2tp vpn 設定</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Sat, 04 Jan 2020 02:20:14 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服
-    </div>
-    <div class="read-more">
-      <a href="/post/2020/01/macos-l2tp-settup/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2020/01/window10_l2tp_vpn_setting/">Window10 l2tp vpn 設定</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Sat, 04 Jan 2020 00:03:19 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線
-    </div>
-    <div class="read-more">
-      <a href="/post/2020/01/window10_l2tp_vpn_setting/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/07/creating-kubernetes-single-node-cluster/">建立一個單節點的 kubernetes cluster (kubeadm)</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Mon, 29 Jul 2019 17:18:19 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。 Kubernetes Architecture 這是一個 kubernetes cluster 較完整
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/07/creating-kubernetes-single-node-cluster/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/07/coreos-static-ip/">CoreOS Static Ip 固定 IP 設定</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 24 Jul 2019 17:01:37 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      設定 static ip 副檔名必須是.network $ vi /etc/systemd/network/enp0s8.network 1 2 3 4 5 [Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/07/coreos-static-ip/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/06/docker-connecting-remote-daemon/">Docker cli 連線到遠端的 dockerd daemon</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Tue, 04 Jun 2019 20:22:08 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      docker 是 client/server 的架構 昨天在網路上看到一句話，大意是： docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成 才赫然發現 docker 別有洞天吶。 原來每天在敲的 docker 指令都是在操控本
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/06/docker-connecting-remote-daemon/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/05/virtualbox-install-coreos/">Virtualbox 安裝 Coreos</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Tue, 28 May 2019 15:20:25 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/05/virtualbox-install-coreos/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/05/fswatch-save-my-times/">Fswatch Save My Times</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 23 May 2019 23:27:58 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累， 就到網路上搜看看有沒有可以監控檔案存檔事件的工具， 於是找
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/05/fswatch-save-my-times/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/">IPsec Lan to Lan Vigor-2925 and AWS-ec2</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Fri, 17 May 2019 08:02:00 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP， 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。 其實 AWS 上面也有現成的
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019/05/docker-volume-create/">關於 Docker volume create</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Fri, 10 May 2019 07:22:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。 原本我都是使用 -v 對應到我 host 機器的目錄 ex : -v $(pwd)/nginx-cache:/var/cache/nginx 後來很好奇 docker volume create 的用途還有存放路徑。 於
-    </div>
-    <div class="read-more">
-      <a href="/post/2019/05/docker-volume-create/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2018/11/gitlab-version-update-and-dockerized/">Gitlab-ce 版本升級與容器化</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 01 Nov 2018 10:45:51 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還
-    </div>
-    <div class="read-more">
-      <a href="/post/2018/11/gitlab-version-update-and-dockerized/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2017/05/opensourcepos-install/">opensourcepos 安裝</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Mon, 15 May 2017 07:46:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      php pos 商用版 開源版本 opensourcepos OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了 環境準備： 安裝lamp php require php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl
-    </div>
-    <div class="read-more">
-      <a href="/post/2017/05/opensourcepos-install/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2017/03/pem-to-ppk-putty-login/">pem轉ppk putty 登入</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Tue, 21 Mar 2017 02:21:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe pem 轉 ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選
-    </div>
-    <div class="read-more">
-      <a href="/post/2017/03/pem-to-ppk-putty-login/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2016/12/php-call-java-class/">php call java 類別</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Wed, 21 Dec 2016 03:23:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      php-java-bridge 介紹 php-java-bridge 載點 Files &gt; Binary package &gt; JavaBridgeTemplate621.war 我下載到的版本是JavaBridgeTemplate621.war 寫一個jar來做測試 # mkdir TestMath # cd TestMath # vi TestMath.java 1 2 3 4 5 6
-    </div>
-    <div class="read-more">
-      <a href="/post/2016/12/php-call-java-class/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2016/12/gitlab-upgrade-7.14-to-8/">GitLab 7.14升級8.X</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Thu, 08 Dec 2016 13:22:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時
-    </div>
-    <div class="read-more">
-      <a href="/post/2016/12/gitlab-upgrade-7.14-to-8/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/">利用adjtimex來修正linux時間偏差</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Fri, 04 Nov 2016 10:26:01 &#43;0800 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差
-    </div>
-    <div class="read-more">
-      <a href="/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    
-    <a class="next" href="/page/2/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
-        </div>
-        
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-  <a href="https://blog.ooopiz.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2019 - 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>馬丁</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
-
-
+	<meta name="generator" content="Hugo 0.105.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>馬丁沒有派對</title>
+<meta name="keywords" content="devops, 運維, 後端">
+<meta name="description" content="我把青春都寫在blog上了 😜😜">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.ooopiz.com/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ooopiz.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.ooopiz.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.ooopiz.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://blog.ooopiz.com/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
 <script>
 var doNotTrack = false;
@@ -562,15 +36,385 @@ if (!doNotTrack) {
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': true });
+	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
 }
 </script>
+<meta property="og:title" content="馬丁沒有派對" />
+<meta property="og:description" content="我把青春都寫在blog上了 😜😜" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blog.ooopiz.com/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="og:site_name" content="馬丁沒有派對" />
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
+<meta name="twitter:title" content="馬丁沒有派對"/>
+<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "馬丁沒有派對",
+  "url": "https://blog.ooopiz.com",
+  "description": "我把青春都寫在blog上了 😜😜",
+  "thumbnailUrl": "https://blog.ooopiz.com/favicon.ico",
+  "sameAs": [
+      
+  ]
+}
+</script>
+</head>
 
+<body class="list dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
 
+</script>
 
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ooopiz.com" accesskey="h" title="馬丁沒有派對 (Alt + H)">
+                <img src="https://blog.ooopiz.com/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">馬丁沒有派對</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ooopiz.com/" title="Home">
+                    <span class="active">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/post/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>Hi there 👋</h1>
+    </header>
+    <div class="entry-content">
+        Welcome to my blog
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons">
+</div>
 
+    </footer>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Grafana 備份工具 - grafana-backup-tool
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>説明 最近剛好要做 Grafana 的資料遷移，
+理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題，
+但牽涉到版本升級，有點不確定性。
+剛好看到一個不錯的工具 grafana-backup-tool，是透過 api 的方式進行備份還原，
+正好試用看看，平常備份也可以使用。
+情境 Grafana 資料遷移 - 域名為假設域名 原站 - http://grafana.example.com (version: 6.4.3) 新站 - http://new.grafana.example.com (version: 7.3.4) 步驟 一. 安裝 grafana-backup-tool 隨便找一台可以訪問到 Grafana site 的 Linux
+pip install grafana-backup
+二. 建立 API Token 在要備份 與 要還原的 Grafana 都建立 API KEY
+三. 設定檔 建立備份目標的設定檔 grafana.json (token 填入上方所建立的)
+{ &#34;grafana&#34;: { &#34;url&#34;: &#34;http://grafana.example.com&#34;, &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;, } } 建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-04-01 01:02:25 +0800 CST'>April 1, 2021</span></footer>
+  <a class="entry-link" aria-label="post link to Grafana 備份工具 - grafana-backup-tool" href="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Windows 10 設定好用的拼音輸入法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 已經好幾年沒使用 Windows 電腦工作了，
+筆者的目前的工作機又剛好是 Windows OS。
+一直沒有在 Windows 上找到好用的拼音輸入法，中文輸入整個手殘。
+( 兩年前嘗試用拼音輸入法取代注音，我現在連注音都打不好了 XD )
+總之前幾天發現了像在 Mac 上一樣好用的拼音輸入法，
+跟大家分享一下，如果你剛好需要的話。
+微軟注音的拼音輸入法 對比 微軟拼音的拼音輸入法 標題很繞口我知道，不過不是很重要。。。
+微軟注音的拼音輸入法
+微軟拼音的拼音輸入法
+比較 微軟注音的拼音輸入法 選字很難選 無法拼音校正 按 Enter 確定 微軟拼音的拼音輸入法 按空白鍵確定 使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多) 可連續輸入很多字再空白鍵確定 可以中英文混打，不需切換輸入法 可以輸入頭一個字碼，組合出句子 設定方式 原本的微軟注音的拼音輸入法應該是這樣設定
+微軟拼音的拼音輸入法 設定
+(主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可)</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-26 20:50:49 +0800 CST'>March 26, 2021</span></footer>
+  <a class="entry-link" aria-label="post link to Windows 10 設定好用的拼音輸入法" href="https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Ansible Synchronize Why Permission Denied
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組，
+如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，
+但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。
+不過 synchroize 這個模組卻是時靈時不靈。
+筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。
+執行到有 synchroize 這個模組有時還是會報出 permission deied。
+become_user: root, become_method: sudo, 跟模組參數試了又試。
+還是很難理解到底那個環節出了問題。
+發現問題 一般來說 ansible 使用上都是透過 ssh 控制遠程的目標伺服器。
+筆者的 asnible script 寫了很多安裝佈署的步驟，其中當然也包含了 synchroize 模組。
+為了符合單機離線安裝的情境，做這類佈署時我會直接將 inventory 的主機直接指定本地端的 IP，
+直接在本地執行安裝腳本。
+一台 Server 可能會有多個網卡跟IP（127.0.0.1 or 192.168.x.x）
+就在某次我將 inventory 目標主機指定成 127.0.0.1 果然發生一樣的問題。
+當我發現目標機器是 127.0.0.1 時就會出問題，
+目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。
+我大概可以猜測 synchroize 模組針對 localhsot or 127....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-01-28 15:37:22 +0800 CST'>January 28, 2021</span></footer>
+  <a class="entry-link" aria-label="post link to Ansible Synchronize Why Permission Denied" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
+雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。
+我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb
+就是沒有檔案打包 ISO 檔的
+終於…
+資料夾轉成映像檔 磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
+於是它把我的檔案製作成了 .cdr
+轉檔 cdr to iso 最先我找到的指令是這一句
+$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr
+成功轉檔
+在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試
+掛載成功
+燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
+在各種格式下的檔案名稱有其長度的限制
+ISO 9600
+LV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet
+LV1：64個字元 LVX：110個字元 UDF：255個字元
+於是將轉檔的指令改成 -udf
+$ hdiutil makehybrid -iso -udf -o rpms....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-02-13 20:20:54 +0800 CST'>February 13, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Kafka 基本設定與用法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Prepare 安裝 kafka 前先在環境中安裝 Java and Scala
+Install 看官網的 quick start 吧
+Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka
+$ chown -R kafka:kafka /opt/kafka*
+設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service
+[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service
+[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-30 22:33:26 +0800 CST'>January 30, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to Kafka 基本設定與用法" href="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Macos L2tp vpn 設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服務順序（重要） 點選齒輪設定服務順序 將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網) </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-04 02:20:14 +0800 CST'>January 4, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to Macos L2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Window10 l2tp vpn 設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-04 00:03:19 +0800 CST'>January 4, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to Window10 l2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>建立一個單節點的 kubernetes cluster (kubeadm)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。
+Kubernetes Architecture 這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。
+(圖片來自WIKI)
+Master 節點的組件 ETCD 集群 API SERVER Controller Manager Scheduler 安裝準備 先選定好要安裝在什麼 OS 上，
+並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。
+下面列出我的環境跟CNI
+OS（CoreOS） 2 GB or more of RAM per machine (any less will leave little room for your apps) 2 CPUs or more CNI（flannel） 安裝 kubeadm 官網文件：Installing kubeadm 官網文件：Creating a single control-plane cluster with kubeadm 我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-29 17:18:19 +0800 CST'>July 29, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to 建立一個單節點的 kubernetes cluster (kubeadm)" href="https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>CoreOS Static Ip 固定 IP 設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>設定 static ip 副檔名必須是.network
+$ vi /etc/systemd/network/enp0s8.network
+[Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-24 17:01:37 +0800 CST'>July 24, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to CoreOS Static Ip 固定 IP 設定" href="https://blog.ooopiz.com/post/2019/07/coreos-static-ip/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Docker cli 連線到遠端的 dockerd daemon
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是：
+docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成
+才赫然發現 docker 別有洞天吶。
+原來每天在敲的 docker 指令都是在操控本機的 docker daemon。
+如何連線到遠端的 docker daemon 有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。
+今天馬上用我 virtualbox 中的 coreOS 進行測試一下。
+dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加入 -H 參數。
+-H tcp://0.0.0.0:2375
+如果是用 systemctl 控制 docker 你可以找到 docker.service，在腳本中加入 -H 參數。
+以 coreOS 為例，
+我的檔案在 /run/systemd/system/docker.service
+修改完後，reload 並重啓...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-06-04 20:22:08 +0800 CST'>June 4, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Docker cli 連線到遠端的 dockerd daemon" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://blog.ooopiz.com/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://blog.ooopiz.com">馬丁沒有派對</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
+
 </html>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>bind on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/bind/</link>
     <description>Recent content in bind on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Mon, 17 Oct 2016 15:46:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bind make安裝搭配 dlz mysql</title>
@@ -13,7 +16,13 @@
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</guid>
-      <description>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BI</description>
+      <description>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
+&amp;ndash;with-dlz-mysql &amp;ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
+Bind官網 FTP站 二、安裝MySQL資料庫
+開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+# service iptables save
+# service iptables restart</description>
     </item>
     
     <item>
@@ -22,7 +31,14 @@
       <pubDate>Tue, 04 Oct 2016 02:09:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</guid>
-      <description>安裝 # sudo yum install bind bind-utils -y # service named start # chkconfig named on 防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT # service iptables save # service iptables restart 設定 預設ne</description>
+      <description>安裝 # sudo yum install bind bind-utils -y
+# service named start
+# chkconfig named on
+防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+# service iptables save
+# service iptables restart
+設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
+options { listen-on port 53 { 127.</description>
     </item>
     
   </channel>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>windows on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/windows/</link>
     <description>Recent content in windows on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Fri, 26 Mar 2021 20:50:49 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 10 設定好用的拼音輸入法</title>
@@ -13,7 +16,18 @@
       <pubDate>Fri, 26 Mar 2021 20:50:49 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</guid>
-      <description>前言 已經好幾年沒使用 Windows 電腦工作了， 筆者的目前的工作機又剛好是 Windows OS。 一直沒有在 Windows 上找到好用的拼音輸入法，中文輸入整個手殘。 ( 兩年前嘗試用拼音</description>
+      <description>前言 已經好幾年沒使用 Windows 電腦工作了，
+筆者的目前的工作機又剛好是 Windows OS。
+一直沒有在 Windows 上找到好用的拼音輸入法，中文輸入整個手殘。
+( 兩年前嘗試用拼音輸入法取代注音，我現在連注音都打不好了 XD )
+總之前幾天發現了像在 Mac 上一樣好用的拼音輸入法，
+跟大家分享一下，如果你剛好需要的話。
+微軟注音的拼音輸入法 對比 微軟拼音的拼音輸入法 標題很繞口我知道，不過不是很重要。。。
+微軟注音的拼音輸入法
+微軟拼音的拼音輸入法
+比較 微軟注音的拼音輸入法 選字很難選 無法拼音校正 按 Enter 確定 微軟拼音的拼音輸入法 按空白鍵確定 使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多) 可連續輸入很多字再空白鍵確定 可以中英文混打，不需切換輸入法 可以輸入頭一個字碼，組合出句子 設定方式 原本的微軟注音的拼音輸入法應該是這樣設定
+微軟拼音的拼音輸入法 設定
+(主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可)</description>
     </item>
     
     <item>
@@ -22,7 +36,7 @@
       <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</guid>
-      <description>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線</description>
+      <description>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </description>
     </item>
     
   </channel>

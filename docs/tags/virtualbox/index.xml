@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>virtualbox on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/virtualbox/</link>
     <description>Recent content in virtualbox on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Tue, 28 May 2019 15:20:25 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Virtualbox 安裝 Coreos</title>
@@ -13,7 +16,20 @@
       <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</guid>
-      <description>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO 如標題，這份 ISO 僅是開機片而已，並無安裝動作， 如何安裝的部分下面會提到。 VirtualBox 新增機器 選 Linux 64 bit 即可 掛載剛下載的 ISO 檔 開</description>
+      <description>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO
+如標題，這份 ISO 僅是開機片而已，並無安裝動作，
+如何安裝的部分下面會提到。
+VirtualBox 新增機器 選 Linux 64 bit 即可
+掛載剛下載的 ISO 檔
+開機 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。
+512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
+安裝到硬碟 這個步驟要使用 coreos-install 這個指令來安裝硬碟，
+當 ISO boot 的時候，該指令就已經內建在系統裡了。
+要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，
+這個檔案可以用來設定用戶、網路、儲存、服務等。。。
+必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）
+否則裝好之後是無法使用 ssh login in 的。
+先查看硬碟空間在那裡 $ sudo fdisk -l</description>
     </item>
     
     <item>
@@ -22,7 +38,19 @@
       <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</guid>
-      <description>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示</description>
+      <description>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+那就讓我們來開始安裝吧
+先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
+# mount /dev/cdrom /media/cdrom
+執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
+# mount -t vboxsf New ~/new
+或者你需要有特定owner的mount
+# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
+Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y
+解完後在執行一次
+# sh /media/cdrom/VBoxLinuxAdditions.run</description>
     </item>
     
     <item>
@@ -31,7 +59,9 @@
       <pubDate>Wed, 09 Sep 2015 09:10:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
-      <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線 Windows環境</description>
+      <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox-&amp;gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</description>
     </item>
     
   </channel>

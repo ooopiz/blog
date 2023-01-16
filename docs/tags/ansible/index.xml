@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>ansible on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/ansible/</link>
     <description>Recent content in ansible on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Thu, 28 Jan 2021 15:37:22 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ansible Synchronize Why Permission Denied</title>
@@ -13,7 +16,23 @@
       <pubDate>Thu, 28 Jan 2021 15:37:22 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/</guid>
-      <description>關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組， 如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的</description>
+      <description>關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組，
+如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，
+但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。
+不過 synchroize 這個模組卻是時靈時不靈。
+筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。
+執行到有 synchroize 這個模組有時還是會報出 permission deied。
+become_user: root, become_method: sudo, 跟模組參數試了又試。
+還是很難理解到底那個環節出了問題。
+發現問題 一般來說 ansible 使用上都是透過 ssh 控制遠程的目標伺服器。
+筆者的 asnible script 寫了很多安裝佈署的步驟，其中當然也包含了 synchroize 模組。
+為了符合單機離線安裝的情境，做這類佈署時我會直接將 inventory 的主機直接指定本地端的 IP，
+直接在本地執行安裝腳本。
+一台 Server 可能會有多個網卡跟IP（127.0.0.1 or 192.168.x.x）
+就在某次我將 inventory 目標主機指定成 127.0.0.1 果然發生一樣的問題。
+當我發現目標機器是 127.0.0.1 時就會出問題，
+目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。
+我大概可以猜測 synchroize 模組針對 localhsot or 127.</description>
     </item>
     
   </channel>

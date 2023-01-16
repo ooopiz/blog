@@ -1,143 +1,206 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Kafka 基本設定與用法 - 馬丁沒有派對</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<html lang="en" dir="auto">
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Kafka 基本設定與用法 | 馬丁沒有派對</title>
+<meta name="keywords" content="kafka, zookeeper">
+<meta name="description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala
+Install 看官網的 quick start 吧
+Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka
+$ chown -R kafka:kafka /opt/kafka*
+設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service
+[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service
+[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts">
+<meta name="author" content="">
+<link rel="canonical" href="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://blog.ooopiz.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.ooopiz.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.ooopiz.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="馬丁" /><meta name="description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service 1 2 3 4 5 6 7 8 9 10" /><meta name="keywords" content="devops, 技術, 後端工程師" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.105.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
+}
+</script>
 <meta property="og:title" content="Kafka 基本設定與用法" />
-<meta property="og:description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service 1 2 3 4 5 6 7 8 9 10" />
+<meta property="og:description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala
+Install 看官網的 quick start 吧
+Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka
+$ chown -R kafka:kafka /opt/kafka*
+設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service
+[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service
+[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-01-30T22:33:26+08:00" />
-<meta property="article:modified_time" content="2020-01-30T22:33:26+08:00" />
+<meta property="article:modified_time" content="2020-01-30T22:33:26+08:00" /><meta property="og:site_name" content="馬丁沒有派對" />
 
-<meta itemprop="name" content="Kafka 基本設定與用法">
-<meta itemprop="description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service 1 2 3 4 5 6 7 8 9 10"><meta itemprop="datePublished" content="2020-01-30T22:33:26+08:00" />
-<meta itemprop="dateModified" content="2020-01-30T22:33:26+08:00" />
-<meta itemprop="wordCount" content="785">
-<meta itemprop="keywords" content="kafka,zookeeper," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+
 <meta name="twitter:title" content="Kafka 基本設定與用法"/>
-<meta name="twitter:description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala Install 看官網的 quick start 吧 Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka $ chown -R kafka:kafka /opt/kafka* 設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service 1 2 3 4 5 6 7 8 9 10"/>
+<meta name="twitter:description" content="Prepare 安裝 kafka 前先在環境中安裝 Java and Scala
+Install 看官網的 quick start 吧
+Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka
+$ chown -R kafka:kafka /opt/kafka*
+設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service
+[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service
+[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts"/>
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://blog.ooopiz.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Kafka 基本設定與用法",
+      "item": "https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kafka 基本設定與用法",
+  "name": "Kafka 基本設定與用法",
+  "description": "Prepare 安裝 kafka 前先在環境中安裝 Java and Scala\nInstall 看官網的 quick start 吧\nOffical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka\n$ chown -R kafka:kafka /opt/kafka*\n設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service\n[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service\n[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts",
+  "keywords": [
+    "kafka", "zookeeper"
+  ],
+  "articleBody": "Prepare 安裝 kafka 前先在環境中安裝 Java and Scala\nInstall 看官網的 quick start 吧\nOffical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka\n$ chown -R kafka:kafka /opt/kafka*\n設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service\n[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service\n[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts\n接著到你 kafka 安裝的目錄下 找到 config/server.properties 設定檔修改設定\nlisteners：啓動kafka服務監聽的ip和端口，這邊不需特別設定 advertised.listeners：consumer 和 producer 連接的地址，kafka會把該地址註冊到zookeeper中，如果你沒設定要連線的 ip 或 域名，外部是連不上來的 這邊設定 kafka-server 的主機名稱，就允許了外部使用這個 hostname 連到 kafka\n啟動 kafka 服務必須依賴 zookeeper 因此必須先啟動 zookeeper 再啟動 kafka\nsystemctl enable --now zookeeper\nsystemctl enable --now kafka\n防火牆 要給外部使用時記得開防火牆\nzookeeper service\n2181 kafka service\n9092 Usage 名詞說明 consumer: 消費者，你可以把他當成訂閱消息的人 producer: 生產者，送消息給 Kafka 的角色 /kafka-console-consumer.sh（消費者、訂閱、Consumer） $ /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic DemoTopic --from-beginning\n–form-beginning 代表會從 topic 最早的 record 開始處理。 /kafka-console-producer.sh（生產者、producer） $ /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic DemoTopic\ndmeo 左邊是 consumer，右邊是 producer， 訂閱者先向 Kafka 訂閱 DemoTopic 這個 topic， 消息傳送者在向 kafka 傳送消息\n其它 List topic\n$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181 --topic FirstKafkaTopic\nList all topic\n$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181\nDescribe topic\n$ /opt/kafka/bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic FirstKafkaTopic\ncreate\n$ /opt/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic FirstKafkaTopic\ndelete\n$ /opt/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic FirstKafkaTopic\n一些測試心得 (partition 數量 \u003e= 相同 group id 的 consumer 數量時) consumer 會被分配讀特定的 partition consumer 不能同時 設定 group id 與 partition id （kakfk：Options group and partition cannot be specified together.） consumer 指定特定的 partition id 代表每次 run 起來的 group id 不同 topic partiton 數量可以增加不能減少 kafka 會紀錄每個 group id 與 topic 的 offset（讀到第幾筆資料） GROUP TOPIC PARTITION CURRENT-OFFSET LOG-END-OFFSET LAG CONSUMER-ID HOST CLIENT-ID g1 mt 0 4 4 0 consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1 consumer-g1-1 g1 mt 1 8 8 0 consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1 consumer-g1-1 g1 mt 2 5 5 0 consumer-g1-1-3d0c9f80-68f1-4213-9453-b3fe63d8c37c /127.0.0.1 consumer-g1-1 Reference Install Kafka in RHEL 7 How to install kafka on RHEL 8 ",
+  "wordCount" : "302",
+  "inLanguage": "en",
+  "datePublished": "2020-01-30T22:33:26+08:00",
+  "dateModified": "2020-01-30T22:33:26+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "馬丁沒有派對",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ooopiz.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">馬丁沒有派對</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ooopiz.com" accesskey="h" title="馬丁沒有派對 (Alt + H)">
+                <img src="https://blog.ooopiz.com/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">馬丁沒有派對</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ooopiz.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/post/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ooopiz.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ooopiz.com">Home</a>&nbsp;»&nbsp;<a href="https://blog.ooopiz.com/post/">Posts</a></div>
+    <h1 class="post-title">
+      Kafka 基本設定與用法
+    </h1>
+    <div class="post-meta"><span title='2020-01-30 22:33:26 +0800 CST'>January 30, 2020</span>
+
 </div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
-
-
-</nav>
-
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">馬丁沒有派對</a>
-</div>
-
-
-
-
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Kafka 基本設定與用法</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> Thu, 30 Jan 2020 22:33:26 &#43;0800 </span>
-        
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
+        <div class="inner"><nav id="TableOfContents">
   <ul>
     <li><a href="#prepare">Prepare</a></li>
     <li><a href="#install">Install</a></li>
@@ -163,105 +226,69 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
-  </div>
+        </div>
+    </details>
 </div>
-    <div class="post-content">
-      <h2 id="prepare">Prepare</h2>
+
+  <div class="post-content"><h2 id="prepare">Prepare<a hidden class="anchor" aria-hidden="true" href="#prepare">#</a></h2>
 <p>安裝 kafka 前先在環境中安裝 Java and Scala</p>
-<h2 id="install">Install</h2>
+<h2 id="install">Install<a hidden class="anchor" aria-hidden="true" href="#install">#</a></h2>
 <p>看官網的 quick start 吧</p>
 <ul>
 <li>Offical <a href="https://kafka.apache.org/quickstart">Quick start</a></li>
 <li>Offical <a href="https://kafka.apache.org/downloads">Download</a></li>
 </ul>
-<h2 id="設定">設定</h2>
-<h3 id="設定啟動-kafka-的用戶-與權限">設定啟動 kafka 的用戶 與權限</h3>
+<h2 id="設定">設定<a hidden class="anchor" aria-hidden="true" href="#設定">#</a></h2>
+<h3 id="設定啟動-kafka-的用戶-與權限">設定啟動 kafka 的用戶 與權限<a hidden class="anchor" aria-hidden="true" href="#設定啟動-kafka-的用戶-與權限">#</a></h3>
 <p><code>$ useradd kafka</code></p>
 <p><code>$ chown -R kafka:kafka /opt/kafka*</code></p>
-<h3 id="設定-systemd-的-守護進程">設定 systemd 的 守護進程</h3>
+<h3 id="設定-systemd-的-守護進程">設定 systemd 的 守護進程<a hidden class="anchor" aria-hidden="true" href="#設定-systemd-的-守護進程">#</a></h3>
 <p><code>$ vi /etc/systemd/system/zookeeper.service</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Unit]
-</span></span><span class="line"><span class="cl">Description=zookeeper
-</span></span><span class="line"><span class="cl">After=syslog.target network.target
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[Service]
-</span></span><span class="line"><span class="cl">Type=simple
-</span></span><span class="line"><span class="cl">User=kafka
-</span></span><span class="line"><span class="cl">Group=kafka
-</span></span><span class="line"><span class="cl">ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties
-</span></span><span class="line"><span class="cl">ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[Install]
-</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>$ vi /etc/systemd/system/kafka.service</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Unit]
-</span></span><span class="line"><span class="cl">Description=Apache Kafka
-</span></span><span class="line"><span class="cl">Requires=zookeeper.service
-</span></span><span class="line"><span class="cl">After=zookeeper.service
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[Service]
-</span></span><span class="line"><span class="cl">Type=simple
-</span></span><span class="line"><span class="cl">User=kafka
-</span></span><span class="line"><span class="cl">Group=kafkaa
-</span></span><span class="line"><span class="cl">ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
-</span></span><span class="line"><span class="cl">ExecStop=/opt/kafka/bin/kafka-server-stop.sh
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[Install]
-</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="kafka-設定">kafka 設定</h3>
+<pre tabindex="0"><code class="language-config" data-lang="config">[Unit]
+Description=zookeeper
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=kafka
+Group=kafka
+ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties
+ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p><code>$ vi /etc/systemd/system/kafka.service</code></p>
+<pre tabindex="0"><code class="language-config" data-lang="config">[Unit]
+Description=Apache Kafka
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=kafka
+Group=kafkaa
+ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
+ExecStop=/opt/kafka/bin/kafka-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><h3 id="kafka-設定">kafka 設定<a hidden class="anchor" aria-hidden="true" href="#kafka-設定">#</a></h3>
 <p>先設定一個主機名稱給hosts</p>
-<p><img src="https://fblog.ooopiz.com/images/2020/01/c001.png" alt="host"></p>
+<p><img loading="lazy" src="https://fblog.ooopiz.com/images/2020/01/c001.png" alt="host"  />
+</p>
 <p>接著到你 kafka 安裝的目錄下 找到 config/server.properties 設定檔修改設定</p>
-<p><img src="https://fblog.ooopiz.com/images/2020/01/c002.png" alt="server.preperties"></p>
+<p><img loading="lazy" src="https://fblog.ooopiz.com/images/2020/01/c002.png" alt="server.preperties"  />
+</p>
 <ul>
 <li>listeners：啓動kafka服務監聽的ip和端口，這邊不需特別設定</li>
 <li>advertised.listeners：consumer 和 producer 連接的地址，kafka會把該地址註冊到zookeeper中，如果你沒設定要連線的 ip 或 域名，外部是連不上來的</li>
 </ul>
 <p>這邊設定 kafka-server 的主機名稱，就允許了外部使用這個 hostname 連到 kafka</p>
-<h3 id="啟動">啟動</h3>
+<h3 id="啟動">啟動<a hidden class="anchor" aria-hidden="true" href="#啟動">#</a></h3>
 <p>kafka 服務必須依賴 zookeeper 因此必須先啟動 zookeeper 再啟動 kafka</p>
 <p><code>systemctl enable --now zookeeper</code></p>
 <p><code>systemctl enable --now kafka</code></p>
-<h3 id="防火牆">防火牆</h3>
+<h3 id="防火牆">防火牆<a hidden class="anchor" aria-hidden="true" href="#防火牆">#</a></h3>
 <p>要給外部使用時記得開防火牆</p>
 <p>zookeeper service</p>
 <ul>
@@ -271,25 +298,26 @@
 <ul>
 <li>9092</li>
 </ul>
-<h2 id="usage">Usage</h2>
-<h3 id="名詞說明">名詞說明</h3>
+<h2 id="usage">Usage<a hidden class="anchor" aria-hidden="true" href="#usage">#</a></h2>
+<h3 id="名詞說明">名詞說明<a hidden class="anchor" aria-hidden="true" href="#名詞說明">#</a></h3>
 <ul>
 <li>consumer: 消費者，你可以把他當成訂閱消息的人</li>
 <li>producer: 生產者，送消息給 Kafka 的角色</li>
 </ul>
-<h3 id="kafka-console-consumersh消費者訂閱consumer">/kafka-console-consumer.sh（消費者、訂閱、Consumer）</h3>
+<h3 id="kafka-console-consumersh消費者訂閱consumer">/kafka-console-consumer.sh（消費者、訂閱、Consumer）<a hidden class="anchor" aria-hidden="true" href="#kafka-console-consumersh消費者訂閱consumer">#</a></h3>
 <p><code>$ /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic DemoTopic --from-beginning</code></p>
 <ul>
 <li>&ndash;form-beginning 代表會從 topic 最早的 record 開始處理。</li>
 </ul>
-<h3 id="kafka-console-producersh生產者producer">/kafka-console-producer.sh（生產者、producer）</h3>
+<h3 id="kafka-console-producersh生產者producer">/kafka-console-producer.sh（生產者、producer）<a hidden class="anchor" aria-hidden="true" href="#kafka-console-producersh生產者producer">#</a></h3>
 <p><code>$ /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic DemoTopic</code></p>
-<h3 id="dmeo">dmeo</h3>
+<h3 id="dmeo">dmeo<a hidden class="anchor" aria-hidden="true" href="#dmeo">#</a></h3>
 <p>左邊是 consumer，右邊是 producer，
 訂閱者先向 Kafka 訂閱 DemoTopic 這個 topic，
 消息傳送者在向 kafka 傳送消息</p>
-<p><img src="https://fblog.ooopiz.com/images/2020/01/c004.gif" alt="demo"></p>
-<h3 id="其它">其它</h3>
+<p><img loading="lazy" src="https://fblog.ooopiz.com/images/2020/01/c004.gif" alt="demo"  />
+</p>
+<h3 id="其它">其它<a hidden class="anchor" aria-hidden="true" href="#其它">#</a></h3>
 <p>List topic</p>
 <p><code>$ /opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181 --topic FirstKafkaTopic</code></p>
 <p>List all topic</p>
@@ -300,7 +328,7 @@
 <p><code>$ /opt/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic FirstKafkaTopic</code></p>
 <p>delete</p>
 <p><code>$ /opt/kafka/bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic FirstKafkaTopic</code></p>
-<h3 id="一些測試心得">一些測試心得</h3>
+<h3 id="一些測試心得">一些測試心得<a hidden class="anchor" aria-hidden="true" href="#一些測試心得">#</a></h3>
 <ol>
 <li>(partition 數量 &gt;= 相同 group id 的 consumer 數量時) consumer 會被分配讀特定的 partition</li>
 <li>consumer 不能同時 設定 group id 與 partition id （kakfk：Options group and partition cannot be specified together.）</li>
@@ -308,127 +336,154 @@
 <li>topic partiton 數量可以增加不能減少</li>
 <li>kafka 會紀錄每個 group id 與 topic 的 offset（讀到第幾筆資料）</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                        HOST            CLIENT-ID
-</span></span><span class="line"><span class="cl">g1              mt              0          4               4               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
-</span></span><span class="line"><span class="cl">g1              mt              1          8               8               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
-</span></span><span class="line"><span class="cl">g1              mt              2          5               5               0               consumer-g1-1-3d0c9f80-68f1-4213-9453-b3fe63d8c37c /127.0.0.1      consumer-g1-1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
+<pre tabindex="0"><code>GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                        HOST            CLIENT-ID
+g1              mt              0          4               4               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
+g1              mt              1          8               8               0               consumer-g1-1-274ba8d0-4fcf-4232-b525-24d9e5831062 /127.0.0.1      consumer-g1-1
+g1              mt              2          5               5               0               consumer-g1-1-3d0c9f80-68f1-4213-9453-b3fe63d8c37c /127.0.0.1      consumer-g1-1
+</code></pre><h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
 <ul>
 <li><a href="https://medium.com/@dindanovitasari/install-kafka-in-rhel-7-f15d10a07246">Install Kafka in RHEL 7</a></li>
 <li><a href="https://linuxconfig.org/how-to-install-kafka-on-redhat-8">How to install kafka on RHEL 8</a></li>
 </ul>
 
-    </div>
 
-    
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/kafka/">kafka</a>
-          <a href="/tags/zookeeper/">zookeeper</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/2020/02/macos-generator-iso-from-dir/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/2020/01/macos-l2tp-settup/">
-            <span class="next-text nav-default">Macos L2tp vpn 設定</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'blog-ooopiz';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-  <a href="https://blog.ooopiz.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2019 - 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>馬丁</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
   </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ooopiz.com/tags/kafka/">kafka</a></li>
+      <li><a href="https://blog.ooopiz.com/tags/zookeeper/">zookeeper</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</span>
+  </a>
+  <a class="next" href="https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Macos L2tp vpn 設定</span>
+  </a>
+</nav>
 
 
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kafka 基本設定與用法 on twitter"
+        href="https://twitter.com/intent/tweet/?text=Kafka%20%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a%e8%88%87%e7%94%a8%e6%b3%95&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f&amp;hashtags=kafka%2czookeeper">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kafka 基本設定與用法 on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f&amp;title=Kafka%20%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a%e8%88%87%e7%94%a8%e6%b3%95&amp;summary=Kafka%20%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a%e8%88%87%e7%94%a8%e6%b3%95&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kafka 基本設定與用法 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f&title=Kafka%20%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a%e8%88%87%e7%94%a8%e6%b3%95">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kafka 基本設定與用法 on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kafka 基本設定與用法 on whatsapp"
+        href="https://api.whatsapp.com/send?text=Kafka%20%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a%e8%88%87%e7%94%a8%e6%b3%95%20-%20https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kafka 基本設定與用法 on telegram"
+        href="https://telegram.me/share/url?text=Kafka%20%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a%e8%88%87%e7%94%a8%e6%b3%95&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f01%2fkafka-basic-setting-and-usage%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://blog.ooopiz.com">馬丁沒有派對</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
 <script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': true });
-}
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
 </script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-
-
-
-
+</script>
 </body>
+
 </html>

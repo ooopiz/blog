@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>centos on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/centos/</link>
     <description>Recent content in centos on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS7 Tomcat增加systemctl控制</title>
@@ -13,7 +16,17 @@
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</guid>
-      <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Ja</description>
+      <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
+範例如下:
+#add tomcat pid CATALINA_PID=&amp;#34;$CATALINA_BASE/tomcat7.pid&amp;#34; #add java opts JAVA_OPTS=&amp;#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;#34; 2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
+PIDFile就指到tomcat所在的目錄
+Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
+查看全部服務： systemctl list-unit-files &amp;ndash;type service
+查看服務 systemctl status name.service
+啟動服務 systemctl start name.service
+停止服務 systemctl stop name.service
+重啟服務 systemctl restart name.service
+增加開機自動啟動 systemctl enable name.service</description>
     </item>
     
     <item>
@@ -22,7 +35,19 @@
       <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</guid>
-      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下 # cd /usr/local 2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本 #</description>
+      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
+# cd /usr/local
+2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
+# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+5.啟動或停止Tomcat 啟動Tomcat 7
+# /usr/local/tomcat7/bin/startup.sh
+停止Tomcat 7
+# /usr/local/tomcat7/bin/shutdown.sh
+6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
+若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。</description>
     </item>
     
     <item>
@@ -31,7 +56,13 @@
       <pubDate>Wed, 02 Sep 2015 17:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/</guid>
-      <description>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf 1 2 3 4 5 # The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使</description>
+      <description>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf
+# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile (有空再研究)
+wget 在設定檔中加入以下參數config /etc/wgetrc
+http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again
+解決方法：
+編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下： config /etc/yum.repos.d/epel.repo
+[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;amp;arch=$basearch failovermethod=priority enabled=1 gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 </description>
     </item>
     
     <item>
@@ -40,7 +71,25 @@
       <pubDate>Tue, 01 Sep 2015 03:07:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-basic-set/</guid>
-      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同</description>
+      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下 一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
+# cd /etc/sysconfig/network-scripts
+每台電腦的網卡名稱不一定相同
+# systemctl stop NetworkManager
+# systemctl disable NetworkManager
+# systemctl restart network
+二、關閉SELinux #vi /etc/selinux/config
+這個設定reboot後才會生效
+三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
+# vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
+# systemctl restart sshd
+四、調整時區 # rm /etc/localtime
+# ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+五、調整語系 檢查系統目前使用的語系
+# localectl
+查看系統有哪些可用的語系
+# localectl list-locales | grep zh
+如果你要設定語系的話
+# localectl set-locale LANG=zh_TW.</description>
     </item>
     
     <item>
@@ -49,7 +98,16 @@
       <pubDate>Mon, 31 Aug 2015 13:06:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos-using-rsync/</guid>
-      <description>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器． 首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync 如</description>
+      <description>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
+如果沒有的話就yum一下吧～
+做rsync的時候server端與client端都必須要安裝
+# yum install rsync
+rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
+這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
+當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
+產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
+Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.</description>
     </item>
     
     <item>
@@ -58,7 +116,14 @@
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm 參考連結 MYSQL源 1 2 3 4 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 1 2 3 4 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要</description>
+      <description>一、更新rpm 參考連結
+MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
+# yum install nginx
+三、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+# vi /etc/yum.repos.d/remi.repo
+安裝 PHP # yum install php
+安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</description>
     </item>
     
     <item>
@@ -67,7 +132,10 @@
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
-      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl</description>
+      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
+將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
+查看有打開的Port netstat -tnlp</description>
     </item>
     
     <item>
@@ -76,7 +144,15 @@
       <pubDate>Fri, 21 Aug 2015 09:29:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/</guid>
-      <description>首先可以下指令顯示出所有的介面資訊 # ip link show 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-</description>
+      <description>首先可以下指令顯示出所有的介面資訊 # ip link show
+網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
+在上面的例子中，我們以虛擬 IP 來作為示範，
+假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
+NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
+NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
+如果你的網路位址是固定的，那上面的網址就跟著改變即可！
+設定玩之後，網路服務重新啓動，指令為：
+# service network restart</description>
     </item>
     
     <item>
@@ -85,7 +161,8 @@
       <pubDate>Mon, 27 Jul 2015 01:35:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/07/centos-crontab/</guid>
-      <description>Example 輸入 crontab -e 進入排程編輯 1 2 3 4 5 6 7 8 # Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 -</description>
+      <description>Example 輸入 crontab -e 進入排程編輯
+# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction crontab 產生的訊息會存放在/var/spool/mail/root</description>
     </item>
     
   </channel>

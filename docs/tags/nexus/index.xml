@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>nexus on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/nexus/</link>
     <description>Recent content in nexus on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Mon, 14 Dec 2015 01:27:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/nexus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>安裝 Nexus OSS</title>
@@ -13,7 +16,19 @@
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</guid>
-      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易 下載網址 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/lo</description>
+      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
+下載網址
+下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
+# ln -s nexus-2.11.4-01/ nexus
+# chown -R nexus:nexus nexus
+# chown -R nexus:nexus nexus-2.11.4-01/
+# chown -R nexus:nexus sonatype-work/
+修改下面兩個設定
+# vi /nexus-2.11.4-01/bin/nexus
+NEXUS_HOME=&amp;#34;/usr/local/nexus/nexus&amp;#34; RUN_AS_USER=nexus 修改Port
+# vi /nexus-2.11.4-01/conf/nexus.properties
+application-port=18081 啟動
+# sh /var/opt/nexus/nexus/bin/nexus start</description>
     </item>
     
   </channel>

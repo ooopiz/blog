@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>iptables on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/iptables/</link>
     <description>Recent content in iptables on 馬丁沒有派對</description>
+    <image>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Fri, 21 Aug 2015 10:05:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS6.5 防火牆設定iptables</title>
@@ -13,7 +16,10 @@
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
-      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port.. 將對應的資訊加入iptabl</description>
+      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
+將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
+查看有打開的Port netstat -tnlp</description>
     </item>
     
   </channel>
