@@ -218,15 +218,6 @@ brew install fswatch
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://blog.ooopiz.com/about/</link>
-      <pubDate>Tue, 21 May 2019 16:08:02 +0800</pubDate>
-      
-      <guid>https://blog.ooopiz.com/about/</guid>
-      <description> </description>
-    </item>
-    
-    <item>
       <title>IPsec Lan to Lan Vigor-2925 and AWS-ec2</title>
       <link>https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
@@ -939,6 +930,15 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
       <guid>https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/</guid>
       <description>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
 class Kernel extends HttpKernel { /** * The application&amp;#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &amp;#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&amp;#39;, &amp;#39;Illuminate\Cookie\Middleware\EncryptCookies&amp;#39;, &amp;#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&amp;#39;, &amp;#39;Illuminate\Session\Middleware\StartSession&amp;#39;, &amp;#39;Illuminate\View\Middleware\ShareErrorsFromSession&amp;#39;, ]; /** * The application&amp;#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &amp;#39;auth&amp;#39; =&amp;gt; &amp;#39;App\Http\Middleware\Authenticate&amp;#39;, &amp;#39;auth.basic&amp;#39; =&amp;gt; &amp;#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&amp;#39;, &amp;#39;guest&amp;#39; =&amp;gt; &amp;#39;App\Http\Middleware\RedirectIfAuthenticated&amp;#39;, &amp;#39;csrf&amp;#39; =&amp;gt; &amp;#39;App\Http\Middleware\VerifyCsrfToken&amp;#39;, ]; } 此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&amp;gt; &#39;csrf&#39;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.ooopiz.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.ooopiz.com/about/</guid>
+      <description> </description>
     </item>
     
   </channel>

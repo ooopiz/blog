@@ -86,9 +86,6 @@
     <loc>https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/</loc>
     <lastmod>2019-05-23T23:27:58+08:00</lastmod>
   </url><url>
-    <loc>https://blog.ooopiz.com/about/</loc>
-    <lastmod>2019-05-21T16:08:02+08:00</lastmod>
-  </url><url>
     <loc>https://blog.ooopiz.com/tags/ipsec/</loc>
     <lastmod>2019-05-17T08:02:00+08:00</lastmod>
   </url><url>
@@ -286,6 +283,8 @@
   </url><url>
     <loc>https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/</loc>
     <lastmod>2015-07-25T08:13:01+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/about/</loc>
   </url><url>
     <loc>https://blog.ooopiz.com/categories/</loc>
   </url>
