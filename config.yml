@@ -59,6 +59,7 @@ params:
   ShowCodeCopyButtons: false
   ShowWordCount: false
   ShowRssButtonInSectionTermList: true
+  ShareButtons: ["twitter", "linkedin", "reddit", "facebook", "telegram"]
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
@@ -67,6 +68,8 @@ params:
   hideSummary: false
   showtoc: true
   tocopen: true
+
+  googleAdsense: ca-pub-3680083267042451
 
   assets:
     # disableHLJS: true # to disable highlight.js
