@@ -34,6 +34,9 @@ menu:
       weight: 30
       identifier: tags
       url: /tags/
+    #- name: Categories
+    #  weight: 40
+    #  url: /categories/
     - name: About
       weight: 50
       identifier: about
