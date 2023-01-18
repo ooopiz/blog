@@ -6,56 +6,57 @@ tags: ["windows"]
 ---
 
 ## 前言
-  已經好幾年沒使用 Windows 電腦工作了，  
-  筆者的目前的工作機又剛好是 Windows OS。  
-  一直沒有在 Windows 上找到好用的拼音輸入法，中文輸入整個手殘。  
-  ( 兩年前嘗試用拼音輸入法取代注音，我現在連注音都打不好了 XD )  
-  總之前幾天發現了像在 Mac 上一樣好用的拼音輸入法，  
-  跟大家分享一下，如果你剛好需要的話。  
+已經好幾年沒使用 Windows 電腦工作了，筆者目前公司工作機又是 Windows OS。  
+一直沒有在 Windows 上找到好用的拼音輸入法，需要中文輸入的時候整個手殘(兩年前嘗試用拼音輸入法取代注音，我現在連注音都打不好了 XD)  
+總之前幾天發現了像在 Mac 上一樣好用的拼音輸入法，  
+跟大家分享一下，如果你剛好需要的話。  
 
 ## 微軟注音的拼音輸入法 對比 微軟拼音的拼音輸入法
 
 標題很繞口我知道，不過不是很重要。。。
 
-* 微軟注音的拼音輸入法
+### ***微軟注音*** 的拼音輸入法 示意
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a001.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a001.jpg)
 
-* 微軟拼音的拼音輸入法
+### ***微軟拼音*** 的拼音輸入法 示意
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a002.jpg)
-  ![](https://fblog.ooopiz.com/images/2021/03/a003.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a002.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a003.jpg)
 
-### 比較
+## 功能比較
 
-* 微軟注音的拼音輸入法
-  - 選字很難選
-  - 無法拼音校正
-  - 按 Enter 確定
-* 微軟拼音的拼音輸入法
-  - 按空白鍵確定
-  - 使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多)
-  - 可連續輸入很多字再空白鍵確定
-  - 可以中英文混打，不需切換輸入法
-  - 可以輸入頭一個字碼，組合出句子
+### ***微軟注音*** 的拼音輸入法
+- 選字很難選
+- 無法拼音校正
+- 按 Enter 確定
+
+### ***微軟拼音*** 的拼音輸入法
+- 按空白鍵確定
+- 使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多)
+- 可連續輸入很多字再空白鍵確定
+- 可以中英文混打，不需切換輸入法
+- 可以輸入頭一個字碼，組合出句子
 
 ## 設定方式
 
-* 原本的微軟注音的拼音輸入法應該是這樣設定
+### 微軟注音 > 漢語拼音
+原本的微軟注音的拼音輸入法應該是這樣設定
 
   ![](https://fblog.ooopiz.com/images/2021/03/a011.jpg)
 
-* 微軟拼音的拼音輸入法 設定  
-  (主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可)
+### 微軟拼音 拼音輸入法 繁體 設定
+主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a021.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a021.jpg)
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a022.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a022.jpg)
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a023.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a023.jpg)
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a024.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a024.jpg)
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a025.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a025.jpg)
 
-  ![](https://fblog.ooopiz.com/images/2021/03/a031.jpg)
+![](https://fblog.ooopiz.com/images/2021/03/a031.jpg)
+
