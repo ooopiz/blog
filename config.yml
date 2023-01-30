@@ -1,6 +1,6 @@
 publishDir: docs
 
-baseURL: https://blog.ooopiz.com
+baseURL: https://blog.ooopiz.com/
 title: 馬丁沒有派對
 theme: PaperMod
 
