@@ -131,6 +131,20 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-09 09:10:01 +0800 CST'>September 9, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>yum 和 wget 使用 proxy
     </h2>
   </header>
@@ -287,22 +301,6 @@ protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDo
   </div>
   <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to Android 程式流程" href="https://blog.ooopiz.com/post/2015/08/android-program-flow/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>一台電腦兩個Git帳號使用SSH Key
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second 取消glogal mail,設定每個項目repo自己的 user.email pull的時候是識別郵箱，所以不能使用global的user.email
-取消global git config --global --unset user.name git config --global --unset user.email
-設定每個項目repo自己的 user.email git config user.email &#34;xxxx@xx.com&#34; git config user.name &#34;ricky&#34;
-Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 03:05:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to 一台電腦兩個Git帳號使用SSH Key" href="https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

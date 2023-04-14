@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.ooopiz.com/post/</loc>
+    <lastmod>2023-04-15T00:39:44+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/tags/systemd/</loc>
+    <lastmod>2023-04-15T00:39:44+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/</loc>
+    <lastmod>2023-04-15T00:39:44+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/tags/</loc>
+    <lastmod>2023-04-15T00:39:44+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/</loc>
+    <lastmod>2023-04-15T00:39:44+08:00</lastmod>
+  </url><url>
     <loc>https://blog.ooopiz.com/tags/grafana/</loc>
     <lastmod>2021-04-01T01:02:25+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/</loc>
-    <lastmod>2021-04-01T01:02:25+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ooopiz.com/post/</loc>
-    <lastmod>2021-04-01T01:02:25+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ooopiz.com/tags/</loc>
-    <lastmod>2021-04-01T01:02:25+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ooopiz.com/</loc>
     <lastmod>2021-04-01T01:02:25+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/tags/windows/</loc>

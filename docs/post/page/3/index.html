@@ -145,6 +145,35 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>利用adjtimex來修正linux時間偏差
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，
+使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，
+最後採用linux本身時間糾偏的方式
+主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(感謝神同事Leo協助突破盲腸)
+下載下來後選定一個版本後即可開始安裝 GITHUB - adjtimex
+# ./configure
+# make
+# make install
+先了解時間差 # adjtimex --compare 或 # adjtimex -c
+圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
+這邊我的-t校正值是9859 # adjtimex --tick 9859
+再檢視一次 # adjtimex -c
+這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數 公式
+f = 差值 * 100000 * 65536
+或
+f = error_ppm平均值 * 65536
+這裡 = 250 * 65536 = 16384000
+這邊我的-f校正值是16384000 # adjtimex -f 16384000</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-11-04 10:26:01 +0800 CST'>November 4, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 利用adjtimex來修正linux時間偏差" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Yum Zabbix server, agent
     </h2>
   </header>
@@ -308,20 +337,6 @@ $(document).ready(function () { var x = 6; }); $(document).ready(function () { v
   </div>
   <footer class="entry-footer"><span title='2016-07-21 14:54:01 +0800 CST'>July 21, 2016</span></footer>
   <a class="entry-link" aria-label="post link to javascript 有沒有var的差別" href="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2013開放Web軟體安全計畫
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>2013開放Web軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
-網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 2013開放Web軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

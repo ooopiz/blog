@@ -131,6 +131,29 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Docker cli 連線到遠端的 dockerd daemon
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是：
+docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成
+才赫然發現 docker 別有洞天吶。
+原來每天在敲的 docker 指令都是在操控本機的 docker daemon。
+如何連線到遠端的 docker daemon 有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。
+今天馬上用我 virtualbox 中的 coreOS 進行測試一下。
+dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加入 -H 參數。
+-H tcp://0.0.0.0:2375
+如果是用 systemctl 控制 docker 你可以找到 docker.service，在腳本中加入 -H 參數。
+以 coreOS 為例，
+我的檔案在 /run/systemd/system/docker.service
+修改完後，reload 並重啓...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-06-04 20:22:08 +0800 CST'>June 4, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Docker cli 連線到遠端的 dockerd daemon" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Virtualbox 安裝 Coreos
     </h2>
   </header>
@@ -318,35 +341,6 @@ mv to /var/opt/gitlab/backups/
   </div>
   <footer class="entry-footer"><span title='2016-12-08 13:22:01 +0800 CST'>December 8, 2016</span></footer>
   <a class="entry-link" aria-label="post link to GitLab 7.14升級8.X" href="https://blog.ooopiz.com/post/2016/12/gitlab-upgrade-7.14-to-8/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>利用adjtimex來修正linux時間偏差
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言： 前幾天使用virtualbox安裝了一台CentOS7的虛擬機器，卻發現時間一直偏差，因此特意抓了時間下來做比對，發現大約每分鐘就會差一秒，
-使用虛擬機主客時間同步沒什麼效果，再考慮使用ntp來做時間校正，但因為偏差值太大，不希望校正後時間紀錄失真，
-最後採用linux本身時間糾偏的方式
-主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(感謝神同事Leo協助突破盲腸)
-下載下來後選定一個版本後即可開始安裝 GITHUB - adjtimex
-# ./configure
-# make
-# make install
-先了解時間差 # adjtimex --compare 或 # adjtimex -c
-圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
-這邊我的-t校正值是9859 # adjtimex --tick 9859
-再檢視一次 # adjtimex -c
-這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數 公式
-f = 差值 * 100000 * 65536
-或
-f = error_ppm平均值 * 65536
-這裡 = 250 * 65536 = 16384000
-這邊我的-f校正值是16384000 # adjtimex -f 16384000</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-11-04 10:26:01 +0800 CST'>November 4, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 利用adjtimex來修正linux時間偏差" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
