@@ -175,12 +175,14 @@ cd %dirpath% if %ERRORLEVEL% NEQ 0 exit %ERRORLEVEL% rsync --delete remote local
     </h2>
   </header>
   <div class="entry-content">
-    <p>crontab 每 30 秒執行 大家應該都有用過 crontab 的經驗吧？ 但 crontab 每次執行的最小單位就是分鐘，
-如果遇到有秒級需求的排程任務需要進行。很常見到類似底下的 crontab 的設定。
+    <p>crontab 每 30 秒執行 大家應該都有用過 crontab 的經驗吧？
+crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任務排程。
+很常見到類似底下的 crontab 的設定。
 設定上相當方便，不過我們可以認識一下另一種 systemd timer 的作法。
-* * * * * dosomething * * * * * sleep 30; dosomething systemd timer systemd service file [Unit] Description=Execute dudu jobqueue [Service] Type=simple ExecStart=/bin/bash -c &#39;/usr/bin/date &gt;&gt; /123.log&#39; systemd timer file [Unit] Description=Run jobqueue on calendar [Timer] OnCalendar=*-*-* *:*:00,30 Unit=jobqueue.service AccuracySec=1s [Install] WantedBy=multi-user.target 如果是秒級的需調整時間精準度 AccuracySec
-啟動排程 systemctl start jobqueue.timer
-查看有哪些 timer 正在執行 systemctl list-timers</p>
+或是你可以想像一下，如果 5秒要執行一次，crontab 會長什麼樣子。
+* * * * * dosomething * * * * * sleep 30; dosomething systemd timer 特點 使用 timer 來執行 service，可以避免上一個任務還沒進行完，又開始一個新的任務。 systemd timer jobqueue.service / systemd service file 建立一個 jobqueue.service 設定檔，內容如下:
+[Unit] Description=Execute jobqueue [Service] Type=simple ExecStart=/bin/bash -c &#39;/usr/bin/date &gt;&gt; /tmp/date.log&#39; 建立完成後重載一下 systemctl daemon-reload
+接著當你執行 systemctl start jobqueue.service 時，就會執行一次 ExecStart 的命令...</p>
   </div>
   <footer class="entry-footer"><span title='2023-04-15 00:39:44 +0800 CST'>April 15, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Systemd Timer 執行秒級排程，可替代 crontab" href="https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/"></a>
