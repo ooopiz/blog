@@ -9,7 +9,30 @@
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Apr 2023 00:39:44 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Apr 2023 10:40:46 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows OS cd 指令，你應該注意的事 (device 切換)</title>
+      <link>https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/</link>
+      <pubDate>Mon, 17 Apr 2023 10:40:46 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/</guid>
+      <description>場景 事情是這樣的，
+某天我弄了一個 windows 的 bat 檔，預計使用 rsync 將檔案同步到 windows 本地目錄。
+於是搞了個腳本，類似這樣，
+dirpath 則以環境變數的方式代入。
+cd %dirpath% rsync --delete remote local 想了想，
+如果前面程序如果失敗，沒有將 dirpath 建立出來，
+我這個 rsync &amp;ndash;delete 就可怕了，於是加了一行判斷 cd 失敗就終止。
+cd %dirpath% if %ERRORLEVEL% NEQ 0 exit %ERRORLEVEL% rsync --delete remote local 本機測試完後，開開心心的到其它機器去測試。
+結果開始噴 rsync delete 一些奇奇怪怪的檔案。
+我心裡想 cd 失敗的話，
+沒有 pathdir 不是應該會退出程序嗎?
+細查後 dirpath 資料夾也有正常建立，
+為什麼 cd 不成功也沒有 return error code 呢?
+實測 原因是我自己電腦上測試的時候都在 c 碟上面進行，
+當涉及 device (c, d 碟) 切換的時候， cd 指令並不會成功。</description>
+    </item>
+    
     <item>
       <title>Systemd Timer 執行秒級排程，可替代 crontab</title>
       <link>https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/</link>

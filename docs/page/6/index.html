@@ -131,6 +131,19 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Android 程式流程
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
+protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </p>
+  </div>
+  <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Android 程式流程" href="https://blog.ooopiz.com/post/2015/08/android-program-flow/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>一台電腦兩個Git帳號使用SSH Key
     </h2>
   </header>

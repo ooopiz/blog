@@ -145,6 +145,30 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>VirtualBox Guest Addtiton安裝 for Centos
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+那就讓我們來開始安裝吧
+先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
+# mount /dev/cdrom /media/cdrom
+執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
+# mount -t vboxsf New ~/new
+或者你需要有特定owner的mount
+# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
+Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
+解完後在執行一次
+# sh /media/cdrom/VBoxLinuxAdditions.run</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
     </h2>
   </header>
@@ -302,19 +326,6 @@ config /etc/yum.repos.d/mariadb.repo
   </div>
   <footer class="entry-footer"><span title='2015-08-24 05:04:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to Laravel 刪除套件" href="https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Android 程式流程
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
-protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Android 程式流程" href="https://blog.ooopiz.com/post/2015/08/android-program-flow/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
