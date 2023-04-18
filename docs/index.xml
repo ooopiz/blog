@@ -975,5 +975,6 @@ class Kernel extends HttpKernel { /** * The application&amp;#39;s global HTTP mi
       <description> </description>
     </item>
     
+    
   </channel>
 </rss>
