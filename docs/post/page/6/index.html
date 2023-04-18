@@ -111,8 +111,8 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://blog.ooopiz.com/post/" title="Archives">
-                    <span class="active">Archives</span>
+                <a href="https://blog.ooopiz.com/archives/" title="Archives">
+                    <span>Archives</span>
                 </a>
             </li>
             <li>
@@ -145,154 +145,152 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Android 程式流程
+    <h2>安裝 Nexus OSS
     </h2>
   </header>
   <div class="entry-content">
-    <p>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
-protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </p>
+    <p>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
+下載網址
+下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
+# ln -s nexus-2.11.4-01/ nexus
+# chown -R nexus:nexus nexus
+# chown -R nexus:nexus nexus-2.11.4-01/
+# chown -R nexus:nexus sonatype-work/
+修改下面兩個設定
+# vi /nexus-2.11.4-01/bin/nexus
+NEXUS_HOME=&#34;/usr/local/nexus/nexus&#34; RUN_AS_USER=nexus 修改Port
+# vi /nexus-2.11.4-01/conf/nexus.properties
+application-port=18081 啟動
+# sh /var/opt/nexus/nexus/bin/nexus start</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Android 程式流程" href="https://blog.ooopiz.com/post/2015/08/android-program-flow/"></a>
+  <footer class="entry-footer"><span title='2015-12-14 01:27:01 +0800 CST'>December 14, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 Nexus OSS" href="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>一台電腦兩個Git帳號使用SSH Key
+    <h2>CentOS7 Tomcat增加systemctl控制
     </h2>
   </header>
   <div class="entry-content">
-    <p>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second 取消glogal mail,設定每個項目repo自己的 user.email pull的時候是識別郵箱，所以不能使用global的user.email
-取消global git config --global --unset user.name git config --global --unset user.email
-設定每個項目repo自己的 user.email git config user.email &#34;xxxx@xx.com&#34; git config user.name &#34;ricky&#34;
-Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</p>
+    <p>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
+範例如下:
+#add tomcat pid CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34; #add java opts JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34; 2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
+PIDFile就指到tomcat所在的目錄
+Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
+查看全部服務： systemctl list-unit-files –type service
+查看服務 systemctl status name.service
+啟動服務 systemctl start name.service
+停止服務 systemctl stop name.service
+重啟服務 systemctl restart name.service
+增加開機自動啟動 systemctl enable name.service...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-24 03:05:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to 一台電腦兩個Git帳號使用SSH Key" href="https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/"></a>
+  <footer class="entry-footer"><span title='2015-10-01 05:24:01 +0800 CST'>October 1, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 Tomcat增加systemctl控制" href="https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 安裝phpMyAdmin
+    <h2>CentOS6.5 Tomcat開機自動啟動
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本
-wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
-tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
-mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
-rm phpMyAdmin-4.1.12-all-languages.tar.gz
-二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;; 改成
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;; 三、查看mysql使用者,新增使用者,給予權限 # mysql -u root -p -h 127.0.0.1
-mysql&gt; select user, host from mysql.user;
-mysql&gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
-mysql&gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
-四、phpMyAdmin 高級功能啟用 建立使用者pma mysql&gt; create user &#39;pma&#39;@&#39;localhost&#39; identified by &#39;pmapass&#39;;...</p>
+    <p>1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本
+# vi /etc/init.d/tomcat
+記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下
+#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup....</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-24 02:00:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 安裝phpMyAdmin" href="https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/"></a>
+  <footer class="entry-footer"><span title='2015-09-30 21:50:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS6.5 Tomcat開機自動啟動" href="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 安裝LNMP
+    <h2>CentOS7 安裝Tomcat
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
-# yum install nginx
-三、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo
-安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm...</p>
+    <p>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
+# cd /usr/local
+2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
+# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+5.啟動或停止Tomcat 啟動Tomcat 7
+# /usr/local/tomcat7/bin/startup.sh
+停止Tomcat 7
+# /usr/local/tomcat7/bin/shutdown.sh
+6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
+若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-24 01:08:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 安裝LNMP" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/"></a>
+  <footer class="entry-footer"><span title='2015-09-30 06:10:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝Tomcat" href="https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 防火牆設定iptables
+    <h2>CentOS7 安裝JDK 64 Bit
     </h2>
   </header>
   <div class="entry-content">
-    <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
-查看有打開的Port netstat -tnlp...</p>
+    <p>tar.gz 安裝 cd /opt
+wget --no-cookies --no-check-certificate --header &#34;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&#34; &#34;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&#34;
+tar zxvf jdk-7u79-linux-x64.tar.gz
+# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下
+# rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;
+# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+# alternatives --config java...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-21 10:05:01 +0800 CST'>August 21, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
+  <footer class="entry-footer"><span title='2015-09-30 05:13:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝JDK 64 Bit" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 網卡基本設定
+    <h2>VirtualBox Guest Addtiton安裝 for Centos
     </h2>
   </header>
   <div class="entry-content">
-    <p>首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
-假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
-NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
-NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
-如果你的網路位址是固定的，那上面的網址就跟著改變即可！
-設定玩之後，網路服務重新啓動，指令為：
-# service network restart</p>
+    <p>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+那就讓我們來開始安裝吧
+先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
+# mount /dev/cdrom /media/cdrom
+執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
+# mount -t vboxsf New ~/new
+或者你需要有特定owner的mount
+# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
+Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
+解完後在執行一次
+# sh /media/cdrom/VBoxLinuxAdditions.run</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-21 09:29:01 +0800 CST'>August 21, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 網卡基本設定" href="https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/"></a>
+  <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS crontab
+    <h2>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
     </h2>
   </header>
   <div class="entry-content">
-    <p>Example 輸入 crontab -e 進入排程編輯
-# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction crontab 產生的訊息會存放在/var/spool/mail/root</p>
+    <p>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
   </div>
-  <footer class="entry-footer"><span title='2015-07-27 01:35:01 +0800 CST'>July 27, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS crontab" href="https://blog.ooopiz.com/post/2015/07/centos-crontab/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Laravel5.0 升級5.1
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. 修改composer.json &#34;laravel/framework&#34;: &#34;5.0.*&#34; 修改為 &#34;laravel/framework&#34;: &#34;5.1.*&#34;
-2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-4. 執行 composer update # composer update
-5. 確認目錄權限### 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-07-25 12:22:01 +0800 CST'>July 25, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Laravel5.0 升級5.1" href="https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Laravel5.0 關閉CSRF全局驗證
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
-class Kernel extends HttpKernel { /** * The application&#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;, &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;, &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;, &#39;Illuminate\Session\Middleware\StartSession&#39;, &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;, ]; /** * The application&#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &#39;auth&#39; =&gt; &#39;App\Http\Middleware\Authenticate&#39;, &#39;auth.basic&#39; =&gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;, &#39;guest&#39; =&gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;, &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;, ]; } 此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&gt; &#39;csrf&#39;...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-07-25 08:13:01 +0800 CST'>July 25, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Laravel5.0 關閉CSRF全局驗證" href="https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/"></a>
+  <footer class="entry-footer"><span title='2015-09-09 09:10:01 +0800 CST'>September 9, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://blog.ooopiz.com/post/page/5/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://blog.ooopiz.com/post/page/7/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

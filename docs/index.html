@@ -110,7 +110,7 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://blog.ooopiz.com/post/" title="Archives">
+                <a href="https://blog.ooopiz.com/archives/" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
@@ -300,48 +300,6 @@ $ chown -R kafka:kafka /opt/kafka*
   </div>
   <footer class="entry-footer"><span title='2020-01-30 22:33:26 +0800 CST'>January 30, 2020</span></footer>
   <a class="entry-link" aria-label="post link to Kafka 基本設定與用法" href="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Macos L2tp vpn 設定
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服務順序（重要） 點選齒輪設定服務順序 將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網) </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-01-04 02:20:14 +0800 CST'>January 4, 2020</span></footer>
-  <a class="entry-link" aria-label="post link to Macos L2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Window10 l2tp vpn 設定
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-01-04 00:03:19 +0800 CST'>January 4, 2020</span></footer>
-  <a class="entry-link" aria-label="post link to Window10 l2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>建立一個單節點的 kubernetes cluster (kubeadm)
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。
-Kubernetes Architecture 這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。
-(圖片來自WIKI)
-Master 節點的組件 ETCD 集群 API SERVER Controller Manager Scheduler 安裝準備 先選定好要安裝在什麼 OS 上，
-並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。
-下面列出我的環境跟CNI
-OS（CoreOS） 2 GB or more of RAM per machine (any less will leave little room for your apps) 2 CPUs or more CNI（flannel） 安裝 kubeadm 官網文件：Installing kubeadm 官網文件：Creating a single control-plane cluster with kubeadm 我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-07-29 17:18:19 +0800 CST'>July 29, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to 建立一個單節點的 kubernetes cluster (kubeadm)" href="https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

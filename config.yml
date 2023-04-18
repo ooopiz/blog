@@ -2,6 +2,7 @@ publishDir: docs
 
 baseURL: https://blog.ooopiz.com/
 title: 馬丁沒有派對
+paginate: 7
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -29,7 +30,7 @@ menu:
     - name: Archives
       weight: 20
       identifier: archives
-      url: /post/
+      url: /archives/
     - name: Tags
       weight: 30
       identifier: tags

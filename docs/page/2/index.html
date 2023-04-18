@@ -110,7 +110,7 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://blog.ooopiz.com/post/" title="Archives">
+                <a href="https://blog.ooopiz.com/archives/" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
@@ -128,6 +128,48 @@ if (!doNotTrack) {
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Macos L2tp vpn 設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服務順序（重要） 點選齒輪設定服務順序 將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網) </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-04 02:20:14 +0800 CST'>January 4, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to Macos L2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Window10 l2tp vpn 設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-04 00:03:19 +0800 CST'>January 4, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to Window10 l2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>建立一個單節點的 kubernetes cluster (kubeadm)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。
+Kubernetes Architecture 這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。
+(圖片來自WIKI)
+Master 節點的組件 ETCD 集群 API SERVER Controller Manager Scheduler 安裝準備 先選定好要安裝在什麼 OS 上，
+並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。
+下面列出我的環境跟CNI
+OS（CoreOS） 2 GB or more of RAM per machine (any less will leave little room for your apps) 2 CPUs or more CNI（flannel） 安裝 kubeadm 官網文件：Installing kubeadm 官網文件：Creating a single control-plane cluster with kubeadm 我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-29 17:18:19 +0800 CST'>July 29, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to 建立一個單節點的 kubernetes cluster (kubeadm)" href="https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -208,123 +250,6 @@ brew install fswatch
   </div>
   <footer class="entry-footer"><span title='2019-05-23 23:27:58 +0800 CST'>May 23, 2019</span></footer>
   <a class="entry-link" aria-label="post link to Fswatch Save My Times" href="https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>IPsec Lan to Lan Vigor-2925 and AWS-ec2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，
-內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。
-其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）
-一個月大概在台幣 1,000 左右 AWS VPN pricing。
-但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。
-目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。
-公司端：
-設備：Vigor 2925 網段：192.168.0.0/24 AWS 端：
-網段：172.21.0.0/16 IPsec Server ： CentOS7, EIP libreSwan 簡介 libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。
-在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan
-安裝 libreswan $ yum install epel-release $ yum install libreswan 設定 ipsec ipsec 啟動時會載入 /etc/ipsec....</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-17 08:02:00 +0800 CST'>May 17, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to IPsec Lan to Lan Vigor-2925 and AWS-ec2" href="https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>關於 Docker volume create
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。
-原本我都是使用 -v 對應到我 host 機器的目錄
-ex :
--v $(pwd)/nginx-cache:/var/cache/nginx
-後來很好奇 docker volume create 的用途還有存放路徑。
-於是就小小的研究了一下。
-docker volume create 一般的 Linux 在執行 docker volume create … 之後，
-可以在 /var/lib/docker/volumes 看到 docker 幫你建立 volume 名稱的資料夾。
-docker volume create In Mac 可是當你使用 Mac 執行過 docker volume create … 之後，
-並無法在 Mac 電腦中找到 /var/lib/docker/volumes 這個目錄。
-在 Mac 電腦 是無法直接訪問 /var/lib/docker/volumes 這個目錄，
-必須先 screen 到 docker 目錄下的 tty，
-進到 tty 之後就可以在 /var/lib/docker/volums 看到 create 的目錄名稱了。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-10 07:22:01 +0800 CST'>May 10, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to 關於 Docker volume create" href="https://blog.ooopiz.com/post/2019/05/docker-volume-create/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Gitlab-ce 版本升級與容器化
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還原 四、版本逐步升級 一、備份 Omnibus 上的資料 $ gitlab-rake gitlab:backup:create
-二、準備 docker 環境 Install docker, docker-compose 檔案存放的根目錄我設定在 /srv/gitlab，因此先在母體主機建立三個資料夾後續給 docker 掛載。 /srv/gitlab/config /srv/gitlab/logs /srv/gitlab/data 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與匯入 複製 omnibus 機器下的主機金鑰組到新環境 From omnibus (/etc/ssh/ssh_host_*) copy to /srv/gitlab/config/ 撰寫 docker-compose.yaml 如下 hostname 與 external_url 替換成自己的參數 web: image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39; container_name: gitlab restart: always hostname: &#39;git.example.com&#39; environment: TZ: Asia/Taipei GITLAB_OMNIBUS_CONFIG: | external_url &#39;http://git....</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-11-01 10:45:51 +0800 CST'>November 1, 2018</span></footer>
-  <a class="entry-link" aria-label="post link to Gitlab-ce 版本升級與容器化" href="https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>opensourcepos 安裝
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>php pos 商用版
-開源版本 opensourcepos
-OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了
-環境準備： 安裝lamp
-php require
-php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl installed and enabled. 下載程式： # cd /var/www # git clone https://github.com/jekkos/opensourcepos.git
-# mv opensourcepos pos # cd /var/www/pos
-看你要使用哪個版本 使用git指令切過去 # git checkout tags/3.0.2 -b b_3.0.2
-設置權限： # chown -R apache:apache /var/www/pos
-匯入資料：(db資訊依照自己的資訊填入) # mysql pos /var/www/pos/database/database.sql
-設定檔： # cd /var/www/pos/application/config # cp database.php.tmpl database.php
-# vi database.php
-$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;; $db[&#39;default&#39;][&#39;username&#39;] = &#39;db_user&#39;; $db[&#39;default&#39;][&#39;password&#39;] = &#39;db_pass&#39;; $db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;; apache設定 vi /etc/httpd/conf....</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-05-15 07:46:01 +0800 CST'>May 15, 2017</span></footer>
-  <a class="entry-link" aria-label="post link to opensourcepos 安裝" href="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>pem轉ppk putty 登入
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe
-pem 轉 ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選擇save private key 4.輸入檔名生成ppk檔 putty設定登入 1.轉換完成的ppk檔放置到你想保存的位置 2.開啟putty (以下為範例照自己的機器與檔案資訊填寫) 3.輸入用戶名稱 4.載入ppk檔 5.記得回來按一下存檔 linux or Cmder登入方式 ssh -i xxx.pem username@192.168.1.1
-改port的話
-ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-03-21 02:21:01 +0800 CST'>March 21, 2017</span></footer>
-  <a class="entry-link" aria-label="post link to pem轉ppk putty 登入" href="https://blog.ooopiz.com/post/2017/03/pem-to-ppk-putty-login/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>php call java 類別
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>php-java-bridge 介紹
-php-java-bridge 載點
-Files &gt; Binary package &gt; JavaBridgeTemplate621.war
-我下載到的版本是JavaBridgeTemplate621.war
-寫一個jar來做測試 # mkdir TestMath
-# cd TestMath
-# vi TestMath.java
-public class TestMath { private Integer num1; private Integer num2; public TestMath() { this.num1 = 0; this.num2 = 0; } public TestMath(Integer n1, Integer n2) { this.num1 = n1; this.num2 = n2; } public void setNum1(Integer n) { this.num1 = n; } public void setNum2(Integer n) { this.num2 = n; } public Integer plus() { return num1 &#43; num2; } public Integer minus() { return num1 - num2; } } # javac TestMath....</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-12-21 03:23:01 +0800 CST'>December 21, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to php call java 類別" href="https://blog.ooopiz.com/post/2016/12/php-call-java-class/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

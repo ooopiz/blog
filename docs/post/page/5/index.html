@@ -111,8 +111,8 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://blog.ooopiz.com/post/" title="Archives">
-                    <span class="active">Archives</span>
+                <a href="https://blog.ooopiz.com/archives/" title="Archives">
+                    <span>Archives</span>
                 </a>
             </li>
             <li>
@@ -145,187 +145,117 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>VirtualBox Guest Addtiton安裝 for Centos
+    <h2>2016/07/27 使用ab壓測
     </h2>
   </header>
   <div class="entry-content">
-    <p>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
-那就讓我們來開始安裝吧
-先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
-# mount /dev/cdrom /media/cdrom
-執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
-# mount -t vboxsf New ~/new
-或者你需要有特定owner的mount
-# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
-解完後在執行一次
-# sh /media/cdrom/VBoxLinuxAdditions.run</p>
+    <p>環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
+# ab -n 10000 -c 2000 -k http://127.0.0.1/
+查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -
+如果su 無法切換使用者可能需要修改一下vipw
+查可開啟的數量 # ulimit -n
+修改可打開的文件數 # vi /etc/security/limits.conf
+星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
+nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 </p>
   </div>
-  <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
+  <footer class="entry-footer"><span title='2016-07-29 01:16:01 +0800 CST'>July 29, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 2016/07/27 使用ab壓測" href="https://blog.ooopiz.com/post/2016/07/ab-pressure-test/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
+    <h2>Gradle初探
     </h2>
   </header>
   <div class="entry-content">
-    <p>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
+    <p> </p>
   </div>
-  <footer class="entry-footer"><span title='2015-09-09 09:10:01 +0800 CST'>September 9, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/"></a>
+  <footer class="entry-footer"><span title='2016-07-27 03:14:01 +0800 CST'>July 27, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Gradle初探" href="https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>yum 和 wget 使用 proxy
+    <h2>javascript 有沒有var的差別
     </h2>
   </header>
   <div class="entry-content">
-    <p>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf
-# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile (有空再研究)
-wget 在設定檔中加入以下參數config /etc/wgetrc
-http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again
-解決方法：
-編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下： config /etc/yum.repos.d/epel.repo
-[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch failovermethod=priority enabled=1 gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 </p>
+    <p> Output is “7”
+$(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined
+$(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); }); </p>
   </div>
-  <footer class="entry-footer"><span title='2015-09-02 17:05:01 +0800 CST'>September 2, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to yum 和 wget 使用 proxy" href="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/"></a>
+  <footer class="entry-footer"><span title='2016-07-21 14:54:01 +0800 CST'>July 21, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to javascript 有沒有var的差別" href="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 流量監控工具(iftop)
+    <h2>2013開放Web軟體安全計畫
     </h2>
   </header>
   <div class="entry-content">
-    <p>官方網站
-安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or
-# wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop</p>
+    <p>2013開放Web軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
+網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
+A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-09-02 16:56:01 +0800 CST'>September 2, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 流量監控工具(iftop)" href="https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/"></a>
+  <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 2013開放Web軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS7 基礎設定
+    <h2>CentOS7 安裝Postfix
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下 一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
-# cd /etc/sysconfig/network-scripts
-每台電腦的網卡名稱不一定相同
-# systemctl stop NetworkManager
-# systemctl disable NetworkManager
-# systemctl restart network
-二、關閉SELinux #vi /etc/selinux/config
-這個設定reboot後才會生效
-三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
-# vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
-# systemctl restart sshd
-四、調整時區 # rm /etc/localtime
-# ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
-五、調整語系 檢查系統目前使用的語系
-# localectl
-查看系統有哪些可用的語系
-# localectl list-locales | grep zh
-如果你要設定語系的話
-# localectl set-locale LANG=zh_TW....</p>
+    <p>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+查詢是否安裝過
+# rpm -qa | grep sendmail
+# rpm -qa | grep exim
+移除
+# yum remove sendmail
+# yum remove exim
+為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
+SELINUX=enforcing
+換成
+SELINUX=disabled
+1.開始安裝 Postfix # yum install postfix...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-09-01 03:07:01 +0800 CST'>September 1, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 基礎設定" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/"></a>
+  <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS 使用rsync
+    <h2>安裝 Nginx 1.9&#43;
     </h2>
   </header>
   <div class="entry-content">
-    <p>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/....</p>
+    <p>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx
+啟動服務 # service nginx start
+# chkconfig --levels 235 nginx on</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS 使用rsync" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/"></a>
+  <footer class="entry-footer"><span title='2016-05-05 02:47:01 +0800 CST'>May 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 Nginx 1.9&#43;" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>重灌Mac
+    <h2>安裝 PHP5.6
     </h2>
   </header>
   <div class="entry-content">
-    <p>重開機時，按住command &#43; R 會跳出如下面圖片的介面． 就可以開始進行清理硬碟與重灌OS X的作業</p>
+    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
+CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
+安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session...</p>
   </div>
-  <footer class="entry-footer"><span title='2015-08-30 14:14:01 +0800 CST'>August 30, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to 重灌Mac" href="https://blog.ooopiz.com/post/2015/08/reinstall-mac/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>CentOS6.5 安裝MariaDB
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統
-config /etc/yum.repos.d/mariadb.repo
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 # yum update -y
-安裝 MariaDB 安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
-# yum install MariaDB-devel MariaDB-client MariaDB-server -y
-# service mysql start
-# chkconfig mysql on
-初始化 MariaDB 執行這個初始化程式，過程跟MySQL一模一樣
-# /usr/bin/mysql_secure_installation
-第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。
-第二個問題，Change the root password? [Y/n] 是否更改root密碼，極度建議您設定root密碼，請輸入Y
-第三個問題，Remove anonymous users? [Y/n] 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 07:05:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 安裝MariaDB" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>CentOS6.5 安裝Nginx
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y
-安裝 Nginx # yum install nginx
-執行 Nginx # service nginx start
-開機時自動啟動 # sudo chkconfig --levels 235 nginx on</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 07:01:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 安裝Nginx" href="https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Laravel 刪除套件
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> Remove declaration from composer.json (in “require” section) Remove Service Provider from “app/config/app.php” (reference in “providers” array) Remove any Class Aliases from “app/config/app.php” Remove any references to the package from your code :-) Run “composer update” Manually delete the published files </p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 05:04:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Laravel 刪除套件" href="https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/"></a>
+  <footer class="entry-footer"><span title='2016-05-05 02:38:01 +0800 CST'>May 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 PHP5.6" href="https://blog.ooopiz.com/post/2016/05/install-php56/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
