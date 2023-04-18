@@ -88,7 +88,9 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: >
+      簡單分享一些所學，如果剛好查到這裡，希望有幫助到您!
+      另外也透過網站玩玩 seo, ad 打擾勿怪，好人一生平安 ❤️ 
 
   socialIcons:
     #- name: github
