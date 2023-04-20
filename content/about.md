@@ -7,4 +7,4 @@ ShowBreadCrumbs: false
 comments: false
 ---
 
-![](http://fblog.ooopiz.com/logo/vector/default-monochrome.svg)
+![ooopiz](/logo/v/default-monochrome.svg)
