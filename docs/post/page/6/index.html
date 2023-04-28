@@ -156,17 +156,17 @@ if (!doNotTrack) {
   <div class="entry-content">
     <p>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
 下載網址
-下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
-# ln -s nexus-2.11.4-01/ nexus
-# chown -R nexus:nexus nexus
-# chown -R nexus:nexus nexus-2.11.4-01/
-# chown -R nexus:nexus sonatype-work/
+下載至您要放置的目錄下即可開始操作以下流程 (這裡放置在/usr/local) tar zxvf nexus-2.11.4-01-bundle.tar.gz
+ln -s nexus-2.11.4-01/ nexus
+chown -R nexus:nexus nexus
+chown -R nexus:nexus nexus-2.11.4-01/
+chown -R nexus:nexus sonatype-work/
 修改下面兩個設定
-# vi /nexus-2.11.4-01/bin/nexus
+vi /nexus-2.11.4-01/bin/nexus
 NEXUS_HOME=&#34;/usr/local/nexus/nexus&#34; RUN_AS_USER=nexus 修改Port
-# vi /nexus-2.11.4-01/conf/nexus.properties
+vi /nexus-2.11.4-01/conf/nexus.properties
 application-port=18081 啟動
-# sh /var/opt/nexus/nexus/bin/nexus start</p>
+sh /var/opt/nexus/nexus/bin/nexus start</p>
   </div>
   <footer class="entry-footer"><span title='2015-12-14 01:27:01 +0800 CST'>December 14, 2015</span></footer>
   <a class="entry-link" aria-label="post link to 安裝 Nexus OSS" href="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/"></a>
@@ -174,24 +174,24 @@ application-port=18081 啟動
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS7 Tomcat增加systemctl控制
+    <h2>CentOS7 Tomcat 增加 systemctl 控制
     </h2>
   </header>
   <div class="entry-content">
     <p>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
 範例如下:
-#add tomcat pid CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34; #add java opts JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34; 2.增加tomcat.service 在/usr/lib/systemd/system目錄下增加tomcat7.service，內容的目錄必須是絕對路徑。 # vi /usr/lib/systemd/system/tomcat7.service
+#add tomcat pid CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34; #add java opts JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34; 2.增加 tomcat.service 在 /usr/lib/systemd/system 目錄下增加 tomcat7.service，
+內容的目錄必須是絕對路徑。
+vi /usr/lib/systemd/system/tomcat7.service
 PIDFile就指到tomcat所在的目錄
-Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶
-查看全部服務： systemctl list-unit-files –type service
+Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶 systemctl 命令 查看全部服務 systemctl list-unit-files --type service
 查看服務 systemctl status name.service
 啟動服務 systemctl start name.service
 停止服務 systemctl stop name.service
-重啟服務 systemctl restart name.service
-增加開機自動啟動 systemctl enable name.service...</p>
+重啟服務 systemctl restart name....</p>
   </div>
   <footer class="entry-footer"><span title='2015-10-01 05:24:01 +0800 CST'>October 1, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 Tomcat增加systemctl控制" href="https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/"></a>
+  <a class="entry-link" aria-label="post link to CentOS7 Tomcat 增加 systemctl 控制" href="https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -200,10 +200,10 @@ Description=Tomcat After=syslog.target network.target remote-fs.target nss-looku
     </h2>
   </header>
   <div class="entry-content">
-    <p>1.設定啟動腳本 在目錄/etc/init.d新增一個tomcat的腳本
-# vi /etc/init.d/tomcat
-記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下
-#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup....</p>
+    <p>1.設定啟動腳本 在目錄 /etc/init.d 新增一個 tomcat 的腳本
+vi /etc/init.d/tomcat
+記得修改你的 JAVA_HOME, CATALINA_HOME 到你所在的目錄下
+#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34; export CLASSPATH=....</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-30 21:50:01 +0800 CST'>September 30, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 Tomcat開機自動啟動" href="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/"></a>
@@ -216,16 +216,13 @@ Description=Tomcat After=syslog.target network.target remote-fs.target nss-looku
   </header>
   <div class="entry-content">
     <p>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
-# cd /usr/local
-2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
-# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
-4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+cd /usr/local
+2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7
 5.啟動或停止Tomcat 啟動Tomcat 7
-# /usr/local/tomcat7/bin/startup.sh
-停止Tomcat 7
-# /usr/local/tomcat7/bin/shutdown.sh
-6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7
+/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線
 7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。</p>
   </div>
@@ -242,12 +239,19 @@ Description=Tomcat After=syslog.target network.target remote-fs.target nss-looku
     <p>tar.gz 安裝 cd /opt
 wget --no-cookies --no-check-certificate --header &#34;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&#34; &#34;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&#34;
 tar zxvf jdk-7u79-linux-x64.tar.gz
-# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下
-# rpm -Uvh jdk-8u25-linux-x64.rpm
-3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;
-# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
-使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
-# alternatives --config java...</p>
+alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到
+官方網址
+下載你需要的JDK版本
+2.安裝rpm包 會自動安裝到/usr/java下
+rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理
+alternatives的指令格式如下:
+alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+alternatives --config java
+4.檢查安裝是否正常 java -version
+javac -version 5....</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-30 05:13:01 +0800 CST'>September 30, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS7 安裝JDK 64 Bit" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/"></a>
@@ -259,19 +263,20 @@ tar zxvf jdk-7u79-linux-x64.tar.gz
     </h2>
   </header>
   <div class="entry-content">
-    <p>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+    <p>我在 virtualbox上 面安裝的是 CentOS7 的 OS
+當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，
+你應該要安裝 VirtualBox Guest Addtiton
 那就讓我們來開始安裝吧
-先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
-# mount /dev/cdrom /media/cdrom
-執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
-# mount -t vboxsf New ~/new
+先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new
+mount -t vboxsf New ~/new
 或者你需要有特定owner的mount
-# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
-解完後在執行一次
-# sh /media/cdrom/VBoxLinuxAdditions.run</p>
+mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+troubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到
+bzip2 command not found yum install bzip2 -y
+Building the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y...</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
   <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
@@ -283,9 +288,11 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
     </h2>
   </header>
   <div class="entry-content">
-    <p>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
+    <p>說明 VirtualBox 透過 NAT 網卡來達到對外部的連線
+當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox -&gt; 喜好設定
+設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-09 09:10:01 +0800 CST'>September 9, 2015</span></footer>
   <a class="entry-link" aria-label="post link to VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/"></a>

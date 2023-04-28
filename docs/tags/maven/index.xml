@@ -18,17 +18,17 @@
       <guid>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</guid>
       <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
 下載網址
-下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local) # tar zxvf nexus-2.11.4-01-bundle.tar.gz
-# ln -s nexus-2.11.4-01/ nexus
-# chown -R nexus:nexus nexus
-# chown -R nexus:nexus nexus-2.11.4-01/
-# chown -R nexus:nexus sonatype-work/
+下載至您要放置的目錄下即可開始操作以下流程 (這裡放置在/usr/local) tar zxvf nexus-2.11.4-01-bundle.tar.gz
+ln -s nexus-2.11.4-01/ nexus
+chown -R nexus:nexus nexus
+chown -R nexus:nexus nexus-2.11.4-01/
+chown -R nexus:nexus sonatype-work/
 修改下面兩個設定
-# vi /nexus-2.11.4-01/bin/nexus
+vi /nexus-2.11.4-01/bin/nexus
 NEXUS_HOME=&amp;#34;/usr/local/nexus/nexus&amp;#34; RUN_AS_USER=nexus 修改Port
-# vi /nexus-2.11.4-01/conf/nexus.properties
+vi /nexus-2.11.4-01/conf/nexus.properties
 application-port=18081 啟動
-# sh /var/opt/nexus/nexus/bin/nexus start</description>
+sh /var/opt/nexus/nexus/bin/nexus start</description>
     </item>
     
   </channel>

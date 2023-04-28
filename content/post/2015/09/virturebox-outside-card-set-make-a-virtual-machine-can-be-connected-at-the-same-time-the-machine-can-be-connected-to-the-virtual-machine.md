@@ -4,26 +4,29 @@ date: 2015-09-09T09:10:01+08:00
 draft: false
 tags: ["virtualbox"]
 ---
-VirtualBox透過NAT網卡來達到對外部的連線
+
+## 說明
+
+VirtualBox 透過 NAT 網卡來達到對外部的連線  
 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
 
-***
-
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡
+Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡
 Mac就必須自己手動新增一下
 
-VirtualBox->喜好設定
+VirtualBox -> 喜好設定
+
 ![](https://fblog.ooopiz.com/images/201509/A03-01.png)
 
-***
+## 設定2張介面卡
 
-### 設定2張介面卡
-#### 1. NAT
+### 1. NAT
+
 ![](https://fblog.ooopiz.com/images/201509/A03-02.png)
 
-#### 2. 僅限主機介面卡
+### 2. 僅限主機介面卡
+
 ![](https://fblog.ooopiz.com/images/201509/A03-03.png)
 
-<b style="color:red;">VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</b>
+VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0
 
 ![](https://fblog.ooopiz.com/images/201509/A03-04.png)

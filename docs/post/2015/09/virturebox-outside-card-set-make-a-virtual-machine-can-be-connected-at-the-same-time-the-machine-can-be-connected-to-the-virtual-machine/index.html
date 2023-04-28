@@ -7,9 +7,11 @@
 <meta name="robots" content="index, follow">
 <title>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器 | 馬丁沒有派對</title>
 <meta name="keywords" content="virtualbox">
-<meta name="description" content="VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0">
+<meta name="description" content="說明 VirtualBox 透過 NAT 網卡來達到對外部的連線
+當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox -&gt; 喜好設定
+設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -43,9 +45,11 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" />
-<meta property="og:description" content="VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0" />
+<meta property="og:description" content="說明 VirtualBox 透過 NAT 網卡來達到對外部的連線
+當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox -&gt; 喜好設定
+設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-09-09T09:10:01+08:00" />
@@ -55,9 +59,11 @@ VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器"/>
-<meta name="twitter:description" content="VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0"/>
+<meta name="twitter:description" content="說明 VirtualBox 透過 NAT 網卡來達到對外部的連線
+當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox -&gt; 喜好設定
+設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0"/>
 
 
 <script type="application/ld+json">
@@ -86,12 +92,12 @@ VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 
   "@type": "BlogPosting",
   "headline": "VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器",
   "name": "VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器",
-  "description": "VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線\nWindows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下\nVirtualBox-\u0026gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0",
+  "description": "說明 VirtualBox 透過 NAT 網卡來達到對外部的連線\n當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線\nWindows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下\nVirtualBox -\u0026gt; 喜好設定\n設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0",
   "keywords": [
     "virtualbox"
   ],
-  "articleBody": "VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線\nWindows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下\nVirtualBox-\u003e喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0\n",
-  "wordCount" : "16",
+  "articleBody": "說明 VirtualBox 透過 NAT 網卡來達到對外部的連線\n當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線\nWindows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下\nVirtualBox -\u003e 喜好設定\n設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0\n",
+  "wordCount" : "25",
   "inLanguage": "en",
   "datePublished": "2015-09-09T09:10:01+08:00",
   "dateModified": "2015-09-09T09:10:01+08:00",
@@ -196,9 +202,11 @@ VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#說明">說明</a></li>
+    <li><a href="#設定2張介面卡">設定2張介面卡</a>
       <ul>
-        <li><a href="#設定2張介面卡">設定2張介面卡</a></li>
+        <li><a href="#1-nat">1. NAT</a></li>
+        <li><a href="#2-僅限主機介面卡">2. 僅限主機介面卡</a></li>
       </ul>
     </li>
   </ul>
@@ -207,23 +215,22 @@ VirtualBox-&gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 
     </details>
 </div>
 
-  <div class="post-content"><p>VirtualBox透過NAT網卡來達到對外部的連線
+  <div class="post-content"><h2 id="說明">說明<a hidden class="anchor" aria-hidden="true" href="#說明">#</a></h2>
+<p>VirtualBox 透過 NAT 網卡來達到對外部的連線<br>
 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線</p>
-<hr>
-<p>Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡
+<p>Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡
 Mac就必須自己手動新增一下</p>
-<p>VirtualBox-&gt;喜好設定
-<img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A03-01.png" alt=""  />
+<p>VirtualBox -&gt; 喜好設定</p>
+<p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A03-01.png" alt=""  />
 </p>
-<hr>
-<h3 id="設定2張介面卡">設定2張介面卡<a hidden class="anchor" aria-hidden="true" href="#設定2張介面卡">#</a></h3>
-<h4 id="1-nat">1. NAT<a hidden class="anchor" aria-hidden="true" href="#1-nat">#</a></h4>
+<h2 id="設定2張介面卡">設定2張介面卡<a hidden class="anchor" aria-hidden="true" href="#設定2張介面卡">#</a></h2>
+<h3 id="1-nat">1. NAT<a hidden class="anchor" aria-hidden="true" href="#1-nat">#</a></h3>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A03-02.png" alt=""  />
 </p>
-<h4 id="2-僅限主機介面卡">2. 僅限主機介面卡<a hidden class="anchor" aria-hidden="true" href="#2-僅限主機介面卡">#</a></h4>
+<h3 id="2-僅限主機介面卡">2. 僅限主機介面卡<a hidden class="anchor" aria-hidden="true" href="#2-僅限主機介面卡">#</a></h3>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A03-03.png" alt=""  />
 </p>
-<p><!-- raw HTML omitted -->VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0<!-- raw HTML omitted --></p>
+<p>VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A03-04.png" alt=""  />
 </p>
 

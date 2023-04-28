@@ -4,42 +4,45 @@ date: 2015-12-14T01:27:01+08:00
 draft: false
 tags: ["maven", "nexus"]
 ---
+
 ## Nexus OSS
+
 Nexus OSS是用來架設maven私有倉庫的好幫手
 安裝其實非常容易
-  
-<a href="http://www.sonatype.org/nexus/" target="_blank">下載網址</a>
-  
+
+[下載網址](http://www.sonatype.org/nexus/)
+
 ![](https://fblog.ooopiz.com/images/201512/A01-01.jpg)
 
-## 下載至您要放置的目錄下即可開始操作以下流程(這裡放置在/usr/local)
-`# tar zxvf nexus-2.11.4-01-bundle.tar.gz`
+## 下載至您要放置的目錄下即可開始操作以下流程 (這裡放置在/usr/local)
+
+`tar zxvf nexus-2.11.4-01-bundle.tar.gz`
   
-`# ln -s nexus-2.11.4-01/ nexus`
+`ln -s nexus-2.11.4-01/ nexus`
   
-`# chown -R nexus:nexus nexus`
+`chown -R nexus:nexus nexus`
   
-`# chown -R nexus:nexus nexus-2.11.4-01/`
+`chown -R nexus:nexus nexus-2.11.4-01/`
   
-`# chown -R nexus:nexus sonatype-work/`
+`chown -R nexus:nexus sonatype-work/`
   
 修改下面兩個設定
   
-`# vi /nexus-2.11.4-01/bin/nexus`
+`vi /nexus-2.11.4-01/bin/nexus`
   
-```config
+```ini
 NEXUS_HOME="/usr/local/nexus/nexus"
 RUN_AS_USER=nexus
 ```
   
 修改Port
   
-`# vi /nexus-2.11.4-01/conf/nexus.properties`
+`vi /nexus-2.11.4-01/conf/nexus.properties`
   
-``` config
+```ini
 application-port=18081
 ```
   
 啟動
   
-`# sh /var/opt/nexus/nexus/bin/nexus start`
+`sh /var/opt/nexus/nexus/bin/nexus start`

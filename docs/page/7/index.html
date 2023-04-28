@@ -140,13 +140,12 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>yum 設定檔 在設定檔中加入以下參數config /etc/yum.conf
-# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用 若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile (有空再研究)
-wget 在設定檔中加入以下參數config /etc/wgetrc
-http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot retrieve metalink for repository: epel. Please verify its path and try again
-解決方法：
-編輯[epel]下的baseurl前的#號去掉，mirrorlist前添加#号。正確配置如下： config /etc/yum.repos.d/epel.repo
-[epel] name=Extra Packages for Enterprise Linux 6 - $basearch baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch #mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&amp;arch=$basearch failovermethod=priority enabled=1 gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 </p>
+    <p>yum 設定檔 在設定檔中加入以下參數 config /etc/yum.conf
+# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用
+若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile
+(有空再研究)
+wget 在設定檔中加入以下參數 config /etc/wgetrc
+http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 </p>
   </div>
   <footer class="entry-footer"><span title='2015-09-02 17:05:01 +0800 CST'>September 2, 2015</span></footer>
   <a class="entry-link" aria-label="post link to yum 和 wget 使用 proxy" href="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/"></a>
@@ -159,8 +158,8 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot ret
   </header>
   <div class="entry-content">
     <p>官方網站
-安裝 # rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # yum install iftop -y or
-# wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm # rpm -ivh epel-release-6-8.noarch.rpm # yum install iftop -y 執行 # iftop</p>
+安裝 rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm yum install iftop -y or
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm rpm -ivh epel-release-6-8.noarch.rpm yum install iftop -y 執行 iftop</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-02 16:56:01 +0800 CST'>September 2, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 流量監控工具(iftop)" href="https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/"></a>
@@ -173,24 +172,27 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot ret
   </header>
   <div class="entry-content">
     <p>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下 一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
-# cd /etc/sysconfig/network-scripts
+cd /etc/sysconfig/network-scripts
 每台電腦的網卡名稱不一定相同
-# systemctl stop NetworkManager
-# systemctl disable NetworkManager
-# systemctl restart network
-二、關閉SELinux #vi /etc/selinux/config
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+systemctl restart network
+二、關閉SELinux vi /etc/selinux/config
 這個設定reboot後才會生效
 三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
-# vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
-# systemctl restart sshd
-四、調整時區 # rm /etc/localtime
-# ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
+systemctl restart sshd
+四、調整時區 rm /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 五、調整語系 檢查系統目前使用的語系
-# localectl
+localectl
 查看系統有哪些可用的語系
-# localectl list-locales | grep zh
+localectl list-locales | grep zh
 如果你要設定語系的話
-# localectl set-locale LANG=zh_TW....</p>
+localectl set-locale LANG=zh_TW.utf8
+六、修改Hostname 查看主機 hostname
+hostnamectl 設定 hostname
+hostnamectl set-hostname new_hostname 七、同步時間 安裝的packages yum install ntp ntpdate ntp-doc 設定開機就啟動NTP Daemon systemctl enable ntpd 系統時間與time....</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-01 03:07:01 +0800 CST'>September 1, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS7 基礎設定" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/"></a>

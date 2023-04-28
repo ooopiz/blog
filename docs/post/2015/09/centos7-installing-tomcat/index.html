@@ -8,16 +8,13 @@
 <title>CentOS7 安裝Tomcat | 馬丁沒有派對</title>
 <meta name="keywords" content="centos">
 <meta name="description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
-# cd /usr/local
-2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
-# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
-4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+cd /usr/local
+2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7
 5.啟動或停止Tomcat 啟動Tomcat 7
-# /usr/local/tomcat7/bin/startup.sh
-停止Tomcat 7
-# /usr/local/tomcat7/bin/shutdown.sh
-6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7
+/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線
 7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。">
 <meta name="author" content="">
@@ -54,16 +51,13 @@ if (!doNotTrack) {
 </script>
 <meta property="og:title" content="CentOS7 安裝Tomcat" />
 <meta property="og:description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
-# cd /usr/local
-2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
-# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
-4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+cd /usr/local
+2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7
 5.啟動或停止Tomcat 啟動Tomcat 7
-# /usr/local/tomcat7/bin/startup.sh
-停止Tomcat 7
-# /usr/local/tomcat7/bin/shutdown.sh
-6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7
+/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線
 7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。" />
 <meta property="og:type" content="article" />
@@ -76,16 +70,13 @@ if (!doNotTrack) {
 
 <meta name="twitter:title" content="CentOS7 安裝Tomcat"/>
 <meta name="twitter:description" content="1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
-# cd /usr/local
-2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本
-# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz
-4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7
+cd /usr/local
+2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7
 5.啟動或停止Tomcat 啟動Tomcat 7
-# /usr/local/tomcat7/bin/startup.sh
-停止Tomcat 7
-# /usr/local/tomcat7/bin/shutdown.sh
-6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線
+/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7
+/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線
 7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
 若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。"/>
 
@@ -116,12 +107,12 @@ if (!doNotTrack) {
   "@type": "BlogPosting",
   "headline": "CentOS7 安裝Tomcat",
   "name": "CentOS7 安裝Tomcat",
-  "description": "1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下\n# cd /usr/local\n2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本\n# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz\n3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz\n4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7\n5.啟動或停止Tomcat 啟動Tomcat 7\n# /usr/local/tomcat7/bin/startup.sh\n停止Tomcat 7\n# /usr/local/tomcat7/bin/shutdown.sh\n6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線\n7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】\n若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。",
+  "description": "1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下\ncd /usr/local\n2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz\n3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz\n4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7\n5.啟動或停止Tomcat 啟動Tomcat 7\n/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7\n/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線\n7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】\n若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。",
   "keywords": [
     "centos"
   ],
-  "articleBody": "1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下\n# cd /usr/local\n2.下載Tomcat Tomcat官網 到官網下載你爽爽的版本\n# wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz\n3.解壓縮 # tar -zxvf apache-tomcat-7.0.57.tar.gz\n4.更改資料夾名稱 # mv apache-tomcat-7.0.57 tomcat7\n5.啟動或停止Tomcat 啟動Tomcat 7\n# /usr/local/tomcat7/bin/startup.sh\n停止Tomcat 7\n# /usr/local/tomcat7/bin/shutdown.sh\n6.防火牆設定 Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線\n7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】\n若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。\n",
-  "wordCount" : "38",
+  "articleBody": "1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下\ncd /usr/local\n2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz\n3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz\n4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7\n5.啟動或停止Tomcat 啟動Tomcat 7\n/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7\n/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線\n7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】\n若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。\n",
+  "wordCount" : "33",
   "inLanguage": "en",
   "datePublished": "2015-09-30T06:10:01+08:00",
   "dateModified": "2015-09-30T06:10:01+08:00",
@@ -226,46 +217,41 @@ if (!doNotTrack) {
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#1切換目錄到-usrlocal">1.切換目錄到 /usr/local</a></li>
-        <li><a href="#2下載tomcat">2.下載Tomcat</a></li>
-        <li><a href="#3解壓縮">3.解壓縮</a></li>
-        <li><a href="#4更改資料夾名稱">4.更改資料夾名稱</a></li>
-        <li><a href="#5啟動或停止tomcat">5.啟動或停止Tomcat</a></li>
-        <li><a href="#6防火牆設定">6.防火牆設定</a></li>
-        <li><a href="#7測試tomcat是否正常">7.測試Tomcat是否正常</a></li>
-      </ul>
-    </li>
+    <li><a href="#1切換目錄到-usrlocal">1.切換目錄到 /usr/local</a></li>
+    <li><a href="#2下載tomcat">2.下載Tomcat</a></li>
+    <li><a href="#3解壓縮">3.解壓縮</a></li>
+    <li><a href="#4更改資料夾名稱">4.更改資料夾名稱</a></li>
+    <li><a href="#5啟動或停止tomcat">5.啟動或停止Tomcat</a></li>
+    <li><a href="#6防火牆設定">6.防火牆設定</a></li>
+    <li><a href="#7測試tomcat是否正常">7.測試Tomcat是否正常</a></li>
   </ul>
 </nav>
         </div>
     </details>
 </div>
 
-  <div class="post-content"><h3 id="1切換目錄到-usrlocal">1.切換目錄到 /usr/local<a hidden class="anchor" aria-hidden="true" href="#1切換目錄到-usrlocal">#</a></h3>
+  <div class="post-content"><h2 id="1切換目錄到-usrlocal">1.切換目錄到 /usr/local<a hidden class="anchor" aria-hidden="true" href="#1切換目錄到-usrlocal">#</a></h2>
 <p>我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下</p>
-<p><code># cd /usr/local</code></p>
-<h3 id="2下載tomcat">2.下載Tomcat<a hidden class="anchor" aria-hidden="true" href="#2下載tomcat">#</a></h3>
-<p><!-- raw HTML omitted -->Tomcat官網<!-- raw HTML omitted -->
-到官網下載你爽爽的版本</p>
-<p><code># wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz</code></p>
-<h3 id="3解壓縮">3.解壓縮<a hidden class="anchor" aria-hidden="true" href="#3解壓縮">#</a></h3>
-<p><code># tar -zxvf apache-tomcat-7.0.57.tar.gz</code></p>
-<h3 id="4更改資料夾名稱">4.更改資料夾名稱<a hidden class="anchor" aria-hidden="true" href="#4更改資料夾名稱">#</a></h3>
-<p><code># mv apache-tomcat-7.0.57 tomcat7</code></p>
-<h3 id="5啟動或停止tomcat">5.啟動或停止Tomcat<a hidden class="anchor" aria-hidden="true" href="#5啟動或停止tomcat">#</a></h3>
-<p><strong>啟動Tomcat 7</strong></p>
-<p><code># /usr/local/tomcat7/bin/startup.sh</code></p>
-<p><strong>停止Tomcat 7</strong></p>
-<p><code># /usr/local/tomcat7/bin/shutdown.sh</code></p>
-<h3 id="6防火牆設定">6.防火牆設定<a hidden class="anchor" aria-hidden="true" href="#6防火牆設定">#</a></h3>
-<p>Tomcat 7預設連接埠為8080，所以必需開啟8080才可以連線</p>
-<h3 id="7測試tomcat是否正常">7.測試Tomcat是否正常<a hidden class="anchor" aria-hidden="true" href="#7測試tomcat是否正常">#</a></h3>
+<p><code>cd /usr/local</code></p>
+<h2 id="2下載tomcat">2.下載Tomcat<a hidden class="anchor" aria-hidden="true" href="#2下載tomcat">#</a></h2>
+<p><code>wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz</code></p>
+<h2 id="3解壓縮">3.解壓縮<a hidden class="anchor" aria-hidden="true" href="#3解壓縮">#</a></h2>
+<p><code>tar -zxvf apache-tomcat-7.0.57.tar.gz</code></p>
+<h2 id="4更改資料夾名稱">4.更改資料夾名稱<a hidden class="anchor" aria-hidden="true" href="#4更改資料夾名稱">#</a></h2>
+<p><code>mv apache-tomcat-7.0.57 tomcat7</code></p>
+<h2 id="5啟動或停止tomcat">5.啟動或停止Tomcat<a hidden class="anchor" aria-hidden="true" href="#5啟動或停止tomcat">#</a></h2>
+<ul>
+<li>啟動Tomcat 7<br>
+<code>/usr/local/tomcat7/bin/startup.sh</code></li>
+<li>停止Tomcat 7<br>
+<code>/usr/local/tomcat7/bin/shutdown.sh</code></li>
+</ul>
+<h2 id="6防火牆設定">6.防火牆設定<a hidden class="anchor" aria-hidden="true" href="#6防火牆設定">#</a></h2>
+<p>Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線</p>
+<h2 id="7測試tomcat是否正常">7.測試Tomcat是否正常<a hidden class="anchor" aria-hidden="true" href="#7測試tomcat是否正常">#</a></h2>
 <p>開啟瀏覽器，輸入【http://IP位址:8080】</p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A06-01.png" alt=""  />
 </p>
-<hr>
 <p>若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。</p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A06-02.png" alt=""  />
 </p>

@@ -38,19 +38,20 @@ VirtualBox 新增機器 選 Linux 64 bit 即可
       <pubDate>Wed, 09 Sep 2015 09:49:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/</guid>
-      <description>我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+      <description>我在 virtualbox上 面安裝的是 CentOS7 的 OS
+當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，
+你應該要安裝 VirtualBox Guest Addtiton
 那就讓我們來開始安裝吧
-先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
-# mount /dev/cdrom /media/cdrom
-執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
-# mount -t vboxsf New ~/new
+先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new
+mount -t vboxsf New ~/new
 或者你需要有特定owner的mount
-# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y
-解完後在執行一次
-# sh /media/cdrom/VBoxLinuxAdditions.run</description>
+mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+troubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到
+bzip2 command not found yum install bzip2 -y
+Building the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</description>
     </item>
     
     <item>
@@ -59,9 +60,11 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
       <pubDate>Wed, 09 Sep 2015 09:10:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/</guid>
-      <description>VirtualBox透過NAT網卡來達到對外部的連線 當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows環境在你安裝VirtualBox的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox-&amp;gt;喜好設定 設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</description>
+      <description>說明 VirtualBox 透過 NAT 網卡來達到對外部的連線
+當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
+Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
+VirtualBox -&amp;gt; 喜好設定
+設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</description>
     </item>
     
   </channel>

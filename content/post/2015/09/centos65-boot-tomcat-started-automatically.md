@@ -5,13 +5,13 @@ draft: false
 tags: ["tomcat"]
 ---
 
-### 1.設定啟動腳本
+## 1.設定啟動腳本
 
-在目錄/etc/init.d新增一個tomcat的腳本
+在目錄 /etc/init.d 新增一個 tomcat 的腳本
 
-`# vi /etc/init.d/tomcat`
+`vi /etc/init.d/tomcat`
 
-**記得修改你的JAVA_HOME, CATALINA_HOME到你所在的目錄下**
+**記得修改你的 JAVA_HOME, CATALINA_HOME 到你所在的目錄下**
 
 ```
 #startup script for jakarta tomcat
@@ -64,21 +64,25 @@ esac
         exit 0
 ```
 
-### 2.修改執行權限
-`# chmod 755 /etc/init.d/tomcat`
+## 2.修改執行權限
 
-### 3.增加tomcat啟動服務
-`# chkconfig --add tomcat`
+`chmod 755 /etc/init.d/tomcat`
 
-### 4.設定開機自動啟動
-`# chkconfig tomcat on`
+## 3.增加tomcat啟動服務
 
-### 5.服務開啟關閉方式
-#### 啟動服務
-`# service tomcat start`
-`# /etc/init.d/tomcat start`
-#### 停止服務
-`# service tomcat stop`
-`# /etc/init.d/tomcat stop`
+`chkconfig --add tomcat`
 
-### 6.reboot看看吧
+## 4.設定開機自動啟動
+
+`chkconfig tomcat on`
+
+## 5.服務開啟關閉方式
+
+* 啟動服務
+  * `service tomcat start`
+  * `/etc/init.d/tomcat start`
+* 停止服務
+  * `service tomcat stop`
+  * `/etc/init.d/tomcat stop`
+
+## 6.reboot看看吧

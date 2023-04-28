@@ -7,19 +7,20 @@
 <meta name="robots" content="index, follow">
 <title>VirtualBox Guest Addtiton安裝 for Centos | 馬丁沒有派對</title>
 <meta name="keywords" content="virtualbox">
-<meta name="description" content="我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+<meta name="description" content="我在 virtualbox上 面安裝的是 CentOS7 的 OS
+當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，
+你應該要安裝 VirtualBox Guest Addtiton
 那就讓我們來開始安裝吧
-先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
-# mount /dev/cdrom /media/cdrom
-執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
-# mount -t vboxsf New ~/new
+先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new
+mount -t vboxsf New ~/new
 或者你需要有特定owner的mount
-# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
-解完後在執行一次
-# sh /media/cdrom/VBoxLinuxAdditions.run">
+mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+troubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到
+bzip2 command not found yum install bzip2 -y
+Building the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -53,19 +54,20 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="VirtualBox Guest Addtiton安裝 for Centos" />
-<meta property="og:description" content="我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+<meta property="og:description" content="我在 virtualbox上 面安裝的是 CentOS7 的 OS
+當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，
+你應該要安裝 VirtualBox Guest Addtiton
 那就讓我們來開始安裝吧
-先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
-# mount /dev/cdrom /media/cdrom
-執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
-# mount -t vboxsf New ~/new
+先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new
+mount -t vboxsf New ~/new
 或者你需要有特定owner的mount
-# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
-解完後在執行一次
-# sh /media/cdrom/VBoxLinuxAdditions.run" />
+mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+troubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到
+bzip2 command not found yum install bzip2 -y
+Building the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-09-09T09:49:01+08:00" />
@@ -75,19 +77,20 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="VirtualBox Guest Addtiton安裝 for Centos"/>
-<meta name="twitter:description" content="我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton
+<meta name="twitter:description" content="我在 virtualbox上 面安裝的是 CentOS7 的 OS
+當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，
+你應該要安裝 VirtualBox Guest Addtiton
 那就讓我們來開始安裝吧
-先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom
-# mount /dev/cdrom /media/cdrom
-執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new
-# mount -t vboxsf New ~/new
+先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run
+接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new
+mount -t vboxsf New ~/new
 或者你需要有特定owner的mount
-# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y
-Building the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y
-解完後在執行一次
-# sh /media/cdrom/VBoxLinuxAdditions.run"/>
+mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
+troubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到
+bzip2 command not found yum install bzip2 -y
+Building the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y"/>
 
 
 <script type="application/ld+json">
@@ -116,12 +119,12 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
   "@type": "BlogPosting",
   "headline": "VirtualBox Guest Addtiton安裝 for Centos",
   "name": "VirtualBox Guest Addtiton安裝 for Centos",
-  "description": "我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton\n那就讓我們來開始安裝吧\n先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom\n# mount /dev/cdrom /media/cdrom\n執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run\n接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new\n# mount -t vboxsf New ~/new\n或者你需要有特定owner的mount\n# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new\n在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y\nBuilding the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y\n解完後在執行一次\n# sh /media/cdrom/VBoxLinuxAdditions.run",
+  "description": "我在 virtualbox上 面安裝的是 CentOS7 的 OS\n當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，\n你應該要安裝 VirtualBox Guest Addtiton\n那就讓我們來開始安裝吧\n先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom\nmount /dev/cdrom /media/cdrom\n執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run\n接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new\nmount -t vboxsf New ~/new\n或者你需要有特定owner的mount\nmount -t vboxsf -o uid=nginx,gid=nginx New ~/new\ntroubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到\nbzip2 command not found yum install bzip2 -y\nBuilding the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y",
   "keywords": [
     "virtualbox"
   ],
-  "articleBody": " 我在virtualbox上面安裝的是CentOS7的OS 當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你， 你應該要安裝VirtualBox Guest Addtiton\n那就讓我們來開始安裝吧\n先把VBoxGuestAdditions.iso mount起來 # mkdir /media/cdrom\n# mount /dev/cdrom /media/cdrom\n執行VBoxLinuxAdditions.run # sh /media/cdrom/VBoxLinuxAdditions.run\n接著就可以mount本機分享給虛擬機的資料夾了 # mkdir ~/new\n# mount -t vboxsf New ~/new\n或者你需要有特定owner的mount\n# mount -t vboxsf -o uid=nginx,gid=nginx New ~/new\n在執行VBoxLinuxAdditions.run的時候你可能會遇到 bzip2 command not found # yum install bzip2 -y\nBuilding the main Guest Additions module [失敗] # yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y\n解完後在執行一次\n# sh /media/cdrom/VBoxLinuxAdditions.run\n",
-  "wordCount" : "68",
+  "articleBody": "我在 virtualbox上 面安裝的是 CentOS7 的 OS\n當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，\n你應該要安裝 VirtualBox Guest Addtiton\n那就讓我們來開始安裝吧\n先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom\nmount /dev/cdrom /media/cdrom\n執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run\n接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new\nmount -t vboxsf New ~/new\n或者你需要有特定owner的mount\nmount -t vboxsf -o uid=nginx,gid=nginx New ~/new\ntroubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到\nbzip2 command not found yum install bzip2 -y\nBuilding the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y\n解完後在執行一次\nsh /media/cdrom/VBoxLinuxAdditions.run\n",
+  "wordCount" : "77",
   "inLanguage": "en",
   "datePublished": "2015-09-09T09:49:01+08:00",
   "dateModified": "2015-09-09T09:49:01+08:00",
@@ -226,13 +229,13 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#先把-vboxguestadditionsiso-mount-起來">先把 VBoxGuestAdditions.iso mount 起來</a></li>
+    <li><a href="#執行-vboxlinuxadditionsrun">執行 VBoxLinuxAdditions.run</a></li>
+    <li><a href="#接著就可以-mount-本機分享給虛擬機的資料夾了">接著就可以 mount 本機分享給虛擬機的資料夾了</a></li>
+    <li><a href="#troubleshoot">troubleshoot</a>
       <ul>
-        <li><a href="#先把vboxguestadditionsiso-mount起來">先把VBoxGuestAdditions.iso mount起來</a></li>
-        <li><a href="#執行vboxlinuxadditionsrun">執行VBoxLinuxAdditions.run</a></li>
-        <li><a href="#接著就可以mount本機分享給虛擬機的資料夾了">接著就可以mount本機分享給虛擬機的資料夾了</a></li>
-        <li><a href="#b-stylecolorredbzip2-command-not-foundb"><!-- raw HTML omitted -->bzip2 command not found<!-- raw HTML omitted --></a></li>
-        <li><a href="#b-stylecolorredbuilding-the-main-guest-additions-module-失敗b"><!-- raw HTML omitted -->Building the main Guest Additions module [失敗]<!-- raw HTML omitted --></a></li>
+        <li><a href="#bzip2-command-not-found">bzip2 command not found</a></li>
+        <li><a href="#building-the-main-guest-additions-module-失敗">Building the main Guest Additions module [失敗]</a></li>
       </ul>
     </li>
   </ul>
@@ -241,38 +244,36 @@ Building the main Guest Additions module [失敗] # yum install kernel-devel ker
     </details>
 </div>
 
-  <div class="post-content"><blockquote>
-<p>我在virtualbox上面安裝的是CentOS7的OS
-當你想mount本機的資料夾給虛擬機器使用的時候，你的virtualbox應該會提示你，
-你應該要安裝<strong>VirtualBox Guest Addtiton</strong></p>
-</blockquote>
+  <div class="post-content"><p>我在 virtualbox上 面安裝的是 CentOS7 的 OS<br>
+當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，<br>
+你應該要安裝 <strong>VirtualBox Guest Addtiton</strong></p>
 <p>那就讓我們來開始安裝吧</p>
-<h3 id="先把vboxguestadditionsiso-mount起來">先把VBoxGuestAdditions.iso mount起來<a hidden class="anchor" aria-hidden="true" href="#先把vboxguestadditionsiso-mount起來">#</a></h3>
+<h2 id="先把-vboxguestadditionsiso-mount-起來">先把 VBoxGuestAdditions.iso mount 起來<a hidden class="anchor" aria-hidden="true" href="#先把-vboxguestadditionsiso-mount-起來">#</a></h2>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A04-01.png" alt=""  />
 </p>
-<p><code># mkdir /media/cdrom</code></p>
-<p><code># mount /dev/cdrom /media/cdrom</code></p>
+<p><code>mkdir /media/cdrom</code></p>
+<p><code>mount /dev/cdrom /media/cdrom</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A04-02.png" alt=""  />
 </p>
-<h3 id="執行vboxlinuxadditionsrun">執行VBoxLinuxAdditions.run<a hidden class="anchor" aria-hidden="true" href="#執行vboxlinuxadditionsrun">#</a></h3>
-<p><code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
-<h3 id="接著就可以mount本機分享給虛擬機的資料夾了">接著就可以mount本機分享給虛擬機的資料夾了<a hidden class="anchor" aria-hidden="true" href="#接著就可以mount本機分享給虛擬機的資料夾了">#</a></h3>
-<p><code># mkdir ~/new</code></p>
-<p><code># mount -t vboxsf New ~/new</code></p>
+<h2 id="執行-vboxlinuxadditionsrun">執行 VBoxLinuxAdditions.run<a hidden class="anchor" aria-hidden="true" href="#執行-vboxlinuxadditionsrun">#</a></h2>
+<p><code>sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
+<h2 id="接著就可以-mount-本機分享給虛擬機的資料夾了">接著就可以 mount 本機分享給虛擬機的資料夾了<a hidden class="anchor" aria-hidden="true" href="#接著就可以-mount-本機分享給虛擬機的資料夾了">#</a></h2>
+<p><code>mkdir ~/new</code></p>
+<p><code>mount -t vboxsf New ~/new</code></p>
 <p>或者你需要有特定owner的mount</p>
-<p><code># mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
-<hr>
-<h4 id="在執行vboxlinuxadditionsrun的時候你可能會遇到">在執行VBoxLinuxAdditions.run的時候你可能會遇到<a hidden class="anchor" aria-hidden="true" href="#在執行vboxlinuxadditionsrun的時候你可能會遇到">#</a></h4>
-<h3 id="b-stylecolorredbzip2-command-not-foundb"><!-- raw HTML omitted -->bzip2 command not found<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#b-stylecolorredbzip2-command-not-foundb">#</a></h3>
+<p><code>mount -t vboxsf -o uid=nginx,gid=nginx New ~/new</code></p>
+<h2 id="troubleshoot">troubleshoot<a hidden class="anchor" aria-hidden="true" href="#troubleshoot">#</a></h2>
+<p>在執行 VBoxLinuxAdditions.run 的時候你可能會遇到</p>
+<h3 id="bzip2-command-not-found">bzip2 command not found<a hidden class="anchor" aria-hidden="true" href="#bzip2-command-not-found">#</a></h3>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A04-03.png" alt=""  />
 </p>
-<p><code># yum install bzip2 -y</code></p>
-<h3 id="b-stylecolorredbuilding-the-main-guest-additions-module-失敗b"><!-- raw HTML omitted -->Building the main Guest Additions module [失敗]<!-- raw HTML omitted --><a hidden class="anchor" aria-hidden="true" href="#b-stylecolorredbuilding-the-main-guest-additions-module-失敗b">#</a></h3>
-<p><code># yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</code></p>
+<p><code>yum install bzip2 -y</code></p>
+<h3 id="building-the-main-guest-additions-module-失敗">Building the main Guest Additions module [失敗]<a hidden class="anchor" aria-hidden="true" href="#building-the-main-guest-additions-module-失敗">#</a></h3>
+<p><code>yum install kernel-devel kernel-headers dkms gcc gcc-c++ -y</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A04-04.png" alt=""  />
 </p>
 <p>解完後在執行一次</p>
-<p><code># sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
+<p><code>sh /media/cdrom/VBoxLinuxAdditions.run</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A04-05.png" alt=""  />
 </p>
 

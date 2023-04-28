@@ -10,12 +10,19 @@
 <meta name="description" content="tar.gz 安裝 cd /opt
 wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot;
 tar zxvf jdk-7u79-linux-x64.tar.gz
-# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下
-# rpm -Uvh jdk-8u25-linux-x64.rpm
-3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;
-# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
-使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
-# alternatives --config java">
+alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到
+官方網址
+下載你需要的JDK版本
+2.安裝rpm包 會自動安裝到/usr/java下
+rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理
+alternatives的指令格式如下:
+alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+alternatives --config java
+4.檢查安裝是否正常 java -version
+javac -version 5.">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -52,12 +59,19 @@ if (!doNotTrack) {
 <meta property="og:description" content="tar.gz 安裝 cd /opt
 wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot;
 tar zxvf jdk-7u79-linux-x64.tar.gz
-# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下
-# rpm -Uvh jdk-8u25-linux-x64.rpm
-3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;
-# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
-使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
-# alternatives --config java" />
+alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到
+官方網址
+下載你需要的JDK版本
+2.安裝rpm包 會自動安裝到/usr/java下
+rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理
+alternatives的指令格式如下:
+alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+alternatives --config java
+4.檢查安裝是否正常 java -version
+javac -version 5." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-09-30T05:13:01+08:00" />
@@ -70,12 +84,19 @@ tar zxvf jdk-7u79-linux-x64.tar.gz
 <meta name="twitter:description" content="tar.gz 安裝 cd /opt
 wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot;
 tar zxvf jdk-7u79-linux-x64.tar.gz
-# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下
-# rpm -Uvh jdk-8u25-linux-x64.rpm
-3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;
-# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
-使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
-# alternatives --config java"/>
+alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到
+官方網址
+下載你需要的JDK版本
+2.安裝rpm包 會自動安裝到/usr/java下
+rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理
+alternatives的指令格式如下:
+alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+alternatives --config java
+4.檢查安裝是否正常 java -version
+javac -version 5."/>
 
 
 <script type="application/ld+json">
@@ -104,12 +125,12 @@ tar zxvf jdk-7u79-linux-x64.tar.gz
   "@type": "BlogPosting",
   "headline": "CentOS7 安裝JDK 64 Bit",
   "name": "CentOS7 安裝JDK 64 Bit",
-  "description": "tar.gz 安裝 cd /opt\nwget --no-cookies --no-check-certificate --header \u0026quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie\u0026quot; \u0026quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz\u0026quot;\ntar zxvf jdk-7u79-linux-x64.tar.gz\n# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下\n# rpm -Uvh jdk-8u25-linux-x64.rpm\n3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install \u0026lt;連結\u0026gt; \u0026lt;名稱\u0026gt; \u0026lt;路徑\u0026gt; \u0026lt;優先順序\u0026gt;\n# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1\n使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本\n# alternatives --config java",
+  "description": "tar.gz 安裝 cd /opt\nwget --no-cookies --no-check-certificate --header \u0026quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie\u0026quot; \u0026quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz\u0026quot;\ntar zxvf jdk-7u79-linux-x64.tar.gz\nalternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到\n官方網址\n下載你需要的JDK版本\n2.安裝rpm包 會自動安裝到/usr/java下\nrpm -Uvh jdk-8u25-linux-x64.rpm\n3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理\nalternatives的指令格式如下:\nalternatives –install \u0026lt;連結\u0026gt; \u0026lt;名稱\u0026gt; \u0026lt;路徑\u0026gt; \u0026lt;優先順序\u0026gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1\n使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，\n如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本\nalternatives --config java\n4.檢查安裝是否正常 java -version\njavac -version 5.",
   "keywords": [
     
   ],
-  "articleBody": "tar.gz 安裝 cd /opt\nwget --no-cookies --no-check-certificate --header \"Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie\" \"http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz\"\ntar zxvf jdk-7u79-linux-x64.tar.gz\n# alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 # alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 # alternatives --set jar /opt/jdk1.7.0_79/bin/jar # alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到官方網址下載你需要的JDK版本 2.安裝rpm包 會自動安裝到/usr/java下\n# rpm -Uvh jdk-8u25-linux-x64.rpm\n3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下: alternatives –install \u003c連結\u003e \u003c名稱\u003e \u003c路徑\u003e \u003c優先順序\u003e\n# alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1\n使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可， 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本\n# alternatives --config java\n4.檢查安裝是否正常 # java -version\n# javac -version 5.設定環境變數 設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile # vi /etc/profile\n最底下加上變數(JAVA_HOME目錄可能不同)\nJAVA_HOME=/usr/java/jdk1.8.0_25 CLASSPATH=./:$JAVA_HOME/lib:JAVA_HOME/jre/lib PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin export PATH CLASSPATH JAVA_HOME 6.reboot 可以的話reboot一下吧~\nHelloJava public class HelloJava { public static void main(String[] args) { System.out.println(\"Hello! Java!\"); } } 編譯 # javac HelloJava.java\n執行 # java HelloJava\n# java -cp . HelloJava\n(暫時不知道為什麼要這樣子才可以)\n",
-  "wordCount" : "123",
+  "articleBody": "tar.gz 安裝 cd /opt\nwget --no-cookies --no-check-certificate --header \"Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie\" \"http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz\"\ntar zxvf jdk-7u79-linux-x64.tar.gz\nalternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到\n官方網址\n下載你需要的JDK版本\n2.安裝rpm包 會自動安裝到/usr/java下\nrpm -Uvh jdk-8u25-linux-x64.rpm\n3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理\nalternatives的指令格式如下:\nalternatives –install \u003c連結\u003e \u003c名稱\u003e \u003c路徑\u003e \u003c優先順序\u003e alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1\n使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，\n如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本\nalternatives --config java\n4.檢查安裝是否正常 java -version\njavac -version 5.設定環境變數 設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile\nvi /etc/profile\n最底下加上變數(JAVA_HOME目錄可能不同)\n/etc/profile\nJAVA_HOME=/usr/java/jdk1.8.0_25 CLASSPATH=./:$JAVA_HOME/lib:JAVA_HOME/jre/lib PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin export PATH CLASSPATH JAVA_HOME 6.reboot 可以的話reboot一下吧~\nHelloJava HelloJava.java\npublic class HelloJava { public static void main(String[] args) { System.out.println(\"Hello! Java!\"); } } 編譯 javac HelloJava.java\n執行 java HelloJava\njava -cp . HelloJava\n(暫時不知道為什麼要這樣子才可以)\n",
+  "wordCount" : "115",
   "inLanguage": "en",
   "datePublished": "2015-09-30T05:13:01+08:00",
   "dateModified": "2015-09-30T05:13:01+08:00",
@@ -214,10 +235,9 @@ tar zxvf jdk-7u79-linux-x64.tar.gz
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#targz-安裝">tar.gz 安裝</a></li>
+    <li><a href="#rpm-安裝">rpm 安裝</a>
       <ul>
-        <li><a href="#targz-安裝">tar.gz 安裝</a></li>
-        <li><a href="#rpm-安裝">rpm 安裝</a></li>
         <li><a href="#1下載jdk">1.下載JDK</a></li>
         <li><a href="#2安裝rpm包">2.安裝rpm包</a></li>
         <li><a href="#3alternatives管理jdk版本">3.alternatives管理JDK版本</a></li>
@@ -238,41 +258,47 @@ tar zxvf jdk-7u79-linux-x64.tar.gz
     </details>
 </div>
 
-  <div class="post-content"><h3 id="targz-安裝">tar.gz 安裝<a hidden class="anchor" aria-hidden="true" href="#targz-安裝">#</a></h3>
+  <div class="post-content"><h2 id="targz-安裝">tar.gz 安裝<a hidden class="anchor" aria-hidden="true" href="#targz-安裝">#</a></h2>
 <p><code>cd /opt</code></p>
 <p><code>wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&quot; &quot;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&quot;</code></p>
 <p><code>tar zxvf jdk-7u79-linux-x64.tar.gz</code></p>
-<pre tabindex="0"><code># alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2
-# alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2
-# alternatives --set jar /opt/jdk1.7.0_79/bin/jar
-# alternatives --set javac /opt/jdk1.7.0_79/bin/javac 
-</code></pre><h3 id="rpm-安裝">rpm 安裝<a hidden class="anchor" aria-hidden="true" href="#rpm-安裝">#</a></h3>
+<pre tabindex="0"><code>alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2
+alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2
+alternatives --set jar /opt/jdk1.7.0_79/bin/jar
+alternatives --set javac /opt/jdk1.7.0_79/bin/javac 
+</code></pre><h2 id="rpm-安裝">rpm 安裝<a hidden class="anchor" aria-hidden="true" href="#rpm-安裝">#</a></h2>
 <h3 id="1下載jdk">1.下載JDK<a hidden class="anchor" aria-hidden="true" href="#1下載jdk">#</a></h3>
-<p>首先到<!-- raw HTML omitted -->官方網址<!-- raw HTML omitted -->下載你需要的JDK版本
-<img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A05-01.png" alt=""  />
+<p>首先到</p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html%e5%9d%80" target="_blank" >官方網址</a></p>
+<p>下載你需要的JDK版本</p>
+<p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A05-01.png" alt=""  />
 </p>
 <h3 id="2安裝rpm包">2.安裝rpm包<a hidden class="anchor" aria-hidden="true" href="#2安裝rpm包">#</a></h3>
 <p>會自動安裝到/usr/java下</p>
-<p><code># rpm -Uvh jdk-8u25-linux-x64.rpm</code></p>
+<p><code>rpm -Uvh jdk-8u25-linux-x64.rpm</code></p>
 <h3 id="3alternatives管理jdk版本">3.alternatives管理JDK版本<a hidden class="anchor" aria-hidden="true" href="#3alternatives管理jdk版本">#</a></h3>
-<p>在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理，alternatives的指令格式如下:
-alternatives –install <!-- raw HTML omitted -->&lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;<!-- raw HTML omitted --></p>
-<p><code># alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1</code></p>
-<p>使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+<p>在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理</p>
+<ul>
+<li>alternatives的指令格式如下:<br>
+<code>alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt;</code></li>
+</ul>
+<p><code>alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1</code></p>
+<p>使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，<br>
 如果有兩個以上，可以選擇要使用的版本，+號即表示目前系統使用的版本</p>
-<p><code># alternatives --config java</code></p>
+<p><code>alternatives --config java</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A05-02.png" alt=""  />
 </p>
 <h3 id="4檢查安裝是否正常">4.檢查安裝是否正常<a hidden class="anchor" aria-hidden="true" href="#4檢查安裝是否正常">#</a></h3>
-<p><code># java -version</code></p>
-<p><code># javac -version</code>
+<p><code>java -version</code></p>
+<p><code>javac -version</code>
 <img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A05-03.png" alt=""  />
 </p>
 <h3 id="5設定環境變數">5.設定環境變數<a hidden class="anchor" aria-hidden="true" href="#5設定環境變數">#</a></h3>
-<p>設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile
-<code># vi /etc/profile</code></p>
+<p>設定環境變數 JAVA_HOME，將此環境變數設定在 /etc/profile</p>
+<p><code>vi /etc/profile</code></p>
 <p>最底下加上變數(JAVA_HOME目錄可能不同)</p>
-<pre tabindex="0"><code class="language-config" data-lang="config">JAVA_HOME=/usr/java/jdk1.8.0_25
+<p>/etc/profile</p>
+<pre tabindex="0"><code>JAVA_HOME=/usr/java/jdk1.8.0_25
 CLASSPATH=./:$JAVA_HOME/lib:JAVA_HOME/jre/lib
 PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 export PATH CLASSPATH JAVA_HOME
@@ -280,19 +306,19 @@ export PATH CLASSPATH JAVA_HOME
 </p>
 <h3 id="6reboot">6.reboot<a hidden class="anchor" aria-hidden="true" href="#6reboot">#</a></h3>
 <p>可以的話reboot一下吧~</p>
-<hr>
 <h2 id="hellojava">HelloJava<a hidden class="anchor" aria-hidden="true" href="#hellojava">#</a></h2>
+<p>HelloJava.java</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloJava</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello! Java!&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="編譯">編譯<a hidden class="anchor" aria-hidden="true" href="#編譯">#</a></h3>
-<p><code># javac HelloJava.java</code></p>
+<p><code>javac HelloJava.java</code></p>
 <h3 id="執行">執行<a hidden class="anchor" aria-hidden="true" href="#執行">#</a></h3>
-<p><code># java HelloJava</code></p>
-<p><code># java -cp . HelloJava</code></p>
-<p><!-- raw HTML omitted -->(暫時不知道為什麼要這樣子才可以)<!-- raw HTML omitted --></p>
+<p><code>java HelloJava</code></p>
+<p><code>java -cp . HelloJava</code></p>
+<p>(暫時不知道為什麼要這樣子才可以)</p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201509/A05-05.png" alt=""  />
 </p>
 
