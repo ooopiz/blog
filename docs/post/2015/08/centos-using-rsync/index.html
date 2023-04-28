@@ -7,16 +7,18 @@
 <meta name="robots" content="index, follow">
 <title>CentOS 使用rsync | 馬丁沒有派對</title>
 <meta name="keywords" content="centos">
-<meta name="description" content="rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.">
+<meta name="description" content="簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -50,16 +52,18 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="CentOS 使用rsync" />
-<meta property="og:description" content="rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/." />
+<meta property="og:description" content="簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-08-31T13:06:01+08:00" />
@@ -69,16 +73,18 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="CentOS 使用rsync"/>
-<meta name="twitter:description" content="rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/."/>
+<meta name="twitter:description" content="簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．"/>
 
 
 <script type="application/ld+json">
@@ -107,12 +113,12 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
   "@type": "BlogPosting",
   "headline": "CentOS 使用rsync",
   "name": "CentOS 使用rsync",
-  "description": "rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．\n首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync\n如果沒有的話就yum一下吧～\n做rsync的時候server端與client端都必須要安裝\n# yum install rsync\nrsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data\n這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data\n當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．\n產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可\nGenerating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.",
+  "description": "簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．\n首先先查詢一下，機器是否已經安裝．\nrpm -qa | grep rsync\n如果沒有的話就 yum 一下吧\n做 rsync 的時候 server 端與 client 端都必須要安裝\nyum install rsync\n指令 rsync的指令非常的簡單\n這個指令不會刪除目的端多餘的檔案\nrsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除\nrsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，\n另外會要求你輸入密碼，\n假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．",
   "keywords": [
     "centos"
   ],
-  "articleBody": "rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．\n首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync\n如果沒有的話就yum一下吧～\n做rsync的時候server端與client端都必須要安裝\n# yum install rsync\nrsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data\n這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data\n當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．\n產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可\nGenerating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.ssh/id_rsa. Your public key has been saved in /home/or1/.ssh/id_rsa.pub. 至此即產生完金鑰與私鑰，再透過下面的指令把私鑰上傳至欲登入的主機\n這個動作會在你要登入的主機，產生authorized_keys\n# ssh-copy-id user@ip 如果你的ssh port不是預設22的話 # ssh-copy-id user@host -p 822\n試試看是否能不輸入密碼做rsync # rsync -avz --delete -e ssh /opt/data root@192.168.1.245:/opt/data-backup 如果你的port跟人家不一樣 # rsync -avz --delete -e \"ssh -p 922\" root@192.168.1.245:/opt/data-backup /opt/data\n設定好後如果還是需要輸入密碼 可以試著清除 .ssh 資料夾中 known_hosts 檔案上的資訊\n",
-  "wordCount" : "130",
+  "articleBody": "簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．\n首先先查詢一下，機器是否已經安裝．\nrpm -qa | grep rsync\n如果沒有的話就 yum 一下吧\n做 rsync 的時候 server 端與 client 端都必須要安裝\nyum install rsync\n指令 rsync的指令非常的簡單\n這個指令不會刪除目的端多餘的檔案\nrsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除\nrsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，\n另外會要求你輸入密碼，\n假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．\n",
+  "wordCount" : "59",
   "inLanguage": "en",
   "datePublished": "2015-08-31T13:06:01+08:00",
   "dateModified": "2015-08-31T13:06:01+08:00",
@@ -209,55 +215,50 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
     <div class="post-meta"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span>
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  <div class="post-content"><p>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．</p>
-<hr>
-<p>首先先查詢一下，機器是否已經安裝．
-<code># rpm -qa | grep rsync</code></p>
-<p>如果沒有的話就yum一下吧～</p>
-<blockquote>
-<p>做rsync的時候server端與client端都必須要安裝</p>
-</blockquote>
-<p><code># yum install rsync</code></p>
-<hr>
-<p>rsync的指令非常的簡單
-<strong>這個指令不會刪除目的端多餘的檔案</strong>
-<code># rsync -avz /opt/data root@192.168.1.245:/opt/data-backup</code>
-or
-<code># rsync -avz root@192.168.1.245:/opt/data-backup /opt/data</code></p>
-<p><strong>這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除</strong>
-<code># rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup</code>
-or
-<code># rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data</code></p>
-<hr>
-<p>當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開，
-另外會要求你輸入密碼，
-假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．</p>
-<p><strong>產生金鑰</strong>
-<code># ssh-keygen -t rsa</code>
-<strong>輸入上述指令後，下面三個問題都直接enter即可</strong></p>
-<pre tabindex="0"><code class="language-config" data-lang="config">Generating public/private rsa key pair.
-Enter file in which to save the key (/home/or1/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /home/or1/.ssh/id_rsa.
-Your public key has been saved in /home/or1/.ssh/id_rsa.pub.
-</code></pre><p><strong>至此即產生完金鑰與私鑰，再透過下面的指令把私鑰上傳至欲登入的主機</strong></p>
-<blockquote>
-<p>這個動作會在你要登入的主機，產生authorized_keys</p>
-</blockquote>
-<p><code># ssh-copy-id user@ip</code>
-如果你的ssh port不是預設22的話
-<code># ssh-copy-id user@host -p 822</code></p>
-<p><strong>試試看是否能不輸入密碼做rsync</strong>
-<code># rsync -avz --delete -e ssh /opt/data root@192.168.1.245:/opt/data-backup</code>
-如果你的port跟人家不一樣
-<code># rsync -avz --delete -e &quot;ssh -p 922&quot; root@192.168.1.245:/opt/data-backup /opt/data</code></p>
-<blockquote>
-<p>設定好後如果還是需要輸入密碼
-可以試著清除 .ssh 資料夾中 known_hosts 檔案上的資訊</p>
-</blockquote>
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#簡介">簡介</a></li>
+    <li><a href="#指令">指令</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="簡介">簡介<a hidden class="anchor" aria-hidden="true" href="#簡介">#</a></h2>
+<p>rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．</p>
+<p>首先先查詢一下，機器是否已經安裝．</p>
+<p><code>rpm -qa | grep rsync</code></p>
+<p>如果沒有的話就 yum 一下吧</p>
+<p><em><strong>做 rsync 的時候 server 端與 client 端都必須要安裝</strong></em></p>
+<p><code>yum install rsync</code></p>
+<h2 id="指令">指令<a hidden class="anchor" aria-hidden="true" href="#指令">#</a></h2>
+<p>rsync的指令非常的簡單</p>
+<ul>
+<li>
+<p>這個指令不會刪除目的端多餘的檔案</p>
+<ul>
+<li><code>rsync -avz /opt/data root@192.168.1.245:/opt/data-backup</code></li>
+<li><code>rsync -avz root@192.168.1.245:/opt/data-backup /opt/data</code></li>
+</ul>
+</li>
+<li>
+<p>這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除</p>
+<ul>
+<li><code>rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup</code></li>
+<li><code>rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data</code></li>
+</ul>
+</li>
+</ul>
+<p>當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，<br>
+另外會要求你輸入密碼，<br>
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．</p>
 
 
   </div>

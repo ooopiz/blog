@@ -139,15 +139,15 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
+    <p>首先可以下指令顯示出所有的介面資訊 ip link show
+網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
 設定玩之後，網路服務重新啓動，指令為：
-# service network restart</p>
+service network restart</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-21 09:29:01 +0800 CST'>August 21, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 網卡基本設定" href="https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/"></a>
@@ -160,7 +160,7 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
   </header>
   <div class="entry-content">
     <p>Example 輸入 crontab -e 進入排程編輯
-# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction crontab 產生的訊息會存放在/var/spool/mail/root</p>
+# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction 特殊字符 代表意義 *(星號) 代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 *，就代表著『不論何月、何日的禮拜幾的 12:00 都執行後續指令』的意思！ ,(逗號) 代表分隔時段的意思。舉例來說，如果要下達的工作是 3:00 與 6:00 時，就會是： 0 3,6 * * * command 時間參數還是有五欄，不過第二欄是 3,6 ，代表 3 與 6 都適用！ -(減號) 代表一段時間範圍內，舉例來說， 8 點到 12 點之間的每小時的 20 分都進行一項工作： 20 8-12 * * * command 仔細看到第二欄變成 8-12 喔！代表 8,9,10,11,12 都適用的意思！ /n(斜線) 那個 n 代表數字，亦即是『每隔 n 單位間隔』的意思，例如每五分鐘進行一次，則：*/5 * * * * command 很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！ crontab 產生的訊息會存放在 /var/spool/mail/root</p>
   </div>
   <footer class="entry-footer"><span title='2015-07-27 01:35:01 +0800 CST'>July 27, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS crontab" href="https://blog.ooopiz.com/post/2015/07/centos-crontab/"></a>

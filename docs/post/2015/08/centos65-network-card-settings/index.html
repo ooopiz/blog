@@ -7,15 +7,15 @@
 <meta name="robots" content="index, follow">
 <title>CentOS6.5 網卡基本設定 | 馬丁沒有派對</title>
 <meta name="keywords" content="centos">
-<meta name="description" content="首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
+<meta name="description" content="首先可以下指令顯示出所有的介面資訊 ip link show
+網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
 設定玩之後，網路服務重新啓動，指令為：
-# service network restart">
+service network restart">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -49,15 +49,15 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="CentOS6.5 網卡基本設定" />
-<meta property="og:description" content="首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
+<meta property="og:description" content="首先可以下指令顯示出所有的介面資訊 ip link show
+網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
 設定玩之後，網路服務重新啓動，指令為：
-# service network restart" />
+service network restart" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2015-08-21T09:29:01+08:00" />
@@ -67,15 +67,15 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="CentOS6.5 網卡基本設定"/>
-<meta name="twitter:description" content="首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
+<meta name="twitter:description" content="首先可以下指令顯示出所有的介面資訊 ip link show
+網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
 設定玩之後，網路服務重新啓動，指令為：
-# service network restart"/>
+service network restart"/>
 
 
 <script type="application/ld+json">
@@ -104,12 +104,12 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
   "@type": "BlogPosting",
   "headline": "CentOS6.5 網卡基本設定",
   "name": "CentOS6.5 網卡基本設定",
-  "description": "首先可以下指令顯示出所有的介面資訊 # ip link show\n網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡\n在上面的例子中，我們以虛擬 IP 來作為示範，\n假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），\nNETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），\nNETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。\n如果你的網路位址是固定的，那上面的網址就跟著改變即可！\n設定玩之後，網路服務重新啓動，指令為：\n# service network restart",
+  "description": "首先可以下指令顯示出所有的介面資訊 ip link show\n網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0\nDEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，\n假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），\nNETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），\nNETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。\n如果你的網路位址是固定的，那上面的網址就跟著改變即可！\n設定玩之後，網路服務重新啓動，指令為：\nservice network restart",
   "keywords": [
     "centos"
   ],
-  "articleBody": "首先可以下指令顯示出所有的介面資訊 # ip link show\n網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡\n在上面的例子中，我們以虛擬 IP 來作為示範，\n假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），\nNETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），\nNETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。\n如果你的網路位址是固定的，那上面的網址就跟著改變即可！\n設定玩之後，網路服務重新啓動，指令為：\n# service network restart\n",
-  "wordCount" : "63",
+  "articleBody": "首先可以下指令顯示出所有的介面資訊 ip link show\n網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0\nDEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，\n假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），\nNETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），\nNETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。\n如果你的網路位址是固定的，那上面的網址就跟著改變即可！\n設定玩之後，網路服務重新啓動，指令為：\nservice network restart\n",
+  "wordCount" : "62",
   "inLanguage": "en",
   "datePublished": "2015-08-21T09:29:01+08:00",
   "dateModified": "2015-08-21T09:29:01+08:00",
@@ -214,46 +214,43 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li></li>
-        <li><a href="#網卡設定檔的目錄一般會在etcsysconfignetwork-scriptsifcfg-eth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</a></li>
-        <li><a href="#說明">說明</a></li>
-      </ul>
-    </li>
+    <li><a href="#首先可以下指令顯示出所有的介面資訊">首先可以下指令顯示出所有的介面資訊</a></li>
+    <li><a href="#網卡設定檔">網卡設定檔</a></li>
+    <li><a href="#說明">說明</a></li>
   </ul>
 </nav>
         </div>
     </details>
 </div>
 
-  <div class="post-content"><h4 id="首先可以下指令顯示出所有的介面資訊">首先可以下指令顯示出所有的介面資訊<a hidden class="anchor" aria-hidden="true" href="#首先可以下指令顯示出所有的介面資訊">#</a></h4>
-<p><code># ip link show</code></p>
-<h3 id="網卡設定檔的目錄一般會在etcsysconfignetwork-scriptsifcfg-eth0">網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0<a hidden class="anchor" aria-hidden="true" href="#網卡設定檔的目錄一般會在etcsysconfignetwork-scriptsifcfg-eth0">#</a></h3>
-<pre tabindex="0"><code>DEVICE=eth0
-BOOTPROTO=static
-BROADCAST=192.168.1.255
-IPADDR=192.168.1.2
-NETMASK=255.255.255.0
-NETWORK=192.168.1.0
-ONBOOT=yes
-</code></pre><h3 id="說明">說明<a hidden class="anchor" aria-hidden="true" href="#說明">#</a></h3>
-<blockquote>
-<p>DEVICE 這個裝置的名稱
-BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ）
-BROADCAST 這是節點的網域
-IPADDR 這是這塊網路卡的位址
-NETMASL 子遮罩網路
-NETWORK 工作的網域
-ONBOOT 開機自動開啟網路卡</p>
-</blockquote>
+  <div class="post-content"><h2 id="首先可以下指令顯示出所有的介面資訊">首先可以下指令顯示出所有的介面資訊<a hidden class="anchor" aria-hidden="true" href="#首先可以下指令顯示出所有的介面資訊">#</a></h2>
+<p><code>ip link show</code></p>
+<h2 id="網卡設定檔">網卡設定檔<a hidden class="anchor" aria-hidden="true" href="#網卡設定檔">#</a></h2>
+<p>網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">DEVICE</span><span class="o">=</span><span class="s">eth0</span>
+</span></span><span class="line"><span class="cl"><span class="na">BOOTPROTO</span><span class="o">=</span><span class="s">static</span>
+</span></span><span class="line"><span class="cl"><span class="na">BROADCAST</span><span class="o">=</span><span class="s">192.168.1.255</span>
+</span></span><span class="line"><span class="cl"><span class="na">IPADDR</span><span class="o">=</span><span class="s">192.168.1.2</span>
+</span></span><span class="line"><span class="cl"><span class="na">NETMASK</span><span class="o">=</span><span class="s">255.255.255.0</span>
+</span></span><span class="line"><span class="cl"><span class="na">NETWORK</span><span class="o">=</span><span class="s">192.168.1.0</span>
+</span></span><span class="line"><span class="cl"><span class="na">ONBOOT</span><span class="o">=</span><span class="s">yes</span>
+</span></span></code></pre></div><h2 id="說明">說明<a hidden class="anchor" aria-hidden="true" href="#說明">#</a></h2>
+<ul>
+<li>DEVICE 這個裝置的名稱</li>
+<li>BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ）</li>
+<li>BROADCAST 這是節點的網域</li>
+<li>IPADDR 這是這塊網路卡的位址</li>
+<li>NETMASL 子遮罩網路</li>
+<li>NETWORK 工作的網域</li>
+<li>ONBOOT 開機自動開啟網路卡</li>
+</ul>
 <p>在上面的例子中，我們以虛擬 IP 來作為示範，<br>
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），<br>
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），<br>
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。<br>
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！<br>
 設定玩之後，網路服務重新啓動，指令為：</p>
-<p><code># service network restart</code></p>
+<p><code>service network restart</code></p>
 
 
   </div>
@@ -266,7 +263,7 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。<br>
   <a class="prev" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/">
     <span class="title">« Prev</span>
     <br>
-    <span>CentOS6.5 防火牆設定iptables</span>
+    <span>CentOS 6.5 防火牆設定iptables</span>
   </a>
   <a class="next" href="https://blog.ooopiz.com/post/2015/07/centos-crontab/">
     <span class="title">Next »</span>

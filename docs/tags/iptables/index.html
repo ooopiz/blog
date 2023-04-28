@@ -135,17 +135,16 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 防火牆設定iptables
+    <h2>CentOS 6.5 防火牆設定iptables
     </h2>
   </header>
   <div class="entry-content">
     <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
-查看有打開的Port netstat -tnlp...</p>
+常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-21 10:05:01 +0800 CST'>August 21, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
+  <a class="entry-link" aria-label="post link to CentOS 6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
 </article>
     </main>
     

@@ -216,16 +216,18 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot ret
     </h2>
   </header>
   <div class="entry-content">
-    <p>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/....</p>
+    <p>簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS 使用rsync" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/"></a>
@@ -237,7 +239,8 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
     </h2>
   </header>
   <div class="entry-content">
-    <p>重開機時，按住command &#43; R 會跳出如下面圖片的介面． 就可以開始進行清理硬碟與重灌OS X的作業</p>
+    <p>重開機時，按住 command &#43; R 會跳出如下面圖片的介面．
+就可以開始進行清理硬碟與重灌OS X的作業</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-30 14:14:01 +0800 CST'>August 30, 2015</span></footer>
   <a class="entry-link" aria-label="post link to 重灌Mac" href="https://blog.ooopiz.com/post/2015/08/reinstall-mac/"></a>
@@ -245,26 +248,29 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 安裝MariaDB
+    <h2>CentOS 6.5 安裝MariaDB
     </h2>
   </header>
   <div class="entry-content">
-    <p>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統
+    <p>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案
 config /etc/yum.repos.d/mariadb.repo
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 # yum update -y
+32位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 yum update -y
 安裝 MariaDB 安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
-# yum install MariaDB-devel MariaDB-client MariaDB-server -y
-# service mysql start
-# chkconfig mysql on
+yum install MariaDB-devel MariaDB-client MariaDB-server -y
+service mysql start
+chkconfig mysql on
 初始化 MariaDB 執行這個初始化程式，過程跟MySQL一模一樣
-# /usr/bin/mysql_secure_installation
-第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。
-第二個問題，Change the root password? [Y/n] 是否更改root密碼，極度建議您設定root密碼，請輸入Y
-第三個問題，Remove anonymous users? [Y/n] 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了...</p>
+/usr/bin/mysql_secure_installation
+第一個問題，Enter current password for root (enter for none):
+請直接按下Enter，因為預設MariaDB沒有密碼。
+第二個問題，Change the root password? [Y/n]
+是否更改root密碼，極度建議您設定root密碼，請輸入Y
+第三個問題，Remove anonymous users? [Y/n]
+是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了
+第四個問題，Disallow root login remotely?...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 07:05:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 安裝MariaDB" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/"></a>
+  <a class="entry-link" aria-label="post link to CentOS 6.5 安裝MariaDB" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -273,11 +279,11 @@ config /etc/yum.repos.d/mariadb.repo
     </h2>
   </header>
   <div class="entry-content">
-    <p>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y
-安裝 Nginx # yum install nginx
-執行 Nginx # service nginx start
-開機時自動啟動 # sudo chkconfig --levels 235 nginx on</p>
+    <p>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案 /etc/yum.repos.d/nginx.repo 內容如下
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 yum update -y
+安裝 Nginx yum install nginx
+執行 Nginx service nginx start
+開機時自動啟動 sudo chkconfig --levels 235 nginx on</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 07:01:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 安裝Nginx" href="https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/"></a>

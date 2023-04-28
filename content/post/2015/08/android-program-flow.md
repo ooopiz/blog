@@ -4,10 +4,10 @@ date: 2015-08-24T04:50:01+08:00
 draft: false
 tags: ["android"]
 ---
-了解一個程式的流程是十分重要的一件事
-以下記載著一個Android APP的出生到死亡
+了解一個程式的流程是十分重要的一件事  
+以下記載著一個 Android APP 的出生到死亡
 
-```android
+```java
 protected void onCreate(...) {
     openGarageDoor();
     unlockCarAndGetIn();

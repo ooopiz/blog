@@ -28,11 +28,11 @@
       <pubDate>Mon, 24 Aug 2015 07:01:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/</guid>
-      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y
-安裝 Nginx # yum install nginx
-執行 Nginx # service nginx start
-開機時自動啟動 # sudo chkconfig --levels 235 nginx on</description>
+      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案 /etc/yum.repos.d/nginx.repo 內容如下
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 yum update -y
+安裝 Nginx yum install nginx
+執行 Nginx service nginx start
+開機時自動啟動 sudo chkconfig --levels 235 nginx on</description>
     </item>
     
     <item>
@@ -41,14 +41,20 @@
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
-# yum install nginx
-三、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo
-安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</description>
+      <description>一、更新rpm MYSQL源 CentOS 6
+yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7
+yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6
+yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7
+yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6
+yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7
+yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
+yum install nginx
+三、安裝PHP 想 install 其它版本的 PHP 需要修改 REMI.REPO 中的 ENABLED=0 為 1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</description>
     </item>
     
   </channel>

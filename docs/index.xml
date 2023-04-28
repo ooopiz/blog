@@ -782,16 +782,18 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot ret
       <pubDate>Mon, 31 Aug 2015 13:06:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos-using-rsync/</guid>
-      <description>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/.</description>
+      <description>簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．</description>
     </item>
     
     <item>
@@ -800,28 +802,32 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
       <pubDate>Sun, 30 Aug 2015 14:14:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/reinstall-mac/</guid>
-      <description>重開機時，按住command + R 會跳出如下面圖片的介面． 就可以開始進行清理硬碟與重灌OS X的作業</description>
+      <description>重開機時，按住 command + R 會跳出如下面圖片的介面．
+就可以開始進行清理硬碟與重灌OS X的作業</description>
     </item>
     
     <item>
-      <title>CentOS6.5 安裝MariaDB</title>
+      <title>CentOS 6.5 安裝MariaDB</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/</link>
       <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/</guid>
-      <description>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案 32位元系統
+      <description>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案
 config /etc/yum.repos.d/mariadb.repo
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統
-[mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 # yum update -y
+32位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 yum update -y
 安裝 MariaDB 安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
-# yum install MariaDB-devel MariaDB-client MariaDB-server -y
-# service mysql start
-# chkconfig mysql on
+yum install MariaDB-devel MariaDB-client MariaDB-server -y
+service mysql start
+chkconfig mysql on
 初始化 MariaDB 執行這個初始化程式，過程跟MySQL一模一樣
-# /usr/bin/mysql_secure_installation
-第一個問題，Enter current password for root (enter for none): 請直接按下Enter，因為預設MariaDB沒有密碼。
-第二個問題，Change the root password? [Y/n] 是否更改root密碼，極度建議您設定root密碼，請輸入Y
-第三個問題，Remove anonymous users? [Y/n] 是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了</description>
+/usr/bin/mysql_secure_installation
+第一個問題，Enter current password for root (enter for none):
+請直接按下Enter，因為預設MariaDB沒有密碼。
+第二個問題，Change the root password? [Y/n]
+是否更改root密碼，極度建議您設定root密碼，請輸入Y
+第三個問題，Remove anonymous users? [Y/n]
+是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了
+第四個問題，Disallow root login remotely?</description>
     </item>
     
     <item>
@@ -830,11 +836,11 @@ config /etc/yum.repos.d/mariadb.repo
       <pubDate>Mon, 24 Aug 2015 07:01:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-install-nginx/</guid>
-      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案/etc/yum.repos.d/nginx.repo內容如下
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 # yum update -y
-安裝 Nginx # yum install nginx
-執行 Nginx # service nginx start
-開機時自動啟動 # sudo chkconfig --levels 235 nginx on</description>
+      <description>新增 Nginx 官方所提供的第三方套件庫 新增一個檔案 /etc/yum.repos.d/nginx.repo 內容如下
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 更新套件庫 yum update -y
+安裝 Nginx yum install nginx
+執行 Nginx service nginx start
+開機時自動啟動 sudo chkconfig --levels 235 nginx on</description>
     </item>
     
     <item>
@@ -852,7 +858,8 @@ config /etc/yum.repos.d/mariadb.repo
       <pubDate>Mon, 24 Aug 2015 04:50:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/android-program-flow/</guid>
-      <description>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
+      <description>了解一個程式的流程是十分重要的一件事
+以下記載著一個 Android APP 的出生到死亡
 protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </description>
     </item>
     
@@ -863,10 +870,11 @@ protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDo
       
       <guid>https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
       <description>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second 取消glogal mail,設定每個項目repo自己的 user.email pull的時候是識別郵箱，所以不能使用global的user.email
-取消global git config --global --unset user.name git config --global --unset user.email
+Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second pull 的時候是識別郵箱，所以不能使用 global 的 user.email
+取消 global git config --global --unset user.name
+git config --global --unset user.email
 設定每個項目repo自己的 user.email git config user.email &amp;quot;xxxx@xx.com&amp;quot; git config user.name &amp;quot;ricky&amp;quot;
-Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
+Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
     </item>
     
     <item>
@@ -875,18 +883,21 @@ Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再�
       <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/</guid>
-      <description>一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本
+      <description>一、安裝phpMyAdmin phpMyAdmin 對應 php 版本會有影響，請挑選適合的版本
 wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
 tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
 mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
 rm phpMyAdmin-4.1.12-all-languages.tar.gz
-二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
+二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin
+複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
+cp config.sample.inc.php config.inc.php
 /* Authentication type */ $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;auth_type&amp;#39;] = &amp;#39;cookies&amp;#39;; 改成
-/* Authentication type */ $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;auth_type&amp;#39;] = &amp;#39;http&amp;#39;; 三、查看mysql使用者,新增使用者,給予權限 # mysql -u root -p -h 127.0.0.1
+/* Authentication type */ $cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;auth_type&amp;#39;] = &amp;#39;http&amp;#39;; 三、查看mysql使用者,新增使用者,給予權限 mysql -u root -p -h 127.0.0.1
 mysql&amp;gt; select user, host from mysql.user;
 mysql&amp;gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
-mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
-四、phpMyAdmin 高級功能啟用 建立使用者pma mysql&amp;gt; create user &#39;pma&#39;@&#39;localhost&#39; identified by &#39;pmapass&#39;;</description>
+mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;;
+這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
+四、phpMyAdmin 高級功能啟用 建立使用者pma</description>
     </item>
     
     <item>
@@ -895,26 +906,31 @@ mysql&amp;gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對�
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
-# yum install nginx
-三、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo
-安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</description>
+      <description>一、更新rpm MYSQL源 CentOS 6
+yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7
+yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6
+yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7
+yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6
+yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7
+yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
+yum install nginx
+三、安裝PHP 想 install 其它版本的 PHP 需要修改 REMI.REPO 中的 ENABLED=0 為 1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</description>
     </item>
     
     <item>
-      <title>CentOS6.5 防火牆設定iptables</title>
+      <title>CentOS 6.5 防火牆設定iptables</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
       <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
-查看有打開的Port netstat -tnlp</description>
+常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart</description>
     </item>
     
     <item>
@@ -923,15 +939,15 @@ CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.r
       <pubDate>Fri, 21 Aug 2015 09:29:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/</guid>
-      <description>首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
+      <description>首先可以下指令顯示出所有的介面資訊 ip link show
+網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
 設定玩之後，網路服務重新啓動，指令為：
-# service network restart</description>
+service network restart</description>
     </item>
     
     <item>
@@ -941,7 +957,7 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
       
       <guid>https://blog.ooopiz.com/post/2015/07/centos-crontab/</guid>
       <description>Example 輸入 crontab -e 進入排程編輯
-# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction crontab 產生的訊息會存放在/var/spool/mail/root</description>
+# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction 特殊字符 代表意義 *(星號) 代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 *，就代表著『不論何月、何日的禮拜幾的 12:00 都執行後續指令』的意思！ ,(逗號) 代表分隔時段的意思。舉例來說，如果要下達的工作是 3:00 與 6:00 時，就會是： 0 3,6 * * * command 時間參數還是有五欄，不過第二欄是 3,6 ，代表 3 與 6 都適用！ -(減號) 代表一段時間範圍內，舉例來說， 8 點到 12 點之間的每小時的 20 分都進行一項工作： 20 8-12 * * * command 仔細看到第二欄變成 8-12 喔！代表 8,9,10,11,12 都適用的意思！ /n(斜線) 那個 n 代表數字，亦即是『每隔 n 單位間隔』的意思，例如每五分鐘進行一次，則：*/5 * * * * command 很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！ crontab 產生的訊息會存放在 /var/spool/mail/root</description>
     </item>
     
     <item>
@@ -951,9 +967,12 @@ NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
       
       <guid>https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/</guid>
       <description>1. 修改composer.json &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
-2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-4. 執行 composer update # composer update
-5. 確認目錄權限### 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
+2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;
+修改為
+$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
+4. 執行 composer update composer update
+5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。
+storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
     </item>
     
     <item>

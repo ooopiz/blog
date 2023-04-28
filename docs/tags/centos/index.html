@@ -233,16 +233,18 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 Error: Cannot ret
     </h2>
   </header>
   <div class="entry-content">
-    <p>rsync是一種遠端備份的技術，透過rsync可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝． # rpm -qa | grep rsync
-如果沒有的話就yum一下吧～
-做rsync的時候server端與client端都必須要安裝
-# yum install rsync
-rsync的指令非常的簡單 這個指令不會刪除目的端多餘的檔案 # rsync -avz /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz root@192.168.1.245:/opt/data-backup /opt/data
-這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除 # rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup or # rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data
-當你做rsync時，必須使用到ssh port，所以你的防火牆22 port必須打開， 另外會要求你輸入密碼， 假設你要做自動的排程，就必須使用ssh key來達到不用密碼可以登入．
-產生金鑰 # ssh-keygen -t rsa 輸入上述指令後，下面三個問題都直接enter即可
-Generating public/private rsa key pair. Enter file in which to save the key (/home/or1/.ssh/id_rsa): Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in /home/or1/....</p>
+    <p>簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS 使用rsync" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/"></a>
@@ -254,14 +256,20 @@ Generating public/private rsa key pair. Enter file in which to save the key (/ho
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
-# yum install nginx
-三、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo
-安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm...</p>
+    <p>一、更新rpm MYSQL源 CentOS 6
+yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7
+yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6
+yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7
+yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6
+yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7
+yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
+yum install nginx
+三、安裝PHP 想 install 其它版本的 PHP 需要修改 REMI.REPO 中的 ENABLED=0 為 1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 01:08:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 安裝LNMP" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/"></a>
@@ -269,17 +277,16 @@ CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.r
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 防火牆設定iptables
+    <h2>CentOS 6.5 防火牆設定iptables
     </h2>
   </header>
   <div class="entry-content">
     <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
-查看有打開的Port netstat -tnlp...</p>
+常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-21 10:05:01 +0800 CST'>August 21, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
+  <a class="entry-link" aria-label="post link to CentOS 6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -26,9 +26,12 @@
       
       <guid>https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/</guid>
       <description>1. 修改composer.json &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
-2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;; 修改為 $compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-4. 執行 composer update # composer update
-5. 確認目錄權限### 安裝 Laravel 之後，你必須設定一些權限。storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
+2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;
+修改為
+$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
+4. 執行 composer update composer update
+5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。
+storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
     </item>
     
     <item>

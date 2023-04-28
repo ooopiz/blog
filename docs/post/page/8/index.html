@@ -166,7 +166,8 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>了解一個程式的流程是十分重要的一件事 以下記載著一個Android APP的出生到死亡
+    <p>了解一個程式的流程是十分重要的一件事
+以下記載著一個 Android APP 的出生到死亡
 protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
@@ -180,10 +181,11 @@ protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDo
   </header>
   <div class="entry-content">
     <p>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second 取消glogal mail,設定每個項目repo自己的 user.email pull的時候是識別郵箱，所以不能使用global的user.email
-取消global git config --global --unset user.name git config --global --unset user.email
+Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second pull 的時候是識別郵箱，所以不能使用 global 的 user.email
+取消 global git config --global --unset user.name
+git config --global --unset user.email
 設定每個項目repo自己的 user.email git config user.email &#34;xxxx@xx.com&#34; git config user.name &#34;ricky&#34;
-Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</p>
+Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 03:05:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to 一台電腦兩個Git帳號使用SSH Key" href="https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/"></a>
@@ -195,18 +197,21 @@ Woindows下要生成key可以使用 git bash 裡面有內建的ssh command 再�
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、安裝phpMyAdmin phpMyAdmin對應php版本會有影響，請挑選適合的版本
+    <p>一、安裝phpMyAdmin phpMyAdmin 對應 php 版本會有影響，請挑選適合的版本
 wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
 tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
 mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
 rm phpMyAdmin-4.1.12-all-languages.tar.gz
-二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin 複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php # cp config.sample.inc.php config.inc.php
+二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin
+複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
+cp config.sample.inc.php config.inc.php
 /* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;; 改成
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;; 三、查看mysql使用者,新增使用者,給予權限 # mysql -u root -p -h 127.0.0.1
+/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;; 三、查看mysql使用者,新增使用者,給予權限 mysql -u root -p -h 127.0.0.1
 mysql&gt; select user, host from mysql.user;
 mysql&gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
-mysql&gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
-四、phpMyAdmin 高級功能啟用 建立使用者pma mysql&gt; create user &#39;pma&#39;@&#39;localhost&#39; identified by &#39;pmapass&#39;;...</p>
+mysql&gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;;
+這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
+四、phpMyAdmin 高級功能啟用 建立使用者pma...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 02:00:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 安裝phpMyAdmin" href="https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/"></a>
@@ -218,14 +223,20 @@ mysql&gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;; 這樣 admin 對整�
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、更新rpm 參考連結
-MYSQL源 CentOS 6 # yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7 # yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6 # yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7 # yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
-# yum install nginx
-三、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo
-安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm...</p>
+    <p>一、更新rpm MYSQL源 CentOS 6
+yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7
+yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6
+yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7
+yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
+CentOS 6
+yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7
+yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
+yum install nginx
+三、安裝PHP 想 install 其它版本的 PHP 需要修改 REMI.REPO 中的 ENABLED=0 為 1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-24 01:08:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 安裝LNMP" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/"></a>
@@ -233,17 +244,16 @@ CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.r
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS6.5 防火牆設定iptables
+    <h2>CentOS 6.5 防火牆設定iptables
     </h2>
   </header>
   <div class="entry-content">
     <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart 或 /etc/init.d/iptables restart
-查看有打開的Port netstat -tnlp...</p>
+常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart...</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-21 10:05:01 +0800 CST'>August 21, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
+  <a class="entry-link" aria-label="post link to CentOS 6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -252,15 +262,15 @@ CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.r
     </h2>
   </header>
   <div class="entry-content">
-    <p>首先可以下指令顯示出所有的介面資訊 # ip link show
-網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡
-在上面的例子中，我們以虛擬 IP 來作為示範，
+    <p>首先可以下指令顯示出所有的介面資訊 ip link show
+網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
 假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
 NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
 NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
 如果你的網路位址是固定的，那上面的網址就跟著改變即可！
 設定玩之後，網路服務重新啓動，指令為：
-# service network restart</p>
+service network restart</p>
   </div>
   <footer class="entry-footer"><span title='2015-08-21 09:29:01 +0800 CST'>August 21, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 網卡基本設定" href="https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/"></a>
