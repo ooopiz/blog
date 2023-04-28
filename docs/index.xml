@@ -378,7 +378,7 @@ mv to /var/opt/gitlab/backups/
     </item>
     
     <item>
-      <title>利用adjtimex來修正linux時間偏差</title>
+      <title>利用 adjtimex 來修正 linux 時間偏差</title>
       <link>https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/</link>
       <pubDate>Fri, 04 Nov 2016 10:26:01 +0800</pubDate>
       
@@ -388,19 +388,19 @@ mv to /var/opt/gitlab/backups/
 最後採用linux本身時間糾偏的方式
 主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(感謝神同事Leo協助突破盲腸)
 下載下來後選定一個版本後即可開始安裝 GITHUB - adjtimex
-# ./configure
-# make
-# make install
-先了解時間差 # adjtimex --compare 或 # adjtimex -c
+./configure
+make
+make install
+先了解時間差 adjtimex --compare 或 # adjtimex -c
 圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
-這邊我的-t校正值是9859 # adjtimex --tick 9859
-再檢視一次 # adjtimex -c
+這邊我的-t校正值是9859 adjtimex --tick 9859
+再檢視一次 adjtimex -c
 這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數 公式
 f = 差值 * 100000 * 65536
 或
 f = error_ppm平均值 * 65536
 這裡 = 250 * 65536 = 16384000
-這邊我的-f校正值是16384000 # adjtimex -f 16384000</description>
+這邊我的-f校正值是16384000 adjtimex -f 16384000</description>
     </item>
     
     <item>
@@ -409,17 +409,14 @@ f = error_ppm平均值 * 65536
       <pubDate>Thu, 27 Oct 2016 02:13:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/</guid>
-      <description>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
-RHEL 6, CentOS 6
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
-zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+      <description>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
 php 使用模組
-$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
 開始安裝 YUM 安裝 Zabbix 及相關套件
-$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
 建立 zabbix 帳號及資料庫
-mysql&amp;gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;</description>
+mysql&amp;gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
+mysql&amp;gt; GRANT ALL PRIVILEGES on zabbix.</description>
     </item>
     
     <item>
@@ -431,26 +428,27 @@ mysql&amp;gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;</description>
       <description>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
 &amp;ndash;with-dlz-mysql &amp;ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart</description>
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+2. 移除舊有的bind安裝 rpm -qa | grep &amp;quot;^bind&amp;quot;</description>
     </item>
     
     <item>
-      <title>CentOS yum 安裝bind9</title>
+      <title>CentOS yum 安裝 bind9</title>
       <link>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</link>
       <pubDate>Tue, 04 Oct 2016 02:09:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</guid>
-      <description>安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
-options { listen-on port 53 { 127.</description>
+      <description>安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &amp;#34;/var/named&amp;#34;; dump-file &amp;#34;/var/named/data/cache_dump.</description>
     </item>
     
     <item>
@@ -459,9 +457,9 @@ options { listen-on port 53 { 127.</description>
       <pubDate>Thu, 29 Sep 2016 08:49:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/</guid>
-      <description>原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
+      <description>原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
 首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
-* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &amp;laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &amp;laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
+[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &amp;laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &amp;laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
 Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-.</description>
     </item>
     
@@ -473,7 +471,7 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
       <guid>https://blog.ooopiz.com/post/2016/09/google-resume/</guid>
       <description>運用google協作平台製作履歷 安安大家好，我也是看別人用我才知道可以這樣用的，或者你想做別的事情，就自由發揮吧．
 開始用的時候用起來有點麻煩，感覺介面不太友善．
-這邊感謝一下瘋婆子yaya協助破關．
+這邊感謝一下瘋婆子 yaya 協助破關．
 下面簡單介紹一下一些設定順便筆記 建立一個協作平台
 一開始你可能會想把這兩個東西拿掉
 管理協作平台
@@ -492,19 +490,18 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 主機環境：CentOS 6.4
 說明：s3fs base on fuse所以伺服器上必須有fuse的lib
 示意圖：
-Resource：
-Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
-二、安裝所需套件 CentOS7
-# sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
-CentOS6
-# sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
-fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
-三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-# cd s3fs-fuse
-# ./autogen.sh
-# ./configure -prefix=/usr
-# make
-# make install</description>
+Resource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure -prefix=/usr
+make
+make install
+四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
+將key info寫入設定檔中
+vi /etc/passwd-s3fs
+#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3.</description>
     </item>
     
     <item>
@@ -513,23 +510,25 @@ fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所�
       <pubDate>Fri, 29 Jul 2016 01:16:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/07/ab-pressure-test/</guid>
-      <description>環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
-# ab -n 10000 -c 2000 -k http://127.0.0.1/
-查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -
-如果su 無法切換使用者可能需要修改一下vipw
-查可開啟的數量 # ulimit -n
-修改可打開的文件數 # vi /etc/security/limits.conf
+      <description>環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題
+ab -n 10000 -c 2000 -k http://127.0.0.1/
+Google後了解是系統設定的限制
+查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -
+如果su 無法切換使用者可能需要修改一下 vipw
+查可開啟的數量 ulimit -n
+修改可打開的文件數 vi /etc/security/limits.conf
 星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
 nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 </description>
     </item>
     
     <item>
-      <title>Gradle初探</title>
+      <title>Gradle 初探</title>
       <link>https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/</link>
       <pubDate>Wed, 27 Jul 2016 03:14:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/</guid>
-      <description> </description>
+      <description>如何用 gradle 建立專案 </description>
     </item>
     
     <item>
@@ -538,41 +537,43 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
       <pubDate>Thu, 21 Jul 2016 14:54:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/</guid>
-      <description> Output is &amp;ldquo;7&amp;rdquo;
+      <description>有沒有var差很大啊，要注意
+Output is &amp;ldquo;7&amp;rdquo;
 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined
 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); }); </description>
     </item>
     
     <item>
-      <title>2013開放Web軟體安全計畫</title>
+      <title>2013 開放 Web 軟體安全計畫</title>
       <link>https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/</link>
       <pubDate>Mon, 11 Jul 2016 07:14:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/</guid>
-      <description>2013開放Web軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
-網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</description>
+      <description>2013 開放 Web 軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
+網站安全標準須防止 OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
+A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： Top 10 A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法</description>
     </item>
     
     <item>
-      <title>CentOS7 安裝Postfix</title>
+      <title>CentOS7 安裝 Postfix</title>
       <link>https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/</guid>
-      <description>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+      <description>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
 查詢是否安裝過
-# rpm -qa | grep sendmail
-# rpm -qa | grep exim
+rpm -qa | grep sendmail
+rpm -qa | grep exim
 移除
-# yum remove sendmail
-# yum remove exim
+yum remove sendmail
+yum remove exim
 為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing
-換成
-SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix</description>
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix</description>
     </item>
     
     <item>
@@ -581,10 +582,10 @@ SELINUX=disabled
       <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/05/installing-nginx-19/</guid>
-      <description>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx
-啟動服務 # service nginx start
-# chkconfig --levels 235 nginx on</description>
+      <description>新增 nginx.repo vi /etc/yum.repos.d/nginx.repo
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx yum install nginx
+啟動服務 service nginx start
+chkconfig --levels 235 nginx on</description>
     </item>
     
     <item>
@@ -593,12 +594,14 @@ SELINUX=disabled
       <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2016/05/install-php56/</guid>
-      <description>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;#34;/var/lib/php/session&amp;#34; date.timezone = &amp;#34;Asia/Taipei&amp;#34; error_reporting = E_ALL &amp;amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session</description>
+      <description>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
+CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &amp;#34;/var/lib/php/session&amp;#34; date.timezone = &amp;#34;Asia/Taipei&amp;#34; error_reporting = E_ALL &amp;amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session</description>
     </item>
     
     <item>

@@ -142,10 +142,11 @@ if (!doNotTrack) {
     <p>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
 –with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart...</p>
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+2. 移除舊有的bind安裝 rpm -qa | grep &#34;^bind&#34;...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span></footer>
   <a class="entry-link" aria-label="post link to bind make安裝搭配 dlz mysql" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/"></a>
@@ -153,21 +154,21 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>CentOS yum 安裝bind9
+    <h2>CentOS yum 安裝 bind9
     </h2>
   </header>
   <div class="entry-content">
-    <p>安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
-options { listen-on port 53 { 127....</p>
+    <p>安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump....</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-04 02:09:01 +0800 CST'>October 4, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS yum 安裝bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
+  <a class="entry-link" aria-label="post link to CentOS yum 安裝 bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
 </article>
     </main>
     

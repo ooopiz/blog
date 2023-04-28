@@ -135,26 +135,27 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>CentOS7 安裝Postfix
+    <h2>CentOS7 安裝 Postfix
     </h2>
   </header>
   <div class="entry-content">
-    <p>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+    <p>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
 查詢是否安裝過
-# rpm -qa | grep sendmail
-# rpm -qa | grep exim
+rpm -qa | grep sendmail
+rpm -qa | grep exim
 移除
-# yum remove sendmail
-# yum remove exim
+yum remove sendmail
+yum remove exim
 為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing
-換成
-SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix...</p>
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix...</p>
   </div>
   <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 安裝Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝 Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
 </article>
     </main>
     

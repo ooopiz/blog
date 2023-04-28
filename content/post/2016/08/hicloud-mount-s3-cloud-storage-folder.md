@@ -3,7 +3,9 @@ title: 'Hicloud S3雲儲存資料夾掛載'
 date: 2016-08-09T02:07:01+08:00
 draft: false
 ---
+
 ## hicloud S3雲儲存
+
 目的：將s3的bucket掛載到Caas雲伺服器
   
 主機環境：CentOS 6.4
@@ -14,9 +16,8 @@ draft: false
 
 ![](https://fblog.ooopiz.com/images/201608/A01-01.png)
   
-Resource：
-
-* [Hicloud S3 文檔](http://s3help.cloudbox.hinet.net/index.php/2015-02-12-07-14-27)
+* Resource：
+  * [Hicloud S3 文檔](http://s3help.cloudbox.hinet.net/index.php/2015-02-12-07-14-27)
 
 ## s3fs-fuse 安裝
 
@@ -26,29 +27,26 @@ Resource：
 
 ### 二、安裝所需套件
 
-CentOS7
-  
-`# sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel`
-
-CentOS6
-  
-`# sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel`
+* CentOS7
+  * `yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel`
+* CentOS6
+  * `yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel`
   
 > fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
 
 ### 三、安裝步驟
 
-`# git clone https://github.com/s3fs-fuse/s3fs-fuse.git`
+`git clone https://github.com/s3fs-fuse/s3fs-fuse.git`
 
-`# cd s3fs-fuse`
+`cd s3fs-fuse`
 
-`# ./autogen.sh`
+`./autogen.sh`
 
-`# ./configure -prefix=/usr`
+`./configure -prefix=/usr`
 
-`# make`
+`make`
 
-`# make install`
+`make install`
 
 ### 四、設定
 
@@ -56,7 +54,7 @@ CentOS6
   
 將key info寫入設定檔中
   
-`# vi /etc/passwd-s3fs`
+`vi /etc/passwd-s3fs`
 
 ```
 #Access Key:Secret Key 以冒號(:)區隔
@@ -66,44 +64,43 @@ CentOS6
 
 ### 五、掛載
 
-Only ROOT
+* Only ROOT
+  * `s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123`
+* All USER
+  * `s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other`
   
-`# s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123`
-
-All USER
-  
-`# s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other`
-  
-<div style="color:red">注意: 下mount指令時，若出現should not have others permissions時，這時候下`chmod o-rwx /etc/passwd-s3fs`關掉其他人的權限後，在下一次mount指令就可以正常運作。</div>
+注意:  
+下 mount 指令時，若出現 should not have others permissions 時，  
+這時候下 `chmod o-rwx /etc/passwd-s3fs` 關掉其他人的權限後，再下一次 mount 指令就可以正常運作。
 
 ## libfuse 安裝
 
 ### 一、下載源碼編譯安裝或者下載release版本安裝
 
-[Github libfuse](https://github.com/libfuse/libfuse)
-  
-[Github libfuse release](https://github.com/libfuse/libfuse/releases)
+* [Github libfuse](https://github.com/libfuse/libfuse)
+* [Github libfuse release](https://github.com/libfuse/libfuse/releases)
 
 ### 二、安裝
 
-> 檢查版本如果<2.8.4必須安裝至大於的版本
+檢查版本如果 <2.8.4 必須安裝至大於的版本
   
-`# rpm -qa | grep fuse`
+`rpm -qa | grep fuse`
   
-`# rpm -qa | grep fuse-devel`
+`rpm -qa | grep fuse-devel`
   
-`# yum remove fuse fuse-devel`
+`yum remove fuse fuse-devel`
   
-`# ./configure`
+`./configure`
   
-`# make -j8`
+`make -j8`
   
-`# make install`
+`make install`
 
 ### 三、設定
-安裝完成後會在/usr/local/lib產生連結，將這個路徑加入到/etc/ld.so.conf然後執行`ldconfig `刷新
+安裝完成後會在 /usr/local/lib 產生連結，將這個路徑加入到 /etc/ld.so.conf 然後執行 `ldconfig` 刷新
   
-`# export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig`
+`export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig`
 
 ## 結語
+
 感覺上s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了

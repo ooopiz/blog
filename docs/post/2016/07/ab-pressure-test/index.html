@@ -7,12 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>2016/07/27 使用ab壓測 | 馬丁沒有派對</title>
 <meta name="keywords" content="">
-<meta name="description" content="環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
-# ab -n 10000 -c 2000 -k http://127.0.0.1/
-查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -
-如果su 無法切換使用者可能需要修改一下vipw
-查可開啟的數量 # ulimit -n
-修改可打開的文件數 # vi /etc/security/limits.conf
+<meta name="description" content="環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題
+ab -n 10000 -c 2000 -k http://127.0.0.1/
+Google後了解是系統設定的限制
+查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -
+如果su 無法切換使用者可能需要修改一下 vipw
+查可開啟的數量 ulimit -n
+修改可打開的文件數 vi /etc/security/limits.conf
 星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
 nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 ">
 <meta name="author" content="">
@@ -48,12 +50,14 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="2016/07/27 使用ab壓測" />
-<meta property="og:description" content="環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
-# ab -n 10000 -c 2000 -k http://127.0.0.1/
-查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -
-如果su 無法切換使用者可能需要修改一下vipw
-查可開啟的數量 # ulimit -n
-修改可打開的文件數 # vi /etc/security/limits.conf
+<meta property="og:description" content="環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題
+ab -n 10000 -c 2000 -k http://127.0.0.1/
+Google後了解是系統設定的限制
+查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -
+如果su 無法切換使用者可能需要修改一下 vipw
+查可開啟的數量 ulimit -n
+修改可打開的文件數 vi /etc/security/limits.conf
 星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
 nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 " />
 <meta property="og:type" content="article" />
@@ -65,12 +69,14 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="2016/07/27 使用ab壓測"/>
-<meta name="twitter:description" content="環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
-# ab -n 10000 -c 2000 -k http://127.0.0.1/
-查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -
-如果su 無法切換使用者可能需要修改一下vipw
-查可開啟的數量 # ulimit -n
-修改可打開的文件數 # vi /etc/security/limits.conf
+<meta name="twitter:description" content="環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題
+ab -n 10000 -c 2000 -k http://127.0.0.1/
+Google後了解是系統設定的限制
+查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -
+如果su 無法切換使用者可能需要修改一下 vipw
+查可開啟的數量 ulimit -n
+修改可打開的文件數 vi /etc/security/limits.conf
 星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
 nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 "/>
 
@@ -101,12 +107,12 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
   "@type": "BlogPosting",
   "headline": "2016/07/27 使用ab壓測",
   "name": "2016\/07\/27 使用ab壓測",
-  "description": "環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/\n# ab -n 10000 -c 2000 -k http://127.0.0.1/\n查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -\n如果su 無法切換使用者可能需要修改一下vipw\n查可開啟的數量 # ulimit -n\n修改可打開的文件數 # vi /etc/security/limits.conf\n星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數\nnginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 ",
+  "description": "環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/\n當擴大到2000併發時遇到 socket: Too many open files (24) 的問題\nab -n 10000 -c 2000 -k http://127.0.0.1/\nGoogle後了解是系統設定的限制\n查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -\n如果su 無法切換使用者可能需要修改一下 vipw\n查可開啟的數量 ulimit -n\n修改可打開的文件數 vi /etc/security/limits.conf\n星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數\nnginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 ",
   "keywords": [
     
   ],
-  "articleBody": "環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/\n# ab -n 10000 -c 2000 -k http://127.0.0.1/\n查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -\n如果su 無法切換使用者可能需要修改一下vipw\n查可開啟的數量 # ulimit -n\n修改可打開的文件數 # vi /etc/security/limits.conf\n星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數\nnginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 ",
-  "wordCount" : "62",
+  "articleBody": "環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/\n當擴大到2000併發時遇到 socket: Too many open files (24) 的問題\nab -n 10000 -c 2000 -k http://127.0.0.1/\nGoogle後了解是系統設定的限制\n查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -\n如果su 無法切換使用者可能需要修改一下 vipw\n查可開啟的數量 ulimit -n\n修改可打開的文件數 vi /etc/security/limits.conf\n星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數\nnginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 ",
+  "wordCount" : "67",
   "inLanguage": "en",
   "datePublished": "2016-07-29T01:16:01+08:00",
   "dateModified": "2016-07-29T01:16:01+08:00",
@@ -233,23 +239,22 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
 <li>系統：CentOS 7</li>
 <li>網頁服務：Nginx/1.11.1</li>
 </ul>
-<hr>
 <h2 id="開始進行壓力測試">開始進行壓力測試<a hidden class="anchor" aria-hidden="true" href="#開始進行壓力測試">#</a></h2>
-<p><code># ab -n 1000 -c 500 -k http://127.0.0.1/</code></p>
-<!-- raw HTML omitted -->
-<p><code># ab -n 10000 -c 2000 -k http://127.0.0.1/</code></p>
+<p><code>ab -n 1000 -c 500 -k http://127.0.0.1/</code></p>
+<p>當擴大到2000併發時遇到 socket: Too many open files (24) 的問題</p>
+<p><code>ab -n 10000 -c 2000 -k http://127.0.0.1/</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201607/A07-01.png" alt=""  />
 </p>
-<!-- raw HTML omitted -->
+<p>Google後了解是系統設定的限制</p>
 <h3 id="查看目前系統設定的限制-ulimit--a--可查看全部參數">查看目前系統設定的限制 (ulimit -a # 可查看全部參數)<a hidden class="anchor" aria-hidden="true" href="#查看目前系統設定的限制-ulimit--a--可查看全部參數">#</a></h3>
-<p><code># su nginx -</code></p>
+<p><code>su nginx -</code></p>
 <blockquote>
-<p>如果su 無法切換使用者可能需要修改一下<code>vipw</code></p>
+<p>如果su 無法切換使用者可能需要修改一下 <code>vipw</code></p>
 </blockquote>
 <h3 id="查可開啟的數量">查可開啟的數量<a hidden class="anchor" aria-hidden="true" href="#查可開啟的數量">#</a></h3>
-<p><code># ulimit -n</code></p>
+<p><code>ulimit -n</code></p>
 <h3 id="修改可打開的文件數">修改可打開的文件數<a hidden class="anchor" aria-hidden="true" href="#修改可打開的文件數">#</a></h3>
-<p><code># vi /etc/security/limits.conf</code></p>
+<p><code>vi /etc/security/limits.conf</code></p>
 <p>星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數</p>
 <pre tabindex="0"><code>nginx soft nofile 65536
 nginx hard nofile 65536
@@ -271,7 +276,7 @@ nginx hard nofile 65536
   <a class="next" href="https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/">
     <span class="title">Next »</span>
     <br>
-    <span>Gradle初探</span>
+    <span>Gradle 初探</span>
   </a>
 </nav>
 

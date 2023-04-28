@@ -140,12 +140,14 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 # ab -n 1000 -c 500 -k http://127.0.0.1/
-# ab -n 10000 -c 2000 -k http://127.0.0.1/
-查看目前系統設定的限制 (ulimit -a # 可查看全部參數) # su nginx -
-如果su 無法切換使用者可能需要修改一下vipw
-查可開啟的數量 # ulimit -n
-修改可打開的文件數 # vi /etc/security/limits.conf
+    <p>環境說明 主機：MacPro裡的VM CPU : 1 Memory：512M 系統：CentOS 7 網頁服務：Nginx/1.11.1 開始進行壓力測試 ab -n 1000 -c 500 -k http://127.0.0.1/
+當擴大到2000併發時遇到 socket: Too many open files (24) 的問題
+ab -n 10000 -c 2000 -k http://127.0.0.1/
+Google後了解是系統設定的限制
+查看目前系統設定的限制 (ulimit -a # 可查看全部參數) su nginx -
+如果su 無法切換使用者可能需要修改一下 vipw
+查可開啟的數量 ulimit -n
+修改可打開的文件數 vi /etc/security/limits.conf
 星號代表全局，soft軟體，hard硬體，nofile指的是可打開的文件數
 nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofile 65536 </p>
   </div>
@@ -155,14 +157,14 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Gradle初探
+    <h2>Gradle 初探
     </h2>
   </header>
   <div class="entry-content">
-    <p> </p>
+    <p>如何用 gradle 建立專案 </p>
   </div>
   <footer class="entry-footer"><span title='2016-07-27 03:14:01 +0800 CST'>July 27, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to Gradle初探" href="https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/"></a>
+  <a class="entry-link" aria-label="post link to Gradle 初探" href="https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -171,7 +173,8 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
     </h2>
   </header>
   <div class="entry-content">
-    <p> Output is “7”
+    <p>有沒有var差很大啊，要注意
+Output is “7”
 $(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined
 $(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); }); </p>
   </div>
@@ -181,40 +184,41 @@ $(document).ready(function () { var x = 6; }); $(document).ready(function () { v
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>2013開放Web軟體安全計畫
+    <h2>2013 開放 Web 軟體安全計畫
     </h2>
   </header>
   <div class="entry-content">
-    <p>2013開放Web軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
-網站安全標準須防止OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法...</p>
+    <p>2013 開放 Web 軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
+網站安全標準須防止 OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
+A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： Top 10 A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法...</p>
   </div>
   <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 2013開放Web軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
+  <a class="entry-link" aria-label="post link to 2013 開放 Web 軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS7 安裝Postfix
+    <h2>CentOS7 安裝 Postfix
     </h2>
   </header>
   <div class="entry-content">
-    <p>Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+    <p>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
 查詢是否安裝過
-# rpm -qa | grep sendmail
-# rpm -qa | grep exim
+rpm -qa | grep sendmail
+rpm -qa | grep exim
 移除
-# yum remove sendmail
-# yum remove exim
+yum remove sendmail
+yum remove exim
 為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing
-換成
-SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix...</p>
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix...</p>
   </div>
   <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 安裝Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝 Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -223,10 +227,10 @@ SELINUX=disabled
     </h2>
   </header>
   <div class="entry-content">
-    <p>新增nginx.repo # vi /etc/yum.repos.d/nginx.repo
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx # yum install nginx
-啟動服務 # service nginx start
-# chkconfig --levels 235 nginx on</p>
+    <p>新增 nginx.repo vi /etc/yum.repos.d/nginx.repo
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx yum install nginx
+啟動服務 service nginx start
+chkconfig --levels 235 nginx on</p>
   </div>
   <footer class="entry-footer"><span title='2016-05-05 02:47:01 +0800 CST'>May 5, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 安裝 Nginx 1.9&#43;" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/"></a>
@@ -238,12 +242,14 @@ SELINUX=disabled
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session...</p>
+    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
+CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session...</p>
   </div>
   <footer class="entry-footer"><span title='2016-05-05 02:38:01 +0800 CST'>May 5, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 安裝 PHP5.6" href="https://blog.ooopiz.com/post/2016/05/install-php56/"></a>

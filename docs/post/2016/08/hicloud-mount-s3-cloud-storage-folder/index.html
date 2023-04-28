@@ -11,19 +11,18 @@
 主機環境：CentOS 6.4
 說明：s3fs base on fuse所以伺服器上必須有fuse的lib
 示意圖：
-Resource：
-Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
-二、安裝所需套件 CentOS7
-# sudo yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-CentOS6
-# sudo yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
-三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-# cd s3fs-fuse
-# ./autogen.sh
-# ./configure -prefix=/usr
-# make
-# make install">
+Resource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure -prefix=/usr
+make
+make install
+四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
+將key info寫入設定檔中
+vi /etc/passwd-s3fs
+#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3.">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -61,19 +60,18 @@ if (!doNotTrack) {
 主機環境：CentOS 6.4
 說明：s3fs base on fuse所以伺服器上必須有fuse的lib
 示意圖：
-Resource：
-Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
-二、安裝所需套件 CentOS7
-# sudo yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-CentOS6
-# sudo yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
-三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-# cd s3fs-fuse
-# ./autogen.sh
-# ./configure -prefix=/usr
-# make
-# make install" />
+Resource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure -prefix=/usr
+make
+make install
+四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
+將key info寫入設定檔中
+vi /etc/passwd-s3fs
+#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-08-09T02:07:01+08:00" />
@@ -87,19 +85,18 @@ fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所�
 主機環境：CentOS 6.4
 說明：s3fs base on fuse所以伺服器上必須有fuse的lib
 示意圖：
-Resource：
-Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
-二、安裝所需套件 CentOS7
-# sudo yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-CentOS6
-# sudo yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
-三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-# cd s3fs-fuse
-# ./autogen.sh
-# ./configure -prefix=/usr
-# make
-# make install"/>
+Resource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure -prefix=/usr
+make
+make install
+四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
+將key info寫入設定檔中
+vi /etc/passwd-s3fs
+#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3."/>
 
 
 <script type="application/ld+json">
@@ -128,12 +125,12 @@ fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所�
   "@type": "BlogPosting",
   "headline": "Hicloud S3雲儲存資料夾掛載",
   "name": "Hicloud S3雲儲存資料夾掛載",
-  "description": "hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器\n主機環境：CentOS 6.4\n說明：s3fs base on fuse所以伺服器上必須有fuse的lib\n示意圖：\nResource：\nHicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse\n二、安裝所需套件 CentOS7\n# sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel\nCentOS6\n# sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel\nfuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．\n三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git\n# cd s3fs-fuse\n# ./autogen.sh\n# ./configure -prefix=/usr\n# make\n# make install",
+  "description": "hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器\n主機環境：CentOS 6.4\n說明：s3fs base on fuse所以伺服器上必須有fuse的lib\n示意圖：\nResource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse\n二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．\n三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git\ncd s3fs-fuse\n./autogen.sh\n./configure -prefix=/usr\nmake\nmake install\n四、設定 要存取Hicloud的s3必須先申請一組access key與secret key\n將key info寫入設定檔中\nvi /etc/passwd-s3fs\n#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3.",
   "keywords": [
     
   ],
-  "articleBody": "hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器\n主機環境：CentOS 6.4\n說明：s3fs base on fuse所以伺服器上必須有fuse的lib\n示意圖：\nResource：\nHicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse\n二、安裝所需套件 CentOS7\n# sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel\nCentOS6\n# sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel\nfuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．\n三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git\n# cd s3fs-fuse\n# ./autogen.sh\n# ./configure -prefix=/usr\n# make\n# make install\n四、設定 要存取Hicloud的s3必須先申請一組access key與secret key\n將key info寫入設定檔中\n# vi /etc/passwd-s3fs\n#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT\n# s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123\nAll USER\n# s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other\nlibfuse 安裝 一、下載源碼編譯安裝或者下載release版本安裝 Github libfuse\nGithub libfuse release\n二、安裝 檢查版本如果\u003c2.8.4必須安裝至大於的版本\n# rpm -qa | grep fuse\n# rpm -qa | grep fuse-devel\n# yum remove fuse fuse-devel\n# ./configure\n# make -j8\n# make install\n三、設定 安裝完成後會在/usr/local/lib產生連結，將這個路徑加入到/etc/ld.so.conf然後執行ldconfig 刷新\n# export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig\n結語 感覺上s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了\n",
-  "wordCount" : "147",
+  "articleBody": "hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器\n主機環境：CentOS 6.4\n說明：s3fs base on fuse所以伺服器上必須有fuse的lib\n示意圖：\nResource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse\n二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．\n三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git\ncd s3fs-fuse\n./autogen.sh\n./configure -prefix=/usr\nmake\nmake install\n四、設定 要存取Hicloud的s3必須先申請一組access key與secret key\n將key info寫入設定檔中\nvi /etc/passwd-s3fs\n#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 All USER s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other 注意:\n下 mount 指令時，若出現 should not have others permissions 時，\n這時候下 chmod o-rwx /etc/passwd-s3fs 關掉其他人的權限後，再下一次 mount 指令就可以正常運作。\nlibfuse 安裝 一、下載源碼編譯安裝或者下載release版本安裝 Github libfuse Github libfuse release 二、安裝 檢查版本如果 \u003c2.8.4 必須安裝至大於的版本\nrpm -qa | grep fuse\nrpm -qa | grep fuse-devel\nyum remove fuse fuse-devel\n./configure\nmake -j8\nmake install\n三、設定 安裝完成後會在 /usr/local/lib 產生連結，將這個路徑加入到 /etc/ld.so.conf 然後執行 ldconfig 刷新\nexport PKG_CONFIG_PATH=/usr/local/lib/pkgconfig\n結語 感覺上s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了\n",
+  "wordCount" : "151",
   "inLanguage": "en",
   "datePublished": "2016-08-09T02:07:01+08:00",
   "dateModified": "2016-08-09T02:07:01+08:00",
@@ -269,58 +266,79 @@ fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所�
 <p>示意圖：</p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201608/A01-01.png" alt=""  />
 </p>
-<p>Resource：</p>
+<ul>
+<li>Resource：
 <ul>
 <li><a href="http://s3help.cloudbox.hinet.net/index.php/2015-02-12-07-14-27" target="_blank" >Hicloud S3 文檔</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="s3fs-fuse-安裝">s3fs-fuse 安裝<a hidden class="anchor" aria-hidden="true" href="#s3fs-fuse-安裝">#</a></h2>
 <h3 id="一下載s3fs-fuse源碼進行安裝">一、下載s3fs-fuse源碼進行安裝<a hidden class="anchor" aria-hidden="true" href="#一下載s3fs-fuse源碼進行安裝">#</a></h3>
 <p><a href="https://github.com/s3fs-fuse/s3fs-fuse" target="_blank" >Github s3fs-fuse</a></p>
 <h3 id="二安裝所需套件">二、安裝所需套件<a hidden class="anchor" aria-hidden="true" href="#二安裝所需套件">#</a></h3>
-<p>CentOS7</p>
-<p><code># sudo yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></p>
-<p>CentOS6</p>
-<p><code># sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></p>
+<ul>
+<li>CentOS7
+<ul>
+<li><code>yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></li>
+</ul>
+</li>
+<li>CentOS6
+<ul>
+<li><code>yum install automake gcc-c++ git libcurl-devel libxml2-devel make openssl-devel</code></li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．</p>
 </blockquote>
 <h3 id="三安裝步驟">三、安裝步驟<a hidden class="anchor" aria-hidden="true" href="#三安裝步驟">#</a></h3>
-<p><code># git clone https://github.com/s3fs-fuse/s3fs-fuse.git</code></p>
-<p><code># cd s3fs-fuse</code></p>
-<p><code># ./autogen.sh</code></p>
-<p><code># ./configure -prefix=/usr</code></p>
-<p><code># make</code></p>
-<p><code># make install</code></p>
+<p><code>git clone https://github.com/s3fs-fuse/s3fs-fuse.git</code></p>
+<p><code>cd s3fs-fuse</code></p>
+<p><code>./autogen.sh</code></p>
+<p><code>./configure -prefix=/usr</code></p>
+<p><code>make</code></p>
+<p><code>make install</code></p>
 <h3 id="四設定">四、設定<a hidden class="anchor" aria-hidden="true" href="#四設定">#</a></h3>
 <p>要存取Hicloud的s3必須先申請一組access key與secret key</p>
 <p>將key info寫入設定檔中</p>
-<p><code># vi /etc/passwd-s3fs</code></p>
+<p><code>vi /etc/passwd-s3fs</code></p>
 <pre tabindex="0"><code>#Access Key:Secret Key 以冒號(:)區隔
 #ex: 
 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec
 </code></pre><h3 id="五掛載">五、掛載<a hidden class="anchor" aria-hidden="true" href="#五掛載">#</a></h3>
-<p>Only ROOT</p>
-<p><code># s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123</code></p>
-<p>All USER</p>
-<p><code># s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other</code></p>
-<!-- raw HTML omitted -->
+<ul>
+<li>Only ROOT
+<ul>
+<li><code>s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123</code></li>
+</ul>
+</li>
+<li>All USER
+<ul>
+<li><code>s3fs -o url=http://s3.hicloud.net.tw/,nomultipart test-123 /mnt/test-123 -o allow_other</code></li>
+</ul>
+</li>
+</ul>
+<p>注意:<br>
+下 mount 指令時，若出現 should not have others permissions 時，<br>
+這時候下 <code>chmod o-rwx /etc/passwd-s3fs</code> 關掉其他人的權限後，再下一次 mount 指令就可以正常運作。</p>
 <h2 id="libfuse-安裝">libfuse 安裝<a hidden class="anchor" aria-hidden="true" href="#libfuse-安裝">#</a></h2>
 <h3 id="一下載源碼編譯安裝或者下載release版本安裝">一、下載源碼編譯安裝或者下載release版本安裝<a hidden class="anchor" aria-hidden="true" href="#一下載源碼編譯安裝或者下載release版本安裝">#</a></h3>
-<p><a href="https://github.com/libfuse/libfuse" target="_blank" >Github libfuse</a></p>
-<p><a href="https://github.com/libfuse/libfuse/releases" target="_blank" >Github libfuse release</a></p>
+<ul>
+<li><a href="https://github.com/libfuse/libfuse" target="_blank" >Github libfuse</a></li>
+<li><a href="https://github.com/libfuse/libfuse/releases" target="_blank" >Github libfuse release</a></li>
+</ul>
 <h3 id="二安裝">二、安裝<a hidden class="anchor" aria-hidden="true" href="#二安裝">#</a></h3>
-<blockquote>
-<p>檢查版本如果&lt;2.8.4必須安裝至大於的版本</p>
-</blockquote>
-<p><code># rpm -qa | grep fuse</code></p>
-<p><code># rpm -qa | grep fuse-devel</code></p>
-<p><code># yum remove fuse fuse-devel</code></p>
-<p><code># ./configure</code></p>
-<p><code># make -j8</code></p>
-<p><code># make install</code></p>
+<p>檢查版本如果 &lt;2.8.4 必須安裝至大於的版本</p>
+<p><code>rpm -qa | grep fuse</code></p>
+<p><code>rpm -qa | grep fuse-devel</code></p>
+<p><code>yum remove fuse fuse-devel</code></p>
+<p><code>./configure</code></p>
+<p><code>make -j8</code></p>
+<p><code>make install</code></p>
 <h3 id="三設定">三、設定<a hidden class="anchor" aria-hidden="true" href="#三設定">#</a></h3>
-<p>安裝完成後會在/usr/local/lib產生連結，將這個路徑加入到/etc/ld.so.conf然後執行<code>ldconfig </code>刷新</p>
-<p><code># export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</code></p>
+<p>安裝完成後會在 /usr/local/lib 產生連結，將這個路徑加入到 /etc/ld.so.conf 然後執行 <code>ldconfig</code> 刷新</p>
+<p><code>export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</code></p>
 <h2 id="結語">結語<a hidden class="anchor" aria-hidden="true" href="#結語">#</a></h2>
 <p>感覺上s3fs在單一的大檔案傳輸速度還可以，零碎的檔案多的話，就不是很理想了</p>
 

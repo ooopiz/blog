@@ -4,7 +4,9 @@ date: 2016-10-17T15:46:01+08:00
 draft: false
 tags: ["dns", "bind"]
 ---
+
 ## Bind-dlz 簡介
+
 1. BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。
 2. BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。
 3. BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。
@@ -16,12 +18,14 @@ tags: ["dns", "bind"]
 - [智能DNS(Bind dlz)在企業中的應用](http://www.coctec.com/docs/service/show-post-12776.html)
 
 ## Bind 安裝 (MySQL篇)
+
 bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
   
-- --with-dlz-mysql
-- --with-dlz-postgres
+* --with-dlz-mysql
+* --with-dlz-postgres
 
 ### 前置作業
+
 一、到官網或FTP站下載安裝檔
   
 - [Bind官網](https://www.isc.org/downloads/)
@@ -32,29 +36,35 @@ bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資�
 ### 開始安裝
 
 #### 1. 防火牆設定(開啟 53 port)
-`# iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT`
+
+`iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT`
   
-`# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT`
+`-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT`
   
-`# service iptables save`
+`service iptables save`
   
-`# service iptables restart`
+`service iptables restart`
 
 #### 2. 移除舊有的bind安裝
-`# rpm -qa | grep "^bind"`
+
+`rpm -qa | grep "^bind"`
   
-`# yum remove bind`
+`yum remove bind`
 
 #### 3. 安装依賴套件
-`# yum install gcc openssl openssl-devel mysql-devel`
+
+`yum install gcc openssl openssl-devel mysql-devel`
 
 #### 4-1. 編譯with mysql
-`# ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile`
+
+`./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile`
 
 #### 4-2. 編譯with postgres
-`# ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres`
+
+`./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres`
 
 ##### 編譯配置項說明(完整的功能配置項可使用: ./configure --help 查看):
+
 | 參數 | 說明 |
 |---|---|
 | --prefix=/usr                  |   bind安裝路徑, 默認[ /usr/local ]
@@ -68,13 +78,13 @@ bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資�
 
 #### 5. 編譯安裝
 
-`# make`
+`make`
   
-`# make install`
+`make install`
 
 #### 6. 設定
 
-`# vi named.conf`
+`vi named.conf`
   
 ```
 options {
@@ -112,13 +122,13 @@ retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record
 
 #### 7. 創建named用戶與群組
 
-`# groupadd named`
+`groupadd named`
   
 依據你的目錄建立用戶
   
-`# adduser -d /var/named -g named -s /bin/false named`
+`adduser -d /var/named -g named -s /bin/false named`
   
-`# adduser -d /usr/local/bind9 -g named -s /bin/false named`
+`adduser -d /usr/local/bind9 -g named -s /bin/false named`
   
 |參數|說明|
 |---|----|
@@ -128,13 +138,13 @@ retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record
   
 給予目錄權限
   
-`# chown -R named:named ./var`
+`chown -R named:named ./var`
 
 #### 8. 資料庫中建立Schema and Record
 
 ##### Schema Example
   
-```
+```sql
 CREATE DATABASE  IF NOT EXISTS `dns_data`;
 USE `dns_data`;
 
@@ -170,7 +180,7 @@ CREATE TABLE `xfr_table` (
 
 ##### Record Example
 
-```
+```sql
 INSERT INTO `dns_records`
 ( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`)
 VALUES
@@ -185,37 +195,41 @@ VALUES
 ('example.com','www','CNAME','@',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 
 ```
+
 #### 9. 啟動
 
-`# sbin/named -c etc/named.conf -u named` 
+`sbin/named -c etc/named.conf -u named` 
 
 ## 其他指令參考
 
 檢查設定檔
-  
-`# sbin/named-checkconf etc/named.conf`
+
+`sbin/named-checkconf etc/named.conf`
 
 啟動
-  
-`# sbin/named`
-  
+
+`sbin/named`
+
 啟動(使用named身份執行)
-  
-`# sbin/named -u named`
-  
+
+`sbin/named -u named`
+
 啟動(前台執行，會輸出啟動訊息，debug可以使用)
-  
+
 `# sbin/named -g`
-  
+
 啟動(指定設定檔)
-`# /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf` 
+
+`/usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf` 
 
 ## 疑難排解
+
 ### 一、找不到mysql.h時
 
-`# yum install mysql-devel`
+`yum install mysql-devel`
 
 ### 二、如果抓不到/usr/lib/mysql
+
 編譯加上
   
 ```
@@ -224,16 +238,18 @@ VALUES
 
 ### 三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他
 
-`# ln -s /usr/lib64/mysql/ /usr/lib/mysql`
+`ln -s /usr/lib64/mysql/ /usr/lib/mysql`
 
 ## 其他
+
 ### 生成rndc key
-`# sbin/rndc-confgen -a -r /dev/urandom`
+`sbin/rndc-confgen -a -r /dev/urandom`
 
 ### 更新named.ca
-頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件
 
-最新資訊可以到[ftp://rs.internic.net/domain](ftp://rs.internic.net/domain) 下載。
+頂級域名伺服器地址有所變動，dns 伺服器需要更新 named.ca 文件
+
+最新資訊可以到 [ftp://rs.internic.net/domain](ftp://rs.internic.net/domain) 下載。
 
 ### dlz官方提供zone for mysql
   

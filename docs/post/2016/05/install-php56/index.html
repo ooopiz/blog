@@ -7,12 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>安裝 PHP5.6 | 馬丁沒有派對</title>
 <meta name="keywords" content="php">
-<meta name="description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session">
+<meta name="description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
+CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/05/install-php56/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -46,12 +48,14 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="安裝 PHP5.6" />
-<meta property="og:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session" />
+<meta property="og:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
+CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/05/install-php56/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-05-05T02:38:01+08:00" />
@@ -61,12 +65,14 @@ cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/li
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="安裝 PHP5.6"/>
-<meta name="twitter:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo
-CentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php
-安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session"/>
+<meta name="twitter:description" content="一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
+CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session"/>
 
 
 <script type="application/ld+json">
@@ -95,12 +101,12 @@ cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/li
   "@type": "BlogPosting",
   "headline": "安裝 PHP5.6",
   "name": "安裝 PHP5.6",
-  "description": "一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo\nCentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可\n# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php\n安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm\n設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：\ncgi.fix_pathinfo=0 session.save_handler = files session.save_path = \u0026#34;/var/lib/php/session\u0026#34; date.timezone = \u0026#34;Asia/Taipei\u0026#34; error_reporting = E_ALL \u0026amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session",
+  "description": "一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo\nCentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1\n路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可\nvi /etc/yum.repos.d/remi.repo\n安裝 PHP yum install php\n安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm\n設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：\ncgi.fix_pathinfo=0 session.save_handler = files session.save_path = \u0026#34;/var/lib/php/session\u0026#34; date.timezone = \u0026#34;Asia/Taipei\u0026#34; error_reporting = E_ALL \u0026amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session",
   "keywords": [
     "php"
   ],
-  "articleBody": "一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1） # vi /etc/yum.repos.d/remi.repo\nCentOS 6 # yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm` CentOS 7 # yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm` 二、安裝PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1 路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可\n# vi /etc/yum.repos.d/remi.repo 安裝 PHP # yum install php\n安裝其他PHP Lib # yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm\n設定php, php-fpm 設定php 設定內容如下(/etc/php.ini)：\ncgi.fix_pathinfo=0 session.save_handler = files session.save_path = \"/var/lib/php/session\" date.timezone = \"Asia/Taipei\" error_reporting = E_ALL \u0026 ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定php session檔的權限 # mkdir /var/lib/php/session # chown -R nginx:nginx /var/lib/php/session\n設定php-fpm 預設的 Pool 設定檔為 /etc/php-fpm.d/www.conf ，您可以適需要產生多組 Pool 來負責不同的網站服務。\nlisten = 127.0.0.1:9000 listen.allowed_clients = 127.0.0.1 user = nginx group = nginx pm = dynamic pm.max_children = 50 pm.start_servers = 5 pm.min_spare_servers = 5 pm.max_spare_servers = 35 slowlog = /var/log/php-fpm/www-slow.log php_admin_value[error_log] = /var/log/php-fpm/www-error.log php_admin_flag[log_errors] = on 設定 Log 檔的權限 # chown -R nginx:nginx /var/log/php-fpm\n三、設定Nginx 加入一個 index.php\nlocation / { root /usr/share/nginx/html; index index.php index.html index.htm; } 加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。 /etc/nginx/conf.d/default.conf\nlocation ~ \\.php$ { root /usr/share/nginx/html; fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; include fastcgi_params; } 四、啟動服務 # service php-fpm start # chkconfig --levels 235 php-fpm on\n",
-  "wordCount" : "191",
+  "articleBody": "一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo\nCentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1\n路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可\nvi /etc/yum.repos.d/remi.repo\n安裝 PHP yum install php\n安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm\n設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：\ncgi.fix_pathinfo=0 session.save_handler = files session.save_path = \"/var/lib/php/session\" date.timezone = \"Asia/Taipei\" error_reporting = E_ALL \u0026 ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session\nchown -R nginx:nginx /var/lib/php/session\n設定 php-fpm 預設的 Pool 設定檔為 /etc/php-fpm.d/www.conf ，您可以適需要產生多組 Pool 來負責不同的網站服務。\nlisten = 127.0.0.1:9000 listen.allowed_clients = 127.0.0.1 user = nginx group = nginx pm = dynamic pm.max_children = 50 pm.start_servers = 5 pm.min_spare_servers = 5 pm.max_spare_servers = 35 slowlog = /var/log/php-fpm/www-slow.log php_admin_value[error_log] = /var/log/php-fpm/www-error.log php_admin_flag[log_errors] = on 設定 Log 檔的權限 chown -R nginx:nginx /var/log/php-fpm\n三、設定Nginx 加入一個 index.php\nlocation / { root /usr/share/nginx/html; index index.php index.html index.htm; } 加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。 /etc/nginx/conf.d/default.conf\nlocation ~ \\.php$ { root /usr/share/nginx/html; fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; include fastcgi_params; } 四、啟動服務 service php-fpm start\nchkconfig --levels 235 php-fpm on\n",
+  "wordCount" : "187",
   "inLanguage": "en",
   "datePublished": "2016-05-05T02:38:01+08:00",
   "dateModified": "2016-05-05T02:38:01+08:00",
@@ -207,17 +213,17 @@ cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/li
   <ul>
     <li><a href="#一更新rpm">一、更新rpm</a>
       <ul>
-        <li><a href="#remi源-最新的php版本需要修改remirepo中的enabled0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）</a></li>
+        <li><a href="#remi源-最新的php版本需要修改remirepo中的enabled0為1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1）</a></li>
       </ul>
     </li>
-    <li><a href="#二安裝php">二、安裝PHP</a>
+    <li><a href="#二安裝-php">二、安裝 PHP</a>
       <ul>
         <li><a href="#安裝-php">安裝 PHP</a></li>
-        <li><a href="#安裝其他php-lib">安裝其他PHP Lib</a></li>
-        <li><a href="#設定php-php-fpm">設定php, php-fpm</a></li>
-        <li><a href="#設定php">設定php</a></li>
-        <li><a href="#設定php-session檔的權限">設定php session檔的權限</a></li>
-        <li><a href="#設定php-fpm">設定php-fpm</a></li>
+        <li><a href="#安裝其他-php-lib">安裝其他 PHP Lib</a></li>
+        <li><a href="#設定-php-php-fpm">設定 php, php-fpm</a></li>
+        <li><a href="#設定-php">設定 php</a></li>
+        <li><a href="#設定-php-session-檔的權限">設定 php session 檔的權限</a></li>
+        <li><a href="#設定-php-fpm">設定 php-fpm</a></li>
         <li><a href="#設定-log-檔的權限">設定 Log 檔的權限</a></li>
       </ul>
     </li>
@@ -230,89 +236,91 @@ cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/li
 </div>
 
   <div class="post-content"><h2 id="一更新rpm">一、更新rpm<a hidden class="anchor" aria-hidden="true" href="#一更新rpm">#</a></h2>
-<h3 id="remi源-最新的php版本需要修改remirepo中的enabled0为1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）<a hidden class="anchor" aria-hidden="true" href="#remi源-最新的php版本需要修改remirepo中的enabled0为1">#</a></h3>
-<p><code># vi /etc/yum.repos.d/remi.repo</code></p>
-<pre tabindex="0"><code>CentOS 6
-# yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
-
-CentOS 7
-# yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm`
-</code></pre><h2 id="二安裝php">二、安裝PHP<a hidden class="anchor" aria-hidden="true" href="#二安裝php">#</a></h2>
-<blockquote>
-<p>想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0为1
-路徑：/etc/yum.repos.d/remi.repo
-[remi-php55]是PHP5.5
-[remi-php56]是PHP5.6
-選擇你要的版本做修改即可</p>
-</blockquote>
-<p><code># vi /etc/yum.repos.d/remi.repo</code>
-<img loading="lazy" src="https://fblog.ooopiz.com/images/201508/002.png" alt=""  />
+<h3 id="remi源-最新的php版本需要修改remirepo中的enabled0為1">REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1）<a hidden class="anchor" aria-hidden="true" href="#remi源-最新的php版本需要修改remirepo中的enabled0為1">#</a></h3>
+<p><code>vi /etc/yum.repos.d/remi.repo</code></p>
+<ul>
+<li>CentOS 6
+<ul>
+<li><code>yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</code></li>
+</ul>
+</li>
+<li>CentOS 7
+<ul>
+<li><code>yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="二安裝-php">二、安裝 PHP<a hidden class="anchor" aria-hidden="true" href="#二安裝-php">#</a></h2>
+<p>想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1</p>
+<ul>
+<li>路徑：/etc/yum.repos.d/remi.repo
+<ul>
+<li>[remi-php55]是PHP5.5</li>
+<li>[remi-php56]是PHP5.6</li>
+</ul>
+</li>
+</ul>
+<p>選擇你要的版本做修改即可</p>
+<p><code>vi /etc/yum.repos.d/remi.repo</code></p>
+<p><img loading="lazy" src="https://fblog.ooopiz.com/images/201508/002.png" alt=""  />
 </p>
 <h3 id="安裝-php">安裝 PHP<a hidden class="anchor" aria-hidden="true" href="#安裝-php">#</a></h3>
-<p><code># yum install php</code></p>
-<h3 id="安裝其他php-lib">安裝其他PHP Lib<a hidden class="anchor" aria-hidden="true" href="#安裝其他php-lib">#</a></h3>
-<p><code># yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
-<h3 id="設定php-php-fpm">設定php, php-fpm<a hidden class="anchor" aria-hidden="true" href="#設定php-php-fpm">#</a></h3>
-<h3 id="設定php">設定php<a hidden class="anchor" aria-hidden="true" href="#設定php">#</a></h3>
-<blockquote>
+<p><code>yum install php</code></p>
+<h3 id="安裝其他-php-lib">安裝其他 PHP Lib<a hidden class="anchor" aria-hidden="true" href="#安裝其他-php-lib">#</a></h3>
+<p><code>yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</code></p>
+<h3 id="設定-php-php-fpm">設定 php, php-fpm<a hidden class="anchor" aria-hidden="true" href="#設定-php-php-fpm">#</a></h3>
+<h3 id="設定-php">設定 php<a hidden class="anchor" aria-hidden="true" href="#設定-php">#</a></h3>
 <p>設定內容如下(/etc/php.ini)：</p>
-</blockquote>
-<pre tabindex="0"><code>cgi.fix_pathinfo=0
-session.save_handler = files
-session.save_path = &#34;/var/lib/php/session&#34;
-date.timezone = &#34;Asia/Taipei&#34;
-error_reporting = E_ALL &amp; ~E_NOTICE
-display_errors = On
-magic_quotes_gpc = Off
-</code></pre><h3 id="設定php-session檔的權限">設定php session檔的權限<a hidden class="anchor" aria-hidden="true" href="#設定php-session檔的權限">#</a></h3>
-<p><code># mkdir /var/lib/php/session</code>
-<code># chown -R nginx:nginx /var/lib/php/session</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">cgi.fix_pathinfo</span><span class="o">=</span><span class="s">0</span>
+</span></span><span class="line"><span class="cl"><span class="na">session.save_handler</span> <span class="o">=</span> <span class="s">files</span>
+</span></span><span class="line"><span class="cl"><span class="na">session.save_path</span> <span class="o">=</span> <span class="s">&#34;/var/lib/php/session&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">date.timezone</span> <span class="o">=</span> <span class="s">&#34;Asia/Taipei&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="na">error_reporting</span> <span class="o">=</span> <span class="s">E_ALL &amp; ~E_NOTICE</span>
+</span></span><span class="line"><span class="cl"><span class="na">display_errors</span> <span class="o">=</span> <span class="s">On</span>
+</span></span><span class="line"><span class="cl"><span class="na">magic_quotes_gpc</span> <span class="o">=</span> <span class="s">Off</span>
+</span></span></code></pre></div><h3 id="設定-php-session-檔的權限">設定 php session 檔的權限<a hidden class="anchor" aria-hidden="true" href="#設定-php-session-檔的權限">#</a></h3>
+<p><code>mkdir /var/lib/php/session</code></p>
+<p><code>chown -R nginx:nginx /var/lib/php/session</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201508/003.png" alt=""  />
 </p>
-<h3 id="設定php-fpm">設定php-fpm<a hidden class="anchor" aria-hidden="true" href="#設定php-fpm">#</a></h3>
-<blockquote>
+<h3 id="設定-php-fpm">設定 php-fpm<a hidden class="anchor" aria-hidden="true" href="#設定-php-fpm">#</a></h3>
 <p>預設的 Pool 設定檔為 <code>/etc/php-fpm.d/www.conf</code> ，您可以適需要產生多組 Pool 來負責不同的網站服務。</p>
-</blockquote>
-<pre tabindex="0"><code>listen = 127.0.0.1:9000
-listen.allowed_clients = 127.0.0.1
-user = nginx
-group = nginx
-pm = dynamic
-pm.max_children = 50
-pm.start_servers = 5
-pm.min_spare_servers = 5
-pm.max_spare_servers = 35
-slowlog = /var/log/php-fpm/www-slow.log
-php_admin_value[error_log] = /var/log/php-fpm/www-error.log
-php_admin_flag[log_errors] = on
-</code></pre><h3 id="設定-log-檔的權限">設定 Log 檔的權限<a hidden class="anchor" aria-hidden="true" href="#設定-log-檔的權限">#</a></h3>
-<p><code># chown -R nginx:nginx /var/log/php-fpm</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">listen</span> <span class="o">=</span> <span class="s">127.0.0.1:9000</span>
+</span></span><span class="line"><span class="cl"><span class="na">listen.allowed_clients</span> <span class="o">=</span> <span class="s">127.0.0.1</span>
+</span></span><span class="line"><span class="cl"><span class="na">user</span> <span class="o">=</span> <span class="s">nginx</span>
+</span></span><span class="line"><span class="cl"><span class="na">group</span> <span class="o">=</span> <span class="s">nginx</span>
+</span></span><span class="line"><span class="cl"><span class="na">pm</span> <span class="o">=</span> <span class="s">dynamic</span>
+</span></span><span class="line"><span class="cl"><span class="na">pm.max_children</span> <span class="o">=</span> <span class="s">50</span>
+</span></span><span class="line"><span class="cl"><span class="na">pm.start_servers</span> <span class="o">=</span> <span class="s">5</span>
+</span></span><span class="line"><span class="cl"><span class="na">pm.min_spare_servers</span> <span class="o">=</span> <span class="s">5</span>
+</span></span><span class="line"><span class="cl"><span class="na">pm.max_spare_servers</span> <span class="o">=</span> <span class="s">35</span>
+</span></span><span class="line"><span class="cl"><span class="na">slowlog</span> <span class="o">=</span> <span class="s">/var/log/php-fpm/www-slow.log</span>
+</span></span><span class="line"><span class="cl"><span class="na">php_admin_value[error_log]</span> <span class="o">=</span> <span class="s">/var/log/php-fpm/www-error.log</span>
+</span></span><span class="line"><span class="cl"><span class="na">php_admin_flag[log_errors]</span> <span class="o">=</span> <span class="s">on</span>
+</span></span></code></pre></div><h3 id="設定-log-檔的權限">設定 Log 檔的權限<a hidden class="anchor" aria-hidden="true" href="#設定-log-檔的權限">#</a></h3>
+<p><code>chown -R nginx:nginx /var/log/php-fpm</code></p>
 <h2 id="三設定nginx">三、設定Nginx<a hidden class="anchor" aria-hidden="true" href="#三設定nginx">#</a></h2>
-<blockquote>
 <p>加入一個 index.php</p>
-</blockquote>
-<pre tabindex="0"><code>    location / {
-        root   /usr/share/nginx/html;
-        index  index.php index.html index.htm;
-    }
+<pre tabindex="0"><code>location / {
+    root   /usr/share/nginx/html;
+    index  index.php index.html index.htm;
+}
 </code></pre><p><img loading="lazy" src="https://fblog.ooopiz.com/images/201508/004.png" alt=""  />
 </p>
-<blockquote>
 <p>加入下面的 location 區塊設定，將 php 的請求使用 FastCGI 連結送給 PHP-FPM 處理。
 /etc/nginx/conf.d/default.conf</p>
-</blockquote>
 <pre tabindex="0"><code>location ~ \.php$ {
-root /usr/share/nginx/html;
-fastcgi_pass   127.0.0.1:9000;
-fastcgi_index  index.php;
-fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-include        fastcgi_params;
+  root /usr/share/nginx/html;
+  fastcgi_pass   127.0.0.1:9000;
+  fastcgi_index  index.php;
+  fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+  include        fastcgi_params;
 }
 </code></pre><p><img loading="lazy" src="https://fblog.ooopiz.com/images/201508/005.png" alt=""  />
 </p>
 <h2 id="四啟動服務">四、啟動服務<a hidden class="anchor" aria-hidden="true" href="#四啟動服務">#</a></h2>
-<p><code># service php-fpm start</code>
-<code># chkconfig --levels 235 php-fpm on</code></p>
+<p><code>service php-fpm start</code></p>
+<p><code>chkconfig --levels 235 php-fpm on</code></p>
 
 
   </div>

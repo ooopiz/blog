@@ -7,9 +7,9 @@
 <meta name="robots" content="index, follow">
 <title>HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式 | 馬丁沒有派對</title>
 <meta name="keywords" content="">
-<meta name="description" content="原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
+<meta name="description" content="原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
 首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
-* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
+[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
 Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-.">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/">
@@ -44,9 +44,9 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式" />
-<meta property="og:description" content="原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
+<meta property="og:description" content="原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
 首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
-* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
+[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
 Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
@@ -57,9 +57,9 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式"/>
-<meta name="twitter:description" content="原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
+<meta name="twitter:description" content="原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
 首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
-* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
+[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz &laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz &laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
 Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-."/>
 
 
@@ -89,12 +89,12 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
   "@type": "BlogPosting",
   "headline": "HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式",
   "name": "HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式",
-  "description": "原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．\n首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下\n* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz \u0026laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz \u0026laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明\nInstallation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-.",
+  "description": "原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．\n首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下\n[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz \u0026laquo; CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz \u0026laquo; CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明\nInstallation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-.",
   "keywords": [
     
   ],
-  "articleBody": " 原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．\n首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下\n* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz « CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz « CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明\nInstallation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-..x86_64.dd of=/dev/sdc1\n準備好驅動的usb後即可開始安裝\n安裝步驟 Download CentOS Image and write it on a USB; Download HP Proliant Service Pack and locate the hpds driver inside it (於上方下載) Use dd to write the appropriate driver (u0 or u1) on a separate USB drive; Insert the CentOS USB in the server, boot from it but at the install menu, press e in case of an UEFI - system and add on the linuxefi line the following inst.dd modprobe.blacklist=ahci Press Ctrl+x or the keys needed to continue the installation; Insert the usb drive with the driver; Press r to refresh the drive list and choose the appropriate drive; After it unpacks, continue with the installation as usual; 參考資料 http://serverfault.com/questions/721523/install-centos-7-on-hp-dl120-gen9-server-with-b140i-raid-controller\nhttp://h20564.www2.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7481828\u0026swItemId=MTX_7d939b04d27b4a56ac67627d35\u0026swEnvOid=4176#tab3\n",
-  "wordCount" : "189",
+  "articleBody": " 原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．\n首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下\n[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz « CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz « CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明\nInstallation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-..x86_64.dd of=/dev/sdc1\n準備好驅動的usb後即可開始安裝\n安裝步驟 Download CentOS Image and write it on a USB; Download HP Proliant Service Pack and locate the hpds driver inside it (於上方下載) Use dd to write the appropriate driver (u0 or u1) on a separate USB drive; Insert the CentOS USB in the server, boot from it but at the install menu, press e in case of an UEFI - system and add on the linuxefi line the following inst.dd modprobe.blacklist=ahci Press Ctrl+x or the keys needed to continue the installation; Insert the usb drive with the driver; Press r to refresh the drive list and choose the appropriate drive; After it unpacks, continue with the installation as usual; 參考資料 http://serverfault.com/questions/721523/install-centos-7-on-hp-dl120-gen9-server-with-b140i-raid-controller http://h20564.www2.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7481828\u0026swItemId=MTX_7d939b04d27b4a56ac67627d35\u0026swEnvOid=4176#tab3 ",
+  "wordCount" : "191",
   "inLanguage": "en",
   "datePublished": "2016-09-29T08:49:01+08:00",
   "dateModified": "2016-09-29T08:49:01+08:00",
@@ -199,7 +199,7 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li><a href="#-recommended--hp-proliant-smart-array-控制器-amd64em64t-驅動程式磁碟適用於-red-hat-enterprise-linux-7-amd64em64t">* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)）</a>
+    <li><a href="#recommended-hp-proliant-smart-array-控制器-amd64em64t-驅動程式磁碟適用於-red-hat-enterprise-linux-7-amd64em64t">[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)）</a>
       <ul>
         <li><a href="#centos-7版本說明">CentOS 7版本說明</a></li>
         <li><a href="#installation">Installation:</a></li>
@@ -215,9 +215,9 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 
   <div class="post-content"><p><img loading="lazy" src="https://fblog.ooopiz.com/images/201609/A04-01.jpg" alt=""  />
 </p>
-<p>原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．</p>
+<p>原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．</p>
 <p>首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下</p>
-<h2 id="-recommended--hp-proliant-smart-array-控制器-amd64em64t-驅動程式磁碟適用於-red-hat-enterprise-linux-7-amd64em64t">* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)）<a hidden class="anchor" aria-hidden="true" href="#-recommended--hp-proliant-smart-array-控制器-amd64em64t-驅動程式磁碟適用於-red-hat-enterprise-linux-7-amd64em64t">#</a></h2>
+<h2 id="recommended-hp-proliant-smart-array-控制器-amd64em64t-驅動程式磁碟適用於-red-hat-enterprise-linux-7-amd64em64t">[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)）<a hidden class="anchor" aria-hidden="true" href="#recommended-hp-proliant-smart-array-控制器-amd64em64t-驅動程式磁碟適用於-red-hat-enterprise-linux-7-amd64em64t">#</a></h2>
 <ul>
 <li><a href="https://drive.google.com/file/d/0Bxjw3Y-ONcPtUkRBaVdBYUdZenM/view?usp=sharing" target="_blank" >hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz</a> &laquo; CentOS 7</li>
 <li><a href="https://drive.google.com/file/d/0Bxjw3Y-ONcPtajJ0SU03ckh5emM/view?usp=sharing" target="_blank" >hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz</a> &laquo; CentOS 7.1</li>
@@ -274,12 +274,8 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 </p>
 <h2 id="參考資料">參考資料<a hidden class="anchor" aria-hidden="true" href="#參考資料">#</a></h2>
 <ul>
-<li>
-<p><a href="http://serverfault.com/questions/721523/install-centos-7-on-hp-dl120-gen9-server-with-b140i-raid-controller" target="_blank" >http://serverfault.com/questions/721523/install-centos-7-on-hp-dl120-gen9-server-with-b140i-raid-controller</a></p>
-</li>
-<li>
-<p><a href="http://h20564.www2.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7481828&amp;swItemId=MTX_7d939b04d27b4a56ac67627d35&amp;swEnvOid=4176#tab3" target="_blank" >http://h20564.www2.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7481828&swItemId=MTX_7d939b04d27b4a56ac67627d35&swEnvOid=4176#tab3</a></p>
-</li>
+<li><a href="http://serverfault.com/questions/721523/install-centos-7-on-hp-dl120-gen9-server-with-b140i-raid-controller" target="_blank" >http://serverfault.com/questions/721523/install-centos-7-on-hp-dl120-gen9-server-with-b140i-raid-controller</a></li>
+<li><a href="http://h20564.www2.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7481828&amp;swItemId=MTX_7d939b04d27b4a56ac67627d35&amp;swEnvOid=4176#tab3" target="_blank" >http://h20564.www2.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7481828&swItemId=MTX_7d939b04d27b4a56ac67627d35&swEnvOid=4176#tab3</a></li>
 </ul>
 
 
@@ -292,7 +288,7 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
   <a class="prev" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/">
     <span class="title">« Prev</span>
     <br>
-    <span>CentOS yum 安裝bind9</span>
+    <span>CentOS yum 安裝 bind9</span>
   </a>
   <a class="next" href="https://blog.ooopiz.com/post/2016/09/google-resume/">
     <span class="title">Next »</span>

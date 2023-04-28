@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>CentOS yum 安裝bind9 | 馬丁沒有派對</title>
+<title>CentOS yum 安裝 bind9 | 馬丁沒有派對</title>
 <meta name="keywords" content="dns, bind">
-<meta name="description" content="安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
-options { listen-on port 53 { 127.">
+<meta name="description" content="安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump.">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -47,15 +47,15 @@ if (!doNotTrack) {
 	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
 }
 </script>
-<meta property="og:title" content="CentOS yum 安裝bind9" />
-<meta property="og:description" content="安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
-options { listen-on port 53 { 127." />
+<meta property="og:title" content="CentOS yum 安裝 bind9" />
+<meta property="og:description" content="安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-04T02:09:01+08:00" />
@@ -64,15 +64,15 @@ options { listen-on port 53 { 127." />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
-<meta name="twitter:title" content="CentOS yum 安裝bind9"/>
-<meta name="twitter:description" content="安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
-options { listen-on port 53 { 127."/>
+<meta name="twitter:title" content="CentOS yum 安裝 bind9"/>
+<meta name="twitter:description" content="安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump."/>
 
 
 <script type="application/ld+json">
@@ -89,7 +89,7 @@ options { listen-on port 53 { 127."/>
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "CentOS yum 安裝bind9",
+      "name": "CentOS yum 安裝 bind9",
       "item": "https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"
     }
   ]
@@ -99,14 +99,14 @@ options { listen-on port 53 { 127."/>
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "CentOS yum 安裝bind9",
-  "name": "CentOS yum 安裝bind9",
-  "description": "安裝 # sudo yum install bind bind-utils -y\n# service named start\n# chkconfig named on\n防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT\n# service iptables save\n# service iptables restart\n設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔\noptions { listen-on port 53 { 127.",
+  "headline": "CentOS yum 安裝 bind9",
+  "name": "CentOS yum 安裝 bind9",
+  "description": "安裝 yum install bind bind-utils -y\nservice named start\nchkconfig named on\n防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔\noptions { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory \u0026#34;/var/named\u0026#34;; dump-file \u0026#34;/var/named/data/cache_dump.",
   "keywords": [
     "dns", "bind"
   ],
-  "articleBody": "安裝 # sudo yum install bind bind-utils -y\n# service named start\n# chkconfig named on\n防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT\n# service iptables save\n# service iptables restart\n設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔\noptions { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory \"/var/named\"; dump-file \"/var/named/data/cache_dump.db\"; statistics-file \"/var/named/data/named_stats.txt\"; memstatistics-file \"/var/named/data/named_mem_stats.txt\"; allow-query { localhost; }; recursion yes; dnssec-enable yes; dnssec-validation yes; /* Path to ISC DLV key */ bindkeys-file \"/etc/named.iscdlv.key\"; managed-keys-directory \"/var/named/dynamic\"; }; logging { channel default_debug { file \"data/named.run\"; severity dynamic; }; }; zone \".\" IN { type hint; file \"named.ca\"; }; include \"/etc/named.rfc1912.zones\"; include \"/etc/named.root.key\"; 修改設定 修改options設定，允許查詢來源\n# vi /etc/named.conf\noptions { //(其他參數略...) listen-on port 53 { any; }; listen-on-v6 port 53 { any; }; allow-query { any; }; version \"zzz\"; }; 新增正解設定檔 # vi /etc/named.conf\nzone \"example.com\" { type master; file \"forward.example.com.zone\"; }; named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案 # vi /var/named/forward.example.com.zone\n; zone file for example.tld $TTL 1200 ; 14400 4 hours - default TTL for zone $ORIGIN example.com. ;; SOA Resource Record @ IN SOA ns1.example.com. hostmaster.exapmle.com. ( 2015010100 ; se = serial number 12h ; ref = refresh 15m ; ret = update retry 3w ; ex = expiry 3h ; min = minimum ) ;; Name Servers IN NS ns1.exapmle.com. ns1 IN A 192.168.0.1 ;; Web Server Resource Records @ IN A 192.168.0.2 www IN CNAME @ @ IN AAAA 2001:b034:2000:1000:1000::38 ;; FTP Server Resource Records ftp IN A 192.168.0.3 指令 檢查設定檔(可以用以下指令來檢查設定是否正確) # named-checkconf /etc/named.conf\n查bind版本 方法一 # nslookup -debug -class=chaos -query=txt version.bind 方法二 # dig @ version.bind chaos txt\n隱藏版本資訊 options { //(其他參數略...) version \"ZZZ\"; }; ",
-  "wordCount" : "297",
+  "articleBody": "安裝 yum install bind bind-utils -y\nservice named start\nchkconfig named on\n防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔\noptions { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory \"/var/named\"; dump-file \"/var/named/data/cache_dump.db\"; statistics-file \"/var/named/data/named_stats.txt\"; memstatistics-file \"/var/named/data/named_mem_stats.txt\"; allow-query { localhost; }; recursion yes; dnssec-enable yes; dnssec-validation yes; /* Path to ISC DLV key */ bindkeys-file \"/etc/named.iscdlv.key\"; managed-keys-directory \"/var/named/dynamic\"; }; logging { channel default_debug { file \"data/named.run\"; severity dynamic; }; }; zone \".\" IN { type hint; file \"named.ca\"; }; include \"/etc/named.rfc1912.zones\"; include \"/etc/named.root.key\"; 修改設定 修改 options 設定，允許查詢來源\nvi /etc/named.conf\noptions { //(其他參數略...) listen-on port 53 { any; }; listen-on-v6 port 53 { any; }; allow-query { any; }; version \"zzz\"; }; 新增正解設定檔 vi /etc/named.conf\nzone \"example.com\" { type master; file \"forward.example.com.zone\"; }; named.conf 中指 example.com 的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案 vi /var/named/forward.example.com.zone\n; zone file for example.tld $TTL 1200 ; 14400 4 hours - default TTL for zone $ORIGIN example.com. ;; SOA Resource Record @ IN SOA ns1.example.com. hostmaster.exapmle.com. ( 2015010100 ; se = serial number 12h ; ref = refresh 15m ; ret = update retry 3w ; ex = expiry 3h ; min = minimum ) ;; Name Servers IN NS ns1.exapmle.com. ns1 IN A 192.168.0.1 ;; Web Server Resource Records @ IN A 192.168.0.2 www IN CNAME @ @ IN AAAA 2001:b034:2000:1000:1000::38 ;; FTP Server Resource Records ftp IN A 192.168.0.3 指令 檢查設定檔(可以用以下指令來檢查設定是否正確) named-checkconf /etc/named.conf\n查 bind 版本 方法一 nslookup -debug -class=chaos -query=txt version.bind 方法二 dig @ version.bind chaos txt\n隱藏版本資訊 options { //(其他參數略...) version \"ZZZ\"; }; ",
+  "wordCount" : "296",
   "inLanguage": "en",
   "datePublished": "2016-10-04T02:09:01+08:00",
   "dateModified": "2016-10-04T02:09:01+08:00",
@@ -198,7 +198,7 @@ options { listen-on port 53 { 127."/>
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.ooopiz.com/post/">Posts</a></div>
     <h1 class="post-title">
-      CentOS yum 安裝bind9
+      CentOS yum 安裝 bind9
     </h1>
     <div class="post-meta"><span title='2016-10-04 02:09:01 +0800 CST'>October 4, 2016</span>
 
@@ -218,7 +218,7 @@ options { listen-on port 53 { 127."/>
         <li><a href="#指令">指令</a></li>
       </ul>
     </li>
-    <li><a href="#查bind版本">查bind版本</a>
+    <li><a href="#查-bind-版本">查 bind 版本</a>
       <ul>
         <li><a href="#方法一">方法一</a></li>
         <li><a href="#方法二">方法二</a></li>
@@ -232,17 +232,17 @@ options { listen-on port 53 { 127."/>
 </div>
 
   <div class="post-content"><h2 id="安裝">安裝<a hidden class="anchor" aria-hidden="true" href="#安裝">#</a></h2>
-<p><code># sudo yum install bind bind-utils -y</code></p>
-<p><code># service named start</code></p>
-<p><code># chkconfig named on</code></p>
+<p><code>yum install bind bind-utils -y</code></p>
+<p><code>service named start</code></p>
+<p><code>chkconfig named on</code></p>
 <h3 id="防火牆設定">防火牆設定<a hidden class="anchor" aria-hidden="true" href="#防火牆設定">#</a></h3>
-<p><code># iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT </code></p>
-<p><code># iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT</code></p>
-<p><code># service iptables save</code></p>
-<p><code># service iptables restart</code></p>
+<p><code>iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT </code></p>
+<p><code>iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT</code></p>
+<p><code>service iptables save</code></p>
+<p><code>service iptables restart</code></p>
 <h3 id="設定">設定<a hidden class="anchor" aria-hidden="true" href="#設定">#</a></h3>
-<h4 id="預設nemedconf檔-bind-982rc1-redhat-982-047rc1el6">預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)<a hidden class="anchor" aria-hidden="true" href="#預設nemedconf檔-bind-982rc1-redhat-982-047rc1el6">#</a></h4>
-<p>以下為yum安裝後產生的預設named.conf設定檔</p>
+<h4 id="預設-nemedconf-檔-bind-982rc1-redhat-982-047rc1el6">預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)<a hidden class="anchor" aria-hidden="true" href="#預設-nemedconf-檔-bind-982rc1-redhat-982-047rc1el6">#</a></h4>
+<p>以下為 yum 安裝後產生的預設 named.conf 設定檔</p>
 <pre tabindex="0"><code>options {
         listen-on port 53 { 127.0.0.1; };
         listen-on-v6 port 53 { ::1; };
@@ -277,8 +277,8 @@ zone &#34;.&#34; IN {
 include &#34;/etc/named.rfc1912.zones&#34;;
 include &#34;/etc/named.root.key&#34;;
 </code></pre><h4 id="修改設定">修改設定<a hidden class="anchor" aria-hidden="true" href="#修改設定">#</a></h4>
-<p>修改options設定，允許查詢來源</p>
-<p><code># vi /etc/named.conf</code></p>
+<p>修改 options 設定，允許查詢來源</p>
+<p><code>vi /etc/named.conf</code></p>
 <pre tabindex="0"><code>options {
         //(其他參數略...)
         listen-on port 53 { any; };
@@ -287,13 +287,13 @@ include &#34;/etc/named.root.key&#34;;
         version &#34;zzz&#34;;
 };
 </code></pre><h4 id="新增正解設定檔">新增正解設定檔<a hidden class="anchor" aria-hidden="true" href="#新增正解設定檔">#</a></h4>
-<p><code># vi /etc/named.conf</code></p>
+<p><code>vi /etc/named.conf</code></p>
 <pre tabindex="0"><code>zone  &#34;example.com&#34; {
         type master;
         file  &#34;forward.example.com.zone&#34;;
 };
-</code></pre><h4 id="namedconf中指examplecom的域名zone檔因此必須在預設根目錄varnamed的路徑新增一個檔案">named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案<a hidden class="anchor" aria-hidden="true" href="#namedconf中指examplecom的域名zone檔因此必須在預設根目錄varnamed的路徑新增一個檔案">#</a></h4>
-<p><code># vi /var/named/forward.example.com.zone</code></p>
+</code></pre><h4 id="namedconf-中指-examplecom-的域名zone檔因此必須在預設根目錄varnamed的路徑新增一個檔案">named.conf 中指 example.com 的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案<a hidden class="anchor" aria-hidden="true" href="#namedconf-中指-examplecom-的域名zone檔因此必須在預設根目錄varnamed的路徑新增一個檔案">#</a></h4>
+<p><code>vi /var/named/forward.example.com.zone</code></p>
 <pre tabindex="0"><code>; zone file for example.tld
 $TTL 1200     ; 14400 4 hours - default TTL for zone
 $ORIGIN example.com.
@@ -316,14 +316,14 @@ www           IN      CNAME   @
 ftp           IN      A       192.168.0.3
 </code></pre><h3 id="指令">指令<a hidden class="anchor" aria-hidden="true" href="#指令">#</a></h3>
 <h4 id="檢查設定檔可以用以下指令來檢查設定是否正確">檢查設定檔(可以用以下指令來檢查設定是否正確)<a hidden class="anchor" aria-hidden="true" href="#檢查設定檔可以用以下指令來檢查設定是否正確">#</a></h4>
-<p><code># named-checkconf /etc/named.conf</code></p>
-<h2 id="查bind版本">查bind版本<a hidden class="anchor" aria-hidden="true" href="#查bind版本">#</a></h2>
+<p><code>named-checkconf /etc/named.conf</code></p>
+<h2 id="查-bind-版本">查 bind 版本<a hidden class="anchor" aria-hidden="true" href="#查-bind-版本">#</a></h2>
 <h3 id="方法一">方法一<a hidden class="anchor" aria-hidden="true" href="#方法一">#</a></h3>
-<p><code># nslookup -debug -class=chaos -query=txt version.bind &lt;NameServer IP&gt;</code></p>
+<p><code>nslookup -debug -class=chaos -query=txt version.bind &lt;NameServer IP&gt;</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201609/A02-02.jpg" alt=""  />
 </p>
 <h3 id="方法二">方法二<a hidden class="anchor" aria-hidden="true" href="#方法二">#</a></h3>
-<p><code># dig @&lt;NameServer IP&gt; version.bind chaos txt</code></p>
+<p><code>dig @&lt;NameServer IP&gt; version.bind chaos txt</code></p>
 <p><img loading="lazy" src="https://fblog.ooopiz.com/images/201609/A02-01.jpg" alt=""  />
 </p>
 <h2 id="隱藏版本資訊">隱藏版本資訊<a hidden class="anchor" aria-hidden="true" href="#隱藏版本資訊">#</a></h2>
@@ -355,36 +355,36 @@ ftp           IN      A       192.168.0.3
 
 
 <div class="share-buttons">
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝bind9 on twitter"
-        href="https://twitter.com/intent/tweet/?text=CentOS%20yum%20%e5%ae%89%e8%a3%9dbind9&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f&amp;hashtags=dns%2cbind">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝 bind9 on twitter"
+        href="https://twitter.com/intent/tweet/?text=CentOS%20yum%20%e5%ae%89%e8%a3%9d%20bind9&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f&amp;hashtags=dns%2cbind">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝bind9 on linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f&amp;title=CentOS%20yum%20%e5%ae%89%e8%a3%9dbind9&amp;summary=CentOS%20yum%20%e5%ae%89%e8%a3%9dbind9&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝 bind9 on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f&amp;title=CentOS%20yum%20%e5%ae%89%e8%a3%9d%20bind9&amp;summary=CentOS%20yum%20%e5%ae%89%e8%a3%9d%20bind9&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝bind9 on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f&title=CentOS%20yum%20%e5%ae%89%e8%a3%9dbind9">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝 bind9 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f&title=CentOS%20yum%20%e5%ae%89%e8%a3%9d%20bind9">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝bind9 on facebook"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝 bind9 on facebook"
         href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝bind9 on telegram"
-        href="https://telegram.me/share/url?text=CentOS%20yum%20%e5%ae%89%e8%a3%9dbind9&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS yum 安裝 bind9 on telegram"
+        href="https://telegram.me/share/url?text=CentOS%20yum%20%e5%ae%89%e8%a3%9d%20bind9&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fcentos-yum-install-bind9%2f">
         <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
             <path
                 d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />

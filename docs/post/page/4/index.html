@@ -150,7 +150,7 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>利用adjtimex來修正linux時間偏差
+    <h2>利用 adjtimex 來修正 linux 時間偏差
     </h2>
   </header>
   <div class="entry-content">
@@ -159,22 +159,22 @@ if (!doNotTrack) {
 最後採用linux本身時間糾偏的方式
 主機OS是CentOS7，因為yum無法直接安裝所以找了source code自行安裝(感謝神同事Leo協助突破盲腸)
 下載下來後選定一個版本後即可開始安裝 GITHUB - adjtimex
-# ./configure
-# make
-# make install
-先了解時間差 # adjtimex --compare 或 # adjtimex -c
+./configure
+make
+make install
+先了解時間差 adjtimex --compare 或 # adjtimex -c
 圖中每一筆紀錄是每10秒的週期，系統有一個對tick和freq的推薦值，可以用這個對系統進行校正．
-這邊我的-t校正值是9859 # adjtimex --tick 9859
-再檢視一次 # adjtimex -c
+這邊我的-t校正值是9859 adjtimex --tick 9859
+再檢視一次 adjtimex -c
 這邊還有約-0.8的偏差，但其實已經相當接近，要修正更精密的差距必須用-f參數 公式
 f = 差值 * 100000 * 65536
 或
 f = error_ppm平均值 * 65536
 這裡 = 250 * 65536 = 16384000
-這邊我的-f校正值是16384000 # adjtimex -f 16384000</p>
+這邊我的-f校正值是16384000 adjtimex -f 16384000</p>
   </div>
   <footer class="entry-footer"><span title='2016-11-04 10:26:01 +0800 CST'>November 4, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 利用adjtimex來修正linux時間偏差" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/"></a>
+  <a class="entry-link" aria-label="post link to 利用 adjtimex 來修正 linux 時間偏差" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -183,17 +183,14 @@ f = error_ppm平均值 * 65536
     </h2>
   </header>
   <div class="entry-content">
-    <p>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
-RHEL 6, CentOS 6
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
-zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+    <p>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
 php 使用模組
-$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
 開始安裝 YUM 安裝 Zabbix 及相關套件
-$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
 建立 zabbix 帳號及資料庫
-mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;...</p>
+mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
+mysql&gt; GRANT ALL PRIVILEGES on zabbix....</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-27 02:13:01 +0800 CST'>October 27, 2016</span></footer>
   <a class="entry-link" aria-label="post link to Yum Zabbix server, agent" href="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/"></a>
@@ -208,10 +205,11 @@ mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;...</p>
     <p>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
 –with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart...</p>
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+2. 移除舊有的bind安裝 rpm -qa | grep &#34;^bind&#34;...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span></footer>
   <a class="entry-link" aria-label="post link to bind make安裝搭配 dlz mysql" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/"></a>
@@ -219,21 +217,21 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS yum 安裝bind9
+    <h2>CentOS yum 安裝 bind9
     </h2>
   </header>
   <div class="entry-content">
-    <p>安裝 # sudo yum install bind bind-utils -y
-# service named start
-# chkconfig named on
-防火牆設定 # iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT # iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart
-設定 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為yum安裝後產生的預設named.conf設定檔
-options { listen-on port 53 { 127....</p>
+    <p>安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump....</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-04 02:09:01 +0800 CST'>October 4, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS yum 安裝bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
+  <a class="entry-link" aria-label="post link to CentOS yum 安裝 bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -242,9 +240,9 @@ options { listen-on port 53 { 127....</p>
     </h2>
   </header>
   <div class="entry-content">
-    <p>原生的CentOS iso檔無法讀到機器的Raid卡，需要自行下載驅動來安裝．
+    <p>原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
 首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
-* RECOMMENDED * HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz « CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz « CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
+[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz « CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz « CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
 Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-....</p>
   </div>
   <footer class="entry-footer"><span title='2016-09-29 08:49:01 +0800 CST'>September 29, 2016</span></footer>
@@ -259,7 +257,7 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
   <div class="entry-content">
     <p>運用google協作平台製作履歷 安安大家好，我也是看別人用我才知道可以這樣用的，或者你想做別的事情，就自由發揮吧．
 開始用的時候用起來有點麻煩，感覺介面不太友善．
-這邊感謝一下瘋婆子yaya協助破關．
+這邊感謝一下瘋婆子 yaya 協助破關．
 下面簡單介紹一下一些設定順便筆記 建立一個協作平台
 一開始你可能會想把這兩個東西拿掉
 管理協作平台
@@ -281,19 +279,18 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 主機環境：CentOS 6.4
 說明：s3fs base on fuse所以伺服器上必須有fuse的lib
 示意圖：
-Resource：
-Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
-二、安裝所需套件 CentOS7
-# sudo yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-CentOS6
-# sudo yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel
-fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
-三、安裝步驟 # git clone https://github.com/s3fs-fuse/s3fs-fuse.git
-# cd s3fs-fuse
-# ./autogen.sh
-# ./configure -prefix=/usr
-# make
-# make install...</p>
+Resource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure -prefix=/usr
+make
+make install
+四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
+將key info寫入設定檔中
+vi /etc/passwd-s3fs
+#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3....</p>
   </div>
   <footer class="entry-footer"><span title='2016-08-09 02:07:01 +0800 CST'>August 9, 2016</span></footer>
   <a class="entry-link" aria-label="post link to Hicloud S3雲儲存資料夾掛載" href="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/"></a>

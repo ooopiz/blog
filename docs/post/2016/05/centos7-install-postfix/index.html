@@ -5,21 +5,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>CentOS7 安裝Postfix | 馬丁沒有派對</title>
+<title>CentOS7 安裝 Postfix | 馬丁沒有派對</title>
 <meta name="keywords" content="postfix, smtp">
-<meta name="description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+<meta name="description" content="Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
 查詢是否安裝過
-# rpm -qa | grep sendmail
-# rpm -qa | grep exim
+rpm -qa | grep sendmail
+rpm -qa | grep exim
 移除
-# yum remove sendmail
-# yum remove exim
+yum remove sendmail
+yum remove exim
 為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing
-換成
-SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix">
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -52,20 +53,21 @@ if (!doNotTrack) {
 	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
 }
 </script>
-<meta property="og:title" content="CentOS7 安裝Postfix" />
-<meta property="og:description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+<meta property="og:title" content="CentOS7 安裝 Postfix" />
+<meta property="og:description" content="Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
 查詢是否安裝過
-# rpm -qa | grep sendmail
-# rpm -qa | grep exim
+rpm -qa | grep sendmail
+rpm -qa | grep exim
 移除
-# yum remove sendmail
-# yum remove exim
+yum remove sendmail
+yum remove exim
 為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing
-換成
-SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix" />
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-05-26T10:20:01+08:00" />
@@ -74,20 +76,21 @@ SELINUX=disabled
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
-<meta name="twitter:title" content="CentOS7 安裝Postfix"/>
-<meta name="twitter:description" content="Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+<meta name="twitter:title" content="CentOS7 安裝 Postfix"/>
+<meta name="twitter:description" content="Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
 查詢是否安裝過
-# rpm -qa | grep sendmail
-# rpm -qa | grep exim
+rpm -qa | grep sendmail
+rpm -qa | grep exim
 移除
-# yum remove sendmail
-# yum remove exim
+yum remove sendmail
+yum remove exim
 為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing
-換成
-SELINUX=disabled
-1.開始安裝 Postfix # yum install postfix"/>
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix"/>
 
 
 <script type="application/ld+json">
@@ -104,7 +107,7 @@ SELINUX=disabled
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "CentOS7 安裝Postfix",
+      "name": "CentOS7 安裝 Postfix",
       "item": "https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"
     }
   ]
@@ -114,14 +117,14 @@ SELINUX=disabled
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "CentOS7 安裝Postfix",
-  "name": "CentOS7 安裝Postfix",
-  "description": "Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.\n前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:\n查詢是否安裝過\n# rpm -qa | grep sendmail\n# rpm -qa | grep exim\n移除\n# yum remove sendmail\n# yum remove exim\n為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:\nSELINUX=enforcing\n換成\nSELINUX=disabled\n1.開始安裝 Postfix # yum install postfix",
+  "headline": "CentOS7 安裝 Postfix",
+  "name": "CentOS7 安裝 Postfix",
+  "description": "Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),\n也是 Sendmail 很好的替代品。\n以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.\n安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:\n查詢是否安裝過\nrpm -qa | grep sendmail\nrpm -qa | grep exim\n移除\nyum remove sendmail\nyum remove exim\n為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:\nSELINUX=enforcing 換成\nSELINUX=disabled 重開機後生效\n開始安裝 Postfix yum install postfix",
   "keywords": [
     "postfix", "smtp"
   ],
-  "articleBody": "Postfix介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.\n前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:\n查詢是否安裝過\n# rpm -qa | grep sendmail\n# rpm -qa | grep exim\n移除\n# yum remove sendmail\n# yum remove exim\n為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:\nSELINUX=enforcing\n換成\nSELINUX=disabled\n1.開始安裝 Postfix # yum install postfix\n2.設定 Postfix 開啟 /etc/postfix/main.cf, 修改以下設定:\n# 系統的主機名稱 myhostname = smtp.3grass.me # email伺服器的域名 mydomain = 3grass.me # 指定本地發送郵件中來源和傳遞顯示的域名 myorigin = $mydomain # 設置網路介面以便Postfix能接收到郵件 # 預設值是all，如果你的機器有多張網路卡，但又不想要全部都開放 relay，就可以指定只開放給某張網路卡 inet_interfaces = all inet_protocols = all # 指定哪些郵件地址允許在本地發送郵件 # 這是一組被信任的允許通過伺服器發送或傳遞郵件的IP地址。用戶試圖通過發送從此處未列出的IP地址的原始伺服器的郵件將被拒絕 mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain # 受信任SMTP的列表，具體的說，受信任的SMTP客戶端允許通過Postfix傳遞郵件 # 0.0.0.0 表示不限制 mynetworks = 0.0.0.0 # 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格 home_mailbox = Maildir/ mynetworks: 這可以設定成檔案的方式或是直接以IP/netmask來做設定。例如： mynetworks=192.168.1.0/24, 127.0.0.0/8 而如果要用檔案方式： mynetworks = 127.0.0.0/8, hash:/etc/postfix/access\n注意： 如果沒有設定mynetworks的話，記得把mynetworks_style改成host，不然同一個子網域的IP都可以透過你的機器relay信件(當然如果所有子網域的使用者你都認識的話倒還ok) 如果有設定 mynetworks_style 以及 mynetwork 時，mynetworks的設定會取代掉mynetworks_style。\n測試發信\n# mail -s \"title\" ricky@mail.com \u003c\u003c\u003c \"bady\"\nSMTP防火牆設置 25 port全部開放\n-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT 針對部分IP做開放\n-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT -A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT ",
-  "wordCount" : "189",
+  "articleBody": "Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),\n也是 Sendmail 很好的替代品。\n以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.\n安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:\n查詢是否安裝過\nrpm -qa | grep sendmail\nrpm -qa | grep exim\n移除\nyum remove sendmail\nyum remove exim\n為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:\nSELINUX=enforcing 換成\nSELINUX=disabled 重開機後生效\n開始安裝 Postfix yum install postfix\n設定 Postfix 開啟 /etc/postfix/main.cf 修改以下設定:\n# 系統的主機名稱 myhostname = smtp.3grass.me # email伺服器的域名 mydomain = 3grass.me # 指定本地發送郵件中來源和傳遞顯示的域名 myorigin = $mydomain # 設置網路介面以便Postfix能接收到郵件 # 預設值是all，如果你的機器有多張網路卡，但又不想要全部都開放 relay，就可以指定只開放給某張網路卡 inet_interfaces = all inet_protocols = all # 指定哪些郵件地址允許在本地發送郵件 # 這是一組被信任的允許通過伺服器發送或傳遞郵件的IP地址。用戶試圖通過發送從此處未列出的IP地址的原始伺服器的郵件將被拒絕 mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain # 受信任SMTP的列表，具體的說，受信任的SMTP客戶端允許通過Postfix傳遞郵件 # 0.0.0.0 表示不限制 mynetworks = 0.0.0.0 # 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格 home_mailbox = Maildir/ mynetworks 這可以設定成檔案的方式或是直接以 IP/netmask 來做設定。例如：\nmynetworks=192.168.1.0/24, 127.0.0.0/8 而如果要用檔案方式：\nmynetworks = 127.0.0.0/8, hash:/etc/postfix/access 注意：\n如果沒有設定 mynetworks 的話，記得把 mynetworks_style 改成host，\n不然同一個子網域的 IP 都可以透過你的機器 relay 信件(當然如果所有子網域的使用者你都認識的話倒還ok)\n如果有設定 mynetworks_style 以及 mynetwork 時，mynetworks 的設定會取代掉 mynetworks_style\n測試發信 mail -s \"title\" ricky@mail.com \u003c\u003c\u003c \"bady\"\nSMTP防火牆設置 25 port全部開放\n-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT 針對部分IP做開放\n-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT -A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT ",
+  "wordCount" : "200",
   "inLanguage": "en",
   "datePublished": "2016-05-26T10:20:01+08:00",
   "dateModified": "2016-05-26T10:20:01+08:00",
@@ -213,7 +216,7 @@ SELINUX=disabled
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.ooopiz.com/post/">Posts</a></div>
     <h1 class="post-title">
-      CentOS7 安裝Postfix
+      CentOS7 安裝 Postfix
     </h1>
     <div class="post-meta"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span>
 
@@ -226,82 +229,84 @@ SELINUX=disabled
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li><a href="#postfix介紹">Postfix介紹</a>
+    <li><a href="#postfix-介紹">Postfix 介紹</a></li>
+    <li><a href="#安裝">安裝</a>
       <ul>
         <li><a href="#前置作業">前置作業</a></li>
-        <li><a href="#1開始安裝-postfix">1.開始安裝 Postfix</a></li>
-        <li><a href="#2設定-postfix">2.設定 Postfix</a></li>
-        <li><a href="#smtp防火牆設置">SMTP防火牆設置</a></li>
+        <li><a href="#開始安裝-postfix">開始安裝 Postfix</a></li>
+        <li><a href="#設定-postfix">設定 Postfix</a></li>
       </ul>
     </li>
+    <li><a href="#smtp防火牆設置">SMTP防火牆設置</a></li>
   </ul>
 </nav>
         </div>
     </details>
 </div>
 
-  <div class="post-content"><h2 id="postfix介紹">Postfix介紹<a hidden class="anchor" aria-hidden="true" href="#postfix介紹">#</a></h2>
-<p>Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA), 也是 Sendmail 很好的替代品。以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.</p>
+  <div class="post-content"><h2 id="postfix-介紹">Postfix 介紹<a hidden class="anchor" aria-hidden="true" href="#postfix-介紹">#</a></h2>
+<p>Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),<br>
+也是 Sendmail 很好的替代品。<br>
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.</p>
+<h2 id="安裝">安裝<a hidden class="anchor" aria-hidden="true" href="#安裝">#</a></h2>
 <h3 id="前置作業">前置作業<a hidden class="anchor" aria-hidden="true" href="#前置作業">#</a></h3>
 <p>在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:</p>
 <p>查詢是否安裝過</p>
-<p><code># rpm -qa | grep sendmail</code></p>
-<p><code># rpm -qa | grep exim</code></p>
+<p><code>rpm -qa | grep sendmail</code></p>
+<p><code>rpm -qa | grep exim</code></p>
 <p>移除</p>
-<p><code># yum remove sendmail</code></p>
-<p><code># yum remove exim</code></p>
+<p><code>yum remove sendmail</code></p>
+<p><code>yum remove exim</code></p>
 <p>為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:</p>
-<p>SELINUX=enforcing</p>
-<p>換成</p>
-<p>SELINUX=disabled</p>
-<h3 id="1開始安裝-postfix">1.開始安裝 Postfix<a hidden class="anchor" aria-hidden="true" href="#1開始安裝-postfix">#</a></h3>
-<p><code># yum install postfix</code></p>
-<h3 id="2設定-postfix">2.設定 Postfix<a hidden class="anchor" aria-hidden="true" href="#2設定-postfix">#</a></h3>
-<p>開啟 /etc/postfix/main.cf, 修改以下設定:</p>
-<pre tabindex="0"><code class="language-config" data-lang="config"># 系統的主機名稱
-myhostname = smtp.3grass.me
-
-# email伺服器的域名
-mydomain = 3grass.me
-
-# 指定本地發送郵件中來源和傳遞顯示的域名
-myorigin = $mydomain
-
-# 設置網路介面以便Postfix能接收到郵件
-# 預設值是all，如果你的機器有多張網路卡，但又不想要全部都開放 relay，就可以指定只開放給某張網路卡
-inet_interfaces = all
-
-inet_protocols = all
-
-# 指定哪些郵件地址允許在本地發送郵件
-# 這是一組被信任的允許通過伺服器發送或傳遞郵件的IP地址。用戶試圖通過發送從此處未列出的IP地址的原始伺服器的郵件將被拒絕
-mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
-
-# 受信任SMTP的列表，具體的說，受信任的SMTP客戶端允許通過Postfix傳遞郵件
-# 0.0.0.0 表示不限制
-mynetworks = 0.0.0.0
-
-# 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格
-home_mailbox = Maildir/
-</code></pre><blockquote>
-<p>mynetworks:
-這可以設定成檔案的方式或是直接以IP/netmask來做設定。例如：
-mynetworks=192.168.1.0/24, 127.0.0.0/8
-而如果要用檔案方式：
-mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
-</blockquote>
-<blockquote>
-<p>注意：
-如果沒有設定mynetworks的話，記得把mynetworks_style改成host，不然同一個子網域的IP都可以透過你的機器relay信件(當然如果所有子網域的使用者你都認識的話倒還ok)
-如果有設定 mynetworks_style 以及 mynetwork 時，mynetworks的設定會取代掉mynetworks_style。</p>
-</blockquote>
-<p>測試發信</p>
-<p><code># mail -s &quot;title&quot; ricky@mail.com &lt;&lt;&lt; &quot;bady&quot;</code></p>
-<h3 id="smtp防火牆設置">SMTP防火牆設置<a hidden class="anchor" aria-hidden="true" href="#smtp防火牆設置">#</a></h3>
+<pre tabindex="0"><code>SELINUX=enforcing
+</code></pre><p>換成</p>
+<pre tabindex="0"><code>SELINUX=disabled
+</code></pre><p>重開機後生效</p>
+<h3 id="開始安裝-postfix">開始安裝 Postfix<a hidden class="anchor" aria-hidden="true" href="#開始安裝-postfix">#</a></h3>
+<p><code>yum install postfix</code></p>
+<h3 id="設定-postfix">設定 Postfix<a hidden class="anchor" aria-hidden="true" href="#設定-postfix">#</a></h3>
+<p>開啟 /etc/postfix/main.cf 修改以下設定:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1"># 系統的主機名稱</span>
+</span></span><span class="line"><span class="cl"><span class="na">myhostname</span> <span class="o">=</span> <span class="s">smtp.3grass.me</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># email伺服器的域名</span>
+</span></span><span class="line"><span class="cl"><span class="na">mydomain</span> <span class="o">=</span> <span class="s">3grass.me</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定本地發送郵件中來源和傳遞顯示的域名</span>
+</span></span><span class="line"><span class="cl"><span class="na">myorigin</span> <span class="o">=</span> <span class="s">$mydomain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 設置網路介面以便Postfix能接收到郵件</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 預設值是all，如果你的機器有多張網路卡，但又不想要全部都開放 relay，就可以指定只開放給某張網路卡</span>
+</span></span><span class="line"><span class="cl"><span class="na">inet_interfaces</span> <span class="o">=</span> <span class="s">all</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">inet_protocols</span> <span class="o">=</span> <span class="s">all</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定哪些郵件地址允許在本地發送郵件</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 這是一組被信任的允許通過伺服器發送或傳遞郵件的IP地址。用戶試圖通過發送從此處未列出的IP地址的原始伺服器的郵件將被拒絕</span>
+</span></span><span class="line"><span class="cl"><span class="na">mydestination</span> <span class="o">=</span> <span class="s">$myhostname, localhost.$mydomain, localhost, $mydomain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 受信任SMTP的列表，具體的說，受信任的SMTP客戶端允許通過Postfix傳遞郵件</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 0.0.0.0 表示不限制</span>
+</span></span><span class="line"><span class="cl"><span class="na">mynetworks</span> <span class="o">=</span> <span class="s">0.0.0.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 設置郵箱路徑與用戶目錄有關，也可以指定要使用的郵箱風格</span>
+</span></span><span class="line"><span class="cl"><span class="na">home_mailbox</span> <span class="o">=</span> <span class="s">Maildir/</span>
+</span></span></code></pre></div><h4 id="mynetworks">mynetworks<a hidden class="anchor" aria-hidden="true" href="#mynetworks">#</a></h4>
+<p>這可以設定成檔案的方式或是直接以 IP/netmask 來做設定。例如：</p>
+<pre tabindex="0"><code>mynetworks=192.168.1.0/24, 127.0.0.0/8
+</code></pre><p>而如果要用檔案方式：</p>
+<pre tabindex="0"><code>mynetworks = 127.0.0.0/8, hash:/etc/postfix/access
+</code></pre><p>注意：<br>
+如果沒有設定 mynetworks 的話，記得把 mynetworks_style 改成host，<br>
+不然同一個子網域的 IP 都可以透過你的機器 relay 信件(當然如果所有子網域的使用者你都認識的話倒還ok)<br>
+如果有設定 mynetworks_style 以及 mynetwork 時，mynetworks 的設定會取代掉 mynetworks_style</p>
+<h4 id="測試發信">測試發信<a hidden class="anchor" aria-hidden="true" href="#測試發信">#</a></h4>
+<p><code>mail -s &quot;title&quot; ricky@mail.com &lt;&lt;&lt; &quot;bady&quot;</code></p>
+<h2 id="smtp防火牆設置">SMTP防火牆設置<a hidden class="anchor" aria-hidden="true" href="#smtp防火牆設置">#</a></h2>
 <p>25 port全部開放</p>
-<pre tabindex="0"><code class="language-config" data-lang="config">-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+<pre tabindex="0"><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
 </code></pre><p>針對部分IP做開放</p>
-<pre tabindex="0"><code class="language-config" data-lang="config">-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT
+<pre tabindex="0"><code>-A INPUT -p TCP -s 127.0.0.0/8 --dport 25 -j ACCEPT
 -A INPUT -p TCP -s 210.71.253.255 --dport 25 -j ACCEPT
 </code></pre>
 
@@ -316,7 +321,7 @@ mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
   <a class="prev" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/">
     <span class="title">« Prev</span>
     <br>
-    <span>2013開放Web軟體安全計畫</span>
+    <span>2013 開放 Web 軟體安全計畫</span>
   </a>
   <a class="next" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/">
     <span class="title">Next »</span>
@@ -327,36 +332,36 @@ mynetworks = 127.0.0.0/8, hash:/etc/postfix/access</p>
 
 
 <div class="share-buttons">
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝Postfix on twitter"
-        href="https://twitter.com/intent/tweet/?text=CentOS7%20%e5%ae%89%e8%a3%9dPostfix&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f&amp;hashtags=postfix%2csmtp">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝 Postfix on twitter"
+        href="https://twitter.com/intent/tweet/?text=CentOS7%20%e5%ae%89%e8%a3%9d%20Postfix&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f&amp;hashtags=postfix%2csmtp">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝Postfix on linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f&amp;title=CentOS7%20%e5%ae%89%e8%a3%9dPostfix&amp;summary=CentOS7%20%e5%ae%89%e8%a3%9dPostfix&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝 Postfix on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f&amp;title=CentOS7%20%e5%ae%89%e8%a3%9d%20Postfix&amp;summary=CentOS7%20%e5%ae%89%e8%a3%9d%20Postfix&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝Postfix on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f&title=CentOS7%20%e5%ae%89%e8%a3%9dPostfix">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝 Postfix on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f&title=CentOS7%20%e5%ae%89%e8%a3%9d%20Postfix">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝Postfix on facebook"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝 Postfix on facebook"
         href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
         </svg>
     </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝Postfix on telegram"
-        href="https://telegram.me/share/url?text=CentOS7%20%e5%ae%89%e8%a3%9dPostfix&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share CentOS7 安裝 Postfix on telegram"
+        href="https://telegram.me/share/url?text=CentOS7%20%e5%ae%89%e8%a3%9d%20Postfix&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f05%2fcentos7-install-postfix%2f">
         <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
             <path
                 d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />

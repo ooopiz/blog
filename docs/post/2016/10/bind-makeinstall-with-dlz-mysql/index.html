@@ -10,10 +10,11 @@
 <meta name="description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
 &ndash;with-dlz-mysql &ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart">
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+2. 移除舊有的bind安裝 rpm -qa | grep &quot;^bind&quot;">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -50,10 +51,11 @@ if (!doNotTrack) {
 <meta property="og:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
 &ndash;with-dlz-mysql &ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart" />
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+2. 移除舊有的bind安裝 rpm -qa | grep &quot;^bind&quot;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-17T15:46:01+08:00" />
@@ -66,10 +68,11 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 <meta name="twitter:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
 &ndash;with-dlz-mysql &ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
-# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-# service iptables save
-# service iptables restart"/>
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+2. 移除舊有的bind安裝 rpm -qa | grep &quot;^bind&quot;"/>
 
 
 <script type="application/ld+json">
@@ -98,12 +101,12 @@ Bind官網 FTP站 二、安裝MySQL資料庫
   "@type": "BlogPosting",
   "headline": "bind make安裝搭配 dlz mysql",
   "name": "bind make安裝搭配 dlz mysql",
-  "description": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n\u0026ndash;with-dlz-mysql \u0026ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\n# service iptables save\n# service iptables restart",
+  "description": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n\u0026ndash;with-dlz-mysql \u0026ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n2. 移除舊有的bind安裝 rpm -qa | grep \u0026quot;^bind\u0026quot;",
   "keywords": [
     "dns", "bind"
   ],
-  "articleBody": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n–with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) # iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n# -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\n# service iptables save\n# service iptables restart\n2. 移除舊有的bind安裝 # rpm -qa | grep \"^bind\"\n# yum remove bind\n3. 安装依賴套件 # yum install gcc openssl openssl-devel mysql-devel\n4-1. 編譯with mysql # ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile\n4-2. 編譯with postgres # ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres\n編譯配置項說明(完整的功能配置項可使用: ./configure –help 查看): 參數 說明 –prefix=/usr bind安裝路徑, 默認[ /usr/local ] –sysconfdir=/etc 配置文件路徑, 默認 [ /etc ] –enable-threads 激活多線程 –with-libtool Use GNU libtool —with-openssl=yes Build with OpenSSL yes –enable-exportlib Build exportable library (GNU make required) [default=no] –with-dlz-postgres 使用postgres驅動，可以指定include檔路徑，例：–with-dlz-postgres=/usr/local/pgsql/include –with-dlz-mysql 使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，可以指定include檔路徑，例：–with-dlz-mysql=/www/include 5. 編譯安裝 # make\n# make install\n6. 設定 # vi named.conf\noptions { listen-on port 53 { any; }; listen-on-v6 port 53 { ::1; }; allow-query { any; }; allow-transfer { none; }; allow-update { none; }; allow-recursion { none; }; recursion no; version \"zzz\"; }; logging { channel default_debug { file \"var/bind9.log\" versions 3 size 10m; severity dynamic; print-time yes; print-severity yes; }; }; include \"etc/bind.keys\"; dlz \"mysql zone\" { database \"mysql {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin} {select zone from dns_records where zone='$zone$' limit 1} {select ttl, type, mx_priority, data, resp_person, serial, refresh, retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}\"; }; 7. 創建named用戶與群組 # groupadd named\n依據你的目錄建立用戶\n# adduser -d /var/named -g named -s /bin/false named\n# adduser -d /usr/local/bind9 -g named -s /bin/false named\n參數 說明 -d 被創建的named用戶的主目錄 -g 所屬群組 -s 帳號的登入shell(false表示不能登入) 給予目錄權限\n# chown -R named:named ./var\n8. 資料庫中建立Schema and Record Schema Example CREATE DATABASE IF NOT EXISTS `dns_data`; USE `dns_data`; CREATE TABLE `dns_records` ( `ser_no` int(10) unsigned NOT NULL AUTO_INCREMENT, `zone` varchar(255) DEFAULT NULL, `host` varchar(255) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `data` varchar(255) DEFAULT NULL, `ttl` int(11) DEFAULT NULL, `mx_priority` int(11) DEFAULT NULL, `refresh` int(11) DEFAULT NULL, `retry` int(11) DEFAULT NULL, `expire` int(11) DEFAULT NULL, `minimum` int(11) DEFAULT NULL, `serial` bigint(20) DEFAULT NULL, `resp_person` varchar(255) DEFAULT NULL, `primary_ns` varchar(255) DEFAULT NULL, PRIMARY KEY (`ser_no`), KEY `host_index` (`host`(20)) USING BTREE, KEY `type_index` (`type`(8)), KEY `zone_index` (`zone`(30)) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; CREATE TABLE `xfr_table` ( `zone` varchar(255) NOT NULL, `client` varchar(255) NOT NULL, KEY `zone_client_index` (`zone`(30)), KEY `client_index` (`client`(20)) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; Record Example INSERT INTO `dns_records` ( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`) VALUES /* SOA */ ('example.com','@','SOA','ns1.example.com.',3600,NULL,10800,7200,604800,86400,2015091101,'master.example.com.','ns1.example.com.'), ('example.com','@','NS','ns1.example.com.',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','ns1','A','192.168.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), /* A AAAA CNAME Record */ ('example.com','@','A','127.0.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','@','AAAA','::1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','www','CNAME','@',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), 9. 啟動 # sbin/named -c etc/named.conf -u named\n其他指令參考 檢查設定檔\n# sbin/named-checkconf etc/named.conf\n啟動\n# sbin/named\n啟動(使用named身份執行)\n# sbin/named -u named\n啟動(前台執行，會輸出啟動訊息，debug可以使用)\n# sbin/named -g\n啟動(指定設定檔) # /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf\n疑難排解 一、找不到mysql.h時 # yum install mysql-devel\n二、如果抓不到/usr/lib/mysql 編譯加上\n--with-mysql-libraries=/usr/lib64/mysql/ 三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他 # ln -s /usr/lib64/mysql/ /usr/lib/mysql\n其他 生成rndc key # sbin/rndc-confgen -a -r /dev/urandom\n更新named.ca 頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件\n最新資訊可以到ftp://rs.internic.net/domain 下載。\ndlz官方提供zone for mysql dlz \"mysql zone\" { database \"mysql {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin} {select zone from dns_records where zone='$zone$' limit 1} {select ttl, type, mx_priority, data, resp_person, serial, refresh, retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}\"; }; DNS security reference DNS伺服器安全性管理實務 Study DNS-DNS 進階設定、安全、檢測 建議安裝 fail2ban來阻擋 ",
-  "wordCount" : "564",
+  "articleBody": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n–with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n2. 移除舊有的bind安裝 rpm -qa | grep \"^bind\"\nyum remove bind\n3. 安装依賴套件 yum install gcc openssl openssl-devel mysql-devel\n4-1. 編譯with mysql ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile\n4-2. 編譯with postgres ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres\n編譯配置項說明(完整的功能配置項可使用: ./configure –help 查看): 參數 說明 –prefix=/usr bind安裝路徑, 默認[ /usr/local ] –sysconfdir=/etc 配置文件路徑, 默認 [ /etc ] –enable-threads 激活多線程 –with-libtool Use GNU libtool —with-openssl=yes Build with OpenSSL yes –enable-exportlib Build exportable library (GNU make required) [default=no] –with-dlz-postgres 使用postgres驅動，可以指定include檔路徑，例：–with-dlz-postgres=/usr/local/pgsql/include –with-dlz-mysql 使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，可以指定include檔路徑，例：–with-dlz-mysql=/www/include 5. 編譯安裝 make\nmake install\n6. 設定 vi named.conf\noptions { listen-on port 53 { any; }; listen-on-v6 port 53 { ::1; }; allow-query { any; }; allow-transfer { none; }; allow-update { none; }; allow-recursion { none; }; recursion no; version \"zzz\"; }; logging { channel default_debug { file \"var/bind9.log\" versions 3 size 10m; severity dynamic; print-time yes; print-severity yes; }; }; include \"etc/bind.keys\"; dlz \"mysql zone\" { database \"mysql {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin} {select zone from dns_records where zone='$zone$' limit 1} {select ttl, type, mx_priority, data, resp_person, serial, refresh, retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}\"; }; 7. 創建named用戶與群組 groupadd named\n依據你的目錄建立用戶\nadduser -d /var/named -g named -s /bin/false named\nadduser -d /usr/local/bind9 -g named -s /bin/false named\n參數 說明 -d 被創建的named用戶的主目錄 -g 所屬群組 -s 帳號的登入shell(false表示不能登入) 給予目錄權限\nchown -R named:named ./var\n8. 資料庫中建立Schema and Record Schema Example CREATE DATABASE IF NOT EXISTS `dns_data`; USE `dns_data`; CREATE TABLE `dns_records` ( `ser_no` int(10) unsigned NOT NULL AUTO_INCREMENT, `zone` varchar(255) DEFAULT NULL, `host` varchar(255) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `data` varchar(255) DEFAULT NULL, `ttl` int(11) DEFAULT NULL, `mx_priority` int(11) DEFAULT NULL, `refresh` int(11) DEFAULT NULL, `retry` int(11) DEFAULT NULL, `expire` int(11) DEFAULT NULL, `minimum` int(11) DEFAULT NULL, `serial` bigint(20) DEFAULT NULL, `resp_person` varchar(255) DEFAULT NULL, `primary_ns` varchar(255) DEFAULT NULL, PRIMARY KEY (`ser_no`), KEY `host_index` (`host`(20)) USING BTREE, KEY `type_index` (`type`(8)), KEY `zone_index` (`zone`(30)) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; CREATE TABLE `xfr_table` ( `zone` varchar(255) NOT NULL, `client` varchar(255) NOT NULL, KEY `zone_client_index` (`zone`(30)), KEY `client_index` (`client`(20)) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; Record Example INSERT INTO `dns_records` ( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`) VALUES /* SOA */ ('example.com','@','SOA','ns1.example.com.',3600,NULL,10800,7200,604800,86400,2015091101,'master.example.com.','ns1.example.com.'), ('example.com','@','NS','ns1.example.com.',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','ns1','A','192.168.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), /* A AAAA CNAME Record */ ('example.com','@','A','127.0.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','@','AAAA','::1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','www','CNAME','@',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), 9. 啟動 sbin/named -c etc/named.conf -u named\n其他指令參考 檢查設定檔\nsbin/named-checkconf etc/named.conf\n啟動\nsbin/named\n啟動(使用named身份執行)\nsbin/named -u named\n啟動(前台執行，會輸出啟動訊息，debug可以使用)\n# sbin/named -g\n啟動(指定設定檔)\n/usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf\n疑難排解 一、找不到mysql.h時 yum install mysql-devel\n二、如果抓不到/usr/lib/mysql 編譯加上\n--with-mysql-libraries=/usr/lib64/mysql/ 三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他 ln -s /usr/lib64/mysql/ /usr/lib/mysql\n其他 生成rndc key sbin/rndc-confgen -a -r /dev/urandom\n更新named.ca 頂級域名伺服器地址有所變動，dns 伺服器需要更新 named.ca 文件\n最新資訊可以到 ftp://rs.internic.net/domain 下載。\ndlz官方提供zone for mysql dlz \"mysql zone\" { database \"mysql {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin} {select zone from dns_records where zone='$zone$' limit 1} {select ttl, type, mx_priority, data, resp_person, serial, refresh, retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}\"; }; DNS security reference DNS伺服器安全性管理實務 Study DNS-DNS 進階設定、安全、檢測 建議安裝 fail2ban來阻擋 ",
+  "wordCount" : "544",
   "inLanguage": "en",
   "datePublished": "2016-10-17T15:46:01+08:00",
   "dateModified": "2016-10-17T15:46:01+08:00",
@@ -266,19 +269,19 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 <p>二、安裝MySQL資料庫</p>
 <h3 id="開始安裝">開始安裝<a hidden class="anchor" aria-hidden="true" href="#開始安裝">#</a></h3>
 <h4 id="1-防火牆設定開啟-53-port">1. 防火牆設定(開啟 53 port)<a hidden class="anchor" aria-hidden="true" href="#1-防火牆設定開啟-53-port">#</a></h4>
-<p><code># iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT</code></p>
-<p><code># -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT</code></p>
-<p><code># service iptables save</code></p>
-<p><code># service iptables restart</code></p>
+<p><code>iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT</code></p>
+<p><code>-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT</code></p>
+<p><code>service iptables save</code></p>
+<p><code>service iptables restart</code></p>
 <h4 id="2-移除舊有的bind安裝">2. 移除舊有的bind安裝<a hidden class="anchor" aria-hidden="true" href="#2-移除舊有的bind安裝">#</a></h4>
-<p><code># rpm -qa | grep &quot;^bind&quot;</code></p>
-<p><code># yum remove bind</code></p>
+<p><code>rpm -qa | grep &quot;^bind&quot;</code></p>
+<p><code>yum remove bind</code></p>
 <h4 id="3-安装依賴套件">3. 安装依賴套件<a hidden class="anchor" aria-hidden="true" href="#3-安装依賴套件">#</a></h4>
-<p><code># yum install gcc openssl openssl-devel mysql-devel</code></p>
+<p><code>yum install gcc openssl openssl-devel mysql-devel</code></p>
 <h4 id="4-1-編譯with-mysql">4-1. 編譯with mysql<a hidden class="anchor" aria-hidden="true" href="#4-1-編譯with-mysql">#</a></h4>
-<p><code># ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile</code></p>
+<p><code>./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile</code></p>
 <h4 id="4-2-編譯with-postgres">4-2. 編譯with postgres<a hidden class="anchor" aria-hidden="true" href="#4-2-編譯with-postgres">#</a></h4>
-<p><code># ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres</code></p>
+<p><code>./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres</code></p>
 <h5 id="編譯配置項說明完整的功能配置項可使用-configure---help-查看">編譯配置項說明(完整的功能配置項可使用: ./configure &ndash;help 查看):<a hidden class="anchor" aria-hidden="true" href="#編譯配置項說明完整的功能配置項可使用-configure---help-查看">#</a></h5>
 <table>
 <thead>
@@ -323,10 +326,10 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 </tbody>
 </table>
 <h4 id="5-編譯安裝">5. 編譯安裝<a hidden class="anchor" aria-hidden="true" href="#5-編譯安裝">#</a></h4>
-<p><code># make</code></p>
-<p><code># make install</code></p>
+<p><code>make</code></p>
+<p><code>make install</code></p>
 <h4 id="6-設定">6. 設定<a hidden class="anchor" aria-hidden="true" href="#6-設定">#</a></h4>
-<p><code># vi named.conf</code></p>
+<p><code>vi named.conf</code></p>
 <pre tabindex="0"><code>options {
     listen-on port 53 { any; };
     listen-on-v6 port 53 { ::1; };
@@ -359,10 +362,10 @@ dlz &#34;mysql zone&#34; {
 retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = &#39;$record$&#39;}&#34;;
 };
 </code></pre><h4 id="7-創建named用戶與群組">7. 創建named用戶與群組<a hidden class="anchor" aria-hidden="true" href="#7-創建named用戶與群組">#</a></h4>
-<p><code># groupadd named</code></p>
+<p><code>groupadd named</code></p>
 <p>依據你的目錄建立用戶</p>
-<p><code># adduser -d /var/named -g named -s /bin/false named</code></p>
-<p><code># adduser -d /usr/local/bind9 -g named -s /bin/false named</code></p>
+<p><code>adduser -d /var/named -g named -s /bin/false named</code></p>
+<p><code>adduser -d /usr/local/bind9 -g named -s /bin/false named</code></p>
 <table>
 <thead>
 <tr>
@@ -386,79 +389,79 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 </tbody>
 </table>
 <p>給予目錄權限</p>
-<p><code># chown -R named:named ./var</code></p>
+<p><code>chown -R named:named ./var</code></p>
 <h4 id="8-資料庫中建立schema-and-record">8. 資料庫中建立Schema and Record<a hidden class="anchor" aria-hidden="true" href="#8-資料庫中建立schema-and-record">#</a></h4>
 <h5 id="schema-example">Schema Example<a hidden class="anchor" aria-hidden="true" href="#schema-example">#</a></h5>
-<pre tabindex="0"><code>CREATE DATABASE  IF NOT EXISTS `dns_data`;
-USE `dns_data`;
-
-CREATE TABLE `dns_records` (
-  `ser_no` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `zone` varchar(255) DEFAULT NULL,
-  `host` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `data` varchar(255) DEFAULT NULL,
-  `ttl` int(11) DEFAULT NULL,
-  `mx_priority` int(11) DEFAULT NULL,
-  `refresh` int(11) DEFAULT NULL,
-  `retry` int(11) DEFAULT NULL,
-  `expire` int(11) DEFAULT NULL,
-  `minimum` int(11) DEFAULT NULL,
-  `serial` bigint(20) DEFAULT NULL,
-  `resp_person` varchar(255) DEFAULT NULL,
-  `primary_ns` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ser_no`),
-  KEY `host_index` (`host`(20)) USING BTREE,
-  KEY `type_index` (`type`(8)),
-  KEY `zone_index` (`zone`(30))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `xfr_table` (
-  `zone` varchar(255) NOT NULL,
-  `client` varchar(255) NOT NULL,
-  KEY `zone_client_index` (`zone`(30)),
-  KEY `client_index` (`client`(20))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</code></pre><h5 id="record-example">Record Example<a hidden class="anchor" aria-hidden="true" href="#record-example">#</a></h5>
-<pre tabindex="0"><code>INSERT INTO `dns_records`
-( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`)
-VALUES
-/* SOA */
-(&#39;example.com&#39;,&#39;@&#39;,&#39;SOA&#39;,&#39;ns1.example.com.&#39;,3600,NULL,10800,7200,604800,86400,2015091101,&#39;master.example.com.&#39;,&#39;ns1.example.com.&#39;),
-(&#39;example.com&#39;,&#39;@&#39;,&#39;NS&#39;,&#39;ns1.example.com.&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(&#39;example.com&#39;,&#39;ns1&#39;,&#39;A&#39;,&#39;192.168.0.1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-
-/* A AAAA CNAME Record */
-(&#39;example.com&#39;,&#39;@&#39;,&#39;A&#39;,&#39;127.0.0.1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(&#39;example.com&#39;,&#39;@&#39;,&#39;AAAA&#39;,&#39;::1&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(&#39;example.com&#39;,&#39;www&#39;,&#39;CNAME&#39;,&#39;@&#39;,3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-</code></pre><h4 id="9-啟動">9. 啟動<a hidden class="anchor" aria-hidden="true" href="#9-啟動">#</a></h4>
-<p><code># sbin/named -c etc/named.conf -u named</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">dns_data</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">USE</span><span class="w"> </span><span class="o">`</span><span class="n">dns_data</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">dns_records</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">ser_no</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">zone</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">host</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">type</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">data</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">ttl</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">mx_priority</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">refresh</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">retry</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">expire</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">minimum</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="nb">serial</span><span class="o">`</span><span class="w"> </span><span class="nb">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">resp_person</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">primary_ns</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">ser_no</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">host_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">host</span><span class="o">`</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">type_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">type</span><span class="o">`</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">zone_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">zone</span><span class="o">`</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">xfr_table</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">zone</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">client</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">zone_client_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">zone</span><span class="o">`</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">client_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">client</span><span class="o">`</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h5 id="record-example">Record Example<a hidden class="anchor" aria-hidden="true" href="#record-example">#</a></h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">dns_records</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w"> </span><span class="o">`</span><span class="k">zone</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="k">host</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="k">type</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="k">data</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">ttl</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">mx_priority</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">refresh</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">retry</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">expire</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">minimum</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="nb">serial</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">resp_person</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">primary_ns</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">VALUES</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* SOA */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;SOA&#39;</span><span class="p">,</span><span class="s1">&#39;ns1.example.com.&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">10800</span><span class="p">,</span><span class="mi">7200</span><span class="p">,</span><span class="mi">604800</span><span class="p">,</span><span class="mi">86400</span><span class="p">,</span><span class="mi">2015091101</span><span class="p">,</span><span class="s1">&#39;master.example.com.&#39;</span><span class="p">,</span><span class="s1">&#39;ns1.example.com.&#39;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;NS&#39;</span><span class="p">,</span><span class="s1">&#39;ns1.example.com.&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;ns1&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* A AAAA CNAME Record */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="s1">&#39;AAAA&#39;</span><span class="p">,</span><span class="s1">&#39;::1&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span><span class="s1">&#39;www&#39;</span><span class="p">,</span><span class="s1">&#39;CNAME&#39;</span><span class="p">,</span><span class="s1">&#39;@&#39;</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">),</span><span class="w">
+</span></span></span></code></pre></div><h4 id="9-啟動">9. 啟動<a hidden class="anchor" aria-hidden="true" href="#9-啟動">#</a></h4>
+<p><code>sbin/named -c etc/named.conf -u named</code></p>
 <h2 id="其他指令參考">其他指令參考<a hidden class="anchor" aria-hidden="true" href="#其他指令參考">#</a></h2>
 <p>檢查設定檔</p>
-<p><code># sbin/named-checkconf etc/named.conf</code></p>
+<p><code>sbin/named-checkconf etc/named.conf</code></p>
 <p>啟動</p>
-<p><code># sbin/named</code></p>
+<p><code>sbin/named</code></p>
 <p>啟動(使用named身份執行)</p>
-<p><code># sbin/named -u named</code></p>
+<p><code>sbin/named -u named</code></p>
 <p>啟動(前台執行，會輸出啟動訊息，debug可以使用)</p>
 <p><code># sbin/named -g</code></p>
-<p>啟動(指定設定檔)
-<code># /usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf</code></p>
+<p>啟動(指定設定檔)</p>
+<p><code>/usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf</code></p>
 <h2 id="疑難排解">疑難排解<a hidden class="anchor" aria-hidden="true" href="#疑難排解">#</a></h2>
 <h3 id="一找不到mysqlh時">一、找不到mysql.h時<a hidden class="anchor" aria-hidden="true" href="#一找不到mysqlh時">#</a></h3>
-<p><code># yum install mysql-devel</code></p>
+<p><code>yum install mysql-devel</code></p>
 <h3 id="二如果抓不到usrlibmysql">二、如果抓不到/usr/lib/mysql<a hidden class="anchor" aria-hidden="true" href="#二如果抓不到usrlibmysql">#</a></h3>
 <p>編譯加上</p>
 <pre tabindex="0"><code>--with-mysql-libraries=/usr/lib64/mysql/
 </code></pre><h3 id="三承二但是也有可能無效死都要抓usrlibmysql只好做一個軟鍊給他">三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他<a hidden class="anchor" aria-hidden="true" href="#三承二但是也有可能無效死都要抓usrlibmysql只好做一個軟鍊給他">#</a></h3>
-<p><code># ln -s /usr/lib64/mysql/ /usr/lib/mysql</code></p>
+<p><code>ln -s /usr/lib64/mysql/ /usr/lib/mysql</code></p>
 <h2 id="其他">其他<a hidden class="anchor" aria-hidden="true" href="#其他">#</a></h2>
 <h3 id="生成rndc-key">生成rndc key<a hidden class="anchor" aria-hidden="true" href="#生成rndc-key">#</a></h3>
-<p><code># sbin/rndc-confgen -a -r /dev/urandom</code></p>
+<p><code>sbin/rndc-confgen -a -r /dev/urandom</code></p>
 <h3 id="更新namedca">更新named.ca<a hidden class="anchor" aria-hidden="true" href="#更新namedca">#</a></h3>
-<p>頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件</p>
-<p>最新資訊可以到<a href="ftp://rs.internic.net/domain" >ftp://rs.internic.net/domain</a> 下載。</p>
+<p>頂級域名伺服器地址有所變動，dns 伺服器需要更新 named.ca 文件</p>
+<p>最新資訊可以到 <a href="ftp://rs.internic.net/domain" >ftp://rs.internic.net/domain</a> 下載。</p>
 <h3 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql<a hidden class="anchor" aria-hidden="true" href="#dlz官方提供zone-for-mysql">#</a></h3>
 <pre tabindex="0"><code>dlz &#34;mysql zone&#34; {
    database &#34;mysql
@@ -491,7 +494,7 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
   <a class="next" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/">
     <span class="title">Next »</span>
     <br>
-    <span>CentOS yum 安裝bind9</span>
+    <span>CentOS yum 安裝 bind9</span>
   </a>
 </nav>
 

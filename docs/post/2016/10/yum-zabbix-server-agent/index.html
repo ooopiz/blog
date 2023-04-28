@@ -7,17 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>Yum Zabbix server, agent | 馬丁沒有派對</title>
 <meta name="keywords" content="zabbix">
-<meta name="description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
-RHEL 6, CentOS 6
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
-zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+<meta name="description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
 php 使用模組
-$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
 開始安裝 YUM 安裝 Zabbix 及相關套件
-$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
 建立 zabbix 帳號及資料庫
-mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;">
+mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
+mysql&gt; GRANT ALL PRIVILEGES on zabbix.">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
@@ -51,17 +48,14 @@ if (!doNotTrack) {
 }
 </script>
 <meta property="og:title" content="Yum Zabbix server, agent" />
-<meta property="og:description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
-RHEL 6, CentOS 6
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
-zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+<meta property="og:description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
 php 使用模組
-$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
 開始安裝 YUM 安裝 Zabbix 及相關套件
-$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
 建立 zabbix 帳號及資料庫
-mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;" />
+mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
+mysql&gt; GRANT ALL PRIVILEGES on zabbix." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-27T02:13:01+08:00" />
@@ -71,17 +65,14 @@ mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;" />
 <meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
 
 <meta name="twitter:title" content="Yum Zabbix server, agent"/>
-<meta name="twitter:description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm
-RHEL 6, CentOS 6
-$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm
-zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+<meta name="twitter:description" content="安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
 php 使用模組
-$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
 開始安裝 YUM 安裝 Zabbix 及相關套件
-$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
 建立 zabbix 帳號及資料庫
-mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;"/>
+mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
+mysql&gt; GRANT ALL PRIVILEGES on zabbix."/>
 
 
 <script type="application/ld+json">
@@ -110,12 +101,12 @@ mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;"/>
   "@type": "BlogPosting",
   "headline": "Yum Zabbix server, agent",
   "name": "Yum Zabbix server, agent",
-  "description": "安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7\n$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm\nRHEL 6, CentOS 6\n$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm\nzabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境\nphp 使用模組\n$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc\n開始安裝 YUM 安裝 Zabbix 及相關套件\n$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway\n建立 zabbix 帳號及資料庫\nmysql\u0026gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;",
+  "description": "安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境\nphp 使用模組\nyum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc\n開始安裝 YUM 安裝 Zabbix 及相關套件\nyum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway\n建立 zabbix 帳號及資料庫\nmysql\u0026gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;\nmysql\u0026gt; GRANT ALL PRIVILEGES on zabbix.",
   "keywords": [
     "zabbix"
   ],
-  "articleBody": "安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7\n$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm\nRHEL 6, CentOS 6\n$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm\nzabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境\nphp 使用模組\n$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc\n開始安裝 YUM 安裝 Zabbix 及相關套件\n$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway\n建立 zabbix 帳號及資料庫\nmysql\u003e CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;\nmysql\u003e GRANT ALL PRIVILEGES on zabbix.* to 'zabbix'@'localhost' IDENTIFIED BY 'zabbix';\nmysql\u003e FLUSH PRIVILEGES;\nmysql\u003e quit\n初始資料表匯入資料庫\n$ cd /usr/share/doc/zabbix-server-mysql-*\n$ mysql -u zabbix -p zabbix \u003c ./create/schema.sql\n$ mysql -u zabbix -p zabbix \u003c ./create/images.sql\n$ mysql -u zabbix -p zabbix \u003c ./create/data.sql\n安裝時會自動新增apache設定檔，可以檢查一下根目錄是否正確指向zabbix的網頁目錄\n$ /etc/httpd/conf.d/zabbix.conf\n# # Zabbix monitoring system php web frontend # Alias /zabbix /usr/share/zabbix ",
-  "wordCount" : "280",
+  "articleBody": "安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境\nphp 使用模組\nyum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc\n開始安裝 YUM 安裝 Zabbix 及相關套件\nyum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway\n建立 zabbix 帳號及資料庫\nmysql\u003e CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;\nmysql\u003e GRANT ALL PRIVILEGES on zabbix.* to 'zabbix'@'localhost' IDENTIFIED BY 'zabbix';\nmysql\u003e FLUSH PRIVILEGES;\nmysql\u003e quit\n初始資料表匯入資料庫\ncd /usr/share/doc/zabbix-server-mysql-*\nmysql -u zabbix -p zabbix \u003c ./create/schema.sql\nmysql -u zabbix -p zabbix \u003c ./create/images.sql\nmysql -u zabbix -p zabbix \u003c ./create/data.sql\n安裝時會自動新增apache設定檔，可以檢查一下根目錄是否正確指向zabbix的網頁目錄\n/etc/httpd/conf.d/zabbix.conf\n# # Zabbix monitoring system php web frontend # Alias /zabbix /usr/share/zabbix ",
+  "wordCount" : "264",
   "inLanguage": "en",
   "datePublished": "2016-10-27T02:13:01+08:00",
   "dateModified": "2016-10-27T02:13:01+08:00",
@@ -224,6 +215,7 @@ mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;"/>
     <li><a href="#zabbix-server">zabbix-server</a>
       <ul>
         <li><a href="#開始安裝">開始安裝</a></li>
+        <li><a href="#登入頁面與預設帳密">登入頁面與預設帳密</a></li>
       </ul>
     </li>
     <li><a href="#zabbix-agent">zabbix-agent</a>
@@ -239,63 +231,63 @@ mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;"/>
 </div>
 
   <div class="post-content"><h2 id="安裝相應的-rpm-檔啟用-zabbix-repository">安裝相應的 RPM 檔啟用 Zabbix Repository<a hidden class="anchor" aria-hidden="true" href="#安裝相應的-rpm-檔啟用-zabbix-repository">#</a></h2>
-<p>RHEL 7, CentOS 7</p>
-<p><code>$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm</code></p>
-<p>RHEL 6, CentOS 6</p>
-<p><code>$ rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm</code></p>
+<ul>
+<li>RHEL 7, CentOS 7
+<code>rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm</code></li>
+<li>RHEL 6, CentOS 6
+<code>rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm</code></li>
+</ul>
 <h2 id="zabbix-server">zabbix-server<a hidden class="anchor" aria-hidden="true" href="#zabbix-server">#</a></h2>
-<blockquote>
 <p>由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境</p>
-</blockquote>
 <p>php 使用模組</p>
-<p><code>$ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc</code></p>
+<p><code>yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc</code></p>
 <h3 id="開始安裝">開始安裝<a hidden class="anchor" aria-hidden="true" href="#開始安裝">#</a></h3>
 <p>YUM 安裝 Zabbix 及相關套件</p>
-<p><code>$ yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway</code></p>
+<p><code>yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway</code></p>
 <p>建立 zabbix 帳號及資料庫</p>
 <p><code>mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;</code></p>
 <p><code>mysql&gt; GRANT ALL PRIVILEGES on zabbix.* to 'zabbix'@'localhost' IDENTIFIED BY 'zabbix';</code></p>
 <p><code>mysql&gt; FLUSH PRIVILEGES;</code></p>
 <p><code>mysql&gt; quit</code></p>
 <p>初始資料表匯入資料庫</p>
-<p><code>$ cd /usr/share/doc/zabbix-server-mysql-*</code></p>
-<p><code>$ mysql -u zabbix -p zabbix &lt; ./create/schema.sql</code></p>
-<p><code>$ mysql -u zabbix -p zabbix &lt; ./create/images.sql</code></p>
-<p><code>$ mysql -u zabbix -p zabbix &lt; ./create/data.sql</code></p>
+<p><code>cd /usr/share/doc/zabbix-server-mysql-*</code></p>
+<p><code>mysql -u zabbix -p zabbix &lt; ./create/schema.sql</code></p>
+<p><code>mysql -u zabbix -p zabbix &lt; ./create/images.sql</code></p>
+<p><code>mysql -u zabbix -p zabbix &lt; ./create/data.sql</code></p>
 <p>安裝時會自動新增apache設定檔，可以檢查一下根目錄是否正確指向zabbix的網頁目錄</p>
-<p><code>$ /etc/httpd/conf.d/zabbix.conf</code></p>
-<pre tabindex="0"><code>#
-# Zabbix monitoring system php web frontend
-#
-
-Alias /zabbix /usr/share/zabbix
-
-&lt;Directory &#34;/usr/share/zabbix&#34;&gt;
-    Options FollowSymLinks
-    AllowOverride None
-    Require all granted
-
-    &lt;IfModule mod_php5.c&gt;
-        php_value max_execution_time 300
-        php_value memory_limit 128M
-        php_value post_max_size 16M
-        php_value upload_max_filesize 2M
-        php_value max_input_time 300
-        # php_value date.timezone Europe/Riga
-    &lt;/IfModule&gt;
-&lt;/Directory&gt;
-
-&lt;Directory &#34;/usr/share/zabbix/conf&#34;&gt;
-    Require all denied
-&lt;/Directory&gt;
-
-&lt;Directory &#34;/usr/share/zabbix/include&#34;&gt;
-    Require all denied
-&lt;/Directory&gt;
-</code></pre><p>啟動</p>
-<p><code>$ systemctl start zabbix-server</code></p>
-<p><code>$ systemctl enable zabbix-server</code></p>
-<p>###登入頁面與預設帳密</p>
+<p><code>/etc/httpd/conf.d/zabbix.conf</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># Zabbix monitoring system php web frontend
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Alias /zabbix /usr/share/zabbix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Directory</span> <span class="err">&#34;/usr/share/zabbix&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    Options FollowSymLinks
+</span></span><span class="line"><span class="cl">    AllowOverride None
+</span></span><span class="line"><span class="cl">    Require all granted
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;IfModule</span> <span class="err">mod_php5.c</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        php_value max_execution_time 300
+</span></span><span class="line"><span class="cl">        php_value memory_limit 128M
+</span></span><span class="line"><span class="cl">        php_value post_max_size 16M
+</span></span><span class="line"><span class="cl">        php_value upload_max_filesize 2M
+</span></span><span class="line"><span class="cl">        php_value max_input_time 300
+</span></span><span class="line"><span class="cl">        # php_value date.timezone Europe/Riga
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/IfModule&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/Directory&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Directory</span> <span class="err">&#34;/usr/share/zabbix/conf&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    Require all denied
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/Directory&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;Directory</span> <span class="err">&#34;/usr/share/zabbix/include&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    Require all denied
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/Directory&gt;</span>
+</span></span></code></pre></div><p>啟動</p>
+<p><code>systemctl start zabbix-server</code></p>
+<p><code>systemctl enable zabbix-server</code></p>
+<h3 id="登入頁面與預設帳密">登入頁面與預設帳密<a hidden class="anchor" aria-hidden="true" href="#登入頁面與預設帳密">#</a></h3>
 <p><a href="http://ip-address/zabbix/" target="_blank" >http://ip-address/zabbix/</a></p>
 <p>default username/password</p>
 <table>
@@ -313,7 +305,7 @@ Alias /zabbix /usr/share/zabbix
 </tbody>
 </table>
 <p>語言設置</p>
-<p><code># vi /usr/share/zabbix/include/locales.inc.php</code></p>
+<p><code>vi /usr/share/zabbix/include/locales.inc.php</code></p>
 <p>其他路徑</p>
 <table>
 <thead>
@@ -339,34 +331,34 @@ Alias /zabbix /usr/share/zabbix
 </table>
 <h2 id="zabbix-agent">zabbix-agent<a hidden class="anchor" aria-hidden="true" href="#zabbix-agent">#</a></h2>
 <h3 id="安裝">安裝<a hidden class="anchor" aria-hidden="true" href="#安裝">#</a></h3>
-<p>agent 一樣要刷最上方的RPM</p>
-<p><code>$ yum install zabbix-agent</code></p>
+<p>agent 一樣要刷最上方的RPM</p>
+<p><code>yum install zabbix-agent</code></p>
 <h3 id="設定-主動模式">設定 (主動模式)<a hidden class="anchor" aria-hidden="true" href="#設定-主動模式">#</a></h3>
-<p>agent 有主動模式和被動模式，這邊的設定檔為主動模式的。</p>
-<p><code>$ vi /etc/zabbix/zabbix_agentd.conf</code></p>
-<pre tabindex="0"><code># zabbix server 的 ip (如果設置為純主動模式，則應該注釋掉這一條指令)
-Server=127.0.0.1
-
-# 客戶端的agent模式，0表示關閉被動模式、zabbix-agentd不監控本地端口
-StartAgents=0
-
-# zabbix server 主動模式時的 server ip 位置
-ServerActive=...
-
-# 重要：客戶端的hostname，不配置則使用主機名
-Hostname=test_host
-
-# 被監控端到服務器獲取監控項的週期，默認120s即可
-RefreshActiveChecks=120
-
-# 被監控端存儲監控信息的空間大小
-BufferSize=200
-
-# 超時時間
-Timeout=10
-</code></pre><p>啟動</p>
-<p><code># systemctl start zabbix-agent</code></p>
-<p><code># systemctl enable zabbix-agent</code></p>
+<p>agent 有主動模式和被動模式，這邊的設定檔為主動模式的。</p>
+<p><code>vi /etc/zabbix/zabbix_agentd.conf</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1"># zabbix server 的 ip (如果設置為純主動模式，則應該注釋掉這一條指令)</span>
+</span></span><span class="line"><span class="cl"><span class="na">Server</span><span class="o">=</span><span class="s">127.0.0.1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 客戶端的agent模式，0表示關閉被動模式、zabbix-agentd不監控本地端口</span>
+</span></span><span class="line"><span class="cl"><span class="na">StartAgents</span><span class="o">=</span><span class="s">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># zabbix server 主動模式時的 server ip 位置</span>
+</span></span><span class="line"><span class="cl"><span class="na">ServerActive</span><span class="o">=</span><span class="s">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重要：客戶端的hostname，不配置則使用主機名</span>
+</span></span><span class="line"><span class="cl"><span class="na">Hostname</span><span class="o">=</span><span class="s">test_host</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 被監控端到服務器獲取監控項的週期，默認120s即可</span>
+</span></span><span class="line"><span class="cl"><span class="na">RefreshActiveChecks</span><span class="o">=</span><span class="s">120</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 被監控端存儲監控信息的空間大小</span>
+</span></span><span class="line"><span class="cl"><span class="na">BufferSize</span><span class="o">=</span><span class="s">200</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 超時時間</span>
+</span></span><span class="line"><span class="cl"><span class="na">Timeout</span><span class="o">=</span><span class="s">10</span>
+</span></span></code></pre></div><p>啟動</p>
+<p><code>systemctl start zabbix-agent</code></p>
+<p><code>systemctl enable zabbix-agent</code></p>
 <h4 id="防火牆">防火牆<a hidden class="anchor" aria-hidden="true" href="#防火牆">#</a></h4>
 <p>如果你是被動模式必須要開啟 tcp 10050 的 port</p>
 <p>主動模式則不需要開啟防火牆</p>
@@ -383,7 +375,7 @@ Timeout=10
   <a class="prev" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/">
     <span class="title">« Prev</span>
     <br>
-    <span>利用adjtimex來修正linux時間偏差</span>
+    <span>利用 adjtimex 來修正 linux 時間偏差</span>
   </a>
   <a class="next" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/">
     <span class="title">Next »</span>

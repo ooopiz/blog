@@ -1,34 +1,34 @@
 ---
-title: 'CentOS yum 安裝bind9'
+title: 'CentOS yum 安裝 bind9'
 date: 2016-10-04T02:09:01+08:00
 draft: false
 tags: ["dns", "bind"]
 ---
+
 ## 安裝
 
-`# sudo yum install bind bind-utils -y`
+`yum install bind bind-utils -y`
   
-`# service named start`
+`service named start`
   
-`# chkconfig named on`
+`chkconfig named on`
 
 
 ### 防火牆設定
 
-`# iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT `
+`iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT `
   
-`# iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT`
+`iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT`
   
-`# service iptables save`
+`service iptables save`
   
-`# service iptables restart`
-
+`service iptables restart`
 
 ### 設定
 
-#### 預設nemed.conf檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)
+#### 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)
 
-以下為yum安裝後產生的預設named.conf設定檔
+以下為 yum 安裝後產生的預設 named.conf 設定檔
   
 ```
 options {
@@ -67,9 +67,10 @@ include "/etc/named.root.key";
 ```
 
 #### 修改設定
-修改options設定，允許查詢來源
+
+修改 options 設定，允許查詢來源
   
-`# vi /etc/named.conf`
+`vi /etc/named.conf`
   
 ```
 options {
@@ -83,7 +84,7 @@ options {
 
 #### 新增正解設定檔
 
-`# vi /etc/named.conf`
+`vi /etc/named.conf`
   
 ```
 zone  "example.com" {
@@ -92,9 +93,9 @@ zone  "example.com" {
 };
 ```
 
-#### named.conf中指example.com的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案
+#### named.conf 中指 example.com 的域名zone檔，因此必須在預設根目錄(/var/named)的路徑新增一個檔案
 
-`# vi /var/named/forward.example.com.zone`
+`vi /var/named/forward.example.com.zone`
   
 ```
 ; zone file for example.tld
@@ -123,19 +124,19 @@ ftp           IN      A       192.168.0.3
 
 #### 檢查設定檔(可以用以下指令來檢查設定是否正確)
 
-`# named-checkconf /etc/named.conf`
+`named-checkconf /etc/named.conf`
 
-## 查bind版本
+## 查 bind 版本
 
 ### 方法一
 
-`# nslookup -debug -class=chaos -query=txt version.bind <NameServer IP>`
+`nslookup -debug -class=chaos -query=txt version.bind <NameServer IP>`
   
 ![](https://fblog.ooopiz.com/images/201609/A02-02.jpg)
 
 ### 方法二
 
-`# dig @<NameServer IP> version.bind chaos txt`
+`dig @<NameServer IP> version.bind chaos txt`
   
 ![](https://fblog.ooopiz.com/images/201609/A02-01.jpg)
 
