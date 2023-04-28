@@ -41,6 +41,9 @@ menu:
     - name: About
       weight: 50
       url: /about/
+    - name: Links 
+      weight: 90
+      url: /links/
 
 
 params:

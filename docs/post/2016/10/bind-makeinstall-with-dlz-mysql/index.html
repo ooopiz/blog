@@ -181,6 +181,11 @@ Bind官網 FTP站 二、安裝MySQL資料庫
                     <span>About</span>
                 </a>
             </li>
+            <li>
+                <a href="https://blog.ooopiz.com/links/" title="Links">
+                    <span>Links</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -244,7 +249,7 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 </ol>
 <h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
 <ul>
-<li><a href="http://www.coctec.com/docs/service/show-post-12776.html">智能DNS(Bind dlz)在企業中的應用</a></li>
+<li><a href="http://www.coctec.com/docs/service/show-post-12776.html" target="_blank" >智能DNS(Bind dlz)在企業中的應用</a></li>
 </ul>
 <h2 id="bind-安裝-mysql篇">Bind 安裝 (MySQL篇)<a hidden class="anchor" aria-hidden="true" href="#bind-安裝-mysql篇">#</a></h2>
 <p>bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)</p>
@@ -255,8 +260,8 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 <h3 id="前置作業">前置作業<a hidden class="anchor" aria-hidden="true" href="#前置作業">#</a></h3>
 <p>一、到官網或FTP站下載安裝檔</p>
 <ul>
-<li><a href="https://www.isc.org/downloads/">Bind官網</a></li>
-<li><a href="http://ftp.isc.org/isc/bind9/">FTP站</a></li>
+<li><a href="https://www.isc.org/downloads/" target="_blank" >Bind官網</a></li>
+<li><a href="http://ftp.isc.org/isc/bind9/" target="_blank" >FTP站</a></li>
 </ul>
 <p>二、安裝MySQL資料庫</p>
 <h3 id="開始安裝">開始安裝<a hidden class="anchor" aria-hidden="true" href="#開始安裝">#</a></h3>
@@ -453,7 +458,7 @@ VALUES
 <p><code># sbin/rndc-confgen -a -r /dev/urandom</code></p>
 <h3 id="更新namedca">更新named.ca<a hidden class="anchor" aria-hidden="true" href="#更新namedca">#</a></h3>
 <p>頂級域名伺服器地址有所變動，dns伺服器需要更新named.ca文件</p>
-<p>最新資訊可以到<a href="ftp://rs.internic.net/domain">ftp://rs.internic.net/domain</a> 下載。</p>
+<p>最新資訊可以到<a href="ftp://rs.internic.net/domain" >ftp://rs.internic.net/domain</a> 下載。</p>
 <h3 id="dlz官方提供zone-for-mysql">dlz官方提供zone for mysql<a hidden class="anchor" aria-hidden="true" href="#dlz官方提供zone-for-mysql">#</a></h3>
 <pre tabindex="0"><code>dlz &#34;mysql zone&#34; {
    database &#34;mysql
@@ -464,9 +469,9 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 };
 </code></pre><h2 id="dns-security-reference">DNS security reference<a hidden class="anchor" aria-hidden="true" href="#dns-security-reference">#</a></h2>
 <ul>
-<li><a href="http://www.lijyyh.com/2012/07/dns-dns-server-security-management.html">DNS伺服器安全性管理實務</a></li>
-<li><a href="http://wiki.weithenn.org/cgi-bin/wiki.pl?Study_DNS-DNS_%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E3%80%81%E5%AE%89%E5%85%A8%E3%80%81%E6%AA%A2%E6%B8%AC">Study DNS-DNS 進階設定、安全、檢測</a></li>
-<li><a href="https://dotblogs.com.tw/jerrymow/2013/04/25/102283">建議安裝 fail2ban來阻擋</a></li>
+<li><a href="http://www.lijyyh.com/2012/07/dns-dns-server-security-management.html" target="_blank" >DNS伺服器安全性管理實務</a></li>
+<li><a href="http://wiki.weithenn.org/cgi-bin/wiki.pl?Study_DNS-DNS_%E9%80%B2%E9%9A%8E%E8%A8%AD%E5%AE%9A%E3%80%81%E5%AE%89%E5%85%A8%E3%80%81%E6%AA%A2%E6%B8%AC" target="_blank" >Study DNS-DNS 進階設定、安全、檢測</a></li>
+<li><a href="https://dotblogs.com.tw/jerrymow/2013/04/25/102283" target="_blank" >建議安裝 fail2ban來阻擋</a></li>
 </ul>
 
 

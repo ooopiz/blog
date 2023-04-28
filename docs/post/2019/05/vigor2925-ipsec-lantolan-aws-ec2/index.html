@@ -193,6 +193,11 @@ if (!doNotTrack) {
                     <span>About</span>
                 </a>
             </li>
+            <li>
+                <a href="https://blog.ooopiz.com/links/" title="Links">
+                    <span>Links</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -236,7 +241,7 @@ if (!doNotTrack) {
 <p>簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，<br>
 內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。</p>
 <p>其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）<br>
-一個月大概在台幣 1,000 左右 <a href="https://aws.amazon.com/tw/vpn/pricing/">AWS VPN pricing</a>。</p>
+一個月大概在台幣 1,000 左右 <a href="https://aws.amazon.com/tw/vpn/pricing/" target="_blank" >AWS VPN pricing</a>。</p>
 <p>但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。</p>
 <p>目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。</p>
 <p>公司端：</p>
@@ -339,9 +344,9 @@ $ systemctl enable iptables
 </p>
 <h2 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h2>
 <ul>
-<li><a href="https://kkc.github.io/2018/03/21/IPSEC-note/">IPSec 筆記</a></li>
-<li><a href="https://segmentfault.com/a/1190000000646294">【译】IPSEC.CONF(5) － IPsec配置</a></li>
-<li><a href="https://www.draytek.com/zh/faq/faq-vpn/vpn.lan-to-lan/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B-vigor3300-lan-to-lan-vpn-ipsec-tunnel/">如何建立 Vigor3300 LAN to LAN VPN IPSec tunnel ?</a></li>
+<li><a href="https://kkc.github.io/2018/03/21/IPSEC-note/" target="_blank" >IPSec 筆記</a></li>
+<li><a href="https://segmentfault.com/a/1190000000646294" target="_blank" >【译】IPSEC.CONF(5) － IPsec配置</a></li>
+<li><a href="https://www.draytek.com/zh/faq/faq-vpn/vpn.lan-to-lan/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B-vigor3300-lan-to-lan-vpn-ipsec-tunnel/" target="_blank" >如何建立 Vigor3300 LAN to LAN VPN IPSec tunnel ?</a></li>
 </ul>
 
 

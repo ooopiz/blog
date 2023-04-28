@@ -217,6 +217,11 @@ mv to /var/opt/gitlab/backups/
                     <span>About</span>
                 </a>
             </li>
+            <li>
+                <a href="https://blog.ooopiz.com/links/" title="Links">
+                    <span>Links</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -279,7 +284,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 <h4 id="1安裝">1.安裝<a hidden class="anchor" aria-hidden="true" href="#1安裝">#</a></h4>
 <p>我自己都用Omnibus
 所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧</p>
-<p><a href="https://about.gitlab.com/downloads/#centos7">gitlab 官網有美美的教學，自己來吧</a></p>
+<p><a href="https://about.gitlab.com/downloads/#centos7" target="_blank" >gitlab 官網有美美的教學，自己來吧</a></p>
 <p>其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]</p>
 <p><img loading="lazy" src="https:////fblog.ooopiz.com/images/201609/M12-A01-02.jpg" alt=""  />
 </p>
@@ -287,7 +292,7 @@ recovery，以免意外發生時手忙腳亂．</p>
 <p><code># sudo gitlab-ctl reconfigure</code></p>
 <p>Ref:</p>
 <ul>
-<li><a href="https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430">Freeze on ruby_block[supervise_redis_sleep] action run</a></li>
+<li><a href="https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430" target="_blank" >Freeze on ruby_block[supervise_redis_sleep] action run</a></li>
 </ul>
 <h4 id="2-匯入backup檔">2. 匯入backup檔<a hidden class="anchor" aria-hidden="true" href="#2-匯入backup檔">#</a></h4>
 <p>我將backup檔copy到新伺服器的備份目錄下，執行recovery時，程序會自動將檔案recovery回去</p>

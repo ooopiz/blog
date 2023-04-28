@@ -80,5 +80,5 @@ UDF：255個字元
 ## Reference
 
 * [檔案名稱的長度限制？](https://www.ptt.cc/bbs/CD-R/M.1251003738.A.24D.html)
-* [hdiutil](hhttps://ss64.com/osx/hdiutil.html)
+* [hdiutil](https://ss64.com/osx/hdiutil.html)
 * [How to Create a DVD ISO Image from Files on a Mac](https://www.provideocoalition.com/howto_create_dvd_iso_from_files_mac/)

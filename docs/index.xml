@@ -975,6 +975,15 @@ class Kernel extends HttpKernel { /** * The application&amp;#39;s global HTTP mi
       <description> </description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://blog.ooopiz.com/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.ooopiz.com/links/</guid>
+      <description> Howard Tech Note </description>
+    </item>
+    
     
   </channel>
 </rss>
