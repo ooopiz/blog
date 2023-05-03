@@ -150,6 +150,25 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>安裝 PHP5.6
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
+CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
+路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
+vi /etc/yum.repos.d/remi.repo
+安裝 PHP yum install php
+安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
+設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
+cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-05-05 02:38:01 +0800 CST'>May 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 PHP5.6" href="https://blog.ooopiz.com/post/2016/05/install-php56/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>安裝 Nexus OSS
     </h2>
   </header>
@@ -280,22 +299,6 @@ Building the main Guest Additions module [失敗] yum install kernel-devel kerne
   </div>
   <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
   <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>說明 VirtualBox 透過 NAT 網卡來達到對外部的連線
-當你本機想要跟虛擬機器進行連線的時候，你可以建立一個區域網路來進行連線
-Windows 環境在你安裝 VirtualBox 的時候就幫你安裝了一個網路配接卡 Mac就必須自己手動新增一下
-VirtualBox -&gt; 喜好設定
-設定2張介面卡 1. NAT 2. 僅限主機介面卡 VirtualBox 的 Host Only 網卡的預設網段是 192.168.56.0</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-09-09 09:10:01 +0800 CST'>September 9, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to VirtureBox網卡設定 - 讓虛擬機器可以連外同時本機可以連虛擬機器" href="https://blog.ooopiz.com/post/2015/09/virturebox-outside-card-set-make-a-virtual-machine-can-be-connected-at-the-same-time-the-machine-can-be-connected-to-the-virtual-machine/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

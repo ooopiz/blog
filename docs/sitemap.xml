@@ -3,7 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.ooopiz.com/post/</loc>
-    <lastmod>2023-04-17T10:40:46+08:00</lastmod>
+    <lastmod>2023-05-03T11:27:28+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/post/2023/05/windows-cwrsync-permission/</loc>
+    <lastmod>2023-05-03T11:27:28+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/</loc>
+    <lastmod>2023-05-03T11:27:28+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/tags/</loc>
     <lastmod>2023-04-17T10:40:46+08:00</lastmod>
@@ -12,9 +18,6 @@
     <lastmod>2023-04-17T10:40:46+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/</loc>
-    <lastmod>2023-04-17T10:40:46+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ooopiz.com/</loc>
     <lastmod>2023-04-17T10:40:46+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/tags/systemd/</loc>

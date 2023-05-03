@@ -150,6 +150,24 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Kafka 基本設定與用法
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Prepare 安裝 kafka 前先在環境中安裝 Java and Scala
+Install 看官網的 quick start 吧
+Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka
+$ chown -R kafka:kafka /opt/kafka*
+設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service
+[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service
+[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts...</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-01-30 22:33:26 +0800 CST'>January 30, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to Kafka 基本設定與用法" href="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Macos L2tp vpn 設定
     </h2>
   </header>
@@ -250,25 +268,6 @@ VirtualBox 新增機器 選 Linux 64 bit 即可
   </div>
   <footer class="entry-footer"><span title='2019-05-28 15:20:25 +0800 CST'>May 28, 2019</span></footer>
   <a class="entry-link" aria-label="post link to Virtualbox 安裝 Coreos" href="https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Fswatch Save My Times
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累，
-就到網路上搜看看有沒有可以監控檔案存檔事件的工具，
-於是找到了這款 Mac 可以使用的 Fswatch
-安裝 mac 上安裝就直接
-brew install fswatch
-腳本 因為我只要監控 go file 有沒有異動，
-如果有的話幫我 compilar，所以腳本中有限定 .go 檔。
-#!/bin/bash BASEDIR=$(dirname &#34;$0&#34;) fswatch &#34;$BASEDIR&#34; | while read file do filename=$(basename -- &#34;$file&#34;) extension=&#34;${filename##*.}&#34; filename=&#34;${filename%.*}&#34; if [ &#34;$extension&#34; = &#34;go&#34; ] then echo &#34;=============================================\n\n&#34; time go run ${file} fi done Demo Reference OS X使用fswatch&#43;rsync自动检测文件夹改动并同步 </p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-23 23:27:58 +0800 CST'>May 23, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to Fswatch Save My Times" href="https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

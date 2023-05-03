@@ -150,6 +150,27 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Windows rsync (cwRsync) 權限問題
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Windows 使用 rsync 引發的權限問題 如果你在 Linux 上使用過 rsync 指令，多少需要瞭解一下檔案權限的問題。
+在 Windows 上 Rsync，可以透過一些模擬 Linux API 的指令來實現
+這裡用到的是 cwRsync，可以到官網下載 rsync client 純指令版
+(rsync-client 是 free 的，其它有些東西可能需要付費，看自己的需求)
+這裡列舉幾個我自己在 Windows 上遇到的權限問題
+rsync 後的檔案或資料夾，無法開啟或刪除檔案 資料夾安全性顯示 權限排序不正確 跟 null sid 權限問題處理 1. 無法開啟或刪除資料夾 可以試著在執行 rsync 指令時加上參數 --chmod=ugo=rwX -r 來改變檔案的權限
+rsync -avz --chmod=ugo=rwX -r &lt;source&gt; &lt;destination&gt;
+2. 資料夾安全性顯示 權限排序不正確 跟 null sid 如果權限排序不正確，可以試著在 cwrsync/etc 底下加入 fstab 檔，
+設定 noacl 來排除，具體可以參考 refer 連結，範例如下:
+# /etc/fstab none /cygdrive cygdrive binary,noacl,posix=0,user 0 0 正確權限示意圖(沒有出現 null sid)...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-03 11:27:28 +0800 CST'>May 3, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Windows rsync (cwRsync) 權限問題" href="https://blog.ooopiz.com/post/2023/05/windows-cwrsync-permission/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Windows OS cd 指令，你應該注意的事 (device 切換)
     </h2>
   </header>
@@ -288,24 +309,6 @@ $ hdiutil makehybrid -iso -udf -o rpms....</p>
   </div>
   <footer class="entry-footer"><span title='2020-02-13 20:20:54 +0800 CST'>February 13, 2020</span></footer>
   <a class="entry-link" aria-label="post link to 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Kafka 基本設定與用法
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Prepare 安裝 kafka 前先在環境中安裝 Java and Scala
-Install 看官網的 quick start 吧
-Offical Quick start Offical Download 設定 設定啟動 kafka 的用戶 與權限 $ useradd kafka
-$ chown -R kafka:kafka /opt/kafka*
-設定 systemd 的 守護進程 $ vi /etc/systemd/system/zookeeper.service
-[Unit] Description=zookeeper After=syslog.target network.target [Service] Type=simple User=kafka Group=kafka ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh [Install] WantedBy=multi-user.target $ vi /etc/systemd/system/kafka.service
-[Unit] Description=Apache Kafka Requires=zookeeper.service After=zookeeper.service [Service] Type=simple User=kafka Group=kafkaa ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties ExecStop=/opt/kafka/bin/kafka-server-stop.sh [Install] WantedBy=multi-user.target kafka 設定 先設定一個主機名稱給hosts...</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-01-30 22:33:26 +0800 CST'>January 30, 2020</span></footer>
-  <a class="entry-link" aria-label="post link to Kafka 基本設定與用法" href="https://blog.ooopiz.com/post/2020/01/kafka-basic-setting-and-usage/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

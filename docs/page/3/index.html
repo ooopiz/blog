@@ -136,6 +136,25 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Fswatch Save My Times
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累，
+就到網路上搜看看有沒有可以監控檔案存檔事件的工具，
+於是找到了這款 Mac 可以使用的 Fswatch
+安裝 mac 上安裝就直接
+brew install fswatch
+腳本 因為我只要監控 go file 有沒有異動，
+如果有的話幫我 compilar，所以腳本中有限定 .go 檔。
+#!/bin/bash BASEDIR=$(dirname &#34;$0&#34;) fswatch &#34;$BASEDIR&#34; | while read file do filename=$(basename -- &#34;$file&#34;) extension=&#34;${filename##*.}&#34; filename=&#34;${filename%.*}&#34; if [ &#34;$extension&#34; = &#34;go&#34; ] then echo &#34;=============================================\n\n&#34; time go run ${file} fi done Demo Reference OS X使用fswatch&#43;rsync自动检测文件夹改动并同步 </p>
+  </div>
+  <footer class="entry-footer"><span title='2019-05-23 23:27:58 +0800 CST'>May 23, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Fswatch Save My Times" href="https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>IPsec Lan to Lan Vigor-2925 and AWS-ec2
     </h2>
   </header>
@@ -249,36 +268,6 @@ public class TestMath { private Integer num1; private Integer num2; public TestM
   </div>
   <footer class="entry-footer"><span title='2016-12-21 03:23:01 +0800 CST'>December 21, 2016</span></footer>
   <a class="entry-link" aria-label="post link to php call java 類別" href="https://blog.ooopiz.com/post/2016/12/php-call-java-class/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>GitLab 7.14升級8.X
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙腳亂．
-目前版本：gitlab-ce-7.14.3-ce.1.el7.x86_64 預計更新版本：就更新到最新版吧目前是8.14.4
-一開始傻傻的，想要把舊版本的backup檔，直接到8.X版本進行匯入， 很快的它就會告訴你版本不合了， 只好再用別的方式
-後來我準備了兩台伺服器， 一台先安裝7.14.3 一台安裝最新版8.14.4
-預計先將7.14.3的備份檔匯入第一台伺服器，之後進行升級， 然後因為個人有點龜毛，再用升級好機器備份出8.14.4版的備份檔， 來到全新的新版機器(8.14.4)再進行匯入
-流程 舊機器 7.14.3 備份 1. 備份backup檔 在原本的機器上下指令備份gitlab資料
-# gitlab-rake gitlab:backup:create
-新機器版本 7.14.3 這台機器要先裝好 7.14.3，匯入備份檔，再用 yum 更新到 8.14.4。
-1.安裝 我自己都用Omnibus 所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧
-gitlab 官網有美美的教學，自己來吧
-其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]
-# sudo /opt/gitlab/embedded/bin/runsvdir-start &amp;
-# sudo gitlab-ctl reconfigure
-Ref:
-Freeze on ruby_block[supervise_redis_sleep] action run 2. 匯入backup檔 我將backup檔copy到新伺服器的備份目錄下，執行recovery時，程序會自動將檔案recovery回去
-mv to /var/opt/gitlab/backups/
-3.開始前先停止相關數據服務連線 # gitlab-ctl stop unicorn
-# gitlab-ctl stop sidekiq
-4.從1393513186編號備份中復原(看你的檔案編號是啥鬼) # gitlab-rake gitlab:backup:restore BACKUP=1393513186...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-12-08 13:22:01 +0800 CST'>December 8, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to GitLab 7.14升級8.X" href="https://blog.ooopiz.com/post/2016/12/gitlab-upgrade-7.14-to-8/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

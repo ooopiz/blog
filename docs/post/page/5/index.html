@@ -150,6 +150,33 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Hicloud S3雲儲存資料夾掛載
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>hicloud S3雲儲存 目的：將s3的bucket掛載到Caas雲伺服器
+主機環境：CentOS 6.4
+說明：s3fs base on fuse所以伺服器上必須有fuse的lib
+示意圖：
+Resource： Hicloud S3 文檔 s3fs-fuse 安裝 一、下載s3fs-fuse源碼進行安裝 Github s3fs-fuse
+二、安裝所需套件 CentOS7 yum install automake fuse fuse-devel gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel CentOS6 yum install automake gcc-c&#43;&#43; git libcurl-devel libxml2-devel make openssl-devel fuse fuse-devel 版本必須大於 2.8.4，CentOS6 yum install只有2.8.3，所以必須手動安裝(安裝步驟於下方)，安裝完成後，重這裡接續安裝即可．
+三、安裝步驟 git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+cd s3fs-fuse
+./autogen.sh
+./configure -prefix=/usr
+make
+make install
+四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
+將key info寫入設定檔中
+vi /etc/passwd-s3fs
+#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3....</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-08-09 02:07:01 +0800 CST'>August 9, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Hicloud S3雲儲存資料夾掛載" href="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>2016/07/27 使用ab壓測
     </h2>
   </header>
@@ -248,25 +275,6 @@ chkconfig --levels 235 nginx on</p>
   </div>
   <footer class="entry-footer"><span title='2016-05-05 02:47:01 +0800 CST'>May 5, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 安裝 Nginx 1.9&#43;" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>安裝 PHP5.6
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
-CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
-路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-vi /etc/yum.repos.d/remi.repo
-安裝 PHP yum install php
-安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-05-05 02:38:01 +0800 CST'>May 5, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 安裝 PHP5.6" href="https://blog.ooopiz.com/post/2016/05/install-php56/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
