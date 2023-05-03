@@ -135,6 +135,27 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Windows rsync (cwRsync) 權限問題
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Windows 使用 rsync 引發的權限問題 如果你在 Linux 上使用過 rsync 指令，多少需要瞭解一下檔案權限的問題。
+在 Windows 上 Rsync，可以透過一些模擬 Linux API 的指令來實現
+這裡用到的是 cwRsync，可以到官網下載 rsync client 純指令版
+(rsync-client 是 free 的，其它有些東西可能需要付費，看自己的需求)
+這裡列舉幾個我自己在 Windows 上遇到的權限問題
+rsync 後的檔案或資料夾，無法開啟或刪除檔案 資料夾安全性顯示 權限排序不正確 跟 null sid 權限問題處理 1. 無法開啟或刪除資料夾 可以試著在執行 rsync 指令時加上參數 --chmod=ugo=rwX -r 來改變檔案的權限
+rsync -avz --chmod=ugo=rwX -r &lt;source&gt; &lt;destination&gt;
+2. 資料夾安全性顯示 權限排序不正確 跟 null sid 如果權限排序不正確，可以試著在 cwrsync/etc 底下加入 fstab 檔，
+設定 noacl 來排除，具體可以參考 refer 連結，範例如下:
+# /etc/fstab none /cygdrive cygdrive binary,noacl,posix=0,user 0 0 正確權限示意圖(沒有出現 null sid)...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-03 11:27:28 +0800 CST'>May 3, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Windows rsync (cwRsync) 權限問題" href="https://blog.ooopiz.com/post/2023/05/windows-cwrsync-permission/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Windows OS cd 指令，你應該注意的事 (device 切換)
     </h2>
   </header>

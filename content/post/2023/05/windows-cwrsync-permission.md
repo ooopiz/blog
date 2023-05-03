@@ -2,6 +2,7 @@
 title: "Windows rsync (cwRsync) 權限問題"
 date: 2023-05-03T11:27:28+08:00
 draft: false
+tags: ["windows", "rsync"]
 ---
 
 ## Windows 使用 rsync 引發的權限問題
