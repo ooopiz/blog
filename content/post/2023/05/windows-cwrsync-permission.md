@@ -1,5 +1,5 @@
 ---
-title: "Windows rsync (cwRsync) 權限問題"
+title: "Windows rsync (cwRsync) 權限排序不正確"
 date: 2023-05-03T11:27:28+08:00
 draft: false
 tags: ["windows", "rsync"]
@@ -16,7 +16,7 @@ tags: ["windows", "rsync"]
 這裡列舉幾個我自己在 Windows 上遇到的權限問題
 
 1. rsync 後的檔案或資料夾，無法開啟或刪除檔案
-2. 資料夾安全性顯示 `權限排序不正確` 跟 null sid
+2. 資料夾安全性顯示 **權限排序不正確** 跟 **null sid**
    * ![權限排序不正確](https://fblog.ooopiz.com/images/2023/05/a001.png)
    * ![null sid](https://fblog.ooopiz.com/images/2023/05/a002.png)
 
@@ -28,7 +28,7 @@ tags: ["windows", "rsync"]
 
 `rsync -avz --chmod=ugo=rwX -r <source> <destination>`
 
-### 2. 資料夾安全性顯示 `權限排序不正確` 跟 null sid
+### 2. 資料夾安全性顯示 權限排序不正確 跟 null sid
 
 如果權限排序不正確，可以試著在 cwrsync/etc 底下加入 fstab 檔，  
 設定 `noacl` 來排除，具體可以參考 refer 連結，範例如下:
