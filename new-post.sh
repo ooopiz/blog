@@ -2,7 +2,7 @@
 
 if [ -z "$1" ]
 then
-    echo "Please input post md name!"
+    echo "EX: ./new-post input-post-name.md"
     exit
 fi
 
