@@ -150,6 +150,33 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>CentOS 6.5 安裝MariaDB
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案
+config /etc/yum.repos.d/mariadb.repo
+32位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 yum update -y
+安裝 MariaDB 安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
+yum install MariaDB-devel MariaDB-client MariaDB-server -y
+service mysql start
+chkconfig mysql on
+初始化 MariaDB 執行這個初始化程式，過程跟MySQL一模一樣
+/usr/bin/mysql_secure_installation
+第一個問題，Enter current password for root (enter for none):
+請直接按下Enter，因為預設MariaDB沒有密碼。
+第二個問題，Change the root password? [Y/n]
+是否更改root密碼，極度建議您設定root密碼，請輸入Y
+第三個問題，Remove anonymous users? [Y/n]
+是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了
+第四個問題，Disallow root login remotely?...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-08-24 07:05:01 +0800 CST'>August 24, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS 6.5 安裝MariaDB" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>CentOS6.5 安裝Nginx
     </h2>
   </header>
@@ -256,20 +283,6 @@ vi /etc/yum.repos.d/remi.repo
   </div>
   <footer class="entry-footer"><span title='2015-08-24 01:08:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS6.5 安裝LNMP" href="https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>CentOS 6.5 防火牆設定iptables
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-21 10:05:01 +0800 CST'>August 21, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS 6.5 防火牆設定iptables" href="https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

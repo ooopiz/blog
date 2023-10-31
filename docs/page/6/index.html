@@ -136,6 +136,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>安裝 Nginx 1.9&#43;
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>新增 nginx.repo vi /etc/yum.repos.d/nginx.repo
+[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx yum install nginx
+啟動服務 service nginx start
+chkconfig --levels 235 nginx on</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-05-05 02:47:01 +0800 CST'>May 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to 安裝 Nginx 1.9&#43;" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>安裝 PHP5.6
     </h2>
   </header>
@@ -260,31 +275,6 @@ javac -version 5....</p>
   </div>
   <footer class="entry-footer"><span title='2015-09-30 05:13:01 +0800 CST'>September 30, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS7 安裝JDK 64 Bit" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>VirtualBox Guest Addtiton安裝 for Centos
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>我在 virtualbox上 面安裝的是 CentOS7 的 OS
-當你想 mount 本機的資料夾給虛擬機器使用的時候，你的 virtualbox 應該會提示你，
-你應該要安裝 VirtualBox Guest Addtiton
-那就讓我們來開始安裝吧
-先把 VBoxGuestAdditions.iso mount 起來 mkdir /media/cdrom
-mount /dev/cdrom /media/cdrom
-執行 VBoxLinuxAdditions.run sh /media/cdrom/VBoxLinuxAdditions.run
-接著就可以 mount 本機分享給虛擬機的資料夾了 mkdir ~/new
-mount -t vboxsf New ~/new
-或者你需要有特定owner的mount
-mount -t vboxsf -o uid=nginx,gid=nginx New ~/new
-troubleshoot 在執行 VBoxLinuxAdditions.run 的時候你可能會遇到
-bzip2 command not found yum install bzip2 -y
-Building the main Guest Additions module [失敗] yum install kernel-devel kernel-headers dkms gcc gcc-c&#43;&#43; -y...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-09-09 09:49:01 +0800 CST'>September 9, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to VirtualBox Guest Addtiton安裝 for Centos" href="https://blog.ooopiz.com/post/2015/09/install-virtualbox-guest-addtiton-for-centos/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

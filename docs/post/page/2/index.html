@@ -150,6 +150,36 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
+雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。
+我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb
+就是沒有檔案打包 ISO 檔的
+終於…
+資料夾轉成映像檔 磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
+於是它把我的檔案製作成了 .cdr
+轉檔 cdr to iso 最先我找到的指令是這一句
+$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr
+成功轉檔
+在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試
+掛載成功
+燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
+在各種格式下的檔案名稱有其長度的限制
+ISO 9600
+LV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet
+LV1：64個字元 LVX：110個字元 UDF：255個字元
+於是將轉檔的指令改成 -udf
+$ hdiutil makehybrid -iso -udf -o rpms....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-02-13 20:20:54 +0800 CST'>February 13, 2020</span></footer>
+  <a class="entry-link" aria-label="post link to 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Kafka 基本設定與用法
     </h2>
   </header>
@@ -243,31 +273,6 @@ dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 d
   </div>
   <footer class="entry-footer"><span title='2019-06-04 20:22:08 +0800 CST'>June 4, 2019</span></footer>
   <a class="entry-link" aria-label="post link to Docker cli 連線到遠端的 dockerd daemon" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Virtualbox 安裝 Coreos
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO
-如標題，這份 ISO 僅是開機片而已，並無安裝動作，
-如何安裝的部分下面會提到。
-VirtualBox 新增機器 選 Linux 64 bit 即可
-掛載剛下載的 ISO 檔
-開機 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。
-512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
-安裝到硬碟 這個步驟要使用 coreos-install 這個指令來安裝硬碟，
-當 ISO boot 的時候，該指令就已經內建在系統裡了。
-要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，
-這個檔案可以用來設定用戶、網路、儲存、服務等。。。
-必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）
-否則裝好之後是無法使用 ssh login in 的。
-先查看硬碟空間在那裡 $ sudo fdisk -l...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-28 15:20:25 +0800 CST'>May 28, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to Virtualbox 安裝 Coreos" href="https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

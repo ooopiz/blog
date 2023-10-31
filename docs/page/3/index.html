@@ -136,6 +136,31 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Virtualbox 安裝 Coreos
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO
+如標題，這份 ISO 僅是開機片而已，並無安裝動作，
+如何安裝的部分下面會提到。
+VirtualBox 新增機器 選 Linux 64 bit 即可
+掛載剛下載的 ISO 檔
+開機 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。
+512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
+安裝到硬碟 這個步驟要使用 coreos-install 這個指令來安裝硬碟，
+當 ISO boot 的時候，該指令就已經內建在系統裡了。
+要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，
+這個檔案可以用來設定用戶、網路、儲存、服務等。。。
+必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）
+否則裝好之後是無法使用 ssh login in 的。
+先查看硬碟空間在那裡 $ sudo fdisk -l...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-05-28 15:20:25 +0800 CST'>May 28, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Virtualbox 安裝 Coreos" href="https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Fswatch Save My Times
     </h2>
   </header>
@@ -249,25 +274,6 @@ ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</p>
   </div>
   <footer class="entry-footer"><span title='2017-03-21 02:21:01 +0800 CST'>March 21, 2017</span></footer>
   <a class="entry-link" aria-label="post link to pem轉ppk putty 登入" href="https://blog.ooopiz.com/post/2017/03/pem-to-ppk-putty-login/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>php call java 類別
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>php-java-bridge 介紹
-php-java-bridge 載點
-Files &gt; Binary package &gt; JavaBridgeTemplate621.war
-我下載到的版本是JavaBridgeTemplate621.war
-寫一個jar來做測試 # mkdir TestMath
-# cd TestMath
-# vi TestMath.java
-public class TestMath { private Integer num1; private Integer num2; public TestMath() { this.num1 = 0; this.num2 = 0; } public TestMath(Integer n1, Integer n2) { this.num1 = n1; this.num2 = n2; } public void setNum1(Integer n) { this.num1 = n; } public void setNum2(Integer n) { this.num2 = n; } public Integer plus() { return num1 &#43; num2; } public Integer minus() { return num1 - num2; } } # javac TestMath....</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-12-21 03:23:01 +0800 CST'>December 21, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to php call java 類別" href="https://blog.ooopiz.com/post/2016/12/php-call-java-class/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
