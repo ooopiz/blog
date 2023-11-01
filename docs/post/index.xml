@@ -16,11 +16,12 @@
       <pubDate>Tue, 31 Oct 2023 17:37:01 +0800</pubDate>
       
       <guid>https://blog.ooopiz.com/post/2023/10/loki-ruler-record-data/</guid>
-      <description>Loki 環境說明 Loki 使用 3台 Monolithic mode 的 cluster ring kvstore 使用 memberlist Storage 在 AWS S3 情境說明 目前使用 Loki 記錄 nginx 的訪問日誌， 日誌有點份量之後，Loki 原生的統計函數非常的吃緊，動不動就跑到 CPU 100% 然後 timeout
-在官方文件上看到 record data 的做法。 基本上是利用 ruler 模組，定期執行統計，記錄到 prometheus 或其它支援的 storage，不用每次都跑一堆計算，可以改拉 prometheus 預算好的資料。
-下圖取自 record data 後拉取的資料 (24小時有 272M筆記錄，284GB)
-Ruler 如果 loki 是 cluster 必須啟用 rule api 來管理規則,不能將 ruler 存放在單台的 disk 上
-loki 設定範例 common: ring: kvstore: store: memberlist memberlist: bind_port: 7946 join_members: - 127.</description>
+      <description>Loki 環境說明 Loki 版本 2.9.2 Loki 使用 3台 Monolithic mode 的 cluster ring kvstore 使用 memberlist Storage 在 AWS S3 情境說明 目前使用 Loki 記錄 nginx 的訪問日誌， 日誌有點份量之後，Loki 原生的統計函數變得相當吃緊，查詢請求動不動就跑到 CPU 100% 然後 timeout。
+嘗試過將機器規格提升到兩台 32 core 的機器，雖然可以感覺到查詢速度有變快，但效果還是非常不理想。 沒人查詢時基本上 CPU 也是整個空閒，相當的浪費資源。
+官方文件上有看到 record data 的做法。 基本上是利用 ruler 模組，定期執行統計，記錄到 prometheus 或其它支援的 storage，不用每次都跑一堆計算，可以改拉 prometheus 預算好的資料。
+下圖取自 record data 後拉取的資料 (24小時有 272M筆訪問記錄，284GB)
+Ruler 單機的 Loki 你可以將 rule 規則存放在 Disk 中，直接編輯，
+如果是 cluster 可以啟用 rule api 來管理規則，將規則存放到類似 S3 的 storage 供每個節點存取。</description>
     </item>
     
     <item>
