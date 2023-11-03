@@ -81,13 +81,13 @@ ruler:
 
 Endpoint: http://lokiserver:3100
 
-* GET /ruler/ring
-* GET /loki/api/v1/rules
-* GET /loki/api/v1/rules/{namespace}
-* GET /loki/api/v1/rules/{namespace}/{groupName}
-* POST /loki/api/v1/rules/{namespace}
-* DELETE /loki/api/v1/rules/{namespace}/{groupName}
-* DELETE /loki/api/v1/rules/{namespace}
+* `GET /ruler/ring`
+* `GET /loki/api/v1/rules`
+* `GET /loki/api/v1/rules/{namespace}`
+* `GET /loki/api/v1/rules/{namespace}/{groupName}`
+* `POST /loki/api/v1/rules/{namespace}`
+* `DELETE /loki/api/v1/rules/{namespace}/{groupName}`
+* `DELETE /loki/api/v1/rules/{namespace}`
 
 ### 設定規則
 
@@ -167,6 +167,44 @@ nginx:
 
 ## 總結
 
-網路上常常可以看到 Loki 跟 ELK 比較，  
 個人也用 PLG (promtial, Loki, Grafana) 一段時間了。  
-我也來說說我的想法：
+來分享一些我對 Loki 的想法：
+
+### 選用 Loki 的原因
+1. Grafana 生態系，可以很好的跟 Grafana 融合
+2. 覺得 ELK 太笨重，試試新的方案
+
+### 實際使用
+
+Loki 部署時直接啟動 binary 檔即可，對比 elasticsearch 簡單許多。  
+但 Loki 繁雜的設定檔配置起來卻不怎麼輕鬆。  
+一個 binary 全部運行的模組都包在裡面，  
+
+每個模組都有其可以設定的參數，參數名稱時常有所重疊，  
+加上文檔看起來不太直覺，個人花了不小的一段時間才比較理解參數的佈局與意義。
+
+Loki 本身概念跟 Elasticsearch 有些不同，  
+收集 Log 時，Loki 以 label 為單位分成 stream 壓縮存放。  
+沒有其它額外的處理，  
+好處是寫入效能相當優異，你應該可以用較普通的機器規格收納極大量的記錄。  
+
+在日誌查詢的部分，如有明確的查詢字段，在查詢的效能上我覺得也很不錯。
+
+至於聚合的部分，效果可能就不怎麼好，  
+
+例如： 
+* count_over_time
+* bytes_over_time
+* sum_over_time
+
+以我上方提到的日誌量來說，使用這些聚合的操作都會耗費大量的 CPU，
+即便只有 1 或 3 小時。  
+更遑論有些是 unwrap 提取出來運算的值，  
+
+通過加大 memory cache，加大機器規格，想要有更好的效能來快速呈現 dashboard，現實是幾個小時的資料都跑不出來。
+
+最後藉由 record data 每隔一段時間將資料計算好寫入 prometheus  
+來解決這個困境。  
+平常花費一些 CPU 資源來運算，需要報表時即可快速呈現，也算有了個滿意的解法來解決問題。
+
+總體來說 Loki 應該還算相對年輕的日誌整合方案，期待它後續的發展。
