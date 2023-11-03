@@ -46,8 +46,9 @@ common:
 memberlist:
   bind_port: 7946
   join_members:
-    - 127.0.0.1:7946
-    - 127.0.0.1:17946
+    - 172.31.37.120:7946
+    - 172.31.30.184:7946
+    - 172.31.29.89:7946
 
 ruler:
   enable_api: true
