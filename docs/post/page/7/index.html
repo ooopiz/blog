@@ -150,6 +150,33 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>CentOS7 安裝JDK 64 Bit
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tar.gz 安裝 cd /opt
+wget --no-cookies --no-check-certificate --header &#34;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&#34; &#34;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&#34;
+tar zxvf jdk-7u79-linux-x64.tar.gz
+alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到
+官方網址
+下載你需要的JDK版本
+2.安裝rpm包 會自動安裝到/usr/java下
+rpm -Uvh jdk-8u25-linux-x64.rpm
+3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理
+alternatives的指令格式如下:
+alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
+使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
+如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
+alternatives --config java
+4.檢查安裝是否正常 java -version
+javac -version 5....</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-30 05:13:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝JDK 64 Bit" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>VirtualBox Guest Addtiton安裝 for Centos
     </h2>
   </header>
@@ -274,19 +301,6 @@ rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --d
   </div>
   <footer class="entry-footer"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS 使用rsync" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>重灌Mac
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>重開機時，按住 command &#43; R 會跳出如下面圖片的介面．
-就可以開始進行清理硬碟與重灌OS X的作業</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-30 14:14:01 +0800 CST'>August 30, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to 重灌Mac" href="https://blog.ooopiz.com/post/2015/08/reinstall-mac/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

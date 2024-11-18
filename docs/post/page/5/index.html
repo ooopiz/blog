@@ -150,6 +150,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
+首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
+[RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz « CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz « CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
+Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-....</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-09-29 08:49:01 +0800 CST'>September 29, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式" href="https://blog.ooopiz.com/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>運用google協作平台製作履歷
     </h2>
   </header>
@@ -255,31 +270,6 @@ A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Manageme
   </div>
   <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 2013 開放 Web 軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>CentOS7 安裝 Postfix
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
-也是 Sendmail 很好的替代品。
-以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
-查詢是否安裝過
-rpm -qa | grep sendmail
-rpm -qa | grep exim
-移除
-yum remove sendmail
-yum remove exim
-為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing 換成
-SELINUX=disabled 重開機後生效
-開始安裝 Postfix yum install postfix...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 安裝 Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

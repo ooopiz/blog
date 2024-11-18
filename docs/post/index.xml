@@ -9,7 +9,19 @@
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 31 Oct 2023 17:37:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vscode terminal ctrl &#43; p 關閉 quckopen</title>
+      <link>https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/</link>
+      <pubDate>Mon, 18 Nov 2024 14:23:30 +0800</pubDate>
+      
+      <guid>https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/</guid>
+      <description>Vscode Terminal control + p 無法切換前一個命令 常用的 terminal 工具原始設定使用 ctrl + p 熱鍵，切換到上一個命令。
+但在 vsocde 裡的 terminal 會變成 quick open
+如果想讓熱鍵可以是切到上一個命令可調整
+Preferences &amp;gt; Setting &amp;gt; 搜尋框輸入 terminal.intergrated.commandToSkipShell &amp;gt; Add item -workbench.action.quickOpen</description>
+    </item>
+    
     <item>
       <title>Loki 使用 Ruler&#39;s Record Data 處理大量日誌統計</title>
       <link>https://blog.ooopiz.com/post/2023/10/loki-ruler-record-data/</link>

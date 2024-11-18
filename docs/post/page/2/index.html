@@ -150,6 +150,34 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Ansible Synchronize Why Permission Denied
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組，
+如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，
+但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。
+不過 synchroize 這個模組卻是時靈時不靈。
+筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。
+執行到有 synchroize 這個模組有時還是會報出 permission deied。
+become_user: root, become_method: sudo, 跟模組參數試了又試。
+還是很難理解到底那個環節出了問題。
+發現問題 一般來說 ansible 使用上都是透過 ssh 控制遠程的目標伺服器。
+筆者的 asnible script 寫了很多安裝佈署的步驟，其中當然也包含了 synchroize 模組。
+為了符合單機離線安裝的情境，做這類佈署時我會直接將 inventory 的主機直接指定本地端的 IP，
+直接在本地執行安裝腳本。
+一台 Server 可能會有多個網卡跟IP（127.0.0.1 or 192.168.x.x）
+就在某次我將 inventory 目標主機指定成 127.0.0.1 果然發生一樣的問題。
+當我發現目標機器是 127.0.0.1 時就會出問題，
+目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。
+我大概可以猜測 synchroize 模組針對 localhsot or 127....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-01-28 15:37:22 +0800 CST'>January 28, 2021</span></footer>
+  <a class="entry-link" aria-label="post link to Ansible Synchronize Why Permission Denied" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？
     </h2>
   </header>
@@ -250,29 +278,6 @@ $ vi /etc/systemd/network/enp0s8.network
   </div>
   <footer class="entry-footer"><span title='2019-07-24 17:01:37 +0800 CST'>July 24, 2019</span></footer>
   <a class="entry-link" aria-label="post link to CoreOS Static Ip 固定 IP 設定" href="https://blog.ooopiz.com/post/2019/07/coreos-static-ip/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Docker cli 連線到遠端的 dockerd daemon
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是：
-docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成
-才赫然發現 docker 別有洞天吶。
-原來每天在敲的 docker 指令都是在操控本機的 docker daemon。
-如何連線到遠端的 docker daemon 有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。
-今天馬上用我 virtualbox 中的 coreOS 進行測試一下。
-dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加入 -H 參數。
--H tcp://0.0.0.0:2375
-如果是用 systemctl 控制 docker 你可以找到 docker.service，在腳本中加入 -H 參數。
-以 coreOS 為例，
-我的檔案在 /run/systemd/system/docker.service
-修改完後，reload 並重啓...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-06-04 20:22:08 +0800 CST'>June 4, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to Docker cli 連線到遠端的 dockerd daemon" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

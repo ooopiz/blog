@@ -150,6 +150,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Vscode terminal ctrl &#43; p 關閉 quckopen
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Vscode Terminal control &#43; p 無法切換前一個命令 常用的 terminal 工具原始設定使用 ctrl &#43; p 熱鍵，切換到上一個命令。
+但在 vsocde 裡的 terminal 會變成 quick open
+如果想讓熱鍵可以是切到上一個命令可調整
+Preferences &gt; Setting &gt; 搜尋框輸入 terminal.intergrated.commandToSkipShell &gt; Add item -workbench.action.quickOpen</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-11-18 14:23:30 +0800 CST'>November 18, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Vscode terminal ctrl &#43; p 關閉 quckopen" href="https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Loki 使用 Ruler&#39;s Record Data 處理大量日誌統計
     </h2>
   </header>
@@ -268,34 +283,6 @@ pip install grafana-backup
   </div>
   <footer class="entry-footer"><span title='2021-03-26 20:50:49 +0800 CST'>March 26, 2021</span></footer>
   <a class="entry-link" aria-label="post link to Windows 10 設定好用的拼音輸入法" href="https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Ansible Synchronize Why Permission Denied
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>關於 ansible 的 Synchronize 模組問題 關於 ansible 的使用上，synchroize 是一個很棒的模組，
-如果大量的檔案想要複製到目標機器上的話，也許有其他模組可以達到類似的需求，
-但以效能來說，synchroize 這個模組大概會是首選，因為其底層是透過 rsync 的指令傳輸資料。
-不過 synchroize 這個模組卻是時靈時不靈。
-筆者有一陣子很困擾的問題是，為什麼整份 ansible script 已經測試那麼多次了。
-執行到有 synchroize 這個模組有時還是會報出 permission deied。
-become_user: root, become_method: sudo, 跟模組參數試了又試。
-還是很難理解到底那個環節出了問題。
-發現問題 一般來說 ansible 使用上都是透過 ssh 控制遠程的目標伺服器。
-筆者的 asnible script 寫了很多安裝佈署的步驟，其中當然也包含了 synchroize 模組。
-為了符合單機離線安裝的情境，做這類佈署時我會直接將 inventory 的主機直接指定本地端的 IP，
-直接在本地執行安裝腳本。
-一台 Server 可能會有多個網卡跟IP（127.0.0.1 or 192.168.x.x）
-就在某次我將 inventory 目標主機指定成 127.0.0.1 果然發生一樣的問題。
-當我發現目標機器是 127.0.0.1 時就會出問題，
-目標機器 是 192.168.1.10 (一樣是本地端IP) 卻是正常的。
-我大概可以猜測 synchroize 模組針對 localhsot or 127....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-01-28 15:37:22 +0800 CST'>January 28, 2021</span></footer>
-  <a class="entry-link" aria-label="post link to Ansible Synchronize Why Permission Denied" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

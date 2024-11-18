@@ -136,6 +136,31 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>CentOS7 安裝 Postfix
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
+也是 Sendmail 很好的替代品。
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
+安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
+查詢是否安裝過
+rpm -qa | grep sendmail
+rpm -qa | grep exim
+移除
+yum remove sendmail
+yum remove exim
+為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
+SELINUX=enforcing 換成
+SELINUX=disabled 重開機後生效
+開始安裝 Postfix yum install postfix...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝 Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>安裝 Nginx 1.9&#43;
     </h2>
   </header>
@@ -248,33 +273,6 @@ cd /usr/local
   </div>
   <footer class="entry-footer"><span title='2015-09-30 06:10:01 +0800 CST'>September 30, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS7 安裝Tomcat" href="https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>CentOS7 安裝JDK 64 Bit
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>tar.gz 安裝 cd /opt
-wget --no-cookies --no-check-certificate --header &#34;Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie&#34; &#34;http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz&#34;
-tar zxvf jdk-7u79-linux-x64.tar.gz
-alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_79/bin/jar 2 alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_79/bin/javac 2 alternatives --set jar /opt/jdk1.7.0_79/bin/jar alternatives --set javac /opt/jdk1.7.0_79/bin/javac rpm 安裝 1.下載JDK 首先到
-官方網址
-下載你需要的JDK版本
-2.安裝rpm包 會自動安裝到/usr/java下
-rpm -Uvh jdk-8u25-linux-x64.rpm
-3.alternatives管理JDK版本 在Linux中可以同時存在許多個不同版本的JDK，方法是使用alternatives來進行管理
-alternatives的指令格式如下:
-alternatives –install &lt;連結&gt; &lt;名稱&gt; &lt;路徑&gt; &lt;優先順序&gt; alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_25/bin/java 1
-使用alternatives檢查一下系統中的設定，因為只有一個直接按Enter即可，
-如果有兩個以上，可以選擇要使用的版本，&#43;號即表示目前系統使用的版本
-alternatives --config java
-4.檢查安裝是否正常 java -version
-javac -version 5....</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-09-30 05:13:01 +0800 CST'>September 30, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 安裝JDK 64 Bit" href="https://blog.ooopiz.com/post/2015/09/centos7-install-jdk/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
