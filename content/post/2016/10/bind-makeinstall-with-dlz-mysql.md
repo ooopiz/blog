@@ -67,14 +67,14 @@ bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資�
 
 | 參數 | 說明 |
 |---|---|
-| --prefix=/usr                  |   bind安裝路徑, 默認[ /usr/local ]
-| --sysconfdir=/etc          |   配置文件路徑, 默認 [ /etc ]
-| --enable-threads           |   激活多線程
-| --with-libtool                  |   Use GNU libtool
-| ---with-openssl=yes     |   Build with OpenSSL yes|no|path. (Required for DNSSEC)
-| --enable-exportlib         |   Build exportable library (GNU make required) [default=no]
-| --with-dlz-postgres       |   使用postgres驅動，可以指定include檔路徑，<br />例：--with-dlz-postgres=/usr/local/pgsql/include
-| --with-dlz-mysql            |   使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，<br />可以指定include檔路徑，例：--with-dlz-mysql=/www/include
+| `--prefix=/usr`              |   bind安裝路徑, 默認[ /usr/local ]
+| `--sysconfdir=/etc`          |   配置文件路徑, 默認 [ /etc ]
+| `--enable-threads`           |   激活多線程
+| `--with-libtool`             |   Use GNU libtool
+| `--with-openssl=yes`         |   Build with OpenSSL yes|no|path. (Required for DNSSEC)
+| `--enable-exportlib`         |   Build exportable library (GNU make required) [default=no]
+| `--with-dlz-postgres`        |   使用postgres驅動，可以指定include檔路徑，例：--with-dlz-postgres=/usr/local/pgsql/include
+| `--with-dlz-mysql`           |   使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，可以指定include檔路徑，例：--with-dlz-mysql=/www/include
 
 #### 5. 編譯安裝
 
@@ -131,7 +131,7 @@ retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record
 `adduser -d /usr/local/bind9 -g named -s /bin/false named`
   
 |參數|說明|
-|---|----|
+|---|---|
 | -d | 被創建的named用戶的主目錄 |
 | -g | 所屬群組 |
 | -s | 帳號的登入shell(false表示不能登入) |

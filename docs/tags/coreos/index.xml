@@ -47,16 +47,22 @@ Address=192.168.56.201/24
 &lt;h2 id=&#34;開機&#34;&gt;開機&lt;/h2&gt;
 &lt;p&gt;官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;512 G - &lt;!-- raw HTML omitted --&gt; &lt;em&gt;無限重開&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;1024 G - &lt;!-- raw HTML omitted --&gt; &lt;em&gt;boot into emergency shell&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;img alt=&#34;emergency shell&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d003.jpg&#34; title=&#34;emergency shell&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2048 G - OK
-&lt;img alt=&#34;coreos boot&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d004.jpg&#34; title=&#34;coreos boot&#34;&gt;&lt;/p&gt;</description>
+&lt;li&gt;512 G - &lt;em&gt;無限重開&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;1024 G - &lt;em&gt;boot into emergency shell&lt;/em&gt;
+&lt;img alt=&#34;emergency shell&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d003.jpg&#34; title=&#34;emergency shell&#34;&gt;&lt;/li&gt;
+&lt;li&gt;2048 G - OK
+&lt;img alt=&#34;coreos boot&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d004.jpg&#34; title=&#34;coreos boot&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;安裝到硬碟&#34;&gt;安裝到硬碟&lt;/h2&gt;
+&lt;p&gt;這個步驟要使用 coreos-install 這個指令來安裝硬碟，&lt;br&gt;
+當 ISO boot 的時候，該指令就已經內建在系統裡了。&lt;br&gt;
+要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，&lt;br&gt;
+這個檔案可以用來設定用戶、網路、儲存、服務等。。。&lt;br&gt;
+必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）&lt;br&gt;
+否則裝好之後是無法使用 ssh login in 的。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

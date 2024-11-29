@@ -20,13 +20,11 @@ tags: ["virtualbox", "coreos"]
 ## 開機
 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。  
   
-* 512 G - <span style="color:red"> *無限重開* </span>
-
-* 1024 G - <span style="color:red"> *boot into emergency shell* </span>
-![emergency shell](https://fblog.ooopiz.com/images/2019/05/d003.jpg "emergency shell")
-
+* 512 G - *無限重開*
+* 1024 G - *boot into emergency shell*
+  ![emergency shell](https://fblog.ooopiz.com/images/2019/05/d003.jpg "emergency shell")
 * 2048 G - OK
-![coreos boot](https://fblog.ooopiz.com/images/2019/05/d004.jpg "coreos boot")
+  ![coreos boot](https://fblog.ooopiz.com/images/2019/05/d004.jpg "coreos boot")
 
 > 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
 
@@ -95,7 +93,7 @@ sshAuthorizedKeys 替換成你要登入的公鑰
 ### 其它
 
 #### 關於 Cloud-Config，官網有提到已經不再積極開發，建議用 ignition 取代。
->  [coreos-cloudinit](https://coreos.com/os/docs/latest/cloud-config.html) is no longer under active development and has been superseded by Ignition.
+> [coreos-cloudinit](https://coreos.com/os/docs/latest/cloud-config.html) is no longer under active development and has been superseded by Ignition.
 
 #### 安裝完後可以將 memory 調低一點，不會造成無法開機，但須符合你的服務需求。
 

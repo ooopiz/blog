@@ -174,7 +174,14 @@ dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 d
 VirtualBox 新增機器 選 Linux 64 bit 即可
 掛載剛下載的 ISO 檔
 開機 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。
-512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK ...</p>
+512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
+安裝到硬碟 這個步驟要使用 coreos-install 這個指令來安裝硬碟，
+當 ISO boot 的時候，該指令就已經內建在系統裡了。
+要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，
+這個檔案可以用來設定用戶、網路、儲存、服務等。。。
+必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）
+否則裝好之後是無法使用 ssh login in 的。
+...</p>
   </div>
   <footer class="entry-footer"><span title='2019-05-28 15:20:25 +0800 CST'>May 28, 2019</span></footer>
   <a class="entry-link" aria-label="post link to Virtualbox 安裝 Coreos" href="https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/"></a>
