@@ -1,32 +1,78 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>l2tp on 馬丁沒有派對</title>
+    <title>L2tp on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/l2tp/</link>
-    <description>Recent content in l2tp on 馬丁沒有派對</description>
+    <description>Recent content in L2tp on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Jan 2020 02:20:14 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/l2tp/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Jan 2020 02:20:14 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/l2tp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Macos L2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</link>
       <pubDate>Sat, 04 Jan 2020 02:20:14 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</guid>
-      <description>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服務順序（重要） 點選齒輪設定服務順序 將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網) </description>
+      <description>&lt;h1 id=&#34;macos-l2tp-vpn-設定&#34;&gt;Macos L2tp vpn 設定&lt;/h1&gt;
+&lt;h2 id=&#34;打開網路偏好設定&#34;&gt;打開網路偏好設定&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b001.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b002.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;點加號新增-vpn&#34;&gt;點加號新增 VPN&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;介面 VPN&lt;/li&gt;
+&lt;li&gt;IPSec 的 L2TP&lt;/li&gt;
+&lt;li&gt;輸入任意的服務名稱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b003.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;輸入伺服器位置與帳號&#34;&gt;輸入伺服器位置與帳號&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;完成後點選認證設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b004.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;認證設定&#34;&gt;認證設定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入密碼&lt;/li&gt;
+&lt;li&gt;輸入共享密鑰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b005.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定服務順序重要&#34;&gt;設定服務順序（重要）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;點選齒輪設定服務順序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b006.jpg&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b007.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Window10 l2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</link>
       <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</guid>
-      <description>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </description>
+      <description>&lt;h2 id=&#34;window10-l2tp-vpn-設定&#34;&gt;Window10 l2tp vpn 設定&lt;/h2&gt;
+&lt;h3 id=&#34;開啟-windows-設定&#34;&gt;開啟 Windows 設定&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a001.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;搜尋-vpn-設定&#34;&gt;搜尋 VPN 設定&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a002.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增-vpn-連線&#34;&gt;新增 VPN 連線&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a003.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定參數&#34;&gt;設定參數&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;連線名稱自訂&lt;/li&gt;
+&lt;li&gt;伺服器名稱填入 IP 或是 domain name&lt;/li&gt;
+&lt;li&gt;VPN 類型，這邊以 L2TP 為例&lt;/li&gt;
+&lt;li&gt;L2TP 預先共用金鑰&lt;/li&gt;
+&lt;li&gt;輸入帳號密碼&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a004.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;連線&#34;&gt;連線&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a005.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

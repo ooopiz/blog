@@ -1,32 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>grafana on 馬丁沒有派對</title>
+    <title>Grafana on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/grafana/</link>
-    <description>Recent content in grafana on 馬丁沒有派對</description>
+    <description>Recent content in Grafana on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Apr 2021 01:02:25 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Apr 2021 01:02:25 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grafana 備份工具 - grafana-backup-tool</title>
       <link>https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/</link>
       <pubDate>Thu, 01 Apr 2021 01:02:25 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/</guid>
-      <description>説明 最近剛好要做 Grafana 的資料遷移，
-理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題，
-但牽涉到版本升級，有點不確定性。
-剛好看到一個不錯的工具 grafana-backup-tool，是透過 api 的方式進行備份還原，
-正好試用看看，平常備份也可以使用。
-情境 Grafana 資料遷移 - 域名為假設域名 原站 - http://grafana.example.com (version: 6.4.3) 新站 - http://new.grafana.example.com (version: 7.3.4) 步驟 一. 安裝 grafana-backup-tool 隨便找一台可以訪問到 Grafana site 的 Linux
-pip install grafana-backup
-二. 建立 API Token 在要備份 與 要還原的 Grafana 都建立 API KEY
-三. 設定檔 建立備份目標的設定檔 grafana.json (token 填入上方所建立的)
-{ &amp;#34;grafana&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;http://grafana.example.com&amp;#34;, &amp;#34;token&amp;#34;: &amp;#34;{YOUR_GRAFANA_TOKEN}&amp;#34;, } } 建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)</description>
+      <description>&lt;h2 id=&#34;説明&#34;&gt;説明&lt;/h2&gt;
+&lt;p&gt;最近剛好要做 Grafana 的資料遷移，&lt;br&gt;
+理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題，&lt;br&gt;
+但牽涉到版本升級，有點不確定性。&lt;br&gt;
+剛好看到一個不錯的工具 grafana-backup-tool，是透過 api 的方式進行備份還原，&lt;br&gt;
+正好試用看看，平常備份也可以使用。&lt;/p&gt;
+&lt;h2 id=&#34;情境&#34;&gt;情境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Grafana 資料遷移 - 域名為假設域名
+&lt;ul&gt;
+&lt;li&gt;原站 - &lt;a href=&#34;http://grafana.example.com&#34; target=&#34;_blank&#34; &gt;http://grafana.example.com&lt;/a&gt; (version: 6.4.3)&lt;/li&gt;
+&lt;li&gt;新站 - &lt;a href=&#34;http://new.grafana.example.com&#34; target=&#34;_blank&#34; &gt;http://new.grafana.example.com&lt;/a&gt; (version: 7.3.4)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;步驟&#34;&gt;步驟&lt;/h2&gt;
+&lt;h3 id=&#34;一-安裝-grafana-backup-tool&#34;&gt;一. 安裝 grafana-backup-tool&lt;/h3&gt;
+&lt;p&gt;隨便找一台可以訪問到 Grafana site 的 Linux&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pip install grafana-backup&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二-建立-api-token&#34;&gt;二. 建立 API Token&lt;/h3&gt;
+&lt;p&gt;在要備份 與 要還原的 Grafana 都建立 API KEY&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;api key&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/b001.jpg&#34;&gt;
+&lt;img alt=&#34;api key&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/b002.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;三-設定檔&#34;&gt;三. 設定檔&lt;/h3&gt;
+&lt;p&gt;建立備份目標的設定檔 grafana.json (token 填入上方所建立的)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;grafana&amp;#34;: {
+    &amp;#34;url&amp;#34;: &amp;#34;http://grafana.example.com&amp;#34;,
+    &amp;#34;token&amp;#34;: &amp;#34;{YOUR_GRAFANA_TOKEN}&amp;#34;,
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

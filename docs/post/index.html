@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 馬丁沒有派對">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ooopiz.com/logo/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/logo/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/logo/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://blog.ooopiz.com/post/index.xml">
+<link rel="alternate" hreflang="en" href="https://blog.ooopiz.com/post/">
 <noscript>
     <style>
         #theme-toggle,
@@ -29,26 +30,30 @@
     </style>
 </noscript>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3680083267042451" crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
-}
-</script>
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="我把青春都寫在blog上了 😜😜" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="og:site_name" content="馬丁沒有派對" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
-
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4XSTL9TGTE');
+        }
+      </script><meta property="og:url" content="https://blog.ooopiz.com/post/">
+  <meta property="og:site_name" content="馬丁沒有派對">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="我把青春都寫在blog上了 😜😜">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜">
 
 
 <script type="application/ld+json">
@@ -137,7 +142,7 @@ if (!doNotTrack) {
 <header class="page-header"><div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a></div>
   <h1>
     Posts
-    <a href="index.xml" title="RSS" aria-label="RSS">
+    <a href="/post/index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
         <path d="M4 11a9 9 0 0 1 9 9" />
@@ -150,14 +155,15 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Vscode terminal ctrl &#43; p 關閉 quckopen
+    <h2 class="entry-hint-parent">Vscode terminal ctrl &#43; p 關閉 quckopen
     </h2>
   </header>
   <div class="entry-content">
     <p>Vscode Terminal control &#43; p 無法切換前一個命令 常用的 terminal 工具原始設定使用 ctrl &#43; p 熱鍵，切換到上一個命令。
 但在 vsocde 裡的 terminal 會變成 quick open
 如果想讓熱鍵可以是切到上一個命令可調整
-Preferences &gt; Setting &gt; 搜尋框輸入 terminal.intergrated.commandToSkipShell &gt; Add item -workbench.action.quickOpen</p>
+Preferences &gt; Setting &gt; 搜尋框輸入 terminal.intergrated.commandToSkipShell &gt; Add item -workbench.action.quickOpen
+</p>
   </div>
   <footer class="entry-footer"><span title='2024-11-18 14:23:30 +0800 CST'>November 18, 2024</span></footer>
   <a class="entry-link" aria-label="post link to Vscode terminal ctrl &#43; p 關閉 quckopen" href="https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/"></a>
@@ -165,7 +171,7 @@ Preferences &gt; Setting &gt; 搜尋框輸入 terminal.intergrated.commandToSkip
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Loki 使用 Ruler&#39;s Record Data 處理大量日誌統計
+    <h2 class="entry-hint-parent">Loki 使用 Ruler&#39;s Record Data 處理大量日誌統計
     </h2>
   </header>
   <div class="entry-content">
@@ -174,7 +180,9 @@ Preferences &gt; Setting &gt; 搜尋框輸入 terminal.intergrated.commandToSkip
 官方文件上有看到 record data 的做法。 基本上是利用 ruler 模組，定期執行統計，記錄到 prometheus 或其它支援的 storage，不用每次都跑一堆計算，可以改拉 prometheus 預算好的資料。
 下圖取自 record data 後拉取的資料 (24小時有 272M筆訪問記錄，284GB)
 Ruler 單機的 Loki 你可以將 rule 規則存放在 Disk 中，直接編輯，
-如果是 cluster 可以啟用 rule api 來管理規則，將規則存放到類似 S3 的 storage 供每個節點存取。...</p>
+如果是 cluster 可以啟用 rule api 來管理規則，將規則存放到類似 S3 的 storage 供每個節點存取。
+(下述的範例以 cluster 為原則)
+...</p>
   </div>
   <footer class="entry-footer"><span title='2023-10-31 17:37:01 +0800 CST'>October 31, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Loki 使用 Ruler&#39;s Record Data 處理大量日誌統計" href="https://blog.ooopiz.com/post/2023/10/loki-ruler-record-data/"></a>
@@ -182,7 +190,7 @@ Ruler 單機的 Loki 你可以將 rule 規則存放在 Disk 中，直接編輯�
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Windows rsync (cwRsync) 權限排序不正確
+    <h2 class="entry-hint-parent">Windows rsync (cwRsync) 權限排序不正確
     </h2>
   </header>
   <div class="entry-content">
@@ -195,7 +203,7 @@ rsync 後的檔案或資料夾，無法開啟或刪除檔案 資料夾安全性�
 rsync -avz --chmod=ugo=rwX -r &lt;source&gt; &lt;destination&gt;
 2. 資料夾安全性顯示 權限排序不正確 跟 null sid 如果權限排序不正確，可以試著在 cwrsync/etc 底下加入 fstab 檔，
 設定 noacl 來排除，具體可以參考 refer 連結，範例如下:
-# /etc/fstab none /cygdrive cygdrive binary,noacl,posix=0,user 0 0 正確權限示意圖(沒有出現 null sid)...</p>
+# /etc/fstab none /cygdrive cygdrive binary,noacl,posix=0,user 0 0 ...</p>
   </div>
   <footer class="entry-footer"><span title='2023-05-03 11:27:28 +0800 CST'>May 3, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Windows rsync (cwRsync) 權限排序不正確" href="https://blog.ooopiz.com/post/2023/05/windows-cwrsync-permission/"></a>
@@ -203,7 +211,7 @@ rsync -avz --chmod=ugo=rwX -r &lt;source&gt; &lt;destination&gt;
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Windows OS cd 指令，你應該注意的事 (device 切換)
+    <h2 class="entry-hint-parent">Windows OS cd 指令，你應該注意的事 (device 切換)
     </h2>
   </header>
   <div class="entry-content">
@@ -221,7 +229,9 @@ cd %dirpath% if %ERRORLEVEL% NEQ 0 exit %ERRORLEVEL% rsync --delete remote local
 細查後 dirpath 資料夾也有正常建立，
 為什麼 cd 不成功也沒有 return error code 呢?
 實測 原因是我自己電腦上測試的時候都在 c 碟上面進行，
-當涉及 device (c, d 碟) 切換的時候， cd 指令並不會成功。...</p>
+當涉及 device (c, d 碟) 切換的時候， cd 指令並不會成功。
+如果路徑確實存在也不會報錯。
+...</p>
   </div>
   <footer class="entry-footer"><span title='2023-04-17 10:40:46 +0800 CST'>April 17, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Windows OS cd 指令，你應該注意的事 (device 切換)" href="https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/"></a>
@@ -229,7 +239,7 @@ cd %dirpath% if %ERRORLEVEL% NEQ 0 exit %ERRORLEVEL% rsync --delete remote local
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Systemd Timer 執行秒級排程，可替代 crontab
+    <h2 class="entry-hint-parent">Systemd Timer 執行秒級排程，可替代 crontab
     </h2>
   </header>
   <div class="entry-content">
@@ -240,7 +250,8 @@ crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任
 或是你可以想像一下，如果 5秒要執行一次，crontab 會長什麼樣子。
 * * * * * dosomething * * * * * sleep 30; dosomething systemd timer 特點 使用 timer 來執行 service，可以避免上一個任務還沒進行完，又開始一個新的任務。 systemd timer jobqueue.service / systemd service file 建立一個 jobqueue.service 設定檔，內容如下:
 [Unit] Description=Execute jobqueue [Service] Type=simple ExecStart=/bin/bash -c &#39;/usr/bin/date &gt;&gt; /tmp/date.log&#39; 建立完成後重載一下 systemctl daemon-reload
-接著當你執行 systemctl start jobqueue.service 時，就會執行一次 ExecStart 的命令...</p>
+接著當你執行 systemctl start jobqueue.service 時，就會執行一次 ExecStart 的命令
+...</p>
   </div>
   <footer class="entry-footer"><span title='2023-04-15 00:39:44 +0800 CST'>April 15, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Systemd Timer 執行秒級排程，可替代 crontab" href="https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/"></a>
@@ -248,7 +259,7 @@ crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Grafana 備份工具 - grafana-backup-tool
+    <h2 class="entry-hint-parent">Grafana 備份工具 - grafana-backup-tool
     </h2>
   </header>
   <div class="entry-content">
@@ -261,7 +272,8 @@ crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任
 pip install grafana-backup
 二. 建立 API Token 在要備份 與 要還原的 Grafana 都建立 API KEY
 三. 設定檔 建立備份目標的設定檔 grafana.json (token 填入上方所建立的)
-{ &#34;grafana&#34;: { &#34;url&#34;: &#34;http://grafana.example.com&#34;, &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;, } } 建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)...</p>
+{ &#34;grafana&#34;: { &#34;url&#34;: &#34;http://grafana.example.com&#34;, &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;, } } 建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)
+...</p>
   </div>
   <footer class="entry-footer"><span title='2021-04-01 01:02:25 +0800 CST'>April 1, 2021</span></footer>
   <a class="entry-link" aria-label="post link to Grafana 備份工具 - grafana-backup-tool" href="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/"></a>
@@ -269,7 +281,7 @@ pip install grafana-backup
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Windows 10 設定好用的拼音輸入法
+    <h2 class="entry-hint-parent">Windows 10 設定好用的拼音輸入法
     </h2>
   </header>
   <div class="entry-content">
@@ -279,7 +291,8 @@ pip install grafana-backup
 跟大家分享一下，如果你剛好需要的話。
 微軟注音的拼音輸入法 對比 微軟拼音的拼音輸入法 標題很繞口我知道，不過不是很重要。。。
 微軟注音 的拼音輸入法 示意 微軟拼音 的拼音輸入法 示意 功能比較 微軟注音 的拼音輸入法 選字很難選 無法拼音校正 按 Enter 確定 微軟拼音 的拼音輸入法 按空白鍵確定 使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多) 可連續輸入很多字再空白鍵確定 可以中英文混打，不需切換輸入法 可以輸入頭一個字碼，組合出句子 設定方式 微軟注音 &gt; 漢語拼音 原本的微軟注音的拼音輸入法應該是這樣設定
-微軟拼音 拼音輸入法 繁體 設定 主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可</p>
+微軟拼音 拼音輸入法 繁體 設定 主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可
+</p>
   </div>
   <footer class="entry-footer"><span title='2021-03-26 20:50:49 +0800 CST'>March 26, 2021</span></footer>
   <a class="entry-link" aria-label="post link to Windows 10 設定好用的拼音輸入法" href="https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/"></a>
@@ -293,7 +306,8 @@ pip install grafana-backup
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span>
+        <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -1,30 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>fswatch on 馬丁沒有派對</title>
+    <title>Fswatch on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/fswatch/</link>
-    <description>Recent content in fswatch on 馬丁沒有派對</description>
+    <description>Recent content in Fswatch on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 23 May 2019 23:27:58 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/fswatch/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 May 2019 23:27:58 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/fswatch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fswatch Save My Times</title>
       <link>https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/</link>
       <pubDate>Thu, 23 May 2019 23:27:58 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/</guid>
-      <description>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累，
-就到網路上搜看看有沒有可以監控檔案存檔事件的工具，
-於是找到了這款 Mac 可以使用的 Fswatch
-安裝 mac 上安裝就直接
-brew install fswatch
-腳本 因為我只要監控 go file 有沒有異動，
-如果有的話幫我 compilar，所以腳本中有限定 .go 檔。
-#!/bin/bash BASEDIR=$(dirname &amp;#34;$0&amp;#34;) fswatch &amp;#34;$BASEDIR&amp;#34; | while read file do filename=$(basename -- &amp;#34;$file&amp;#34;) extension=&amp;#34;${filename##*.}&amp;#34; filename=&amp;#34;${filename%.*}&amp;#34; if [ &amp;#34;$extension&amp;#34; = &amp;#34;go&amp;#34; ] then echo &amp;#34;=============================================\n\n&amp;#34; time go run ${file} fi done Demo Reference OS X使用fswatch+rsync自动检测文件夹改动并同步 </description>
+      <description>&lt;h2 id=&#34;fswatch-可以用來檢測資料夾與文件的變更&#34;&gt;Fswatch 可以用來檢測資料夾與文件的變更&lt;/h2&gt;
+&lt;p&gt;最近在用 vim 練習 golang，真的是 go run 到手累心也累，&lt;br&gt;
+就到網路上搜看看有沒有可以監控檔案存檔事件的工具，&lt;br&gt;
+於是找到了這款 Mac 可以使用的 &lt;a href=&#34;https://github.com/emcrisostomo/fswatch&#34; title=&#34;Fswatch&#34; target=&#34;_blank&#34; &gt;Fswatch&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安裝&#34;&gt;安裝&lt;/h2&gt;
+&lt;p&gt;mac 上安裝就直接&lt;br&gt;
+&lt;code&gt;brew install fswatch&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;腳本&#34;&gt;腳本&lt;/h2&gt;
+&lt;p&gt;因為我只要監控 go file 有沒有異動，&lt;br&gt;
+如果有的話幫我 compilar，所以腳本中有限定 .go 檔。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/bash
+
+BASEDIR=$(dirname &amp;#34;$0&amp;#34;)
+
+fswatch &amp;#34;$BASEDIR&amp;#34; | while read file
+do
+    filename=$(basename -- &amp;#34;$file&amp;#34;)
+    extension=&amp;#34;${filename##*.}&amp;#34;
+    filename=&amp;#34;${filename%.*}&amp;#34;
+
+    if [ &amp;#34;$extension&amp;#34; = &amp;#34;go&amp;#34; ]
+    then
+        echo &amp;#34;=============================================\n\n&amp;#34;
+        time go run ${file}
+    fi
+done
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;Auto compilar demo&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/c001.gif&#34; title=&#34;Auto compilar demo&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://my.oschina.net/mengshuai/blog/618354&#34; title=&#34;OS X使用fswatch&amp;#43;rsync自动检测文件夹改动并同步&#34; target=&#34;_blank&#34; &gt;OS X使用fswatch+rsync自动检测文件夹改动并同步&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>systemd on 馬丁沒有派對</title>
+    <title>Systemd on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/systemd/</link>
-    <description>Recent content in systemd on 馬丁沒有派對</description>
+    <description>Recent content in Systemd on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Apr 2023 00:39:44 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 15 Apr 2023 00:39:44 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Systemd Timer 執行秒級排程，可替代 crontab</title>
       <link>https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/</link>
       <pubDate>Sat, 15 Apr 2023 00:39:44 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/</guid>
-      <description>crontab 每 30 秒執行 大家應該都有用過 crontab 的經驗吧？
-crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任務排程。
-很常見到類似底下的 crontab 的設定。
-設定上相當方便，不過我們可以認識一下另一種 systemd timer 的作法。
-或是你可以想像一下，如果 5秒要執行一次，crontab 會長什麼樣子。
-* * * * * dosomething * * * * * sleep 30; dosomething systemd timer 特點 使用 timer 來執行 service，可以避免上一個任務還沒進行完，又開始一個新的任務。 systemd timer jobqueue.service / systemd service file 建立一個 jobqueue.service 設定檔，內容如下:
-[Unit] Description=Execute jobqueue [Service] Type=simple ExecStart=/bin/bash -c &amp;#39;/usr/bin/date &amp;gt;&amp;gt; /tmp/date.log&amp;#39; 建立完成後重載一下 systemctl daemon-reload
-接著當你執行 systemctl start jobqueue.service 時，就會執行一次 ExecStart 的命令</description>
+      <description>&lt;h2 id=&#34;crontab-每-30-秒執行&#34;&gt;crontab 每 30 秒執行&lt;/h2&gt;
+&lt;p&gt;大家應該都有用過 crontab 的經驗吧？&lt;br&gt;
+crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任務排程。&lt;br&gt;
+很常見到類似底下的 crontab 的設定。&lt;/p&gt;
+&lt;p&gt;設定上相當方便，不過我們可以認識一下另一種 systemd timer 的作法。&lt;br&gt;
+或是你可以想像一下，如果 5秒要執行一次，crontab 會長什麼樣子。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* * * * *  dosomething
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* * * * *  sleep 30&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; dosomething
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;systemd-timer-特點&#34;&gt;systemd timer 特點&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 timer 來執行 service，可以避免上一個任務還沒進行完，又開始一個新的任務。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;systemd-timer&#34;&gt;systemd timer&lt;/h2&gt;
+&lt;h3 id=&#34;jobqueueservice--systemd-service-file&#34;&gt;jobqueue.service / systemd service file&lt;/h3&gt;
+&lt;p&gt;建立一個 jobqueue.service 設定檔，內容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[Unit]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Execute jobqueue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[Service]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;simple&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecStart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/bin/bash -c &amp;#39;/usr/bin/date &amp;gt;&amp;gt; /tmp/date.log&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;建立完成後重載一下 &lt;code&gt;systemctl daemon-reload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;接著當你執行 &lt;code&gt;systemctl start jobqueue.service&lt;/code&gt; 時，就會執行一次 ExecStart 的命令&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

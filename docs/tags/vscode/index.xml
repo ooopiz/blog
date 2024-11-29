@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>vscode on 馬丁沒有派對</title>
+    <title>Vscode on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/vscode/</link>
-    <description>Recent content in vscode on 馬丁沒有派對</description>
+    <description>Recent content in Vscode on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vscode terminal ctrl &#43; p 關閉 quckopen</title>
       <link>https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/</link>
       <pubDate>Mon, 18 Nov 2024 14:23:30 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/</guid>
-      <description>Vscode Terminal control + p 無法切換前一個命令 常用的 terminal 工具原始設定使用 ctrl + p 熱鍵，切換到上一個命令。
-但在 vsocde 裡的 terminal 會變成 quick open
-如果想讓熱鍵可以是切到上一個命令可調整
-Preferences &amp;gt; Setting &amp;gt; 搜尋框輸入 terminal.intergrated.commandToSkipShell &amp;gt; Add item -workbench.action.quickOpen</description>
+      <description>&lt;h2 id=&#34;vscode-terminal-control--p-無法切換前一個命令&#34;&gt;Vscode Terminal control + p 無法切換前一個命令&lt;/h2&gt;
+&lt;p&gt;常用的 terminal 工具原始設定使用 ctrl + p 熱鍵，切換到上一個命令。&lt;br&gt;
+但在 vsocde 裡的 terminal 會變成 quick open&lt;/p&gt;
+&lt;p&gt;如果想讓熱鍵可以是切到上一個命令可調整&lt;/p&gt;
+&lt;p&gt;Preferences &amp;gt; Setting &amp;gt; 搜尋框輸入 &lt;code&gt;terminal.intergrated.commandToSkipShell&lt;/code&gt; &amp;gt; Add item &lt;code&gt;-workbench.action.quickOpen&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;vscode -workbench.action.quickOpen&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2024/11/a001.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

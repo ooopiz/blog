@@ -5,352 +5,279 @@
     <link>https://blog.ooopiz.com/tags/</link>
     <description>Recent content in Tags on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>vscode</title>
+      <title>Vscode</title>
       <link>https://blog.ooopiz.com/tags/vscode/</link>
       <pubDate>Mon, 18 Nov 2024 14:23:30 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/vscode/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>loki</title>
+      <title>Loki</title>
       <link>https://blog.ooopiz.com/tags/loki/</link>
       <pubDate>Tue, 31 Oct 2023 17:37:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/loki/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rsync</title>
+      <title>Rsync</title>
       <link>https://blog.ooopiz.com/tags/rsync/</link>
       <pubDate>Wed, 03 May 2023 11:27:28 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/rsync/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>windows</title>
+      <title>Windows</title>
       <link>https://blog.ooopiz.com/tags/windows/</link>
       <pubDate>Wed, 03 May 2023 11:27:28 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/windows/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>systemd</title>
+      <title>Systemd</title>
       <link>https://blog.ooopiz.com/tags/systemd/</link>
       <pubDate>Sat, 15 Apr 2023 00:39:44 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/systemd/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>grafana</title>
+      <title>Grafana</title>
       <link>https://blog.ooopiz.com/tags/grafana/</link>
       <pubDate>Thu, 01 Apr 2021 01:02:25 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/grafana/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ansible</title>
+      <title>Ansible</title>
       <link>https://blog.ooopiz.com/tags/ansible/</link>
       <pubDate>Thu, 28 Jan 2021 15:37:22 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/ansible/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>macos</title>
+      <title>Macos</title>
       <link>https://blog.ooopiz.com/tags/macos/</link>
       <pubDate>Thu, 13 Feb 2020 20:20:54 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/macos/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kafka</title>
+      <title>Kafka</title>
       <link>https://blog.ooopiz.com/tags/kafka/</link>
       <pubDate>Thu, 30 Jan 2020 22:33:26 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/kafka/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>zookeeper</title>
+      <title>Zookeeper</title>
       <link>https://blog.ooopiz.com/tags/zookeeper/</link>
       <pubDate>Thu, 30 Jan 2020 22:33:26 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/zookeeper/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>l2tp</title>
+      <title>L2tp</title>
       <link>https://blog.ooopiz.com/tags/l2tp/</link>
       <pubDate>Sat, 04 Jan 2020 02:20:14 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/l2tp/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vpn</title>
+      <title>Vpn</title>
       <link>https://blog.ooopiz.com/tags/vpn/</link>
       <pubDate>Sat, 04 Jan 2020 02:20:14 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/vpn/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kubernetes</title>
+      <title>Kubernetes</title>
       <link>https://blog.ooopiz.com/tags/kubernetes/</link>
       <pubDate>Mon, 29 Jul 2019 17:18:19 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/kubernetes/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>coreos</title>
+      <title>Coreos</title>
       <link>https://blog.ooopiz.com/tags/coreos/</link>
       <pubDate>Wed, 24 Jul 2019 17:01:37 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/coreos/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>https://blog.ooopiz.com/tags/docker/</link>
       <pubDate>Tue, 04 Jun 2019 20:22:08 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>virtualbox</title>
+      <title>Virtualbox</title>
       <link>https://blog.ooopiz.com/tags/virtualbox/</link>
       <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/virtualbox/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>fswatch</title>
+      <title>Fswatch</title>
       <link>https://blog.ooopiz.com/tags/fswatch/</link>
       <pubDate>Thu, 23 May 2019 23:27:58 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/fswatch/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ipsec</title>
+      <title>Ipsec</title>
       <link>https://blog.ooopiz.com/tags/ipsec/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/ipsec/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vigor</title>
+      <title>Vigor</title>
       <link>https://blog.ooopiz.com/tags/vigor/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/vigor/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gitlab</title>
+      <title>Gitlab</title>
       <link>https://blog.ooopiz.com/tags/gitlab/</link>
       <pubDate>Thu, 01 Nov 2018 10:45:51 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/gitlab/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>zabbix</title>
+      <title>Zabbix</title>
       <link>https://blog.ooopiz.com/tags/zabbix/</link>
       <pubDate>Thu, 27 Oct 2016 02:13:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/zabbix/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bind</title>
+      <title>Bind</title>
       <link>https://blog.ooopiz.com/tags/bind/</link>
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/bind/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dns</title>
+      <title>Dns</title>
       <link>https://blog.ooopiz.com/tags/dns/</link>
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/dns/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>postfix</title>
+      <title>Postfix</title>
       <link>https://blog.ooopiz.com/tags/postfix/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/postfix/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>smtp</title>
+      <title>Smtp</title>
       <link>https://blog.ooopiz.com/tags/smtp/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/smtp/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nginx</title>
+      <title>Nginx</title>
       <link>https://blog.ooopiz.com/tags/nginx/</link>
       <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/nginx/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>php</title>
+      <title>Php</title>
       <link>https://blog.ooopiz.com/tags/php/</link>
       <pubDate>Thu, 05 May 2016 02:38:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/php/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>maven</title>
+      <title>Maven</title>
       <link>https://blog.ooopiz.com/tags/maven/</link>
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/maven/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nexus</title>
+      <title>Nexus</title>
       <link>https://blog.ooopiz.com/tags/nexus/</link>
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/nexus/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>centos</title>
+      <title>Centos</title>
       <link>https://blog.ooopiz.com/tags/centos/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/centos/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tomcat</title>
+      <title>Tomcat</title>
       <link>https://blog.ooopiz.com/tags/tomcat/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/tomcat/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mariadb</title>
+      <title>Mariadb</title>
       <link>https://blog.ooopiz.com/tags/mariadb/</link>
       <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/mariadb/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>laravel</title>
+      <title>Laravel</title>
       <link>https://blog.ooopiz.com/tags/laravel/</link>
       <pubDate>Mon, 24 Aug 2015 05:04:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/laravel/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>android</title>
+      <title>Android</title>
       <link>https://blog.ooopiz.com/tags/android/</link>
       <pubDate>Mon, 24 Aug 2015 04:50:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/android/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>git</title>
+      <title>Git</title>
       <link>https://blog.ooopiz.com/tags/git/</link>
       <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/git/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>phpmyadmin</title>
+      <title>Phpmyadmin</title>
       <link>https://blog.ooopiz.com/tags/phpmyadmin/</link>
       <pubDate>Mon, 24 Aug 2015 02:00:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/phpmyadmin/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mysql</title>
+      <title>Mysql</title>
       <link>https://blog.ooopiz.com/tags/mysql/</link>
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/mysql/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>iptables</title>
+      <title>Iptables</title>
       <link>https://blog.ooopiz.com/tags/iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/tags/iptables/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

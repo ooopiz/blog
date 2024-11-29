@@ -1,51 +1,109 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>vpn on 馬丁沒有派對</title>
+    <title>Vpn on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/vpn/</link>
-    <description>Recent content in vpn on 馬丁沒有派對</description>
+    <description>Recent content in Vpn on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Jan 2020 02:20:14 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Jan 2020 02:20:14 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Macos L2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</link>
       <pubDate>Sat, 04 Jan 2020 02:20:14 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</guid>
-      <description>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服務順序（重要） 點選齒輪設定服務順序 將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網) </description>
+      <description>&lt;h1 id=&#34;macos-l2tp-vpn-設定&#34;&gt;Macos L2tp vpn 設定&lt;/h1&gt;
+&lt;h2 id=&#34;打開網路偏好設定&#34;&gt;打開網路偏好設定&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b001.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b002.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;點加號新增-vpn&#34;&gt;點加號新增 VPN&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;介面 VPN&lt;/li&gt;
+&lt;li&gt;IPSec 的 L2TP&lt;/li&gt;
+&lt;li&gt;輸入任意的服務名稱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b003.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;輸入伺服器位置與帳號&#34;&gt;輸入伺服器位置與帳號&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;完成後點選認證設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b004.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;認證設定&#34;&gt;認證設定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入密碼&lt;/li&gt;
+&lt;li&gt;輸入共享密鑰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b005.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定服務順序重要&#34;&gt;設定服務順序（重要）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;點選齒輪設定服務順序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b006.jpg&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b007.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Window10 l2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</link>
       <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</guid>
-      <description>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </description>
+      <description>&lt;h2 id=&#34;window10-l2tp-vpn-設定&#34;&gt;Window10 l2tp vpn 設定&lt;/h2&gt;
+&lt;h3 id=&#34;開啟-windows-設定&#34;&gt;開啟 Windows 設定&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a001.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;搜尋-vpn-設定&#34;&gt;搜尋 VPN 設定&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a002.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增-vpn-連線&#34;&gt;新增 VPN 連線&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a003.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定參數&#34;&gt;設定參數&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;連線名稱自訂&lt;/li&gt;
+&lt;li&gt;伺服器名稱填入 IP 或是 domain name&lt;/li&gt;
+&lt;li&gt;VPN 類型，這邊以 L2TP 為例&lt;/li&gt;
+&lt;li&gt;L2TP 預先共用金鑰&lt;/li&gt;
+&lt;li&gt;輸入帳號密碼&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a004.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;連線&#34;&gt;連線&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a005.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>IPsec Lan to Lan Vigor-2925 and AWS-ec2</title>
       <link>https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/</guid>
-      <description>前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，
-內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。
-其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）
-一個月大概在台幣 1,000 左右 AWS VPN pricing。
-但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。
-目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。
-公司端：
-設備：Vigor 2925 網段：192.168.0.0/24 AWS 端：
-網段：172.21.0.0/16 IPsec Server ： CentOS7, EIP libreSwan 簡介 libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。
-在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan
-安裝 libreswan $ yum install epel-release $ yum install libreswan 設定 ipsec ipsec 啟動時會載入 /etc/ipsec.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，&lt;br&gt;
+內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。&lt;/p&gt;
+&lt;p&gt;其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）&lt;br&gt;
+一個月大概在台幣 1,000 左右 &lt;a href=&#34;https://aws.amazon.com/tw/vpn/pricing/&#34; target=&#34;_blank&#34; &gt;AWS VPN pricing&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。&lt;/p&gt;
+&lt;p&gt;目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。&lt;/p&gt;
+&lt;p&gt;公司端：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設備：Vigor 2925&lt;/li&gt;
+&lt;li&gt;網段：192.168.0.0/24&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;AWS 端：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;網段：172.21.0.0/16&lt;/li&gt;
+&lt;li&gt;IPsec Server ： CentOS7, EIP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;libreswan-簡介&#34;&gt;libreSwan 簡介&lt;/h2&gt;
+&lt;p&gt;libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。&lt;br&gt;
+在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan&lt;/p&gt;
+&lt;h2 id=&#34;安裝-libreswan&#34;&gt;安裝 libreswan&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ yum install epel-release
+$ yum install libreswan
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;設定-ipsec&#34;&gt;設定 ipsec&lt;/h2&gt;
+&lt;p&gt;ipsec 啟動時會載入 /etc/ipsec.conf&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

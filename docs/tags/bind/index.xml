@@ -1,46 +1,108 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>bind on 馬丁沒有派對</title>
+    <title>Bind on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/bind/</link>
-    <description>Recent content in bind on 馬丁沒有派對</description>
+    <description>Recent content in Bind on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 17 Oct 2016 15:46:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 17 Oct 2016 15:46:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/bind/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>bind make安裝搭配 dlz mysql</title>
       <link>https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</link>
       <pubDate>Mon, 17 Oct 2016 15:46:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/</guid>
-      <description>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
-&amp;ndash;with-dlz-mysql &amp;ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
-Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
--A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-service iptables save
-service iptables restart
-2. 移除舊有的bind安裝 rpm -qa | grep &amp;quot;^bind&amp;quot;</description>
+      <description>&lt;h2 id=&#34;bind-dlz-簡介&#34;&gt;Bind-dlz 簡介&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。&lt;/li&gt;
+&lt;li&gt;BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。&lt;/li&gt;
+&lt;li&gt;BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。&lt;/li&gt;
+&lt;li&gt;如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。&lt;/li&gt;
+&lt;li&gt;bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。&lt;/li&gt;
+&lt;li&gt;DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.coctec.com/docs/service/show-post-12776.html&#34; target=&#34;_blank&#34; &gt;智能DNS(Bind dlz)在企業中的應用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;bind-安裝-mysql篇&#34;&gt;Bind 安裝 (MySQL篇)&lt;/h2&gt;
+&lt;p&gt;bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ndash;with-dlz-mysql&lt;/li&gt;
+&lt;li&gt;&amp;ndash;with-dlz-postgres&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;前置作業&#34;&gt;前置作業&lt;/h3&gt;
+&lt;p&gt;一、到官網或FTP站下載安裝檔&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.isc.org/downloads/&#34; target=&#34;_blank&#34; &gt;Bind官網&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ftp.isc.org/isc/bind9/&#34; target=&#34;_blank&#34; &gt;FTP站&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;二、安裝MySQL資料庫&lt;/p&gt;
+&lt;h3 id=&#34;開始安裝&#34;&gt;開始安裝&lt;/h3&gt;
+&lt;h4 id=&#34;1-防火牆設定開啟-53-port&#34;&gt;1. 防火牆設定(開啟 53 port)&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service iptables save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service iptables restart&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS yum 安裝 bind9</title>
       <link>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</link>
       <pubDate>Tue, 04 Oct 2016 02:09:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/</guid>
-      <description>安裝 yum install bind bind-utils -y
-service named start
-chkconfig named on
-防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-service iptables save
-service iptables restart
-設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
-options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &amp;#34;/var/named&amp;#34;; dump-file &amp;#34;/var/named/data/cache_dump.</description>
+      <description>&lt;h2 id=&#34;安裝&#34;&gt;安裝&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;yum install bind bind-utils -y&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service named start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chkconfig named on&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;防火牆設定&#34;&gt;防火牆設定&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service iptables save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service iptables restart&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定&#34;&gt;設定&lt;/h3&gt;
+&lt;h4 id=&#34;預設-nemedconf-檔-bind-982rc1-redhat-982-047rc1el6&#34;&gt;預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6)&lt;/h4&gt;
+&lt;p&gt;以下為 yum 安裝後產生的預設 named.conf 設定檔&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;options {
+        listen-on port 53 { 127.0.0.1; };
+        listen-on-v6 port 53 { ::1; };
+        directory       &amp;#34;/var/named&amp;#34;;
+        dump-file       &amp;#34;/var/named/data/cache_dump.db&amp;#34;;
+        statistics-file &amp;#34;/var/named/data/named_stats.txt&amp;#34;;
+        memstatistics-file &amp;#34;/var/named/data/named_mem_stats.txt&amp;#34;;
+        allow-query     { localhost; };
+        recursion yes;
+
+        dnssec-enable yes;
+        dnssec-validation yes;
+
+        /* Path to ISC DLV key */
+        bindkeys-file &amp;#34;/etc/named.iscdlv.key&amp;#34;;
+
+        managed-keys-directory &amp;#34;/var/named/dynamic&amp;#34;;
+};
+
+logging {
+        channel default_debug {
+                file &amp;#34;data/named.run&amp;#34;;
+                severity dynamic;
+        };
+};
+
+zone &amp;#34;.&amp;#34; IN {
+        type hint;
+        file &amp;#34;named.ca&amp;#34;;
+};
+
+include &amp;#34;/etc/named.rfc1912.zones&amp;#34;;
+include &amp;#34;/etc/named.root.key&amp;#34;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;修改設定&#34;&gt;修改設定&lt;/h4&gt;
+&lt;p&gt;修改 options 設定，允許查詢來源&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

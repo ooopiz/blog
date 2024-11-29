@@ -1,45 +1,123 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>tomcat on 馬丁沒有派對</title>
+    <title>Tomcat on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/tomcat/</link>
-    <description>Recent content in tomcat on 馬丁沒有派對</description>
+    <description>Recent content in Tomcat on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS7 Tomcat 增加 systemctl 控制</title>
       <link>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</guid>
-      <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
-範例如下:
-#add tomcat pid CATALINA_PID=&amp;#34;$CATALINA_BASE/tomcat7.pid&amp;#34; #add java opts JAVA_OPTS=&amp;#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;#34; 2.增加 tomcat.service 在 /usr/lib/systemd/system 目錄下增加 tomcat7.service，
-內容的目錄必須是絕對路徑。
-vi /usr/lib/systemd/system/tomcat7.service
-PIDFile就指到tomcat所在的目錄
-Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶 systemctl 命令 查看全部服務 systemctl list-unit-files --type service
-查看服務 systemctl status name.service
-啟動服務 systemctl start name.service
-停止服務 systemctl stop name.service
-重啟服務 systemctl restart name.</description>
+      <description>&lt;h2 id=&#34;1增加啟動參數&#34;&gt;1.增加啟動參數&lt;/h2&gt;
+&lt;p&gt;在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存&lt;/p&gt;
+&lt;p&gt;範例如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#add tomcat pid  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;CATALINA_PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;$CATALINA_BASE/tomcat7.pid&amp;#34;  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#add java opts  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;JAVA_OPTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2增加-tomcatservice&#34;&gt;2.增加 tomcat.service&lt;/h2&gt;
+&lt;p&gt;在 /usr/lib/systemd/system 目錄下增加 tomcat7.service，&lt;br&gt;
+內容的目錄必須是絕對路徑。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /usr/lib/systemd/system/tomcat7.service&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;PIDFile就指到tomcat所在的目錄&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Tomcat  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;After&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;syslog.target network.target remote-fs.target nss-lookup.target  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;   &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;[Service]  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;forking  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;PIDFile&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/data/tomcat/tomcat7.pid  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecStart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/data/tomcat/bin/startup.sh   &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecReload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/bin/kill -s HUP $MAINPID  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecStop&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/bin/kill -s QUIT $MAINPID  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;PrivateTmp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;true  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;   &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;[Install]  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;WantedBy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;multi-user.target &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;[unit]設定服務的描述&lt;/li&gt;
+&lt;li&gt;[service]設定服務的啟動，停止等&lt;/li&gt;
+&lt;li&gt;[install]設定使用用戶&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;systemctl-命令&#34;&gt;systemctl 命令&lt;/h2&gt;
+&lt;h3 id=&#34;查看全部服務&#34;&gt;查看全部服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl list-unit-files --type service&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;查看服務&#34;&gt;查看服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl status name.service&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;啟動服務&#34;&gt;啟動服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl start name.service&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;停止服務&#34;&gt;停止服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl stop name.service&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS6.5 Tomcat開機自動啟動</title>
       <link>https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/</link>
       <pubDate>Wed, 30 Sep 2015 21:50:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/</guid>
-      <description>1.設定啟動腳本 在目錄 /etc/init.d 新增一個 tomcat 的腳本
-vi /etc/init.d/tomcat
-記得修改你的 JAVA_HOME, CATALINA_HOME 到你所在的目錄下
-#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &amp;#34;no&amp;#34; ] &amp;amp;&amp;amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&amp;#34;-Dbuild.compiler.emacs=true&amp;#34; export CLASSPATH=.</description>
+      <description>&lt;h2 id=&#34;1設定啟動腳本&#34;&gt;1.設定啟動腳本&lt;/h2&gt;
+&lt;p&gt;在目錄 /etc/init.d 新增一個 tomcat 的腳本&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /etc/init.d/tomcat&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;記得修改你的 JAVA_HOME, CATALINA_HOME 到你所在的目錄下&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#startup script for jakarta tomcat
+#
+# chkconfig: - 85 20
+# description: Tomcat running
+# processname: tomcat7
+# pidfile: /var/run/tomcat.pid # config:# Source function library.
+. /etc/rc.d/init.d/functions
+# Source networking configuration.
+. /etc/sysconfig/network
+# Check that networking is up.
+[ ${NETWORKING} = &amp;#34;no&amp;#34; ] &amp;amp;&amp;amp; exit 0# Set Tomcat environment.
+export JAVA_HOME=/usr/java/jdk1.8.0_25
+export CATALINA_HOME=/usr/local/tomcat7
+export CATALINA_OPTS=&amp;#34;-Dbuild.compiler.emacs=true&amp;#34;
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar
+export PATH=$JAVA_HOME/bin:$PATH
+[ -f /usr/local/tomcat7/bin/startup.sh ] || exit 0 [ -f /usr/local/tomcat7/bin/shutdown.sh ] || exit 0
+export PATH=$PATH:/usr/bin:/usr/lib/bin
+# See how we were called.
+case &amp;#34;$1&amp;#34; in
+        start)
+                # Start daemon.
+                echo -n &amp;#34;Starting Tomcat: &amp;#34;
+                /usr/local/tomcat7/bin/startup.sh
+                RETVAL=$?
+                echo
+                        [ $RETVAL = 0 ] &amp;amp;&amp;amp; touch /var/lock/subsys/tomcat ;;
+        stop)
+                # Stop daemons.
+                echo -n &amp;#34;Shutting down Tomcat: &amp;#34;
+                /usr/local/tomcat7/bin/shutdown.sh
+                RETVAL=$?
+                echo
+                        [ $RETVAL = 0 ] &amp;amp;&amp;amp; rm -f /var/lock/subsys/tomcat ;;
+        restart)
+                $0 stop
+                $0 start
+        ;;
+        condrestart)
+                [ -e /var/lock/subsys/tomcat ] &amp;amp;&amp;amp; $0 restart ;;
+        status)
+               status tomcat
+        ;;
+        *)
+                echo &amp;#34;Usage: $0 {start|stop|restart|status}&amp;#34;
+        exit 1
+esac
+        exit 0
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;2修改執行權限&#34;&gt;2.修改執行權限&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;chmod 755 /etc/init.d/tomcat&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

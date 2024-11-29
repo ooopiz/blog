@@ -1,79 +1,149 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>windows on 馬丁沒有派對</title>
+    <title>Windows on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/windows/</link>
-    <description>Recent content in windows on 馬丁沒有派對</description>
+    <description>Recent content in Windows on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 03 May 2023 11:27:28 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 May 2023 11:27:28 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows rsync (cwRsync) 權限排序不正確</title>
       <link>https://blog.ooopiz.com/post/2023/05/windows-cwrsync-permission/</link>
       <pubDate>Wed, 03 May 2023 11:27:28 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2023/05/windows-cwrsync-permission/</guid>
-      <description>Windows 使用 rsync 引發的權限問題 如果你在 Linux 上使用過 rsync 指令，多少需要瞭解一下檔案權限的問題。
-在 Windows 上 Rsync，可以透過一些模擬 Linux API 的指令來實現
-這裡用到的是 cwRsync，可以到官網下載 rsync client 純指令版
-(rsync-client 是 free 的，其它有些東西可能需要付費，看自己的需求)
-這裡列舉幾個我自己在 Windows 上遇到的權限問題
-rsync 後的檔案或資料夾，無法開啟或刪除檔案 資料夾安全性顯示 權限排序不正確 跟 null sid 權限問題處理 1. 無法開啟或刪除資料夾 可以試著在執行 rsync 指令時加上參數 --chmod=ugo=rwX -r 來改變檔案的權限
-rsync -avz --chmod=ugo=rwX -r &amp;lt;source&amp;gt; &amp;lt;destination&amp;gt;
-2. 資料夾安全性顯示 權限排序不正確 跟 null sid 如果權限排序不正確，可以試著在 cwrsync/etc 底下加入 fstab 檔，
-設定 noacl 來排除，具體可以參考 refer 連結，範例如下:
-# /etc/fstab none /cygdrive cygdrive binary,noacl,posix=0,user 0 0 正確權限示意圖(沒有出現 null sid)</description>
+      <description>&lt;h2 id=&#34;windows-使用-rsync-引發的權限問題&#34;&gt;Windows 使用 rsync 引發的權限問題&lt;/h2&gt;
+&lt;p&gt;如果你在 Linux 上使用過 rsync 指令，多少需要瞭解一下檔案權限的問題。&lt;/p&gt;
+&lt;p&gt;在 Windows 上 Rsync，可以透過一些模擬 Linux API 的指令來實現&lt;br&gt;
+這裡用到的是 cwRsync，可以到官網下載 rsync client 純指令版&lt;br&gt;
+(rsync-client 是 free 的，其它有些東西可能需要付費，看自己的需求)&lt;/p&gt;
+&lt;p&gt;這裡列舉幾個我自己在 Windows 上遇到的權限問題&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;rsync 後的檔案或資料夾，無法開啟或刪除檔案&lt;/li&gt;
+&lt;li&gt;資料夾安全性顯示 &lt;strong&gt;權限排序不正確&lt;/strong&gt; 跟 &lt;strong&gt;null sid&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img alt=&#34;權限排序不正確&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2023/05/a001.png&#34;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img alt=&#34;null sid&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2023/05/a002.png&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;權限問題處理&#34;&gt;權限問題處理&lt;/h2&gt;
+&lt;h3 id=&#34;1-無法開啟或刪除資料夾&#34;&gt;1. 無法開啟或刪除資料夾&lt;/h3&gt;
+&lt;p&gt;可以試著在執行 rsync 指令時加上參數 &lt;code&gt;--chmod=ugo=rwX -r&lt;/code&gt; 來改變檔案的權限&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rsync -avz --chmod=ugo=rwX -r &amp;lt;source&amp;gt; &amp;lt;destination&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-資料夾安全性顯示-權限排序不正確-跟-null-sid&#34;&gt;2. 資料夾安全性顯示 權限排序不正確 跟 null sid&lt;/h3&gt;
+&lt;p&gt;如果權限排序不正確，可以試著在 cwrsync/etc 底下加入 fstab 檔，&lt;br&gt;
+設定 &lt;code&gt;noacl&lt;/code&gt; 來排除，具體可以參考 refer 連結，範例如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# /etc/fstab
+
+none /cygdrive cygdrive binary,noacl,posix=0,user 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img alt=&#34;fatab 放置路徑&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2023/05/a004.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Windows OS cd 指令，你應該注意的事 (device 切換)</title>
       <link>https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/</link>
       <pubDate>Mon, 17 Apr 2023 10:40:46 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/</guid>
-      <description>場景 事情是這樣的，
-某天我弄了一個 windows 的 bat 檔，預計使用 rsync 將檔案同步到 windows 本地目錄。
-於是搞了個腳本，類似這樣，
-dirpath 則以環境變數的方式代入。
-cd %dirpath% rsync --delete remote local 想了想，
-如果前面程序如果失敗，沒有將 dirpath 建立出來，
-我這個 rsync &amp;ndash;delete 就可怕了，於是加了一行判斷 cd 失敗就終止。
-cd %dirpath% if %ERRORLEVEL% NEQ 0 exit %ERRORLEVEL% rsync --delete remote local 本機測試完後，開開心心的到其它機器去測試。
-結果開始噴 rsync delete 一些奇奇怪怪的檔案。
-我心裡想 cd 失敗的話，
-沒有 pathdir 不是應該會退出程序嗎?
-細查後 dirpath 資料夾也有正常建立，
-為什麼 cd 不成功也沒有 return error code 呢?
-實測 原因是我自己電腦上測試的時候都在 c 碟上面進行，
-當涉及 device (c, d 碟) 切換的時候， cd 指令並不會成功。</description>
+      <description>&lt;h2 id=&#34;場景&#34;&gt;場景&lt;/h2&gt;
+&lt;p&gt;事情是這樣的，&lt;br&gt;
+某天我弄了一個 windows 的 bat 檔，預計使用 rsync 將檔案同步到 windows 本地目錄。&lt;br&gt;
+於是搞了個腳本，類似這樣，&lt;br&gt;
+dirpath 則以環境變數的方式代入。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;%dirpath%&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsync --delete remote local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;想了想，&lt;br&gt;
+如果前面程序如果失敗，沒有將 dirpath 建立出來，&lt;br&gt;
+我這個 rsync &amp;ndash;delete 就可怕了，於是加了一行判斷 cd 失敗就終止。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;%dirpath%&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;%ERRORLEVEL%&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;NEQ&lt;/span&gt; 0 &lt;span class=&#34;k&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;%ERRORLEVEL%&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rsync --delete remote local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;本機測試完後，開開心心的到其它機器去測試。&lt;br&gt;
+結果開始噴 rsync delete 一些奇奇怪怪的檔案。&lt;br&gt;
+我心裡想 cd 失敗的話，&lt;br&gt;
+沒有 pathdir 不是應該會退出程序嗎?&lt;/p&gt;
+&lt;p&gt;細查後 dirpath 資料夾也有正常建立，&lt;br&gt;
+為什麼 cd 不成功也沒有 return error code 呢?&lt;/p&gt;
+&lt;h2 id=&#34;實測&#34;&gt;實測&lt;/h2&gt;
+&lt;p&gt;原因是我自己電腦上測試的時候都在 c 碟上面進行，&lt;br&gt;
+當涉及 device (c, d 碟) 切換的時候， cd 指令並不會成功。&lt;br&gt;
+如果路徑確實存在也不會報錯。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Windows 10 設定好用的拼音輸入法</title>
       <link>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</link>
       <pubDate>Fri, 26 Mar 2021 20:50:49 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2021/03/windows10-nice-use-pinyin/</guid>
-      <description>前言 已經好幾年沒使用 Windows 電腦工作了，筆者目前公司工作機又是 Windows OS。
-一直沒有在 Windows 上找到好用的拼音輸入法，需要中文輸入的時候整個手殘(兩年前嘗試用拼音輸入法取代注音，我現在連注音都打不好了 XD)
-總之前幾天發現了像在 Mac 上一樣好用的拼音輸入法，
-跟大家分享一下，如果你剛好需要的話。
-微軟注音的拼音輸入法 對比 微軟拼音的拼音輸入法 標題很繞口我知道，不過不是很重要。。。
-微軟注音 的拼音輸入法 示意 微軟拼音 的拼音輸入法 示意 功能比較 微軟注音 的拼音輸入法 選字很難選 無法拼音校正 按 Enter 確定 微軟拼音 的拼音輸入法 按空白鍵確定 使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多) 可連續輸入很多字再空白鍵確定 可以中英文混打，不需切換輸入法 可以輸入頭一個字碼，組合出句子 設定方式 微軟注音 &amp;gt; 漢語拼音 原本的微軟注音的拼音輸入法應該是這樣設定
-微軟拼音 拼音輸入法 繁體 設定 主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;已經好幾年沒使用 Windows 電腦工作了，筆者目前公司工作機又是 Windows OS。&lt;br&gt;
+一直沒有在 Windows 上找到好用的拼音輸入法，需要中文輸入的時候整個手殘(兩年前嘗試用拼音輸入法取代注音，我現在連注音都打不好了 XD)&lt;br&gt;
+總之前幾天發現了像在 Mac 上一樣好用的拼音輸入法，&lt;br&gt;
+跟大家分享一下，如果你剛好需要的話。&lt;/p&gt;
+&lt;h2 id=&#34;微軟注音的拼音輸入法-對比-微軟拼音的拼音輸入法&#34;&gt;微軟注音的拼音輸入法 對比 微軟拼音的拼音輸入法&lt;/h2&gt;
+&lt;p&gt;標題很繞口我知道，不過不是很重要。。。&lt;/p&gt;
+&lt;h3 id=&#34;微軟注音-的拼音輸入法-示意&#34;&gt;&lt;em&gt;&lt;strong&gt;微軟注音&lt;/strong&gt;&lt;/em&gt; 的拼音輸入法 示意&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a001.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;微軟拼音-的拼音輸入法-示意&#34;&gt;&lt;em&gt;&lt;strong&gt;微軟拼音&lt;/strong&gt;&lt;/em&gt; 的拼音輸入法 示意&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a002.jpg&#34;&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a003.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;功能比較&#34;&gt;功能比較&lt;/h2&gt;
+&lt;h3 id=&#34;微軟注音-的拼音輸入法&#34;&gt;&lt;em&gt;&lt;strong&gt;微軟注音&lt;/strong&gt;&lt;/em&gt; 的拼音輸入法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;選字很難選&lt;/li&gt;
+&lt;li&gt;無法拼音校正&lt;/li&gt;
+&lt;li&gt;按 Enter 確定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;微軟拼音-的拼音輸入法&#34;&gt;&lt;em&gt;&lt;strong&gt;微軟拼音&lt;/strong&gt;&lt;/em&gt; 的拼音輸入法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;按空白鍵確定&lt;/li&gt;
+&lt;li&gt;使用 [ 跟 ] 符號切換待選字 (比上下鍵方便很多)&lt;/li&gt;
+&lt;li&gt;可連續輸入很多字再空白鍵確定&lt;/li&gt;
+&lt;li&gt;可以中英文混打，不需切換輸入法&lt;/li&gt;
+&lt;li&gt;可以輸入頭一個字碼，組合出句子&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;設定方式&#34;&gt;設定方式&lt;/h2&gt;
+&lt;h3 id=&#34;微軟注音--漢語拼音&#34;&gt;微軟注音 &amp;gt; 漢語拼音&lt;/h3&gt;
+&lt;p&gt;原本的微軟注音的拼音輸入法應該是這樣設定&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a011.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;微軟拼音-拼音輸入法-繁體-設定&#34;&gt;微軟拼音 拼音輸入法 繁體 設定&lt;/h3&gt;
+&lt;p&gt;主要就是使用 Windows 內建 中國拼音輸入法的拼音，在設定成繁體即可&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a021.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a022.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a023.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a024.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a025.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2021/03/a031.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Window10 l2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</link>
       <pubDate>Sat, 04 Jan 2020 00:03:19 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/</guid>
-      <description>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </description>
+      <description>&lt;h2 id=&#34;window10-l2tp-vpn-設定&#34;&gt;Window10 l2tp vpn 設定&lt;/h2&gt;
+&lt;h3 id=&#34;開啟-windows-設定&#34;&gt;開啟 Windows 設定&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a001.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;搜尋-vpn-設定&#34;&gt;搜尋 VPN 設定&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a002.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新增-vpn-連線&#34;&gt;新增 VPN 連線&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a003.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定參數&#34;&gt;設定參數&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;連線名稱自訂&lt;/li&gt;
+&lt;li&gt;伺服器名稱填入 IP 或是 domain name&lt;/li&gt;
+&lt;li&gt;VPN 類型，這邊以 L2TP 為例&lt;/li&gt;
+&lt;li&gt;L2TP 預先共用金鑰&lt;/li&gt;
+&lt;li&gt;輸入帳號密碼&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a004.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;連線&#34;&gt;連線&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/a005.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

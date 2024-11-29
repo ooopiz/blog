@@ -7,19 +7,41 @@
 <meta name="robots" content="index, follow">
 <title>bind make安裝搭配 dlz mysql | 馬丁沒有派對</title>
 <meta name="keywords" content="dns, bind">
-<meta name="description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
-&ndash;with-dlz-mysql &ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
-Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+<meta name="description" content="Bind-dlz 簡介
+
+BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。
+BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。
+BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。
+如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。
+bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。
+DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效
+
+Reference
+
+智能DNS(Bind dlz)在企業中的應用
+
+Bind 安裝 (MySQL篇)
+bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
+
+&ndash;with-dlz-mysql
+&ndash;with-dlz-postgres
+
+前置作業
+一、到官網或FTP站下載安裝檔
+
+Bind官網
+FTP站
+
+二、安裝MySQL資料庫
+開始安裝
+1. 防火牆設定(開啟 53 port)
+iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
 -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
 service iptables save
-service iptables restart
-2. 移除舊有的bind安裝 rpm -qa | grep &quot;^bind&quot;">
+service iptables restart">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ooopiz.com/logo/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/logo/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/logo/favicon-32x32.png">
@@ -27,6 +49,7 @@ service iptables restart
 <link rel="mask-icon" href="https://blog.ooopiz.com/logo/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,42 +60,72 @@ service iptables restart
     </style>
 </noscript>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3680083267042451" crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
-}
-</script>
-<meta property="og:title" content="bind make安裝搭配 dlz mysql" />
-<meta property="og:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
-&ndash;with-dlz-mysql &ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4XSTL9TGTE');
+        }
+      </script><meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/">
+  <meta property="og:site_name" content="馬丁沒有派對">
+  <meta property="og:title" content="bind make安裝搭配 dlz mysql">
+  <meta property="og:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
+–with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
 Bind官網 FTP站 二、安裝MySQL資料庫
 開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
 -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
 service iptables save
-service iptables restart
-2. 移除舊有的bind安裝 rpm -qa | grep &quot;^bind&quot;" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-10-17T15:46:01+08:00" />
-<meta property="article:modified_time" content="2016-10-17T15:46:01+08:00" /><meta property="og:site_name" content="馬丁沒有派對" />
+service iptables restart">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2016-10-17T15:46:01+08:00">
+    <meta property="article:modified_time" content="2016-10-17T15:46:01+08:00">
+    <meta property="article:tag" content="Dns">
+    <meta property="article:tag" content="Bind">
+      <meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="bind make安裝搭配 dlz mysql">
+<meta name="twitter:description" content="Bind-dlz 簡介
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
+BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。
+BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。
+BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。
+如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。
+bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。
+DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效
 
-<meta name="twitter:title" content="bind make安裝搭配 dlz mysql"/>
-<meta name="twitter:description" content="Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
-&ndash;with-dlz-mysql &ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
-Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+Reference
+
+智能DNS(Bind dlz)在企業中的應用
+
+Bind 安裝 (MySQL篇)
+bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
+
+&ndash;with-dlz-mysql
+&ndash;with-dlz-postgres
+
+前置作業
+一、到官網或FTP站下載安裝檔
+
+Bind官網
+FTP站
+
+二、安裝MySQL資料庫
+開始安裝
+1. 防火牆設定(開啟 53 port)
+iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
 -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
 service iptables save
-service iptables restart
-2. 移除舊有的bind安裝 rpm -qa | grep &quot;^bind&quot;"/>
+service iptables restart">
 
 
 <script type="application/ld+json">
@@ -101,14 +154,14 @@ service iptables restart
   "@type": "BlogPosting",
   "headline": "bind make安裝搭配 dlz mysql",
   "name": "bind make安裝搭配 dlz mysql",
-  "description": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n\u0026ndash;with-dlz-mysql \u0026ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n2. 移除舊有的bind安裝 rpm -qa | grep \u0026quot;^bind\u0026quot;",
+  "description": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n\u0026ndash;with-dlz-mysql \u0026ndash;with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n",
   "keywords": [
     "dns", "bind"
   ],
   "articleBody": "Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)\n–with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔\nBind官網 FTP站 二、安裝MySQL資料庫\n開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT\n-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT\nservice iptables save\nservice iptables restart\n2. 移除舊有的bind安裝 rpm -qa | grep \"^bind\"\nyum remove bind\n3. 安装依賴套件 yum install gcc openssl openssl-devel mysql-devel\n4-1. 編譯with mysql ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-mysql --enable-largefile\n4-2. 編譯with postgres ./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres\n編譯配置項說明(完整的功能配置項可使用: ./configure –help 查看): 參數 說明 –prefix=/usr bind安裝路徑, 默認[ /usr/local ] –sysconfdir=/etc 配置文件路徑, 默認 [ /etc ] –enable-threads 激活多線程 –with-libtool Use GNU libtool —with-openssl=yes Build with OpenSSL yes –enable-exportlib Build exportable library (GNU make required) [default=no] –with-dlz-postgres 使用postgres驅動，可以指定include檔路徑，例：–with-dlz-postgres=/usr/local/pgsql/include –with-dlz-mysql 使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，可以指定include檔路徑，例：–with-dlz-mysql=/www/include 5. 編譯安裝 make\nmake install\n6. 設定 vi named.conf\noptions { listen-on port 53 { any; }; listen-on-v6 port 53 { ::1; }; allow-query { any; }; allow-transfer { none; }; allow-update { none; }; allow-recursion { none; }; recursion no; version \"zzz\"; }; logging { channel default_debug { file \"var/bind9.log\" versions 3 size 10m; severity dynamic; print-time yes; print-severity yes; }; }; include \"etc/bind.keys\"; dlz \"mysql zone\" { database \"mysql {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin} {select zone from dns_records where zone='$zone$' limit 1} {select ttl, type, mx_priority, data, resp_person, serial, refresh, retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}\"; }; 7. 創建named用戶與群組 groupadd named\n依據你的目錄建立用戶\nadduser -d /var/named -g named -s /bin/false named\nadduser -d /usr/local/bind9 -g named -s /bin/false named\n參數 說明 -d 被創建的named用戶的主目錄 -g 所屬群組 -s 帳號的登入shell(false表示不能登入) 給予目錄權限\nchown -R named:named ./var\n8. 資料庫中建立Schema and Record Schema Example CREATE DATABASE IF NOT EXISTS `dns_data`; USE `dns_data`; CREATE TABLE `dns_records` ( `ser_no` int(10) unsigned NOT NULL AUTO_INCREMENT, `zone` varchar(255) DEFAULT NULL, `host` varchar(255) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `data` varchar(255) DEFAULT NULL, `ttl` int(11) DEFAULT NULL, `mx_priority` int(11) DEFAULT NULL, `refresh` int(11) DEFAULT NULL, `retry` int(11) DEFAULT NULL, `expire` int(11) DEFAULT NULL, `minimum` int(11) DEFAULT NULL, `serial` bigint(20) DEFAULT NULL, `resp_person` varchar(255) DEFAULT NULL, `primary_ns` varchar(255) DEFAULT NULL, PRIMARY KEY (`ser_no`), KEY `host_index` (`host`(20)) USING BTREE, KEY `type_index` (`type`(8)), KEY `zone_index` (`zone`(30)) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; CREATE TABLE `xfr_table` ( `zone` varchar(255) NOT NULL, `client` varchar(255) NOT NULL, KEY `zone_client_index` (`zone`(30)), KEY `client_index` (`client`(20)) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; Record Example INSERT INTO `dns_records` ( `zone`, `host`, `type`, `data`, `ttl`, `mx_priority`, `refresh`, `retry`, `expire`, `minimum`, `serial`, `resp_person`, `primary_ns`) VALUES /* SOA */ ('example.com','@','SOA','ns1.example.com.',3600,NULL,10800,7200,604800,86400,2015091101,'master.example.com.','ns1.example.com.'), ('example.com','@','NS','ns1.example.com.',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','ns1','A','192.168.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), /* A AAAA CNAME Record */ ('example.com','@','A','127.0.0.1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','@','AAAA','::1',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), ('example.com','www','CNAME','@',3600,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL), 9. 啟動 sbin/named -c etc/named.conf -u named\n其他指令參考 檢查設定檔\nsbin/named-checkconf etc/named.conf\n啟動\nsbin/named\n啟動(使用named身份執行)\nsbin/named -u named\n啟動(前台執行，會輸出啟動訊息，debug可以使用)\n# sbin/named -g\n啟動(指定設定檔)\n/usr/local/bind9/sbin/named -c /usr/local/bind9/etc/named.conf\n疑難排解 一、找不到mysql.h時 yum install mysql-devel\n二、如果抓不到/usr/lib/mysql 編譯加上\n--with-mysql-libraries=/usr/lib64/mysql/ 三、(承二)但是也有可能無效，死都要抓/usr/lib/mysql，只好做一個軟鍊給他 ln -s /usr/lib64/mysql/ /usr/lib/mysql\n其他 生成rndc key sbin/rndc-confgen -a -r /dev/urandom\n更新named.ca 頂級域名伺服器地址有所變動，dns 伺服器需要更新 named.ca 文件\n最新資訊可以到 ftp://rs.internic.net/domain 下載。\ndlz官方提供zone for mysql dlz \"mysql zone\" { database \"mysql {host=localhost dbname=dns_data ssl=false port=3306 user=admin pass=admin} {select zone from dns_records where zone='$zone$' limit 1} {select ttl, type, mx_priority, data, resp_person, serial, refresh, retry, expire, minimum from dns_records where zone ='$zone$' and host = '$record$'}\"; }; DNS security reference DNS伺服器安全性管理實務 Study DNS-DNS 進階設定、安全、檢測 建議安裝 fail2ban來阻擋 ",
   "wordCount" : "544",
   "inLanguage": "en",
-  "datePublished": "2016-10-17T15:46:01+08:00",
+  "image": "https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2016-10-17T15:46:01+08:00",
   "dateModified": "2016-10-17T15:46:01+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -197,7 +250,7 @@ service iptables restart
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.ooopiz.com/post/">Posts</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       bind make安裝搭配 dlz mysql
     </h1>
     <div class="post-meta"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span>
@@ -284,46 +337,46 @@ service iptables restart
 <p><code>./configure --prefix=/usr/local/bind9 --enable-threads --with-libtool --with-openssl=yes --enable-exportlib --with-dlz-postgres</code></p>
 <h5 id="編譯配置項說明完整的功能配置項可使用-configure---help-查看">編譯配置項說明(完整的功能配置項可使用: ./configure &ndash;help 查看):<a hidden class="anchor" aria-hidden="true" href="#編譯配置項說明完整的功能配置項可使用-configure---help-查看">#</a></h5>
 <table>
-<thead>
-<tr>
-<th>參數</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&ndash;prefix=/usr</td>
-<td>bind安裝路徑, 默認[ /usr/local ]</td>
-</tr>
-<tr>
-<td>&ndash;sysconfdir=/etc</td>
-<td>配置文件路徑, 默認 [ /etc ]</td>
-</tr>
-<tr>
-<td>&ndash;enable-threads</td>
-<td>激活多線程</td>
-</tr>
-<tr>
-<td>&ndash;with-libtool</td>
-<td>Use GNU libtool</td>
-</tr>
-<tr>
-<td>&mdash;with-openssl=yes</td>
-<td>Build with OpenSSL yes</td>
-</tr>
-<tr>
-<td>&ndash;enable-exportlib</td>
-<td>Build exportable library (GNU make required) [default=no]</td>
-</tr>
-<tr>
-<td>&ndash;with-dlz-postgres</td>
-<td>使用postgres驅動，可以指定include檔路徑，<!-- raw HTML omitted -->例：&ndash;with-dlz-postgres=/usr/local/pgsql/include</td>
-</tr>
-<tr>
-<td>&ndash;with-dlz-mysql</td>
-<td>使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，<!-- raw HTML omitted -->可以指定include檔路徑，例：&ndash;with-dlz-mysql=/www/include</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>參數</th>
+          <th>說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&ndash;prefix=/usr</td>
+          <td>bind安裝路徑, 默認[ /usr/local ]</td>
+      </tr>
+      <tr>
+          <td>&ndash;sysconfdir=/etc</td>
+          <td>配置文件路徑, 默認 [ /etc ]</td>
+      </tr>
+      <tr>
+          <td>&ndash;enable-threads</td>
+          <td>激活多線程</td>
+      </tr>
+      <tr>
+          <td>&ndash;with-libtool</td>
+          <td>Use GNU libtool</td>
+      </tr>
+      <tr>
+          <td>&mdash;with-openssl=yes</td>
+          <td>Build with OpenSSL yes</td>
+      </tr>
+      <tr>
+          <td>&ndash;enable-exportlib</td>
+          <td>Build exportable library (GNU make required) [default=no]</td>
+      </tr>
+      <tr>
+          <td>&ndash;with-dlz-postgres</td>
+          <td>使用postgres驅動，可以指定include檔路徑，<!-- raw HTML omitted -->例：&ndash;with-dlz-postgres=/usr/local/pgsql/include</td>
+      </tr>
+      <tr>
+          <td>&ndash;with-dlz-mysql</td>
+          <td>使用mysql驅動，需要mysql的類庫及頭文件支持，需要先安裝mysql，<!-- raw HTML omitted -->可以指定include檔路徑，例：&ndash;with-dlz-mysql=/www/include</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="5-編譯安裝">5. 編譯安裝<a hidden class="anchor" aria-hidden="true" href="#5-編譯安裝">#</a></h4>
 <p><code>make</code></p>
@@ -367,26 +420,26 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 <p><code>adduser -d /var/named -g named -s /bin/false named</code></p>
 <p><code>adduser -d /usr/local/bind9 -g named -s /bin/false named</code></p>
 <table>
-<thead>
-<tr>
-<th>參數</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d</td>
-<td>被創建的named用戶的主目錄</td>
-</tr>
-<tr>
-<td>-g</td>
-<td>所屬群組</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>帳號的登入shell(false表示不能登入)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>參數</th>
+          <th>說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>-d</td>
+          <td>被創建的named用戶的主目錄</td>
+      </tr>
+      <tr>
+          <td>-g</td>
+          <td>所屬群組</td>
+      </tr>
+      <tr>
+          <td>-s</td>
+          <td>帳號的登入shell(false表示不能登入)</td>
+      </tr>
+  </tbody>
 </table>
 <p>給予目錄權限</p>
 <p><code>chown -R named:named ./var</code></p>
@@ -482,8 +535,8 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://blog.ooopiz.com/tags/dns/">dns</a></li>
-      <li><a href="https://blog.ooopiz.com/tags/bind/">bind</a></li>
+      <li><a href="https://blog.ooopiz.com/tags/dns/">Dns</a></li>
+      <li><a href="https://blog.ooopiz.com/tags/bind/">Bind</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/">
@@ -499,45 +552,56 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
 </nav>
 
 
-<div class="share-buttons">
-    <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on twitter"
-        href="https://twitter.com/intent/tweet/?text=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f&amp;hashtags=dns%2cbind">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f&amp;title=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;summary=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f&title=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on facebook"
-        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on telegram"
-        href="https://telegram.me/share/url?text=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f">
-        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
-        </svg>
-    </a>
-</div>
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on x"
+            href="https://x.com/intent/tweet/?text=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f&amp;hashtags=dns%2cbind">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f&amp;title=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;summary=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f&title=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share bind make安裝搭配 dlz mysql on telegram"
+            href="https://telegram.me/share/url?text=bind%20make%e5%ae%89%e8%a3%9d%e6%90%ad%e9%85%8d%20dlz%20mysql&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2016%2f10%2fbind-makeinstall-with-dlz-mysql%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
   </footer><div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     
@@ -561,7 +625,8 @@ retry, expire, minimum from dns_records where zone =&#39;$zone$&#39; and host = 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span>
+        <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

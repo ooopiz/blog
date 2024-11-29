@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>nexus on 馬丁沒有派對</title>
+    <title>Nexus on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/nexus/</link>
-    <description>Recent content in nexus on 馬丁沒有派對</description>
+    <description>Recent content in Nexus on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Dec 2015 01:27:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/nexus/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Dec 2015 01:27:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/nexus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>安裝 Nexus OSS</title>
       <link>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</link>
       <pubDate>Mon, 14 Dec 2015 01:27:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/12/install-nexus-oss/</guid>
-      <description>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
-下載網址
-下載至您要放置的目錄下即可開始操作以下流程 (這裡放置在/usr/local) tar zxvf nexus-2.11.4-01-bundle.tar.gz
-ln -s nexus-2.11.4-01/ nexus
-chown -R nexus:nexus nexus
-chown -R nexus:nexus nexus-2.11.4-01/
-chown -R nexus:nexus sonatype-work/
-修改下面兩個設定
-vi /nexus-2.11.4-01/bin/nexus
-NEXUS_HOME=&amp;#34;/usr/local/nexus/nexus&amp;#34; RUN_AS_USER=nexus 修改Port
-vi /nexus-2.11.4-01/conf/nexus.properties
-application-port=18081 啟動
-sh /var/opt/nexus/nexus/bin/nexus start</description>
+      <description>&lt;h2 id=&#34;nexus-oss&#34;&gt;Nexus OSS&lt;/h2&gt;
+&lt;p&gt;Nexus OSS是用來架設maven私有倉庫的好幫手
+安裝其實非常容易&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.sonatype.org/nexus/&#34; target=&#34;_blank&#34; &gt;下載網址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201512/A01-01.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下載至您要放置的目錄下即可開始操作以下流程-這裡放置在usrlocal&#34;&gt;下載至您要放置的目錄下即可開始操作以下流程 (這裡放置在/usr/local)&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;tar zxvf nexus-2.11.4-01-bundle.tar.gz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ln -s nexus-2.11.4-01/ nexus&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chown -R nexus:nexus nexus&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chown -R nexus:nexus nexus-2.11.4-01/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chown -R nexus:nexus sonatype-work/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改下面兩個設定&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /nexus-2.11.4-01/bin/nexus&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;NEXUS_HOME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/usr/local/nexus/nexus&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;RUN_AS_USER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;nexus&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改Port&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /nexus-2.11.4-01/conf/nexus.properties&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;application-port&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;18081&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;啟動&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sh /var/opt/nexus/nexus/bin/nexus start&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,175 +1,409 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>centos on 馬丁沒有派對</title>
+    <title>Centos on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/centos/</link>
-    <description>Recent content in centos on 馬丁沒有派對</description>
+    <description>Recent content in Centos on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Oct 2015 05:24:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS7 Tomcat 增加 systemctl 控制</title>
       <link>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</link>
       <pubDate>Thu, 01 Oct 2015 05:24:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/</guid>
-      <description>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
-範例如下:
-#add tomcat pid CATALINA_PID=&amp;#34;$CATALINA_BASE/tomcat7.pid&amp;#34; #add java opts JAVA_OPTS=&amp;#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;#34; 2.增加 tomcat.service 在 /usr/lib/systemd/system 目錄下增加 tomcat7.service，
-內容的目錄必須是絕對路徑。
-vi /usr/lib/systemd/system/tomcat7.service
-PIDFile就指到tomcat所在的目錄
-Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶 systemctl 命令 查看全部服務 systemctl list-unit-files --type service
-查看服務 systemctl status name.service
-啟動服務 systemctl start name.service
-停止服務 systemctl stop name.service
-重啟服務 systemctl restart name.</description>
+      <description>&lt;h2 id=&#34;1增加啟動參數&#34;&gt;1.增加啟動參數&lt;/h2&gt;
+&lt;p&gt;在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存&lt;/p&gt;
+&lt;p&gt;範例如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#add tomcat pid  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;CATALINA_PID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;$CATALINA_BASE/tomcat7.pid&amp;#34;  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#add java opts  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;JAVA_OPTS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2增加-tomcatservice&#34;&gt;2.增加 tomcat.service&lt;/h2&gt;
+&lt;p&gt;在 /usr/lib/systemd/system 目錄下增加 tomcat7.service，&lt;br&gt;
+內容的目錄必須是絕對路徑。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /usr/lib/systemd/system/tomcat7.service&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;PIDFile就指到tomcat所在的目錄&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Description&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;Tomcat  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;After&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;syslog.target network.target remote-fs.target nss-lookup.target  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;   &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;[Service]  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;forking  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;PIDFile&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/data/tomcat/tomcat7.pid  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecStart&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/data/tomcat/bin/startup.sh   &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecReload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/bin/kill -s HUP $MAINPID  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ExecStop&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/bin/kill -s QUIT $MAINPID  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;PrivateTmp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;true  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;   &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;[Install]  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;WantedBy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;multi-user.target &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;[unit]設定服務的描述&lt;/li&gt;
+&lt;li&gt;[service]設定服務的啟動，停止等&lt;/li&gt;
+&lt;li&gt;[install]設定使用用戶&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;systemctl-命令&#34;&gt;systemctl 命令&lt;/h2&gt;
+&lt;h3 id=&#34;查看全部服務&#34;&gt;查看全部服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl list-unit-files --type service&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;查看服務&#34;&gt;查看服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl status name.service&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;啟動服務&#34;&gt;啟動服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl start name.service&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;停止服務&#34;&gt;停止服務&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;systemctl stop name.service&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS7 安裝Tomcat</title>
       <link>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</link>
       <pubDate>Wed, 30 Sep 2015 06:10:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/</guid>
-      <description>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
-cd /usr/local
-2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
-3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz
-4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7
-5.啟動或停止Tomcat 啟動Tomcat 7
-/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7
-/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線
-7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
-若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。</description>
+      <description>&lt;h2 id=&#34;1切換目錄到-usrlocal&#34;&gt;1.切換目錄到 /usr/local&lt;/h2&gt;
+&lt;p&gt;我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd /usr/local&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2下載tomcat&#34;&gt;2.下載Tomcat&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3解壓縮&#34;&gt;3.解壓縮&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;tar -zxvf apache-tomcat-7.0.57.tar.gz&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4更改資料夾名稱&#34;&gt;4.更改資料夾名稱&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;mv apache-tomcat-7.0.57 tomcat7&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5啟動或停止tomcat&#34;&gt;5.啟動或停止Tomcat&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;啟動Tomcat 7&lt;br&gt;
+&lt;code&gt;/usr/local/tomcat7/bin/startup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;停止Tomcat 7&lt;br&gt;
+&lt;code&gt;/usr/local/tomcat7/bin/shutdown.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;6防火牆設定&#34;&gt;6.防火牆設定&lt;/h2&gt;
+&lt;p&gt;Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線&lt;/p&gt;
+&lt;h2 id=&#34;7測試tomcat是否正常&#34;&gt;7.測試Tomcat是否正常&lt;/h2&gt;
+&lt;p&gt;開啟瀏覽器，輸入【http://IP位址:8080】&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A06-01.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A06-02.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>yum 和 wget 使用 proxy</title>
       <link>https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/</link>
       <pubDate>Wed, 02 Sep 2015 17:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/</guid>
-      <description>yum 設定檔 在設定檔中加入以下參數 config /etc/yum.conf
-# The proxy server - proxy server:port number http_proxy = proxy.xxxxxx.com.tw:3128 # The account details for yum connections proxy_username=user_name proxy_password=user_password 此設定參數可提供所有帳號使用
-若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile
-(有空再研究)
-wget 在設定檔中加入以下參數 config /etc/wgetrc
-http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 </description>
+      <description>&lt;h2 id=&#34;yum-設定檔&#34;&gt;yum 設定檔&lt;/h2&gt;
+&lt;p&gt;在設定檔中加入以下參數 config /etc/yum.conf&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# The proxy server - proxy server:port number&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;http_proxy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;proxy.xxxxxx.com.tw:3128&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# The account details for yum connections&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;proxy_username&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;user_name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;proxy_password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;user_password&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;此設定參數可提供所有帳號使用&lt;br&gt;
+若要針對特定帳號使用，可以將下列參數加入到 ~/.bash_profile&lt;br&gt;
+(&lt;em&gt;有空再研究&lt;/em&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;wget&#34;&gt;wget&lt;/h2&gt;
+&lt;p&gt;在設定檔中加入以下參數 config /etc/wgetrc&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;http_proxy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;proxy.xxxxxx.com.tw:3128&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;use_proxy&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;wait&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>CentOS7 基礎設定</title>
       <link>https://blog.ooopiz.com/post/2015/09/centos7-basic-set/</link>
       <pubDate>Tue, 01 Sep 2015 03:07:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/09/centos7-basic-set/</guid>
-      <description>一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下 一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
-cd /etc/sysconfig/network-scripts
-每台電腦的網卡名稱不一定相同
-systemctl stop NetworkManager
-systemctl disable NetworkManager
-systemctl restart network
-二、關閉SELinux vi /etc/selinux/config
-這個設定reboot後才會生效
-三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
-vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
-systemctl restart sshd
-四、調整時區 rm /etc/localtime
-ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
-五、調整語系 檢查系統目前使用的語系
-localectl
-查看系統有哪些可用的語系
-localectl list-locales | grep zh
-如果你要設定語系的話
-localectl set-locale LANG=zh_TW.utf8
-六、修改Hostname 查看主機 hostname
-hostnamectl 設定 hostname
-hostnamectl set-hostname new_hostname 七、同步時間 安裝的packages yum install ntp ntpdate ntp-doc 設定開機就啟動NTP Daemon systemctl enable ntpd 系統時間與time.</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;一、啟用網卡，停用NetworkManger&lt;/li&gt;
+&lt;li&gt;二、關閉SELinux&lt;/li&gt;
+&lt;li&gt;三、關閉UseDNS&lt;/li&gt;
+&lt;li&gt;四、調整時區&lt;/li&gt;
+&lt;li&gt;五、調整語系&lt;/li&gt;
+&lt;li&gt;六、修改Hostname&lt;/li&gt;
+&lt;li&gt;七、同步時間&lt;/li&gt;
+&lt;li&gt;八、停用firewalld，改用iptabless&lt;/li&gt;
+&lt;li&gt;九、更新一下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一啟用網卡停用networkmanger&#34;&gt;一、啟用網卡，停用NetworkManger&lt;/h2&gt;
+&lt;p&gt;先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd /etc/sysconfig/network-scripts&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每台電腦的網卡名稱不一定相同&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A01-01.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;systemctl stop NetworkManager&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;systemctl disable NetworkManager&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;systemctl restart network&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A01-02.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二關閉selinux&#34;&gt;二、關閉SELinux&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;vi /etc/selinux/config&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A01-03.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;這個設定reboot後才會生效&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;三關閉usedns&#34;&gt;三、關閉UseDNS&lt;/h2&gt;
+&lt;p&gt;登入SSH需要等很久的話，可以從這個設定獲得改善&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /etc/ssh/sshd_config&lt;/code&gt; 將 UseDNS yes 改成 no&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;systemctl restart sshd&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;四調整時區&#34;&gt;四、調整時區&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;rm /etc/localtime&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;五調整語系&#34;&gt;五、調整語系&lt;/h2&gt;
+&lt;p&gt;檢查系統目前使用的語系&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A01-04.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;查看系統有哪些可用的語系&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localectl list-locales | grep zh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A01-05.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如果你要設定語系的話&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localectl set-locale LANG=zh_TW.utf8&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;六修改hostname&#34;&gt;六、修改Hostname&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;查看主機 hostname&lt;br&gt;
+&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;設定 hostname&lt;br&gt;
+&lt;code&gt;hostnamectl set-hostname new_hostname&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;七同步時間&#34;&gt;七、同步時間&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;安裝的packages
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;yum install ntp ntpdate ntp-doc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;設定開機就啟動NTP Daemon
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;systemctl enable ntpd&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;系統時間與time.stdtime.gov.tw的NTP server做校時
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ntpdate time.stdtime.gov.tw&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;啟動系統的NTP Daemon
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;systemctl start ntpd&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;設定要校時的NTP server
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vi /etc/ntp.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201509/A01-06.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS 使用rsync</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos-using-rsync/</link>
       <pubDate>Mon, 31 Aug 2015 13:06:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/centos-using-rsync/</guid>
-      <description>簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝．
-rpm -qa | grep rsync
-如果沒有的話就 yum 一下吧
-做 rsync 的時候 server 端與 client 端都必須要安裝
-yum install rsync
-指令 rsync的指令非常的簡單
-這個指令不會刪除目的端多餘的檔案
-rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
-rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
-另外會要求你輸入密碼，
-假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．</description>
+      <description>&lt;h2 id=&#34;簡介&#34;&gt;簡介&lt;/h2&gt;
+&lt;p&gt;rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．&lt;/p&gt;
+&lt;p&gt;首先先查詢一下，機器是否已經安裝．&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rpm -qa | grep rsync&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果沒有的話就 yum 一下吧&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;做 rsync 的時候 server 端與 client 端都必須要安裝&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum install rsync&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;指令&#34;&gt;指令&lt;/h2&gt;
+&lt;p&gt;rsync的指令非常的簡單&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;這個指令不會刪除目的端多餘的檔案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rsync -avz /opt/data root@192.168.1.245:/opt/data-backup&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsync -avz root@192.168.1.245:/opt/data-backup /opt/data&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，&lt;br&gt;
+另外會要求你輸入密碼，&lt;br&gt;
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS6.5 安裝LNMP</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</link>
       <pubDate>Mon, 24 Aug 2015 01:08:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-lnmp/</guid>
-      <description>一、更新rpm MYSQL源 CentOS 6
-yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm CentOS 7
-yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm NGINX源 CentOS 6
-yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm CentOS 7
-yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm REMI源 最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo
-CentOS 6
-yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7
-yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝Nginx 安裝 NGINX 網頁伺服器
-yum install nginx
-三、安裝PHP 想 install 其它版本的 PHP 需要修改 REMI.REPO 中的 ENABLED=0 為 1
-路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-vi /etc/yum.repos.d/remi.repo
-安裝 PHP yum install php
-安裝其他PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm</description>
+      <description>&lt;h2 id=&#34;一更新rpm&#34;&gt;一、更新rpm&lt;/h2&gt;
+&lt;h3 id=&#34;mysql源&#34;&gt;MYSQL源&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CentOS 6&lt;br&gt;
+&lt;code&gt;yum install http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;CentOS 7&lt;br&gt;
+&lt;code&gt;yum install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nginx源&#34;&gt;NGINX源&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CentOS 6&lt;br&gt;
+&lt;code&gt;yum install http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;CentOS 7&lt;br&gt;
+&lt;code&gt;yum install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;remi源&#34;&gt;REMI源&lt;/h3&gt;
+&lt;p&gt;最新的PHP版本需要修改REMI.REPO中的ENABLED=0为1）# vi /etc/yum.repos.d/remi.repo&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CentOS 6&lt;br&gt;
+&lt;code&gt;yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;CentOS 7&lt;br&gt;
+&lt;code&gt;yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二安裝nginx&#34;&gt;二、安裝Nginx&lt;/h2&gt;
+&lt;p&gt;安裝 NGINX 網頁伺服器&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum install nginx&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;三安裝php&#34;&gt;三、安裝PHP&lt;/h2&gt;
+&lt;p&gt;想 install 其它版本的 PHP 需要修改 REMI.REPO 中的 ENABLED=0 為 1&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路徑：/etc/yum.repos.d/remi.repo
+&lt;ul&gt;
+&lt;li&gt;[remi-php55]是PHP5.5&lt;/li&gt;
+&lt;li&gt;[remi-php56]是PHP5.6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;選擇你要的版本做修改即可&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi /etc/yum.repos.d/remi.repo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201508/002.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安裝-php&#34;&gt;安裝 PHP&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;yum install php&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安裝其他php-lib&#34;&gt;安裝其他PHP Lib&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS 6.5 防火牆設定iptables</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
-      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart</description>
+      <description>&lt;p&gt;CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
+比較常用的Port..&lt;/p&gt;
+&lt;h2 id=&#34;常見的預設-port-號&#34;&gt;常見的預設 port 號&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Service&lt;/th&gt;
+          &lt;th&gt;Port&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;FTP&lt;/td&gt;
+          &lt;td&gt;21&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;SSH&lt;/td&gt;
+          &lt;td&gt;22&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;HTTP&lt;/td&gt;
+          &lt;td&gt;80&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;HTTPS&lt;/td&gt;
+          &lt;td&gt;443&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;MYSQL&lt;/td&gt;
+          &lt;td&gt;3306&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;將對應的資訊加入iptables設定檔中&#34;&gt;將對應的資訊加入iptables設定檔中&lt;/h2&gt;
+&lt;p&gt;/etc/sysconfig/iptables&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201508/001.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS6.5 網卡基本設定</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/</link>
       <pubDate>Fri, 21 Aug 2015 09:29:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-network-card-settings/</guid>
-      <description>首先可以下指令顯示出所有的介面資訊 ip link show
-網卡設定檔 網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0
-DEVICE=eth0 BOOTPROTO=static BROADCAST=192.168.1.255 IPADDR=192.168.1.2 NETMASK=255.255.255.0 NETWORK=192.168.1.0 ONBOOT=yes 說明 DEVICE 這個裝置的名稱 BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ） BROADCAST 這是節點的網域 IPADDR 這是這塊網路卡的位址 NETMASL 子遮罩網路 NETWORK 工作的網域 ONBOOT 開機自動開啟網路卡 在上面的例子中，我們以虛擬 IP 來作為示範，
-假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），
-NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），
-NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。
-如果你的網路位址是固定的，那上面的網址就跟著改變即可！
-設定玩之後，網路服務重新啓動，指令為：
-service network restart</description>
+      <description>&lt;h2 id=&#34;首先可以下指令顯示出所有的介面資訊&#34;&gt;首先可以下指令顯示出所有的介面資訊&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ip link show&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;網卡設定檔&#34;&gt;網卡設定檔&lt;/h2&gt;
+&lt;p&gt;網卡設定檔的目錄一般會在/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;DEVICE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;eth0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;BOOTPROTO&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;static&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;BROADCAST&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;192.168.1.255&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;IPADDR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;192.168.1.2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;NETMASK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;255.255.255.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;NETWORK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;192.168.1.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;ONBOOT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;說明&#34;&gt;說明&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;DEVICE 這個裝置的名稱&lt;/li&gt;
+&lt;li&gt;BOOTPROTO 使用我們給的網路名稱（若為浮動 IP 則為 dhcp ）&lt;/li&gt;
+&lt;li&gt;BROADCAST 這是節點的網域&lt;/li&gt;
+&lt;li&gt;IPADDR 這是這塊網路卡的位址&lt;/li&gt;
+&lt;li&gt;NETMASL 子遮罩網路&lt;/li&gt;
+&lt;li&gt;NETWORK 工作的網域&lt;/li&gt;
+&lt;li&gt;ONBOOT 開機自動開啟網路卡&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在上面的例子中，我們以虛擬 IP 來作為示範，&lt;br&gt;
+假定這部機器的 IP 為 192.168.1.2 ，則 BROADCAST 就是 192.168.1.255 （xxx.xxx.xxx.255），&lt;br&gt;
+NETMASK 通常是 255.255.255.0 （與你的 IP class 有關，不過，通常我們就設成 255.255.255.0 也就是了），&lt;br&gt;
+NETWORK 就設為 192.168.1.0 (xxx.xxx.xxx.0）。&lt;br&gt;
+如果你的網路位址是固定的，那上面的網址就跟著改變即可！&lt;br&gt;
+設定玩之後，網路服務重新啓動，指令為：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service network restart&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>CentOS crontab</title>
       <link>https://blog.ooopiz.com/post/2015/07/centos-crontab/</link>
       <pubDate>Mon, 27 Jul 2015 01:35:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/07/centos-crontab/</guid>
-      <description>Example 輸入 crontab -e 進入排程編輯
-# Example of job definition: # .---------------- minute (0 - 59) # | .------------- hour (0 - 23) # | | .---------- day of month (1 - 31) # | | | .------- month (1 - 12) OR jan,feb,mar,apr ... # | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat # | | | | | # * * * * * user-name command to be executed Instruction 特殊字符 代表意義 *(星號) 代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 *，就代表著『不論何月、何日的禮拜幾的 12:00 都執行後續指令』的意思！ ,(逗號) 代表分隔時段的意思。舉例來說，如果要下達的工作是 3:00 與 6:00 時，就會是： 0 3,6 * * * command 時間參數還是有五欄，不過第二欄是 3,6 ，代表 3 與 6 都適用！ -(減號) 代表一段時間範圍內，舉例來說， 8 點到 12 點之間的每小時的 20 分都進行一項工作： 20 8-12 * * * command 仔細看到第二欄變成 8-12 喔！代表 8,9,10,11,12 都適用的意思！ /n(斜線) 那個 n 代表數字，亦即是『每隔 n 單位間隔』的意思，例如每五分鐘進行一次，則：*/5 * * * * command 很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！ crontab 產生的訊息會存放在 /var/spool/mail/root</description>
+      <description>&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;p&gt;輸入 &lt;code&gt;crontab -e&lt;/code&gt; 進入排程編輯&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;instruction&#34;&gt;Instruction&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;特殊字符&lt;/th&gt;
+          &lt;th&gt;代表意義&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;*(星號)&lt;/td&gt;
+          &lt;td&gt;代表任何時刻都接受的意思！舉例來說，範例一內那個日、月、週都是 &lt;code&gt;*&lt;/code&gt;，就代表著『不論何月、何日的禮拜幾的 12:00 都執行後續指令』的意思！&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;,(逗號)&lt;/td&gt;
+          &lt;td&gt;代表分隔時段的意思。舉例來說，如果要下達的工作是 3:00 與 6:00 時，就會是： &lt;code&gt;0 3,6 * * * command&lt;/code&gt; 時間參數還是有五欄，不過第二欄是 3,6 ，代表 3 與 6 都適用！&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-(減號)&lt;/td&gt;
+          &lt;td&gt;代表一段時間範圍內，舉例來說， 8 點到 12 點之間的每小時的 20 分都進行一項工作： &lt;code&gt;20 8-12 * * * command&lt;/code&gt; 仔細看到第二欄變成 8-12 喔！代表 8,9,10,11,12 都適用的意思！&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/n(斜線)&lt;/td&gt;
+          &lt;td&gt;那個 n 代表數字，亦即是『每隔 n 單位間隔』的意思，例如每五分鐘進行一次，則：&lt;code&gt;*/5 * * * * command&lt;/code&gt; 很簡單吧！用 * 與 /5 來搭配，也可以寫成 0-59/5 ，相同意思！&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;crontab 產生的訊息會存放在 &lt;code&gt;/var/spool/mail/root&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

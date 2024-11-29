@@ -1,55 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>docker on 馬丁沒有派對</title>
+    <title>Docker on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/docker/</link>
-    <description>Recent content in docker on 馬丁沒有派對</description>
+    <description>Recent content in Docker on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Jun 2019 20:22:08 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker cli 連線到遠端的 dockerd daemon</title>
       <link>https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/</link>
       <pubDate>Tue, 04 Jun 2019 20:22:08 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/</guid>
-      <description>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是：
-docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成
-才赫然發現 docker 別有洞天吶。
-原來每天在敲的 docker 指令都是在操控本機的 docker daemon。
-如何連線到遠端的 docker daemon 有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。
-今天馬上用我 virtualbox 中的 coreOS 進行測試一下。
-dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加入 -H 參數。
--H tcp://0.0.0.0:2375
-如果是用 systemctl 控制 docker 你可以找到 docker.service，在腳本中加入 -H 參數。
-以 coreOS 為例，
-我的檔案在 /run/systemd/system/docker.service
-修改完後，reload 並重啓</description>
+      <description>&lt;h2 id=&#34;docker-是-clientserver-的架構&#34;&gt;docker 是 client/server 的架構&lt;/h2&gt;
+&lt;p&gt;昨天在網路上看到一句話，大意是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker 是 client / server 的架構，
+由一個 docker cli 和 dockerd 的 daemon 組成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;才赫然發現 docker 別有洞天吶。&lt;br&gt;
+原來每天在敲的 docker 指令都是在操控本機的 docker daemon。&lt;/p&gt;
+&lt;h2 id=&#34;如何連線到遠端的-docker-daemon&#34;&gt;如何連線到遠端的 docker daemon&lt;/h2&gt;
+&lt;p&gt;有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。&lt;/p&gt;
+&lt;p&gt;今天馬上用我 virtualbox 中的 coreOS 進行測試一下。&lt;/p&gt;
+&lt;h3 id=&#34;dockerd-port-listen&#34;&gt;dockerd port listen&lt;/h3&gt;
+&lt;p&gt;dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加入 -H 參數。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-H tcp://0.0.0.0:2375&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果是用 systemctl 控制 docker 你可以找到 docker.service，在腳本中加入 -H 參數。&lt;/p&gt;
+&lt;p&gt;以 coreOS 為例，&lt;br&gt;
+我的檔案在 /run/systemd/system/docker.service&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;dockerd -H tcp://0.0.0.0:2375&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/06/a001.jpg&#34; title=&#34;docker -H tcp://0.0.0.0:2375&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>關於 Docker volume create</title>
       <link>https://blog.ooopiz.com/post/2019/05/docker-volume-create/</link>
       <pubDate>Fri, 10 May 2019 07:22:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/05/docker-volume-create/</guid>
-      <description>前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。
-原本我都是使用 -v 對應到我 host 機器的目錄
-ex :
--v $(pwd)/nginx-cache:/var/cache/nginx
-後來很好奇 docker volume create 的用途還有存放路徑。
-於是就小小的研究了一下。
-docker volume create 一般的 Linux 在執行 docker volume create … 之後，
-可以在 /var/lib/docker/volumes 看到 docker 幫你建立 volume 名稱的資料夾。
-docker volume create In Mac 可是當你使用 Mac 執行過 docker volume create … 之後，
-並無法在 Mac 電腦中找到 /var/lib/docker/volumes 這個目錄。
-在 Mac 電腦 是無法直接訪問 /var/lib/docker/volumes 這個目錄，
-必須先 screen 到 docker 目錄下的 tty，
-進到 tty 之後就可以在 /var/lib/docker/volums 看到 create 的目錄名稱了。</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。&lt;br&gt;
+原本我都是使用 -v 對應到我 host 機器的目錄&lt;br&gt;
+ex :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-v $(pwd)/nginx-cache:/var/cache/nginx&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;後來很好奇 docker volume create 的用途還有存放路徑。&lt;br&gt;
+於是就小小的研究了一下。&lt;/p&gt;
+&lt;h2 id=&#34;docker-volume-create&#34;&gt;docker volume create&lt;/h2&gt;
+&lt;p&gt;一般的 Linux 在執行 docker volume create … 之後，&lt;br&gt;
+可以在 /var/lib/docker/volumes 看到 docker 幫你建立 volume 名稱的資料夾。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;docker volume ls&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/a001.jpg&#34; title=&#34;docker volume ls&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;docker-volume-create-in-mac&#34;&gt;docker volume create In Mac&lt;/h2&gt;
+&lt;p&gt;可是當你使用 Mac 執行過 docker volume create … 之後，&lt;br&gt;
+並無法在 Mac 電腦中找到 /var/lib/docker/volumes 這個目錄。&lt;/p&gt;
+&lt;p&gt;在 Mac 電腦 是無法直接訪問 /var/lib/docker/volumes 這個目錄，&lt;br&gt;
+必須先 screen 到 docker 目錄下的 tty，&lt;br&gt;
+進到 tty 之後就可以在 /var/lib/docker/volums 看到 create 的目錄名稱了。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

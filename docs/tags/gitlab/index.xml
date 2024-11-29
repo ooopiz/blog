@@ -1,51 +1,119 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>gitlab on 馬丁沒有派對</title>
+    <title>Gitlab on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/gitlab/</link>
-    <description>Recent content in gitlab on 馬丁沒有派對</description>
+    <description>Recent content in Gitlab on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Nov 2018 10:45:51 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Nov 2018 10:45:51 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitlab-ce 版本升級與容器化</title>
       <link>https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/</link>
       <pubDate>Thu, 01 Nov 2018 10:45:51 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/</guid>
-      <description>升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還原 四、版本逐步升級 一、備份 Omnibus 上的資料 $ gitlab-rake gitlab:backup:create
-二、準備 docker 環境 Install docker, docker-compose 檔案存放的根目錄我設定在 /srv/gitlab，因此先在母體主機建立三個資料夾後續給 docker 掛載。 /srv/gitlab/config /srv/gitlab/logs /srv/gitlab/data 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與匯入 複製 omnibus 機器下的主機金鑰組到新環境 From omnibus (/etc/ssh/ssh_host_*) copy to /srv/gitlab/config/ 撰寫 docker-compose.yaml 如下 hostname 與 external_url 替換成自己的參數 web: image: &amp;#39;gitlab/gitlab-ce:8.14.4-ce.0&amp;#39; container_name: gitlab restart: always hostname: &amp;#39;git.example.com&amp;#39; environment: TZ: Asia/Taipei GITLAB_OMNIBUS_CONFIG: | external_url &amp;#39;http://git.</description>
+      <description>&lt;h2 id=&#34;升級目標&#34;&gt;升級目標&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4&lt;/li&gt;
+&lt;li&gt;Omnibus 轉移到 Docker 容器（Dockerized）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;步驟流程&#34;&gt;步驟流程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;一、備份 Omnibus 上的資料&lt;/li&gt;
+&lt;li&gt;二、準備 docker 環境&lt;/li&gt;
+&lt;li&gt;三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還原&lt;/li&gt;
+&lt;li&gt;四、版本逐步升級&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;一備份-omnibus-上的資料&#34;&gt;一、備份 Omnibus 上的資料&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;$ gitlab-rake gitlab:backup:create&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二準備-docker-環境&#34;&gt;二、準備 docker 環境&lt;/h2&gt;
+&lt;h3 id=&#34;install-docker-docker-compose&#34;&gt;Install docker, docker-compose&lt;/h3&gt;
+&lt;h3 id=&#34;檔案存放的根目錄我設定在-srvgitlab因此先在母體主機建立三個資料夾後續給-docker-掛載&#34;&gt;檔案存放的根目錄我設定在 /srv/gitlab，因此先在母體主機建立三個資料夾後續給 docker 掛載。&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;/srv/gitlab/config&lt;/li&gt;
+&lt;li&gt;/srv/gitlab/logs&lt;/li&gt;
+&lt;li&gt;/srv/gitlab/data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三啟動新環境使用-gitlab-ce8144-ce0-版本的-image與匯入&#34;&gt;三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與匯入&lt;/h2&gt;
+&lt;h3 id=&#34;複製-omnibus-機器下的主機金鑰組到新環境&#34;&gt;複製 omnibus 機器下的主機金鑰組到新環境&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;From omnibus (/etc/ssh/ssh_host_*) copy to /srv/gitlab/config/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;撰寫-docker-composeyaml-如下&#34;&gt;撰寫 docker-compose.yaml 如下&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;hostname 與 external_url 替換成自己的參數&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;web:
+  image: &amp;#39;gitlab/gitlab-ce:8.14.4-ce.0&amp;#39;
+  container_name: gitlab
+  restart: always
+  hostname: &amp;#39;git.example.com&amp;#39;
+  environment:
+    TZ: Asia/Taipei
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url &amp;#39;http://git.example.com&amp;#39;
+      # Add any other gitlab.rb configuration here, each on its own line
+  ports:
+    - &amp;#39;22:22&amp;#39;
+    - &amp;#39;80:80&amp;#39;
+    - &amp;#39;443:443&amp;#39;
+  volumes:
+    - &amp;#39;/srv/gitlab/config:/etc/gitlab&amp;#39;
+    - &amp;#39;/srv/gitlab/logs:/var/log/gitlab&amp;#39;
+    - &amp;#39;/srv/gitlab/data:/var/opt/gitlab&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;使用上方的docker-compose-啟動-gitlab-ce&#34;&gt;使用上方的docker-compose 啟動 gitlab-ce&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;$ docker-compose up -d&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>GitLab 7.14升級8.X</title>
       <link>https://blog.ooopiz.com/post/2016/12/gitlab-upgrade-7.14-to-8/</link>
       <pubDate>Thu, 08 Dec 2016 13:22:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2016/12/gitlab-upgrade-7.14-to-8/</guid>
-      <description>簡介 上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下 recovery，以免意外發生時手忙腳亂．
-目前版本：gitlab-ce-7.14.3-ce.1.el7.x86_64 預計更新版本：就更新到最新版吧目前是8.14.4
-一開始傻傻的，想要把舊版本的backup檔，直接到8.X版本進行匯入， 很快的它就會告訴你版本不合了， 只好再用別的方式
-後來我準備了兩台伺服器， 一台先安裝7.14.3 一台安裝最新版8.14.4
-預計先將7.14.3的備份檔匯入第一台伺服器，之後進行升級， 然後因為個人有點龜毛，再用升級好機器備份出8.14.4版的備份檔， 來到全新的新版機器(8.14.4)再進行匯入
-流程 舊機器 7.14.3 備份 1. 備份backup檔 在原本的機器上下指令備份gitlab資料
-# gitlab-rake gitlab:backup:create
-新機器版本 7.14.3 這台機器要先裝好 7.14.3，匯入備份檔，再用 yum 更新到 8.14.4。
-1.安裝 我自己都用Omnibus 所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧
-gitlab 官網有美美的教學，自己來吧
-其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]
-# sudo /opt/gitlab/embedded/bin/runsvdir-start &amp;amp;
-# sudo gitlab-ctl reconfigure
-Ref:
-Freeze on ruby_block[supervise_redis_sleep] action run 2. 匯入backup檔 我將backup檔copy到新伺服器的備份目錄下，執行recovery時，程序會自動將檔案recovery回去
-mv to /var/opt/gitlab/backups/
-3.開始前先停止相關數據服務連線 # gitlab-ctl stop unicorn
-# gitlab-ctl stop sidekiq
-4.從1393513186編號備份中復原(看你的檔案編號是啥鬼) # gitlab-rake gitlab:backup:restore BACKUP=1393513186</description>
+      <description>&lt;h2 id=&#34;簡介&#34;&gt;簡介&lt;/h2&gt;
+&lt;p&gt;上次安裝Gitlab大約將近一年前了，Gitlab也更新了很多功能，因此來著手進行一次升級，順便練習一下
+recovery，以免意外發生時手忙腳亂．&lt;/p&gt;
+&lt;p&gt;目前版本：gitlab-ce-7.14.3-ce.1.el7.x86_64
+預計更新版本：就更新到最新版吧目前是8.14.4&lt;/p&gt;
+&lt;p&gt;一開始傻傻的，想要把舊版本的backup檔，直接到8.X版本進行匯入，
+很快的它就會告訴你版本不合了，
+只好再用別的方式&lt;/p&gt;
+&lt;p&gt;後來我準備了兩台伺服器，
+一台先安裝7.14.3
+一台安裝最新版8.14.4&lt;/p&gt;
+&lt;p&gt;預計先將7.14.3的備份檔匯入第一台伺服器，之後進行升級，
+然後因為個人有點龜毛，再用升級好機器備份出8.14.4版的備份檔，
+來到全新的新版機器(8.14.4)再進行匯入&lt;/p&gt;
+&lt;h2 id=&#34;流程&#34;&gt;流程&lt;/h2&gt;
+&lt;h3 id=&#34;舊機器-7143-備份&#34;&gt;舊機器 7.14.3 備份&lt;/h3&gt;
+&lt;h4 id=&#34;1-備份backup檔&#34;&gt;1. 備份backup檔&lt;/h4&gt;
+&lt;p&gt;在原本的機器上下指令備份gitlab資料&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# gitlab-rake gitlab:backup:create&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;新機器版本-7143&#34;&gt;新機器版本 7.14.3&lt;/h3&gt;
+&lt;p&gt;這台機器要先裝好 7.14.3，匯入備份檔，再用 yum 更新到 8.14.4。&lt;/p&gt;
+&lt;h4 id=&#34;1安裝&#34;&gt;1.安裝&lt;/h4&gt;
+&lt;p&gt;我自己都用Omnibus
+所以就先把Omnibus(gitlab-ce-7.14.3-ce.1.el7.x86_64)裝起來吧&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://about.gitlab.com/downloads/#centos7&#34; target=&#34;_blank&#34; &gt;gitlab 官網有美美的教學，自己來吧&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其中有遇到一個問題是gitlab-ctl reconfigure時會停在[supervise_redis_sleep]&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https:////fblog.ooopiz.com/images/201609/M12-A01-02.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo /opt/gitlab/embedded/bin/runsvdir-start &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sudo gitlab-ctl reconfigure&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ref:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430&#34; target=&#34;_blank&#34; &gt;Freeze on ruby_block[supervise_redis_sleep] action run&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-匯入backup檔&#34;&gt;2. 匯入backup檔&lt;/h4&gt;
+&lt;p&gt;我將backup檔copy到新伺服器的備份目錄下，執行recovery時，程序會自動將檔案recovery回去&lt;/p&gt;
+&lt;p&gt;mv to &lt;code&gt;/var/opt/gitlab/backups/&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;3開始前先停止相關數據服務連線&#34;&gt;3.開始前先停止相關數據服務連線&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;# gitlab-ctl stop unicorn&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# gitlab-ctl stop sidekiq&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

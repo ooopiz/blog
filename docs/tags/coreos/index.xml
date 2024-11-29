@@ -1,47 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>coreos on 馬丁沒有派對</title>
+    <title>Coreos on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/coreos/</link>
-    <description>Recent content in coreos on 馬丁沒有派對</description>
+    <description>Recent content in Coreos on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Jul 2019 17:01:37 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Jul 2019 17:01:37 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CoreOS Static Ip 固定 IP 設定</title>
       <link>https://blog.ooopiz.com/post/2019/07/coreos-static-ip/</link>
       <pubDate>Wed, 24 Jul 2019 17:01:37 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/07/coreos-static-ip/</guid>
-      <description>設定 static ip 副檔名必須是.network
-$ vi /etc/systemd/network/enp0s8.network
-[Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot</description>
+      <description>&lt;h2 id=&#34;設定-static-ip&#34;&gt;設定 static ip&lt;/h2&gt;
+&lt;p&gt;副檔名必須是.network&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ vi /etc/systemd/network/enp0s8.network&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[Match]
+Name=enp0s8
+ 
+[Network]
+Address=192.168.56.201/24
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img alt=&#34;static ip&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/07/a001.jpg&#34; title=&#34;static ip&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;reboot&#34;&gt;reboot&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sudo reboot&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Virtualbox 安裝 Coreos</title>
       <link>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</link>
       <pubDate>Tue, 28 May 2019 15:20:25 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/</guid>
-      <description>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO
-如標題，這份 ISO 僅是開機片而已，並無安裝動作，
-如何安裝的部分下面會提到。
-VirtualBox 新增機器 選 Linux 64 bit 即可
-掛載剛下載的 ISO 檔
-開機 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。
-512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
-安裝到硬碟 這個步驟要使用 coreos-install 這個指令來安裝硬碟，
-當 ISO boot 的時候，該指令就已經內建在系統裡了。
-要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，
-這個檔案可以用來設定用戶、網路、儲存、服務等。。。
-必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）
-否則裝好之後是無法使用 ssh login in 的。
-先查看硬碟空間在那裡 $ sudo fdisk -l</description>
+      <description>&lt;h2 id=&#34;到官網下載-coreos-iso-檔&#34;&gt;到官網下載 coreOS ISO 檔&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://coreos.com/os/docs/latest/booting-with-iso.html&#34; target=&#34;_blank&#34; &gt;Booting CoreOS Container Linux from an ISO&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如標題，這份 ISO 僅是開機片而已，並無安裝動作，&lt;br&gt;
+如何安裝的部分下面會提到。&lt;/p&gt;
+&lt;h2 id=&#34;virtualbox-新增機器&#34;&gt;VirtualBox 新增機器&lt;/h2&gt;
+&lt;p&gt;選 Linux 64 bit 即可&lt;br&gt;
+&lt;img alt=&#34;virtualbox-new-server&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d001.jpg&#34; title=&#34;virtualbox-new-server&#34;&gt;&lt;/p&gt;
+&lt;p&gt;掛載剛下載的 ISO 檔&lt;br&gt;
+&lt;img alt=&#34;mount-coreos-iso&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d002.jpg&#34; title=&#34;mount-coreos-iso&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;開機&#34;&gt;開機&lt;/h2&gt;
+&lt;p&gt;官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;512 G - &lt;!-- raw HTML omitted --&gt; &lt;em&gt;無限重開&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;1024 G - &lt;!-- raw HTML omitted --&gt; &lt;em&gt;boot into emergency shell&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;img alt=&#34;emergency shell&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d003.jpg&#34; title=&#34;emergency shell&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2048 G - OK
+&lt;img alt=&#34;coreos boot&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/05/d004.jpg&#34; title=&#34;coreos boot&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

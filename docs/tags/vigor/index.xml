@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>vigor on 馬丁沒有派對</title>
+    <title>Vigor on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/vigor/</link>
-    <description>Recent content in vigor on 馬丁沒有派對</description>
+    <description>Recent content in Vigor on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 May 2019 08:02:00 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/vigor/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 May 2019 08:02:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/vigor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IPsec Lan to Lan Vigor-2925 and AWS-ec2</title>
       <link>https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/</link>
       <pubDate>Fri, 17 May 2019 08:02:00 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/</guid>
-      <description>前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，
-內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。
-其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）
-一個月大概在台幣 1,000 左右 AWS VPN pricing。
-但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。
-目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。
-公司端：
-設備：Vigor 2925 網段：192.168.0.0/24 AWS 端：
-網段：172.21.0.0/16 IPsec Server ： CentOS7, EIP libreSwan 簡介 libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。
-在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan
-安裝 libreswan $ yum install epel-release $ yum install libreswan 設定 ipsec ipsec 啟動時會載入 /etc/ipsec.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，&lt;br&gt;
+內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。&lt;/p&gt;
+&lt;p&gt;其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）&lt;br&gt;
+一個月大概在台幣 1,000 左右 &lt;a href=&#34;https://aws.amazon.com/tw/vpn/pricing/&#34; target=&#34;_blank&#34; &gt;AWS VPN pricing&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。&lt;/p&gt;
+&lt;p&gt;目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。&lt;/p&gt;
+&lt;p&gt;公司端：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設備：Vigor 2925&lt;/li&gt;
+&lt;li&gt;網段：192.168.0.0/24&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;AWS 端：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;網段：172.21.0.0/16&lt;/li&gt;
+&lt;li&gt;IPsec Server ： CentOS7, EIP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;libreswan-簡介&#34;&gt;libreSwan 簡介&lt;/h2&gt;
+&lt;p&gt;libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。&lt;br&gt;
+在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan&lt;/p&gt;
+&lt;h2 id=&#34;安裝-libreswan&#34;&gt;安裝 libreswan&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ yum install epel-release
+$ yum install libreswan
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;設定-ipsec&#34;&gt;設定 ipsec&lt;/h2&gt;
+&lt;p&gt;ipsec 啟動時會載入 /etc/ipsec.conf&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

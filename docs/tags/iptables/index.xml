@@ -1,25 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>iptables on 馬丁沒有派對</title>
+    <title>Iptables on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/iptables/</link>
-    <description>Recent content in iptables on 馬丁沒有派對</description>
+    <description>Recent content in Iptables on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 21 Aug 2015 10:05:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Aug 2015 10:05:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS 6.5 防火牆設定iptables</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</link>
       <pubDate>Fri, 21 Aug 2015 10:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-packet-filtering-firewall-iptables/</guid>
-      <description>CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。 比較常用的Port..
-常見的預設 port 號 Service Port FTP 21 SSH 22 HTTP 80 HTTPS 443 MYSQL 3306 將對應的資訊加入iptables設定檔中 /etc/sysconfig/iptables
--A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT 設定完iptables記得必須重新啟動防火牆 service iptables restart</description>
+      <description>&lt;p&gt;CentOS一般預設開啟的只有SSH的Port 22，如果有其他的需求就必須手動設定防火牆。
+比較常用的Port..&lt;/p&gt;
+&lt;h2 id=&#34;常見的預設-port-號&#34;&gt;常見的預設 port 號&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Service&lt;/th&gt;
+          &lt;th&gt;Port&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;FTP&lt;/td&gt;
+          &lt;td&gt;21&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;SSH&lt;/td&gt;
+          &lt;td&gt;22&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;HTTP&lt;/td&gt;
+          &lt;td&gt;80&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;HTTPS&lt;/td&gt;
+          &lt;td&gt;443&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;MYSQL&lt;/td&gt;
+          &lt;td&gt;3306&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;將對應的資訊加入iptables設定檔中&#34;&gt;將對應的資訊加入iptables設定檔中&lt;/h2&gt;
+&lt;p&gt;/etc/sysconfig/iptables&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201508/001.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 馬丁沒有派對">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ooopiz.com/logo/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/logo/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/logo/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://blog.ooopiz.com/post/index.xml">
+<link rel="alternate" hreflang="en" href="https://blog.ooopiz.com/post/">
 <noscript>
     <style>
         #theme-toggle,
@@ -29,26 +30,30 @@
     </style>
 </noscript>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3680083267042451" crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
-}
-</script>
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="我把青春都寫在blog上了 😜😜" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="og:site_name" content="馬丁沒有派對" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
-
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4XSTL9TGTE');
+        }
+      </script><meta property="og:url" content="https://blog.ooopiz.com/post/">
+  <meta property="og:site_name" content="馬丁沒有派對">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="我把青春都寫在blog上了 😜😜">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜">
 
 
 <script type="application/ld+json">
@@ -137,7 +142,7 @@ if (!doNotTrack) {
 <header class="page-header"><div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a></div>
   <h1>
     Posts
-    <a href="index.xml" title="RSS" aria-label="RSS">
+    <a href="/post/index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
         <path d="M4 11a9 9 0 0 1 9 9" />
@@ -150,14 +155,15 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>pem轉ppk putty 登入
+    <h2 class="entry-hint-parent">pem轉ppk putty 登入
     </h2>
   </header>
   <div class="entry-content">
     <p>putty不支援openssh, 所以手上有pem檔的話需要做一次轉換 前往下載 puttygen.exe
 pem 轉 ppk 1.載入pem 2.如果看不到檔案請選all file 3.載入後選擇save private key 4.輸入檔名生成ppk檔 putty設定登入 1.轉換完成的ppk檔放置到你想保存的位置 2.開啟putty (以下為範例照自己的機器與檔案資訊填寫) 3.輸入用戶名稱 4.載入ppk檔 5.記得回來按一下存檔 linux or Cmder登入方式 ssh -i xxx.pem username@192.168.1.1
 改port的話
-ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</p>
+ssh -i pem路徑 用戶名稱@主機位址 -p Port端口
+</p>
   </div>
   <footer class="entry-footer"><span title='2017-03-21 02:21:01 +0800 CST'>March 21, 2017</span></footer>
   <a class="entry-link" aria-label="post link to pem轉ppk putty 登入" href="https://blog.ooopiz.com/post/2017/03/pem-to-ppk-putty-login/"></a>
@@ -165,7 +171,7 @@ ssh -i pem路徑 用戶名稱@主機位址 -p Port端口</p>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>php call java 類別
+    <h2 class="entry-hint-parent">php call java 類別
     </h2>
   </header>
   <div class="entry-content">
@@ -176,7 +182,8 @@ Files &gt; Binary package &gt; JavaBridgeTemplate621.war
 寫一個jar來做測試 # mkdir TestMath
 # cd TestMath
 # vi TestMath.java
-public class TestMath { private Integer num1; private Integer num2; public TestMath() { this.num1 = 0; this.num2 = 0; } public TestMath(Integer n1, Integer n2) { this.num1 = n1; this.num2 = n2; } public void setNum1(Integer n) { this.num1 = n; } public void setNum2(Integer n) { this.num2 = n; } public Integer plus() { return num1 &#43; num2; } public Integer minus() { return num1 - num2; } } # javac TestMath....</p>
+public class TestMath { private Integer num1; private Integer num2; public TestMath() { this.num1 = 0; this.num2 = 0; } public TestMath(Integer n1, Integer n2) { this.num1 = n1; this.num2 = n2; } public void setNum1(Integer n) { this.num1 = n; } public void setNum2(Integer n) { this.num2 = n; } public Integer plus() { return num1 &#43; num2; } public Integer minus() { return num1 - num2; } } # javac TestMath.java
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-12-21 03:23:01 +0800 CST'>December 21, 2016</span></footer>
   <a class="entry-link" aria-label="post link to php call java 類別" href="https://blog.ooopiz.com/post/2016/12/php-call-java-class/"></a>
@@ -184,7 +191,7 @@ public class TestMath { private Integer num1; private Integer num2; public TestM
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>GitLab 7.14升級8.X
+    <h2 class="entry-hint-parent">GitLab 7.14升級8.X
     </h2>
   </header>
   <div class="entry-content">
@@ -206,7 +213,7 @@ Freeze on ruby_block[supervise_redis_sleep] action run 2. 匯入backup檔 我將
 mv to /var/opt/gitlab/backups/
 3.開始前先停止相關數據服務連線 # gitlab-ctl stop unicorn
 # gitlab-ctl stop sidekiq
-4.從1393513186編號備份中復原(看你的檔案編號是啥鬼) # gitlab-rake gitlab:backup:restore BACKUP=1393513186...</p>
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-12-08 13:22:01 +0800 CST'>December 8, 2016</span></footer>
   <a class="entry-link" aria-label="post link to GitLab 7.14升級8.X" href="https://blog.ooopiz.com/post/2016/12/gitlab-upgrade-7.14-to-8/"></a>
@@ -214,7 +221,7 @@ mv to /var/opt/gitlab/backups/
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>利用 adjtimex 來修正 linux 時間偏差
+    <h2 class="entry-hint-parent">利用 adjtimex 來修正 linux 時間偏差
     </h2>
   </header>
   <div class="entry-content">
@@ -235,7 +242,8 @@ f = 差值 * 100000 * 65536
 或
 f = error_ppm平均值 * 65536
 這裡 = 250 * 65536 = 16384000
-這邊我的-f校正值是16384000 adjtimex -f 16384000</p>
+這邊我的-f校正值是16384000 adjtimex -f 16384000
+</p>
   </div>
   <footer class="entry-footer"><span title='2016-11-04 10:26:01 +0800 CST'>November 4, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 利用 adjtimex 來修正 linux 時間偏差" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/"></a>
@@ -243,7 +251,7 @@ f = error_ppm平均值 * 65536
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Yum Zabbix server, agent
+    <h2 class="entry-hint-parent">Yum Zabbix server, agent
     </h2>
   </header>
   <div class="entry-content">
@@ -254,7 +262,8 @@ yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php
 yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
 建立 zabbix 帳號及資料庫
 mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
-mysql&gt; GRANT ALL PRIVILEGES on zabbix....</p>
+mysql&gt; GRANT ALL PRIVILEGES on zabbix.* to &#39;zabbix&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;zabbix&#39;;
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-27 02:13:01 +0800 CST'>October 27, 2016</span></footer>
   <a class="entry-link" aria-label="post link to Yum Zabbix server, agent" href="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/"></a>
@@ -262,7 +271,7 @@ mysql&gt; GRANT ALL PRIVILEGES on zabbix....</p>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>bind make安裝搭配 dlz mysql
+    <h2 class="entry-hint-parent">bind make安裝搭配 dlz mysql
     </h2>
   </header>
   <div class="entry-content">
@@ -273,7 +282,7 @@ Bind官網 FTP站 二、安裝MySQL資料庫
 -A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
 service iptables save
 service iptables restart
-2. 移除舊有的bind安裝 rpm -qa | grep &#34;^bind&#34;...</p>
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span></footer>
   <a class="entry-link" aria-label="post link to bind make安裝搭配 dlz mysql" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/"></a>
@@ -281,7 +290,7 @@ service iptables restart
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>CentOS yum 安裝 bind9
+    <h2 class="entry-hint-parent">CentOS yum 安裝 bind9
     </h2>
   </header>
   <div class="entry-content">
@@ -292,7 +301,8 @@ chkconfig named on
 service iptables save
 service iptables restart
 設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
-options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump....</p>
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump.db&#34;; statistics-file &#34;/var/named/data/named_stats.txt&#34;; memstatistics-file &#34;/var/named/data/named_mem_stats.txt&#34;; allow-query { localhost; }; recursion yes; dnssec-enable yes; dnssec-validation yes; /* Path to ISC DLV key */ bindkeys-file &#34;/etc/named.iscdlv.key&#34;; managed-keys-directory &#34;/var/named/dynamic&#34;; }; logging { channel default_debug { file &#34;data/named.run&#34;; severity dynamic; }; }; zone &#34;.&#34; IN { type hint; file &#34;named.ca&#34;; }; include &#34;/etc/named.rfc1912.zones&#34;; include &#34;/etc/named.root.key&#34;; 修改設定 修改 options 設定，允許查詢來源
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-04 02:09:01 +0800 CST'>October 4, 2016</span></footer>
   <a class="entry-link" aria-label="post link to CentOS yum 安裝 bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
@@ -309,7 +319,8 @@ options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; direc
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span>
+        <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

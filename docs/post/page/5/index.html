@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - 馬丁沒有派對">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ooopiz.com/logo/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/logo/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/logo/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://blog.ooopiz.com/post/index.xml">
+<link rel="alternate" hreflang="en" href="https://blog.ooopiz.com/post/">
 <noscript>
     <style>
         #theme-toggle,
@@ -29,26 +30,30 @@
     </style>
 </noscript>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3680083267042451" crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
-}
-</script>
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="我把青春都寫在blog上了 😜😜" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="og:site_name" content="馬丁沒有派對" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
-
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜"/>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4XSTL9TGTE');
+        }
+      </script><meta property="og:url" content="https://blog.ooopiz.com/post/">
+  <meta property="og:site_name" content="馬丁沒有派對">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="我把青春都寫在blog上了 😜😜">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+      <meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="我把青春都寫在blog上了 😜😜">
 
 
 <script type="application/ld+json">
@@ -137,7 +142,7 @@ if (!doNotTrack) {
 <header class="page-header"><div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a></div>
   <h1>
     Posts
-    <a href="index.xml" title="RSS" aria-label="RSS">
+    <a href="/post/index.xml" title="RSS" aria-label="RSS">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" height="23">
         <path d="M4 11a9 9 0 0 1 9 9" />
@@ -150,14 +155,16 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式
+    <h2 class="entry-hint-parent">HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式
     </h2>
   </header>
   <div class="entry-content">
-    <p>原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
+    <p>
+原生的 CentOS iso 檔無法讀到機器的 Raid 卡，需要自行下載驅動來安裝．
 首先必須先準備CentOS7的安裝檔，並且下載相對應的驅動，方法如下
 [RECOMMENDED] HP ProLiant Smart Array 控制器 (AMD64/EM64T) 驅動程式磁碟（適用於 Red Hat Enterprise Linux 7 (AMD64/EM64T)） hpsa-3.4.10-120.rhel7u0.x86_64.dd.gz « CentOS 7 hpsa-3.4.10-120.rhel7u1.x86_64.dd.gz « CentOS 7.1 CentOS 7版本說明 RHEL 版本 版本 CentOS 7 7-1406 CentOS 7.1 7-1503 CentOS 7.2 7-1511 Wiki - CentOS版本說明
-Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-....</p>
+Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨身碟： 將 hpsa-..x86_64.dd.gz 檔案儲存至暫存目錄。使用 GUNZIP 將此檔案中的 hpsa-..x86_64.dd 解壓縮至同一目錄。 插入 USB 隨身碟。若已自動掛載 USB 隨身碟，請卸載 USB 隨身碟。 寫入 hpsa-..x86_64.dd 檔案至 USB 隨身碟裝置。(不包括 USB 隨身碟是 /dev/sdc) dd if=hpsa-..x86_64.dd of=/dev/sdc1
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-09-29 08:49:01 +0800 CST'>September 29, 2016</span></footer>
   <a class="entry-link" aria-label="post link to HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式" href="https://blog.ooopiz.com/post/2016/09/hp-proliant-dl20-gen9-centos7-install-raidcard/"></a>
@@ -165,7 +172,7 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>運用google協作平台製作履歷
+    <h2 class="entry-hint-parent">運用google協作平台製作履歷
     </h2>
   </header>
   <div class="entry-content">
@@ -177,7 +184,8 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 管理協作平台
 設定搜尋功能
 編輯協作平台版面配置
-恩你看了就知道了~~~ 啾</p>
+恩你看了就知道了~~~ 啾
+</p>
   </div>
   <footer class="entry-footer"><span title='2016-09-20 05:50:01 +0800 CST'>September 20, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 運用google協作平台製作履歷" href="https://blog.ooopiz.com/post/2016/09/google-resume/"></a>
@@ -185,7 +193,7 @@ Installation: 在類似 Linux 的作業系統下建立驅動程式更新 USB 隨
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Hicloud S3雲儲存資料夾掛載
+    <h2 class="entry-hint-parent">Hicloud S3雲儲存資料夾掛載
     </h2>
   </header>
   <div class="entry-content">
@@ -204,7 +212,7 @@ make install
 四、設定 要存取Hicloud的s3必須先申請一組access key與secret key
 將key info寫入設定檔中
 vi /etc/passwd-s3fs
-#Access Key:Secret Key 以冒號(:)區隔 #ex: 2d69bf8ca60c2381dd1fg2as4f10s:97761d0f114562r2gfd0256436ec 五、掛載 Only ROOT s3fs -o url=http://s3....</p>
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-08-09 02:07:01 +0800 CST'>August 9, 2016</span></footer>
   <a class="entry-link" aria-label="post link to Hicloud S3雲儲存資料夾掛載" href="https://blog.ooopiz.com/post/2016/08/hicloud-mount-s3-cloud-storage-folder/"></a>
@@ -212,7 +220,7 @@ vi /etc/passwd-s3fs
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>2016/07/27 使用ab壓測
+    <h2 class="entry-hint-parent">2016/07/27 使用ab壓測
     </h2>
   </header>
   <div class="entry-content">
@@ -233,7 +241,7 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Gradle 初探
+    <h2 class="entry-hint-parent">Gradle 初探
     </h2>
   </header>
   <div class="entry-content">
@@ -245,7 +253,7 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>javascript 有沒有var的差別
+    <h2 class="entry-hint-parent">javascript 有沒有var的差別
     </h2>
   </header>
   <div class="entry-content">
@@ -260,13 +268,14 @@ $(document).ready(function () { var x = 6; }); $(document).ready(function () { v
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>2013 開放 Web 軟體安全計畫
+    <h2 class="entry-hint-parent">2013 開放 Web 軟體安全計畫
     </h2>
   </header>
   <div class="entry-content">
     <p>2013 開放 Web 軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
 網站安全標準須防止 OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： Top 10 A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法...</p>
+A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： Top 10 A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法
+...</p>
   </div>
   <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 2013 開放 Web 軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
@@ -283,7 +292,8 @@ A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Manageme
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span>
+        <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

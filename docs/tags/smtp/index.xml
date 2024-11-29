@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>smtp on 馬丁沒有派對</title>
+    <title>Smtp on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/smtp/</link>
-    <description>Recent content in smtp on 馬丁沒有派對</description>
+    <description>Recent content in Smtp on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 26 May 2016 10:20:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 May 2016 10:20:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/smtp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS7 安裝 Postfix</title>
       <link>https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/</guid>
-      <description>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
-也是 Sendmail 很好的替代品。
-以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
-查詢是否安裝過
-rpm -qa | grep sendmail
-rpm -qa | grep exim
-移除
-yum remove sendmail
-yum remove exim
-為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing 換成
-SELINUX=disabled 重開機後生效
-開始安裝 Postfix yum install postfix</description>
+      <description>&lt;h2 id=&#34;postfix-介紹&#34;&gt;Postfix 介紹&lt;/h2&gt;
+&lt;p&gt;Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),&lt;br&gt;
+也是 Sendmail 很好的替代品。&lt;br&gt;
+以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.&lt;/p&gt;
+&lt;h2 id=&#34;安裝&#34;&gt;安裝&lt;/h2&gt;
+&lt;h3 id=&#34;前置作業&#34;&gt;前置作業&lt;/h3&gt;
+&lt;p&gt;在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:&lt;/p&gt;
+&lt;p&gt;查詢是否安裝過&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rpm -qa | grep sendmail&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rpm -qa | grep exim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;移除&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum remove sendmail&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum remove exim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELINUX=enforcing
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;換成&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELINUX=disabled
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重開機後生效&lt;/p&gt;
+&lt;h3 id=&#34;開始安裝-postfix&#34;&gt;開始安裝 Postfix&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;yum install postfix&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

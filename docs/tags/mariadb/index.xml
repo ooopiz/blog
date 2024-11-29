@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>mariadb on 馬丁沒有派對</title>
+    <title>Mariadb on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/mariadb/</link>
-    <description>Recent content in mariadb on 馬丁沒有派對</description>
+    <description>Recent content in Mariadb on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Aug 2015 07:05:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Aug 2015 07:05:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CentOS 6.5 安裝MariaDB</title>
       <link>https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/</link>
       <pubDate>Mon, 24 Aug 2015 07:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/centos65-installation-of-mariadb/</guid>
-      <description>新增MariaDB的知識庫，讓系統使用。 依照自己的系統在目錄下新增檔案
-config /etc/yum.repos.d/mariadb.repo
-32位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-x86 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 64位元系統 [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/5.5/centos6-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1 更新套件庫 yum update -y
-安裝 MariaDB 安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣
-yum install MariaDB-devel MariaDB-client MariaDB-server -y
-service mysql start
-chkconfig mysql on
-初始化 MariaDB 執行這個初始化程式，過程跟MySQL一模一樣
-/usr/bin/mysql_secure_installation
-第一個問題，Enter current password for root (enter for none):
-請直接按下Enter，因為預設MariaDB沒有密碼。
-第二個問題，Change the root password? [Y/n]
-是否更改root密碼，極度建議您設定root密碼，請輸入Y
-第三個問題，Remove anonymous users? [Y/n]
-是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了
-第四個問題，Disallow root login remotely?</description>
+      <description>&lt;h3 id=&#34;新增mariadb的知識庫讓系統使用&#34;&gt;新增MariaDB的知識庫，讓系統使用。&lt;/h3&gt;
+&lt;p&gt;依照自己的系統在目錄下新增檔案&lt;/p&gt;
+&lt;p&gt;config /etc/yum.repos.d/mariadb.repo&lt;/p&gt;
+&lt;h3 id=&#34;32位元系統&#34;&gt;32位元系統&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[mariadb]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;MariaDB&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;baseurl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;http://yum.mariadb.org/5.5/centos6-x86&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;gpgkey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;https://yum.mariadb.org/RPM-GPG-KEY-MariaDB&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;gpgcheck&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;64位元系統&#34;&gt;64位元系統&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[mariadb]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;MariaDB&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;baseurl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;http://yum.mariadb.org/5.5/centos6-amd64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;gpgkey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;https://yum.mariadb.org/RPM-GPG-KEY-MariaDB&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;gpgcheck&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;更新套件庫&#34;&gt;更新套件庫&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;yum update -y&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安裝-mariadb&#34;&gt;安裝 MariaDB&lt;/h2&gt;
+&lt;p&gt;安裝好後啟動MariaDB，MariaDB叫做【mysql】跟MySQL的【mysqld】不一樣&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum install MariaDB-devel MariaDB-client MariaDB-server -y&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;service mysql start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chkconfig mysql on&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;初始化-mariadb&#34;&gt;初始化 MariaDB&lt;/h2&gt;
+&lt;p&gt;執行這個初始化程式，過程跟MySQL一模一樣&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/usr/bin/mysql_secure_installation&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;第一個問題，Enter current password for root (enter for none):&lt;br&gt;
+請直接按下Enter，因為預設MariaDB沒有密碼。&lt;/p&gt;
+&lt;p&gt;第二個問題，Change the root password? [Y/n]&lt;br&gt;
+是否更改root密碼，極度建議您設定root密碼，請輸入Y&lt;/p&gt;
+&lt;p&gt;第三個問題，Remove anonymous users? [Y/n]&lt;br&gt;
+是否移除匿名帳號，請務必移除匿名帳號，否則別人隨便就可以進入您的資料庫了&lt;/p&gt;
+&lt;p&gt;第四個問題，Disallow root login remotely? [Y/n]&lt;br&gt;
+是否移除遠端root登入權限，視需求設定&lt;/p&gt;
+&lt;p&gt;第五個問題，Remove test database and access to it? [Y/n]&lt;br&gt;
+是否移除測試資料庫跟使用者，留著也沒用！移除請輸入Y&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

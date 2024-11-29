@@ -7,30 +7,45 @@
 <meta name="robots" content="index, follow">
 <title>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ | 馬丁沒有派對</title>
 <meta name="keywords" content="macos">
-<meta name="description" content="先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
+<meta name="description" content="先聊個天
+很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
 雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。
 我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb
 就是沒有檔案打包 ISO 檔的
 終於&hellip;
-資料夾轉成映像檔 磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
+資料夾轉成映像檔
+磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
+
 於是它把我的檔案製作成了 .cdr
-轉檔 cdr to iso 最先我找到的指令是這一句
+轉檔 cdr to iso
+最先我找到的指令是這一句
 $ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr
+
 成功轉檔
-在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試
+在 VirtualBox 掛載
+用 virtualbox 的 VM 掛載 ISO 試試
+
+
 掛載成功
-燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
+燒錄在光碟的檔名變短
+後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
 在各種格式下的檔案名稱有其長度的限制
 ISO 9600
-LV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet
-LV1：64個字元 LVX：110個字元 UDF：255個字元
-於是將轉檔的指令改成 -udf
-$ hdiutil makehybrid -iso -udf -o rpms.">
+
+LV1：11字元，8.3格式
+LV2：31字元
+LVX：219字元
+
+Joliet
+
+LV1：64個字元
+LVX：110個字元
+
+UDF：255個字元
+於是將轉檔的指令改成 -udf">
 <meta name="author" content="">
 <link rel="canonical" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ooopiz.com/logo/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ooopiz.com/logo/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.ooopiz.com/logo/favicon-32x32.png">
@@ -38,6 +53,7 @@ $ hdiutil makehybrid -iso -udf -o rpms.">
 <link rel="mask-icon" href="https://blog.ooopiz.com/logo/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/">
 <noscript>
     <style>
         #theme-toggle,
@@ -48,22 +64,27 @@ $ hdiutil makehybrid -iso -udf -o rpms.">
     </style>
 </noscript>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3680083267042451" crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-4XSTL9TGTE', { 'anonymize_ip': false });
-}
-</script>
-<meta property="og:title" content="你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？" />
-<meta property="og:description" content="先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XSTL9TGTE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4XSTL9TGTE');
+        }
+      </script><meta property="og:url" content="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/">
+  <meta property="og:site_name" content="馬丁沒有派對">
+  <meta property="og:title" content="你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？">
+  <meta property="og:description" content="先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
 雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。
 我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb
 就是沒有檔案打包 ISO 檔的
-終於&hellip;
+終於…
 資料夾轉成映像檔 磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
 於是它把我的檔案製作成了 .cdr
 轉檔 cdr to iso 最先我找到的指令是這一句
@@ -76,36 +97,53 @@ $ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr
 ISO 9600
 LV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet
 LV1：64個字元 LVX：110個字元 UDF：255個字元
-於是將轉檔的指令改成 -udf
-$ hdiutil makehybrid -iso -udf -o rpms." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/" /><meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-02-13T20:20:54+08:00" />
-<meta property="article:modified_time" content="2020-02-13T20:20:54+08:00" /><meta property="og:site_name" content="馬丁沒有派對" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"/>
-
-<meta name="twitter:title" content="你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？"/>
-<meta name="twitter:description" content="先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
+於是將轉檔的指令改成 -udf">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2020-02-13T20:20:54+08:00">
+    <meta property="article:modified_time" content="2020-02-13T20:20:54+08:00">
+    <meta property="article:tag" content="Macos">
+      <meta property="og:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？">
+<meta name="twitter:description" content="先聊個天
+很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
 雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。
 我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb
 就是沒有檔案打包 ISO 檔的
 終於&hellip;
-資料夾轉成映像檔 磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
+資料夾轉成映像檔
+磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片
+
 於是它把我的檔案製作成了 .cdr
-轉檔 cdr to iso 最先我找到的指令是這一句
+轉檔 cdr to iso
+最先我找到的指令是這一句
 $ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr
+
 成功轉檔
-在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試
+在 VirtualBox 掛載
+用 virtualbox 的 VM 掛載 ISO 試試
+
+
 掛載成功
-燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
+燒錄在光碟的檔名變短
+後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
 在各種格式下的檔案名稱有其長度的限制
 ISO 9600
-LV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet
-LV1：64個字元 LVX：110個字元 UDF：255個字元
-於是將轉檔的指令改成 -udf
-$ hdiutil makehybrid -iso -udf -o rpms."/>
+
+LV1：11字元，8.3格式
+LV2：31字元
+LVX：219字元
+
+Joliet
+
+LV1：64個字元
+LVX：110個字元
+
+UDF：255個字元
+於是將轉檔的指令改成 -udf">
 
 
 <script type="application/ld+json">
@@ -134,14 +172,14 @@ $ hdiutil makehybrid -iso -udf -o rpms."/>
   "@type": "BlogPosting",
   "headline": "你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？",
   "name": "你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？",
-  "description": "先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。\n雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。\n我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb\n就是沒有檔案打包 ISO 檔的\n終於\u0026hellip;\n資料夾轉成映像檔 磁碟工具程式 \u0026gt; 檔案 \u0026gt; 新增映像檔 \u0026gt; 來自檔案夾的映像檔 \u0026gt; 格式選 DVD/CD 母片\n於是它把我的檔案製作成了 .cdr\n轉檔 cdr to iso 最先我找到的指令是這一句\n$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr\n成功轉檔\n在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試\n掛載成功\n燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。\n在各種格式下的檔案名稱有其長度的限制\nISO 9600\nLV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet\nLV1：64個字元 LVX：110個字元 UDF：255個字元\n於是將轉檔的指令改成 -udf\n$ hdiutil makehybrid -iso -udf -o rpms.",
+  "description": "先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。\n雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。\n我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb\n就是沒有檔案打包 ISO 檔的\n終於\u0026hellip;\n資料夾轉成映像檔 磁碟工具程式 \u0026gt; 檔案 \u0026gt; 新增映像檔 \u0026gt; 來自檔案夾的映像檔 \u0026gt; 格式選 DVD/CD 母片\n於是它把我的檔案製作成了 .cdr\n轉檔 cdr to iso 最先我找到的指令是這一句\n$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr\n成功轉檔\n在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試\n掛載成功\n燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。\n在各種格式下的檔案名稱有其長度的限制\nISO 9600\nLV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet\nLV1：64個字元 LVX：110個字元 UDF：255個字元\n於是將轉檔的指令改成 -udf\n",
   "keywords": [
     "macos"
   ],
   "articleBody": "先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。\n雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。\n我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb\n就是沒有檔案打包 ISO 檔的\n終於…\n資料夾轉成映像檔 磁碟工具程式 \u003e 檔案 \u003e 新增映像檔 \u003e 來自檔案夾的映像檔 \u003e 格式選 DVD/CD 母片\n於是它把我的檔案製作成了 .cdr\n轉檔 cdr to iso 最先我找到的指令是這一句\n$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr\n成功轉檔\n在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試\n掛載成功\n燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。\n在各種格式下的檔案名稱有其長度的限制\nISO 9600\nLV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet\nLV1：64個字元 LVX：110個字元 UDF：255個字元\n於是將轉檔的指令改成 -udf\n$ hdiutil makehybrid -iso -udf -o rpms.iso rpms.cdr\n重點 講了這麼多這裡才是重點，上面的流程我做了幾次真心覺得麻煩，想說 hdiutil 難道不能幫我直接做成 ISO 嗎？\n終於終於讓我找到解法了\n$ hdiutil makehybrid -iso -udf -o rpms.iso ~/Download/rpms\n指令跟上面有 87% 像，但不知道可以這樣用，哈哈哈..\nReference 檔案名稱的長度限制？ hdiutil How to Create a DVD ISO Image from Files on a Mac ",
   "wordCount" : "109",
   "inLanguage": "en",
-  "datePublished": "2020-02-13T20:20:54+08:00",
+  "image": "https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2020-02-13T20:20:54+08:00",
   "dateModified": "2020-02-13T20:20:54+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -230,7 +268,7 @@ $ hdiutil makehybrid -iso -udf -o rpms."/>
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://blog.ooopiz.com/">Home</a>&nbsp;»&nbsp;<a href="https://blog.ooopiz.com/post/">Posts</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？
     </h1>
     <div class="post-meta"><span title='2020-02-13 20:20:54 +0800 CST'>February 13, 2020</span>
@@ -265,21 +303,17 @@ $ hdiutil makehybrid -iso -udf -o rpms."/>
 <p>終於&hellip;</p>
 <h2 id="資料夾轉成映像檔">資料夾轉成映像檔<a hidden class="anchor" aria-hidden="true" href="#資料夾轉成映像檔">#</a></h2>
 <p>磁碟工具程式 &gt; 檔案 &gt; 新增映像檔 &gt; 來自檔案夾的映像檔 &gt; 格式選 DVD/CD 母片</p>
-<p><img loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a001.jpg" alt="add"  />
-</p>
+<p><img alt="add" loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a001.jpg"></p>
 <p>於是它把我的檔案製作成了 .cdr</p>
 <h2 id="轉檔-cdr-to-iso">轉檔 cdr to iso<a hidden class="anchor" aria-hidden="true" href="#轉檔-cdr-to-iso">#</a></h2>
 <p>最先我找到的指令是這一句</p>
 <p><code>$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr</code></p>
-<p><img loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a002.jpg" alt="hdiutil"  />
-</p>
+<p><img alt="hdiutil" loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a002.jpg"></p>
 <p>成功轉檔</p>
 <h2 id="在-virtualbox-掛載">在 VirtualBox 掛載<a hidden class="anchor" aria-hidden="true" href="#在-virtualbox-掛載">#</a></h2>
 <p>用 virtualbox 的 VM 掛載 ISO 試試</p>
-<p><img loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a003.jpg" alt="mount"  />
-
-<img loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a004.jpg" alt="mount"  />
-</p>
+<p><img alt="mount" loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a003.jpg">
+<img alt="mount" loading="lazy" src="https://fblog.ooopiz.com/images/2020/02/a004.jpg"></p>
 <p>掛載成功</p>
 <h2 id="燒錄在光碟的檔名變短">燒錄在光碟的檔名變短<a hidden class="anchor" aria-hidden="true" href="#燒錄在光碟的檔名變短">#</a></h2>
 <p>後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。</p>
@@ -315,7 +349,7 @@ $ hdiutil makehybrid -iso -udf -o rpms."/>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://blog.ooopiz.com/tags/macos/">macos</a></li>
+      <li><a href="https://blog.ooopiz.com/tags/macos/">Macos</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://blog.ooopiz.com/post/2021/01/ansible-synchronize-why-permission-denied/">
@@ -331,45 +365,56 @@ $ hdiutil makehybrid -iso -udf -o rpms."/>
 </nav>
 
 
-<div class="share-buttons">
-    <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on twitter"
-        href="https://twitter.com/intent/tweet/?text=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f&amp;hashtags=macos">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on linkedin"
-        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f&amp;title=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;summary=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on reddit"
-        href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f&title=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on facebook"
-        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
-        </svg>
-    </a>
-    <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on telegram"
-        href="https://telegram.me/share/url?text=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f">
-        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
-            <path
-                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
-        </svg>
-    </a>
-</div>
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on x"
+            href="https://x.com/intent/tweet/?text=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f&amp;hashtags=macos">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f&amp;title=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;summary=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;source=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f&title=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？ on telegram"
+            href="https://telegram.me/share/url?text=%e4%bd%a0%e7%9f%a5%e9%81%93%e5%9c%a8%20Mac%20%e4%b8%8a%ef%bc%8c%e6%80%8e%e9%ba%bc%e6%8a%8a%e8%b3%87%e6%96%99%e5%a4%be%e7%9a%84%e6%aa%94%e6%a1%88%e8%bd%89%e6%88%90%20ISO%20%e6%aa%94%e5%97%8e%ef%bc%9f&amp;url=https%3a%2f%2fblog.ooopiz.com%2fpost%2f2020%2f02%2fmacos-generator-iso-from-dir%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
   </footer><div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     
@@ -393,7 +438,8 @@ $ hdiutil makehybrid -iso -udf -o rpms."/>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span>
+        <span>&copy; 2024 <a href="https://blog.ooopiz.com/">馬丁沒有派對</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

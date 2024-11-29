@@ -1,48 +1,118 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>laravel on 馬丁沒有派對</title>
+    <title>Laravel on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/laravel/</link>
-    <description>Recent content in laravel on 馬丁沒有派對</description>
+    <description>Recent content in Laravel on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Aug 2015 05:04:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Aug 2015 05:04:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Laravel 刪除套件</title>
       <link>https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/</link>
       <pubDate>Mon, 24 Aug 2015 05:04:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/</guid>
-      <description> Remove declaration from composer.json (in &amp;ldquo;require&amp;rdquo; section) Remove Service Provider from &amp;ldquo;app/config/app.php&amp;rdquo; (reference in &amp;ldquo;providers&amp;rdquo; array) Remove any Class Aliases from &amp;ldquo;app/config/app.php&amp;rdquo; Remove any references to the package from your code :-) Run &amp;ldquo;composer update&amp;rdquo; Manually delete the published files </description>
+      <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;Remove declaration from composer.json (in &amp;ldquo;require&amp;rdquo; section)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Remove Service Provider from &amp;ldquo;app/config/app.php&amp;rdquo; (reference in &amp;ldquo;providers&amp;rdquo; array)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Remove any Class Aliases from &amp;ldquo;app/config/app.php&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Remove any references to the package from your code :-)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Run &amp;ldquo;composer update&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Manually delete the published files&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Laravel5.0 升級5.1</title>
       <link>https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/</link>
       <pubDate>Sat, 25 Jul 2015 12:22:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/</guid>
-      <description>1. 修改composer.json &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot; 修改為 &amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;
-2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;
-修改為
-$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-4. 執行 composer update composer update
-5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。
-storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。</description>
+      <description>&lt;h2 id=&#34;1-修改composerjson&#34;&gt;1. 修改composer.json&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;laravel/framework&amp;quot;: &amp;quot;5.0.*&amp;quot;&lt;/code&gt; 修改為 &lt;code&gt;&amp;quot;laravel/framework&amp;quot;: &amp;quot;5.1.*&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-在bootstrap目錄下建立一個目錄cache並新增一個文件gitignore內容為&#34;&gt;2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為:&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;*
+!.gitignore
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;3-修改bootstrap下的autoloadphp&#34;&gt;3. 修改bootstrap下的autoload.php&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;$compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改為&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-執行-composer-update&#34;&gt;4. 執行 composer update&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;composer update&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-確認目錄權限&#34;&gt;5. 確認目錄權限&lt;/h2&gt;
+&lt;p&gt;安裝 Laravel 之後，你必須設定一些權限。&lt;br&gt;
+&lt;code&gt;storage&lt;/code&gt; 和 &lt;code&gt;bootstrap/cache&lt;/code&gt; 目錄必須讓伺服器有寫入權限。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Laravel5.0 關閉CSRF全局驗證</title>
       <link>https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/</link>
       <pubDate>Sat, 25 Jul 2015 08:13:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/</guid>
-      <description>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
-class Kernel extends HttpKernel { /** * The application&amp;#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &amp;#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&amp;#39;, &amp;#39;Illuminate\Cookie\Middleware\EncryptCookies&amp;#39;, &amp;#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&amp;#39;, &amp;#39;Illuminate\Session\Middleware\StartSession&amp;#39;, &amp;#39;Illuminate\View\Middleware\ShareErrorsFromSession&amp;#39;, ]; /** * The application&amp;#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &amp;#39;auth&amp;#39; =&amp;gt; &amp;#39;App\Http\Middleware\Authenticate&amp;#39;, &amp;#39;auth.basic&amp;#39; =&amp;gt; &amp;#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&amp;#39;, &amp;#39;guest&amp;#39; =&amp;gt; &amp;#39;App\Http\Middleware\RedirectIfAuthenticated&amp;#39;, &amp;#39;csrf&amp;#39; =&amp;gt; &amp;#39;App\Http\Middleware\VerifyCsrfToken&amp;#39;, ]; } 此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&amp;gt; &#39;csrf&#39;</description>
+      <description>&lt;p&gt;修改Kernel.php
+將global middleware的 &lt;code&gt;&#39;App\Http\Middleware\VerifyCsrfToken&#39;&lt;/code&gt;
+移動到route middleware &lt;code&gt;&#39;csrf&#39; =&amp;gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Kernel&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;HttpKernel&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * The application&amp;#39;s global HTTP middleware stack.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * @var array
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$middleware&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Illuminate\Cookie\Middleware\EncryptCookies&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Illuminate\Session\Middleware\StartSession&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Illuminate\View\Middleware\ShareErrorsFromSession&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;sd&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * The application&amp;#39;s route middleware.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     * @var array
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$routeMiddleware&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;auth&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;App\Http\Middleware\Authenticate&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;auth.basic&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;guest&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;App\Http\Middleware\RedirectIfAuthenticated&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s1&#34;&gt;&amp;#39;csrf&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;App\Http\Middleware\VerifyCsrfToken&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方
+加上 &lt;code&gt;&#39;middleware&#39; =&amp;gt; &#39;csrf&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$router&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;middleware&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;csrf&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$router&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;// Protected routes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
   </channel>
 </rss>

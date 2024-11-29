@@ -1,50 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>macos on 馬丁沒有派對</title>
+    <title>Macos on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/macos/</link>
-    <description>Recent content in macos on 馬丁沒有派對</description>
+    <description>Recent content in Macos on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Feb 2020 20:20:54 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Feb 2020 20:20:54 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>你知道在 Mac 上，怎麼把資料夾的檔案轉成 ISO 檔嗎？</title>
       <link>https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/</link>
       <pubDate>Thu, 13 Feb 2020 20:20:54 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/02/macos-generator-iso-from-dir/</guid>
-      <description>先聊個天 很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。
-雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。
-我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb
-就是沒有檔案打包 ISO 檔的
-終於&amp;hellip;
-資料夾轉成映像檔 磁碟工具程式 &amp;gt; 檔案 &amp;gt; 新增映像檔 &amp;gt; 來自檔案夾的映像檔 &amp;gt; 格式選 DVD/CD 母片
-於是它把我的檔案製作成了 .cdr
-轉檔 cdr to iso 最先我找到的指令是這一句
-$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr
-成功轉檔
-在 VirtualBox 掛載 用 virtualbox 的 VM 掛載 ISO 試試
-掛載成功
-燒錄在光碟的檔名變短 後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。
-在各種格式下的檔案名稱有其長度的限制
-ISO 9600
-LV1：11字元，8.3格式 LV2：31字元 LVX：219字元 Joliet
-LV1：64個字元 LVX：110個字元 UDF：255個字元
-於是將轉檔的指令改成 -udf
-$ hdiutil makehybrid -iso -udf -o rpms.</description>
+      <description>&lt;h2 id=&#34;先聊個天&#34;&gt;先聊個天&lt;/h2&gt;
+&lt;p&gt;很棒，今天以前我也不知道，我找解法找了好幾天，這篇獻給有緣的地球人。&lt;/p&gt;
+&lt;p&gt;雖然我有找到別的軟體可以做這個事情，但要付錢我就沒有使用了。&lt;/p&gt;
+&lt;p&gt;我在網路上找許久，不管怎麼下關鍵字都是教怎麼把 ISO 燒進 usb&lt;/p&gt;
+&lt;p&gt;就是沒有檔案打包 ISO 檔的&lt;/p&gt;
+&lt;p&gt;終於&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;資料夾轉成映像檔&#34;&gt;資料夾轉成映像檔&lt;/h2&gt;
+&lt;p&gt;磁碟工具程式 &amp;gt; 檔案 &amp;gt; 新增映像檔 &amp;gt; 來自檔案夾的映像檔 &amp;gt; 格式選 DVD/CD 母片&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;add&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/02/a001.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;於是它把我的檔案製作成了 .cdr&lt;/p&gt;
+&lt;h2 id=&#34;轉檔-cdr-to-iso&#34;&gt;轉檔 cdr to iso&lt;/h2&gt;
+&lt;p&gt;最先我找到的指令是這一句&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ hdiutil makehybrid -iso -joliet -o rpms.iso rpms.cdr&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;hdiutil&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/02/a002.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;成功轉檔&lt;/p&gt;
+&lt;h2 id=&#34;在-virtualbox-掛載&#34;&gt;在 VirtualBox 掛載&lt;/h2&gt;
+&lt;p&gt;用 virtualbox 的 VM 掛載 ISO 試試&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;mount&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/02/a003.jpg&#34;&gt;
+&lt;img alt=&#34;mount&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/02/a004.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;掛載成功&lt;/p&gt;
+&lt;h2 id=&#34;燒錄在光碟的檔名變短&#34;&gt;燒錄在光碟的檔名變短&lt;/h2&gt;
+&lt;p&gt;後來在使用 ISO 時，發現 ISO 裡有些檔案，檔案名稱自動變短，搜尋了一下才發現有格式上的問題。&lt;/p&gt;
+&lt;p&gt;在各種格式下的檔案名稱有其長度的限制&lt;/p&gt;
+&lt;p&gt;ISO 9600&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LV1：11字元，8.3格式&lt;/li&gt;
+&lt;li&gt;LV2：31字元&lt;/li&gt;
+&lt;li&gt;LVX：219字元&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Joliet&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LV1：64個字元&lt;/li&gt;
+&lt;li&gt;LVX：110個字元&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;UDF：255個字元&lt;/p&gt;
+&lt;p&gt;於是將轉檔的指令改成 -udf&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Macos L2tp vpn 設定</title>
       <link>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</link>
       <pubDate>Sat, 04 Jan 2020 02:20:14 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2020/01/macos-l2tp-settup/</guid>
-      <description>Macos L2tp vpn 設定 打開網路偏好設定 點加號新增 VPN 介面 VPN IPSec 的 L2TP 輸入任意的服務名稱 輸入伺服器位置與帳號 完成後點選認證設定 認證設定 輸入密碼 輸入共享密鑰 設定服務順序（重要） 點選齒輪設定服務順序 將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網) </description>
+      <description>&lt;h1 id=&#34;macos-l2tp-vpn-設定&#34;&gt;Macos L2tp vpn 設定&lt;/h1&gt;
+&lt;h2 id=&#34;打開網路偏好設定&#34;&gt;打開網路偏好設定&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b001.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b002.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;點加號新增-vpn&#34;&gt;點加號新增 VPN&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;介面 VPN&lt;/li&gt;
+&lt;li&gt;IPSec 的 L2TP&lt;/li&gt;
+&lt;li&gt;輸入任意的服務名稱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b003.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;輸入伺服器位置與帳號&#34;&gt;輸入伺服器位置與帳號&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;完成後點選認證設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b004.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;認證設定&#34;&gt;認證設定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入密碼&lt;/li&gt;
+&lt;li&gt;輸入共享密鑰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b005.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;設定服務順序重要&#34;&gt;設定服務順序（重要）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;點選齒輪設定服務順序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b006.jpg&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;將剛剛的 VPN 設定檔拖曳至最上方 (Mac 有網卡路由的順序，沒有設定可能無法跳到 VPN 的內網)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2020/01/b007.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

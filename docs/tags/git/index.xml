@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>git on 馬丁沒有派對</title>
+    <title>Git on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/git/</link>
-    <description>Recent content in git on 馬丁沒有派對</description>
+    <description>Recent content in Git on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 24 Aug 2015 03:05:01 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Aug 2015 03:05:01 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一台電腦兩個Git帳號使用SSH Key</title>
       <link>https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</link>
       <pubDate>Mon, 24 Aug 2015 03:05:01 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/</guid>
-      <description>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second pull 的時候是識別郵箱，所以不能使用 global 的 user.email
-取消 global git config --global --unset user.name
-git config --global --unset user.email
-設定每個項目repo自己的 user.email git config user.email &amp;quot;xxxx@xx.com&amp;quot; git config user.name &amp;quot;ricky&amp;quot;
-Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa</description>
+      <description>&lt;h2 id=&#34;在設定檔中加入設定檔&#34;&gt;在設定檔中加入設定檔&lt;/h2&gt;
+&lt;p&gt;Windows下的路徑C:\Users\Ricky.ssh&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Host ricky.org
+  Hostname ricky.org
+  Port 29418
+  User rickyhuang
+  IdentityFile C:\Users\Ricky\.ssh\id_rsa
+Host peter.org
+  Hostname peter.org
+  Port 65095
+  User peter
+  IdentityFile C:\Users\Ricky\.ssh\id_rsa_second
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;pull 的時候是識別郵箱，所以不能使用 global 的 user.email&lt;/p&gt;
+&lt;h3 id=&#34;取消-global&#34;&gt;取消 global&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;git config --global --unset user.name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git config --global --unset user.email&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;設定每個項目repo自己的-useremail&#34;&gt;設定每個項目repo自己的 user.email&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;git config  user.email &amp;quot;xxxx@xx.com&amp;quot;&lt;/code&gt;
+&lt;code&gt;git config  user.name &amp;quot;ricky&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;woindows-下要生成-key-可以使用-git-bash-裡面有內建的-ssh-command&#34;&gt;Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command&lt;/h3&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/201508/A02-01.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;再輸入，即可生成ssh key
+&lt;code&gt;ssh-keygen -t rsa&lt;/code&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

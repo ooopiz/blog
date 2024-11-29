@@ -1,29 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kubernetes on 馬丁沒有派對</title>
+    <title>Kubernetes on 馬丁沒有派對</title>
     <link>https://blog.ooopiz.com/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on 馬丁沒有派對</description>
+    <description>Recent content in Kubernetes on 馬丁沒有派對</description>
     <image>
+      <title>馬丁沒有派對</title>
       <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 29 Jul 2019 17:18:19 +0800</lastBuildDate><atom:link href="https://blog.ooopiz.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 29 Jul 2019 17:18:19 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>建立一個單節點的 kubernetes cluster (kubeadm)</title>
       <link>https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/</link>
       <pubDate>Mon, 29 Jul 2019 17:18:19 +0800</pubDate>
-      
       <guid>https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/</guid>
-      <description>前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。
-Kubernetes Architecture 這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。
-(圖片來自WIKI)
-Master 節點的組件 ETCD 集群 API SERVER Controller Manager Scheduler 安裝準備 先選定好要安裝在什麼 OS 上，
-並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。
-下面列出我的環境跟CNI
-OS（CoreOS） 2 GB or more of RAM per machine (any less will leave little room for your apps) 2 CPUs or more CNI（flannel） 安裝 kubeadm 官網文件：Installing kubeadm 官網文件：Creating a single control-plane cluster with kubeadm 我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。&lt;/p&gt;
+&lt;h2 id=&#34;kubernetes-architecture&#34;&gt;Kubernetes Architecture&lt;/h2&gt;
+&lt;p&gt;這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;kubernetes architecture&#34; loading=&#34;lazy&#34; src=&#34;https://fblog.ooopiz.com/images/2019/07/b001.png&#34; title=&#34;kubernetes architecture&#34;&gt;
+(圖片來自WIKI)&lt;/p&gt;
+&lt;h2 id=&#34;master-節點的組件&#34;&gt;Master 節點的組件&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ETCD 集群&lt;/li&gt;
+&lt;li&gt;API SERVER&lt;/li&gt;
+&lt;li&gt;Controller Manager&lt;/li&gt;
+&lt;li&gt;Scheduler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安裝準備&#34;&gt;安裝準備&lt;/h2&gt;
+&lt;p&gt;先選定好要安裝在什麼 OS 上，&lt;br&gt;
+並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。&lt;/p&gt;
+&lt;p&gt;下面列出我的環境跟CNI&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS（CoreOS）
+&lt;ul&gt;
+&lt;li&gt;2 GB or more of RAM per machine (any less will leave little room for your apps)&lt;/li&gt;
+&lt;li&gt;2 CPUs or more&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CNI（flannel）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安裝-kubeadm&#34;&gt;安裝 kubeadm&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;官網文件：&lt;a href=&#34;https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/&#34; target=&#34;_blank&#34; &gt;Installing kubeadm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官網文件：&lt;a href=&#34;https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/&#34; target=&#34;_blank&#34; &gt;Creating a single control-plane cluster with kubeadm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。&lt;/em&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
