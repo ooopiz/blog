@@ -2,8 +2,8 @@
 
 if [ -z "$1" ]
 then
-    echo "EX: ./new-post input-post-name.md"
-    exit
+  echo "EX: $0 input-post-name.md"
+  exit 1
 fi
 
 post="post/"$(date +"%Y/%m")"/"$1
