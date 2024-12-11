@@ -155,6 +155,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CoreOS Static Ip 固定 IP 設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>設定 static ip 副檔名必須是.network
+$ vi /etc/systemd/network/enp0s8.network
+[Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-24 17:01:37 +0800 CST'>July 24, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to CoreOS Static Ip 固定 IP 設定" href="https://blog.ooopiz.com/post/2019/07/coreos-static-ip/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Docker cli 連線到遠端的 dockerd daemon
     </h2>
   </header>
@@ -280,31 +295,6 @@ docker volume create In Mac 可是當你使用 Mac 執行過 docker volume creat
   </div>
   <footer class="entry-footer"><span title='2018-11-01 10:45:51 +0800 CST'>November 1, 2018</span></footer>
   <a class="entry-link" aria-label="post link to Gitlab-ce 版本升級與容器化" href="https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">opensourcepos 安裝
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>php pos 商用版
-開源版本 opensourcepos
-OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了
-環境準備： 安裝lamp
-php require
-php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl installed and enabled. 下載程式： # cd /var/www # git clone https://github.com/jekkos/opensourcepos.git
-# mv opensourcepos pos # cd /var/www/pos
-看你要使用哪個版本 使用git指令切過去 # git checkout tags/3.0.2 -b b_3.0.2
-設置權限： # chown -R apache:apache /var/www/pos
-匯入資料：(db資訊依照自己的資訊填入) # mysql pos /var/www/pos/database/database.sql
-設定檔： # cd /var/www/pos/application/config # cp database.php.tmpl database.php
-# vi database.php
-$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;; $db[&#39;default&#39;][&#39;username&#39;] = &#39;db_user&#39;; $db[&#39;default&#39;][&#39;password&#39;] = &#39;db_pass&#39;; $db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;; apache設定 vi /etc/httpd/conf.d/pos.conf
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-05-15 07:46:01 +0800 CST'>May 15, 2017</span></footer>
-  <a class="entry-link" aria-label="post link to opensourcepos 安裝" href="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

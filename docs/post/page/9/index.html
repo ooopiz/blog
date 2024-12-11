@@ -155,6 +155,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS6.5 安裝phpMyAdmin
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>一、安裝phpMyAdmin phpMyAdmin 對應 php 版本會有影響，請挑選適合的版本
+wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
+tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
+mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
+rm phpMyAdmin-4.1.12-all-languages.tar.gz
+二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin
+複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
+cp config.sample.inc.php config.inc.php
+/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;; 改成
+/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;; 三、查看mysql使用者,新增使用者,給予權限 mysql -u root -p -h 127.0.0.1
+mysql&gt; select user, host from mysql.user;
+mysql&gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
+mysql&gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;;
+這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-08-24 02:00:01 +0800 CST'>August 24, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS6.5 安裝phpMyAdmin" href="https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">CentOS6.5 安裝LNMP
     </h2>
   </header>

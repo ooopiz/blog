@@ -11,8 +11,57 @@
     </image>
     <generator>Hugo -- 0.139.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2024 14:22:51 +0800</lastBuildDate>
     <atom:link href="https://blog.ooopiz.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx Upstream 嘗試請求，重試請求</title>
+      <link>https://blog.ooopiz.com/post/2024/12/nginx-upstream-tries-retries/</link>
+      <pubDate>Wed, 11 Dec 2024 14:22:51 +0800</pubDate>
+      <guid>https://blog.ooopiz.com/post/2024/12/nginx-upstream-tries-retries/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;http {
+  upstream  ups {
+      server 192.168.1.1   max_fails=1  fail_timeout=10s;
+      server 192.168.1.2   max_fails=1  fail_timeout=10s;
+      server 192.168.1.3   max_fails=1  fail_timeout=10s;
+      keepalive 1000;
+  }
+
+  server {
+    listen       80;
+    server_name  _;
+
+    location / {
+        proxy_next_upstream error timeout;
+        proxy_next_upstream_tries 0;
+        proxy_pass http://ups; 
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;配置說明&#34;&gt;配置說明&lt;/h2&gt;
+&lt;h3 id=&#34;max_fails1-fail_timeout10s&#34;&gt;max_fails=1 fail_timeout=10s&lt;/h3&gt;
+&lt;p&gt;每 10 秒計數到一次失敗，節點判定為壞點 10秒鐘
+以此類推
+當 max_fails=0 時，停用失敗計數器，即永遠不會判定壞點&lt;/p&gt;
+&lt;h3 id=&#34;proxy_next_upstream-error-timeout&#34;&gt;proxy_next_upstream error timeout&lt;/h3&gt;
+&lt;p&gt;那些請求狀態會被判定失敗，計算到 max_fails 的計數器&lt;/p&gt;
+&lt;p&gt;可選的項目有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;error&lt;/li&gt;
+&lt;li&gt;timeout&lt;/li&gt;
+&lt;li&gt;invalid_header&lt;/li&gt;
+&lt;li&gt;http_500&lt;/li&gt;
+&lt;li&gt;http_502&lt;/li&gt;
+&lt;li&gt;http_503&lt;/li&gt;
+&lt;li&gt;http_504&lt;/li&gt;
+&lt;li&gt;http_403&lt;/li&gt;
+&lt;li&gt;http_404&lt;/li&gt;
+&lt;li&gt;http_429&lt;/li&gt;
+&lt;li&gt;non_idempotent&lt;/li&gt;
+&lt;li&gt;off&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;proxy_next_upstream_tries-0&#34;&gt;proxy_next_upstream_tries 0&lt;/h3&gt;
+&lt;p&gt;upstream servers 嘗試請求的次數&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Vscode terminal ctrl &#43; p 關閉 quckopen</title>
       <link>https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/</link>

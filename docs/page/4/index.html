@@ -141,6 +141,31 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">opensourcepos 安裝
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>php pos 商用版
+開源版本 opensourcepos
+OpenSource POS其實就是舊版本的源碼釋出，基本上版本落差有點大，合不合用就只能試試才知道了
+環境準備： 安裝lamp
+php require
+php-gd php-bcmath php-intl php-sockets php-mcrypt php-curl installed and enabled. 下載程式： # cd /var/www # git clone https://github.com/jekkos/opensourcepos.git
+# mv opensourcepos pos # cd /var/www/pos
+看你要使用哪個版本 使用git指令切過去 # git checkout tags/3.0.2 -b b_3.0.2
+設置權限： # chown -R apache:apache /var/www/pos
+匯入資料：(db資訊依照自己的資訊填入) # mysql pos /var/www/pos/database/database.sql
+設定檔： # cd /var/www/pos/application/config # cp database.php.tmpl database.php
+# vi database.php
+$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;; $db[&#39;default&#39;][&#39;username&#39;] = &#39;db_user&#39;; $db[&#39;default&#39;][&#39;password&#39;] = &#39;db_pass&#39;; $db[&#39;default&#39;][&#39;database&#39;] = &#39;pos&#39;; apache設定 vi /etc/httpd/conf.d/pos.conf
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-05-15 07:46:01 +0800 CST'>May 15, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to opensourcepos 安裝" href="https://blog.ooopiz.com/post/2017/05/opensourcepos-install/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">pem轉ppk putty 登入
     </h2>
   </header>
@@ -272,26 +297,6 @@ service iptables restart
   </div>
   <footer class="entry-footer"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span></footer>
   <a class="entry-link" aria-label="post link to bind make安裝搭配 dlz mysql" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS yum 安裝 bind9
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>安裝 yum install bind bind-utils -y
-service named start
-chkconfig named on
-防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
-service iptables save
-service iptables restart
-設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
-options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump.db&#34;; statistics-file &#34;/var/named/data/named_stats.txt&#34;; memstatistics-file &#34;/var/named/data/named_mem_stats.txt&#34;; allow-query { localhost; }; recursion yes; dnssec-enable yes; dnssec-validation yes; /* Path to ISC DLV key */ bindkeys-file &#34;/etc/named.iscdlv.key&#34;; managed-keys-directory &#34;/var/named/dynamic&#34;; }; logging { channel default_debug { file &#34;data/named.run&#34;; severity dynamic; }; }; zone &#34;.&#34; IN { type hint; file &#34;named.ca&#34;; }; include &#34;/etc/named.rfc1912.zones&#34;; include &#34;/etc/named.root.key&#34;; 修改設定 修改 options 設定，允許查詢來源
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-10-04 02:09:01 +0800 CST'>October 4, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS yum 安裝 bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

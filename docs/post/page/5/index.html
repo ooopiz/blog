@@ -155,6 +155,26 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS yum 安裝 bind9
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安裝 yum install bind bind-utils -y
+service named start
+chkconfig named on
+防火牆設定 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 53 -j ACCEPT iptables -I INPUT 5 -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+設定 預設 nemed.conf 檔 (BIND 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6) 以下為 yum 安裝後產生的預設 named.conf 設定檔
+options { listen-on port 53 { 127.0.0.1; }; listen-on-v6 port 53 { ::1; }; directory &#34;/var/named&#34;; dump-file &#34;/var/named/data/cache_dump.db&#34;; statistics-file &#34;/var/named/data/named_stats.txt&#34;; memstatistics-file &#34;/var/named/data/named_mem_stats.txt&#34;; allow-query { localhost; }; recursion yes; dnssec-enable yes; dnssec-validation yes; /* Path to ISC DLV key */ bindkeys-file &#34;/etc/named.iscdlv.key&#34;; managed-keys-directory &#34;/var/named/dynamic&#34;; }; logging { channel default_debug { file &#34;data/named.run&#34;; severity dynamic; }; }; zone &#34;.&#34; IN { type hint; file &#34;named.ca&#34;; }; include &#34;/etc/named.rfc1912.zones&#34;; include &#34;/etc/named.root.key&#34;; 修改設定 修改 options 設定，允許查詢來源
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-04 02:09:01 +0800 CST'>October 4, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS yum 安裝 bind9" href="https://blog.ooopiz.com/post/2016/10/centos-yum-install-bind9/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">HP ProLiant DL20 Gen9 CentOS7 安裝讀不到Raid卡解決方式
     </h2>
   </header>
@@ -264,21 +284,6 @@ $(document).ready(function () { var x = 6; }); $(document).ready(function () { v
   </div>
   <footer class="entry-footer"><span title='2016-07-21 14:54:01 +0800 CST'>July 21, 2016</span></footer>
   <a class="entry-link" aria-label="post link to javascript 有沒有var的差別" href="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2013 開放 Web 軟體安全計畫
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>2013 開放 Web 軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
-網站安全標準須防止 OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： Top 10 A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 2013 開放 Web 軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

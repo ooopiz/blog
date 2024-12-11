@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.139.2</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 Nov 2024 14:23:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2024 14:22:51 +0800</lastBuildDate>
     <atom:link href="https://blog.ooopiz.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx</title>
+      <link>https://blog.ooopiz.com/tags/nginx/</link>
+      <pubDate>Wed, 11 Dec 2024 14:22:51 +0800</pubDate>
+      <guid>https://blog.ooopiz.com/tags/nginx/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Vscode</title>
       <link>https://blog.ooopiz.com/tags/vscode/</link>
@@ -186,13 +193,6 @@
       <link>https://blog.ooopiz.com/tags/smtp/</link>
       <pubDate>Thu, 26 May 2016 10:20:01 +0800</pubDate>
       <guid>https://blog.ooopiz.com/tags/smtp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Nginx</title>
-      <link>https://blog.ooopiz.com/tags/nginx/</link>
-      <pubDate>Thu, 05 May 2016 02:47:01 +0800</pubDate>
-      <guid>https://blog.ooopiz.com/tags/nginx/</guid>
       <description></description>
     </item>
     <item>

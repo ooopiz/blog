@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.ooopiz.com/tags/nginx/</loc>
+    <lastmod>2024-12-11T14:22:51+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/post/2024/12/nginx-upstream-tries-retries/</loc>
+    <lastmod>2024-12-11T14:22:51+08:00</lastmod>
+  </url><url>
     <loc>https://blog.ooopiz.com/post/</loc>
-    <lastmod>2024-11-18T14:23:30+08:00</lastmod>
+    <lastmod>2024-12-11T14:22:51+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/tags/</loc>
-    <lastmod>2024-11-18T14:23:30+08:00</lastmod>
+    <lastmod>2024-12-11T14:22:51+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ooopiz.com/</loc>
+    <lastmod>2024-12-11T14:22:51+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/tags/vscode/</loc>
     <lastmod>2024-11-18T14:23:30+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/post/2024/11/vscode-disable-quickopen/</loc>
-    <lastmod>2024-11-18T14:23:30+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ooopiz.com/</loc>
     <lastmod>2024-11-18T14:23:30+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/tags/loki/</loc>
@@ -193,9 +199,6 @@
   </url><url>
     <loc>https://blog.ooopiz.com/tags/smtp/</loc>
     <lastmod>2016-05-26T10:20:01+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ooopiz.com/tags/nginx/</loc>
-    <lastmod>2016-05-05T02:47:01+08:00</lastmod>
   </url><url>
     <loc>https://blog.ooopiz.com/post/2016/05/installing-nginx-19/</loc>
     <lastmod>2016-05-05T02:47:01+08:00</lastmod>

@@ -141,6 +141,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS 使用rsync
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
+首先先查詢一下，機器是否已經安裝．
+rpm -qa | grep rsync
+如果沒有的話就 yum 一下吧
+做 rsync 的時候 server 端與 client 端都必須要安裝
+yum install rsync
+指令 rsync的指令非常的簡單
+這個指令不會刪除目的端多餘的檔案
+rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
+rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
+另外會要求你輸入密碼，
+假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS 使用rsync" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">重灌Mac
     </h2>
   </header>
@@ -243,32 +267,6 @@ Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command �
   </div>
   <footer class="entry-footer"><span title='2015-08-24 03:05:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to 一台電腦兩個Git帳號使用SSH Key" href="https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS6.5 安裝phpMyAdmin
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>一、安裝phpMyAdmin phpMyAdmin 對應 php 版本會有影響，請挑選適合的版本
-wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.1.12/phpMyAdmin-4.1.12-all-languages.tar.gz
-tar -zxvf phpMyAdmin-4.1.12-all-languages.tar.gz
-mv phpMyAdmin-4.1.12-all-languages /usr/share/nginx/html/phpMyAdmin
-rm phpMyAdmin-4.1.12-all-languages.tar.gz
-二、設定config.inc.php 路徑:/usr/share/nginx/html/phpMyAdmin
-複製範本設定檔 config.sample.inc.php 並重新命名為 config.inc.php
-cp config.sample.inc.php config.inc.php
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookies&#39;; 改成
-/* Authentication type */ $cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;; 三、查看mysql使用者,新增使用者,給予權限 mysql -u root -p -h 127.0.0.1
-mysql&gt; select user, host from mysql.user;
-mysql&gt; create user &#39;admin&#39;@&#39;%&#39; identified by &#39;admin&#39;;
-mysql&gt; grant all on *.* to &#39;admin&#39;@&#39;%&#39;;
-這樣 admin 對整個資料庫的所有資料表都擁有全部的權利
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 02:00:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 安裝phpMyAdmin" href="https://blog.ooopiz.com/post/2015/08/centos65-install-phpmyadmin/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

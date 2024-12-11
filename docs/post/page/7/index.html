@@ -155,6 +155,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS7 安裝Tomcat
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.切換目錄到 /usr/local 我把我的tomcat放置在這裡，你也可以選擇在開心的目錄下
+cd /usr/local
+2.下載Tomcat wget http://ftp.twaren.net/Unix/Web/apache/tomcat/tomcat-7/v7.0.57/bin/apache-tomcat-7.0.57.tar.gz
+3.解壓縮 tar -zxvf apache-tomcat-7.0.57.tar.gz
+4.更改資料夾名稱 mv apache-tomcat-7.0.57 tomcat7
+5.啟動或停止Tomcat 啟動Tomcat 7
+/usr/local/tomcat7/bin/startup.sh 停止Tomcat 7
+/usr/local/tomcat7/bin/shutdown.sh 6.防火牆設定 Tomcat 預設連接埠為 8080，所以必需開啟 8080 才可以連線
+7.測試Tomcat是否正常 開啟瀏覽器，輸入【http://IP位址:8080】
+若要測試範例網頁是否可以執行，輸入【http://IP:8080/examples/jsp/ 】，點選其中一個Execute即可以測試。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-30 06:10:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 安裝Tomcat" href="https://blog.ooopiz.com/post/2015/09/centos7-installing-tomcat/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">CentOS7 安裝JDK 64 Bit
     </h2>
   </header>
@@ -286,30 +308,6 @@ hostnamectl set-hostname new_hostname 七、同步時間 安裝的packages yum i
   </div>
   <footer class="entry-footer"><span title='2015-09-01 03:07:01 +0800 CST'>September 1, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS7 基礎設定" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS 使用rsync
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>簡介 rsync 是一種遠端複製的技術，透過 rsync 可以輕鬆的將機器上的檔案做鏡像備援到其他機器．
-首先先查詢一下，機器是否已經安裝．
-rpm -qa | grep rsync
-如果沒有的話就 yum 一下吧
-做 rsync 的時候 server 端與 client 端都必須要安裝
-yum install rsync
-指令 rsync的指令非常的簡單
-這個指令不會刪除目的端多餘的檔案
-rsync -avz /opt/data root@192.168.1.245:/opt/data-backup rsync -avz root@192.168.1.245:/opt/data-backup /opt/data 這個指令則會完全的鏡像，如果目的端有來源端沒有的檔案，該檔案會被刪除
-rsync -avz --delete /opt/data root@192.168.1.245:/opt/data-backup rsync -avz --delete root@192.168.1.245:/opt/data-backup /opt/data 當你做 rsync 時，必須使用到 ssh port，所以你的防火牆 22 port 必須打開，
-另外會要求你輸入密碼，
-假設你要做自動的排程，就必須使用 ssh key 來達到不用密碼可以登入．
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-31 13:06:01 +0800 CST'>August 31, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS 使用rsync" href="https://blog.ooopiz.com/post/2015/08/centos-using-rsync/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
