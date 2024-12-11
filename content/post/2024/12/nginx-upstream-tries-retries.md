@@ -31,7 +31,9 @@ http {
 
 ### max_fails=1 fail_timeout=10s
 每 10 秒計數到一次失敗，節點判定為壞點 10秒鐘
+
 以此類推
+
 當 max_fails=0 時，停用失敗計數器，即永遠不會判定壞點
 
 ### proxy_next_upstream error timeout

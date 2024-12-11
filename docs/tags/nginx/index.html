@@ -144,7 +144,9 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>http { upstream ups { server 192.168.1.1 max_fails=1 fail_timeout=10s; server 192.168.1.2 max_fails=1 fail_timeout=10s; server 192.168.1.3 max_fails=1 fail_timeout=10s; keepalive 1000; } server { listen 80; server_name _; location / { proxy_next_upstream error timeout; proxy_next_upstream_tries 0; proxy_pass http://ups; } } } 配置說明 max_fails=1 fail_timeout=10s 每 10 秒計數到一次失敗，節點判定為壞點 10秒鐘 以此類推 當 max_fails=0 時，停用失敗計數器，即永遠不會判定壞點
+    <p>http { upstream ups { server 192.168.1.1 max_fails=1 fail_timeout=10s; server 192.168.1.2 max_fails=1 fail_timeout=10s; server 192.168.1.3 max_fails=1 fail_timeout=10s; keepalive 1000; } server { listen 80; server_name _; location / { proxy_next_upstream error timeout; proxy_next_upstream_tries 0; proxy_pass http://ups; } } } 配置說明 max_fails=1 fail_timeout=10s 每 10 秒計數到一次失敗，節點判定為壞點 10秒鐘
+以此類推
+當 max_fails=0 時，停用失敗計數器，即永遠不會判定壞點
 proxy_next_upstream error timeout 那些請求狀態會被判定失敗，計算到 max_fails 的計數器
 可選的項目有：
 error timeout invalid_header http_500 http_502 http_503 http_504 http_403 http_404 http_429 non_idempotent off proxy_next_upstream_tries 0 upstream servers 嘗試請求的次數

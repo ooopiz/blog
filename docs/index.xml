@@ -39,9 +39,9 @@
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;配置說明&#34;&gt;配置說明&lt;/h2&gt;
 &lt;h3 id=&#34;max_fails1-fail_timeout10s&#34;&gt;max_fails=1 fail_timeout=10s&lt;/h3&gt;
-&lt;p&gt;每 10 秒計數到一次失敗，節點判定為壞點 10秒鐘
-以此類推
-當 max_fails=0 時，停用失敗計數器，即永遠不會判定壞點&lt;/p&gt;
+&lt;p&gt;每 10 秒計數到一次失敗，節點判定為壞點 10秒鐘&lt;/p&gt;
+&lt;p&gt;以此類推&lt;/p&gt;
+&lt;p&gt;當 max_fails=0 時，停用失敗計數器，即永遠不會判定壞點&lt;/p&gt;
 &lt;h3 id=&#34;proxy_next_upstream-error-timeout&#34;&gt;proxy_next_upstream error timeout&lt;/h3&gt;
 &lt;p&gt;那些請求狀態會被判定失敗，計算到 max_fails 的計數器&lt;/p&gt;
 &lt;p&gt;可選的項目有：&lt;/p&gt;
