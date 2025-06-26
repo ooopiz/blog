@@ -141,138 +141,40 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Gradle 初探
+    <h2 class="entry-hint-parent">Laravel5.0 升級5.1
     </h2>
   </header>
   <div class="entry-content">
-    <p>如何用 gradle 建立專案 </p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-27 03:14:01 +0800 CST'>July 27, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to Gradle 初探" href="https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">javascript 有沒有var的差別
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>有沒有var差很大啊，要注意
-Output is “7”
-$(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined
-$(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); }); </p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-21 14:54:01 +0800 CST'>July 21, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to javascript 有沒有var的差別" href="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2013 開放 Web 軟體安全計畫
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>2013 開放 Web 軟體安全計畫 – Open Web Application Security Project https://www.owasp.org/index.php/Top_10_2013-Top_10
-網站安全標準須防止 OWASP (開放Web軟體安全計畫 – Open Web Application Security Project)十大Web資安漏洞，其安全要求表列入下。
-A1 - Injection (注入攻擊)： A2 - Broken Authentication and Session Management (失效的驗證與連線管理)： A3 - Cross-Site Scripting(XSS) (跨站腳本程式攻擊)： A4 - Insecure Direct Object References (不安全的物件參考)： A5 - Security Misconfiguration (不當的安全組態設定)： A6 - Sensitive Data Exposure (敏感資料暴露)： A7 - Missing Function Level Access Control (缺少功能級別的存取控制)： A8 - Cross Site Request Forgery (CSRF) (跨站冒名請求)： A9 - Using Components with Known Vulnerabilities(使用已知漏洞元件)： A10 - Unvalidated Redirects and Forwards (未經驗證的重新導向與轉送)： Top 10 A1 - Injection (注入攻擊)： 注入攻擊可說是目前最普遍的網站應用程式的攻擊手法
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-11 07:14:01 +0800 CST'>July 11, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 2013 開放 Web 軟體安全計畫" href="https://blog.ooopiz.com/post/2016/07/2013-open-web-software-safety-plans/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS7 安裝 Postfix
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Postfix 介紹 Postfix 是一套快速, 安全及容易管理的開源 Mail Transfer Agent (MTA),
-也是 Sendmail 很好的替代品。
-以下會介紹在 RHEL 及 CentOS 7 安裝 Postfix 及 Dovecot 作為 Email Server.
-安裝 前置作業 在開始前, 如果系統內安裝了其他 MTA (例如 Sendmail 或 Exim), 那便需要將它們移除, 以下是移除 Sendmail 及 Exim 的方法:
-查詢是否安裝過
-rpm -qa | grep sendmail
-rpm -qa | grep exim
-移除
-yum remove sendmail
-yum remove exim
-為了使安裝過程簡單一點, 關閉 SELinux, 開啟 /etc/sysconfig/selinux, 將:
-SELINUX=enforcing 換成
-SELINUX=disabled 重開機後生效
-開始安裝 Postfix yum install postfix
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-05-26 10:20:01 +0800 CST'>May 26, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 安裝 Postfix" href="https://blog.ooopiz.com/post/2016/05/centos7-install-postfix/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">安裝 Nginx 1.9&#43;
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>新增 nginx.repo vi /etc/yum.repos.d/nginx.repo
-[nginx] name=nginx repo baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/ gpgcheck=0 enabled=1 安裝Nginx yum install nginx
-啟動服務 service nginx start
-chkconfig --levels 235 nginx on
+    <p>1. 修改composer.json &#34;laravel/framework&#34;: &#34;5.0.*&#34; 修改為 &#34;laravel/framework&#34;: &#34;5.1.*&#34;
+2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;
+修改為
+$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
+4. 執行 composer update composer update
+5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。
+storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2016-05-05 02:47:01 +0800 CST'>May 5, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 安裝 Nginx 1.9&#43;" href="https://blog.ooopiz.com/post/2016/05/installing-nginx-19/"></a>
+  <footer class="entry-footer"><span title='2015-07-25 12:22:01 +0800 CST'>July 25, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Laravel5.0 升級5.1" href="https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">安裝 PHP5.6
+    <h2 class="entry-hint-parent">Laravel5.0 關閉CSRF全局驗證
     </h2>
   </header>
   <div class="entry-content">
-    <p>一、更新rpm REMI源 (最新的PHP版本需要修改REMI.REPO中的ENABLED=0為1） vi /etc/yum.repos.d/remi.repo
-CentOS 6 yum install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm CentOS 7 yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm 二、安裝 PHP 想install其它版本的PHP需要修改REMI.REPO中的ENABLED=0為1
-路徑：/etc/yum.repos.d/remi.repo [remi-php55]是PHP5.5 [remi-php56]是PHP5.6 選擇你要的版本做修改即可
-vi /etc/yum.repos.d/remi.repo
-安裝 PHP yum install php
-安裝其他 PHP Lib yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt libmcrypt-devel php-fpm
-設定 php, php-fpm 設定 php 設定內容如下(/etc/php.ini)：
-cgi.fix_pathinfo=0 session.save_handler = files session.save_path = &#34;/var/lib/php/session&#34; date.timezone = &#34;Asia/Taipei&#34; error_reporting = E_ALL &amp; ~E_NOTICE display_errors = On magic_quotes_gpc = Off 設定 php session 檔的權限 mkdir /var/lib/php/session
-...</p>
+    <p>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
+class Kernel extends HttpKernel { /** * The application&#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;, &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;, &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;, &#39;Illuminate\Session\Middleware\StartSession&#39;, &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;, ]; /** * The application&#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &#39;auth&#39; =&gt; &#39;App\Http\Middleware\Authenticate&#39;, &#39;auth.basic&#39; =&gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;, &#39;guest&#39; =&gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;, &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;, ]; } 此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&gt; &#39;csrf&#39;
+$router-&gt;group([&#39;middleware&#39; =&gt; &#39;csrf&#39;], function($router) { // Protected routes }) </p>
   </div>
-  <footer class="entry-footer"><span title='2016-05-05 02:38:01 +0800 CST'>May 5, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to 安裝 PHP5.6" href="https://blog.ooopiz.com/post/2016/05/install-php56/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">安裝 Nexus OSS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Nexus OSS Nexus OSS是用來架設maven私有倉庫的好幫手 安裝其實非常容易
-下載網址
-下載至您要放置的目錄下即可開始操作以下流程 (這裡放置在/usr/local) tar zxvf nexus-2.11.4-01-bundle.tar.gz
-ln -s nexus-2.11.4-01/ nexus
-chown -R nexus:nexus nexus
-chown -R nexus:nexus nexus-2.11.4-01/
-chown -R nexus:nexus sonatype-work/
-修改下面兩個設定
-vi /nexus-2.11.4-01/bin/nexus
-NEXUS_HOME=&#34;/usr/local/nexus/nexus&#34; RUN_AS_USER=nexus 修改Port
-vi /nexus-2.11.4-01/conf/nexus.properties
-application-port=18081 啟動
-sh /var/opt/nexus/nexus/bin/nexus start
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-12-14 01:27:01 +0800 CST'>December 14, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to 安裝 Nexus OSS" href="https://blog.ooopiz.com/post/2015/12/install-nexus-oss/"></a>
+  <footer class="entry-footer"><span title='2015-07-25 08:13:01 +0800 CST'>July 25, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Laravel5.0 關閉CSRF全局驗證" href="https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://blog.ooopiz.com/page/5/">
+    <a class="prev" href="https://blog.ooopiz.com/page/9/">
       «&nbsp;Prev&nbsp;
-    </a>
-    <a class="next" href="https://blog.ooopiz.com/page/7/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

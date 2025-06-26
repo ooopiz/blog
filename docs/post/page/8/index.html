@@ -155,6 +155,54 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS6.5 流量監控工具(iftop)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>官方網站
+安裝 rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm yum install iftop -y or
+wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm rpm -ivh epel-release-6-8.noarch.rpm yum install iftop -y 執行 iftop
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-02 16:56:01 +0800 CST'>September 2, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS6.5 流量監控工具(iftop)" href="https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS7 基礎設定
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下 一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
+cd /etc/sysconfig/network-scripts
+每台電腦的網卡名稱不一定相同
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+systemctl restart network
+二、關閉SELinux vi /etc/selinux/config
+這個設定reboot後才會生效
+三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
+vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
+systemctl restart sshd
+四、調整時區 rm /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+五、調整語系 檢查系統目前使用的語系
+localectl
+查看系統有哪些可用的語系
+localectl list-locales | grep zh
+如果你要設定語系的話
+localectl set-locale LANG=zh_TW.utf8
+六、修改Hostname 查看主機 hostname
+hostnamectl 設定 hostname
+hostnamectl set-hostname new_hostname 七、同步時間 安裝的packages yum install ntp ntpdate ntp-doc 設定開機就啟動NTP Daemon systemctl enable ntpd 系統時間與time.stdtime.gov.tw的NTP server做校時 ntpdate time.stdtime.gov.tw 啟動系統的NTP Daemon systemctl start ntpd 設定要校時的NTP server vi /etc/ntp.conf ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-01 03:07:01 +0800 CST'>September 1, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 基礎設定" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">CentOS 使用rsync
     </h2>
   </header>
@@ -249,38 +297,6 @@ chkconfig mysql on
   </div>
   <footer class="entry-footer"><span title='2015-08-24 05:04:01 +0800 CST'>August 24, 2015</span></footer>
   <a class="entry-link" aria-label="post link to Laravel 刪除套件" href="https://blog.ooopiz.com/post/2015/08/laravel-delete-kit/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Android 程式流程
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>了解一個程式的流程是十分重要的一件事
-以下記載著一個 Android APP 的出生到死亡
-protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Android 程式流程" href="https://blog.ooopiz.com/post/2015/08/android-program-flow/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">一台電腦兩個Git帳號使用SSH Key
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
-Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second pull 的時候是識別郵箱，所以不能使用 global 的 user.email
-取消 global git config --global --unset user.name
-git config --global --unset user.email
-設定每個項目repo自己的 user.email git config user.email &#34;xxxx@xx.com&#34; git config user.name &#34;ricky&#34;
-Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-08-24 03:05:01 +0800 CST'>August 24, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to 一台電腦兩個Git帳號使用SSH Key" href="https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -155,145 +155,40 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Window10 l2tp vpn 設定
+    <h2 class="entry-hint-parent">Laravel5.0 升級5.1
     </h2>
   </header>
   <div class="entry-content">
-    <p>Window10 l2tp vpn 設定 開啟 Windows 設定 搜尋 VPN 設定 新增 VPN 連線 設定參數 連線名稱自訂 伺服器名稱填入 IP 或是 domain name VPN 類型，這邊以 L2TP 為例 L2TP 預先共用金鑰 輸入帳號密碼 連線 </p>
-  </div>
-  <footer class="entry-footer"><span title='2020-01-04 00:03:19 +0800 CST'>January 4, 2020</span></footer>
-  <a class="entry-link" aria-label="post link to Window10 l2tp vpn 設定" href="https://blog.ooopiz.com/post/2020/01/window10_l2tp_vpn_setting/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">建立一個單節點的 kubernetes cluster (kubeadm)
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 前一陣子開始使用 minikube 玩了一下 k8s，覺得有很多迷惑的地方，於是索性自己架設一個集群來幫助自己更了解 k8s cluster。
-Kubernetes Architecture 這是一個 kubernetes cluster 較完整的架構圖，本文的範疇只會在 Kubernetes Master 的綠色區塊。
-(圖片來自WIKI)
-Master 節點的組件 ETCD 集群 API SERVER Controller Manager Scheduler 安裝準備 先選定好要安裝在什麼 OS 上，
-並且選好 CNI 的方案，這邊用 Flannel，如不知道怎麼選，就先選跟文章一樣吧。
-下面列出我的環境跟CNI
-OS（CoreOS） 2 GB or more of RAM per machine (any less will leave little room for your apps) 2 CPUs or more CNI（flannel） 安裝 kubeadm 官網文件：Installing kubeadm 官網文件：Creating a single control-plane cluster with kubeadm 我用的是 CoreOS 依照官網指示，如下安裝（官網如有更新，請依照官網）。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-07-29 17:18:19 +0800 CST'>July 29, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to 建立一個單節點的 kubernetes cluster (kubeadm)" href="https://blog.ooopiz.com/post/2019/07/creating-kubernetes-single-node-cluster/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CoreOS Static Ip 固定 IP 設定
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>設定 static ip 副檔名必須是.network
-$ vi /etc/systemd/network/enp0s8.network
-[Match] Name=enp0s8 [Network] Address=192.168.56.201/24 reboot sudo reboot
+    <p>1. 修改composer.json &#34;laravel/framework&#34;: &#34;5.0.*&#34; 修改為 &#34;laravel/framework&#34;: &#34;5.1.*&#34;
+2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;
+修改為
+$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
+4. 執行 composer update composer update
+5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。
+storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。
 </p>
   </div>
-  <footer class="entry-footer"><span title='2019-07-24 17:01:37 +0800 CST'>July 24, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to CoreOS Static Ip 固定 IP 設定" href="https://blog.ooopiz.com/post/2019/07/coreos-static-ip/"></a>
+  <footer class="entry-footer"><span title='2015-07-25 12:22:01 +0800 CST'>July 25, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Laravel5.0 升級5.1" href="https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Docker cli 連線到遠端的 dockerd daemon
+    <h2 class="entry-hint-parent">Laravel5.0 關閉CSRF全局驗證
     </h2>
   </header>
   <div class="entry-content">
-    <p>docker 是 client/server 的架構 昨天在網路上看到一句話，大意是：
-docker 是 client / server 的架構， 由一個 docker cli 和 dockerd 的 daemon 組成
-才赫然發現 docker 別有洞天吶。
-原來每天在敲的 docker 指令都是在操控本機的 docker daemon。
-如何連線到遠端的 docker daemon 有了上面那句話，就在想說是不是可以用我 local 的 docker cli 連線到其它機器的 dockerd。
-今天馬上用我 virtualbox 中的 coreOS 進行測試一下。
-dockerd port listen dockerd default 好像都沒有開啟 tcp port，必須在 dockerd 啟動時加入 -H 參數。
--H tcp://0.0.0.0:2375
-如果是用 systemctl 控制 docker 你可以找到 docker.service，在腳本中加入 -H 參數。
-以 coreOS 為例，
-我的檔案在 /run/systemd/system/docker.service
-...</p>
+    <p>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
+class Kernel extends HttpKernel { /** * The application&#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;, &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;, &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;, &#39;Illuminate\Session\Middleware\StartSession&#39;, &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;, ]; /** * The application&#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &#39;auth&#39; =&gt; &#39;App\Http\Middleware\Authenticate&#39;, &#39;auth.basic&#39; =&gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;, &#39;guest&#39; =&gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;, &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;, ]; } 此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&gt; &#39;csrf&#39;
+$router-&gt;group([&#39;middleware&#39; =&gt; &#39;csrf&#39;], function($router) { // Protected routes }) </p>
   </div>
-  <footer class="entry-footer"><span title='2019-06-04 20:22:08 +0800 CST'>June 4, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to Docker cli 連線到遠端的 dockerd daemon" href="https://blog.ooopiz.com/post/2019/06/docker-connecting-remote-daemon/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Virtualbox 安裝 Coreos
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>到官網下載 coreOS ISO 檔 Booting CoreOS Container Linux from an ISO
-如標題，這份 ISO 僅是開機片而已，並無安裝動作，
-如何安裝的部分下面會提到。
-VirtualBox 新增機器 選 Linux 64 bit 即可
-掛載剛下載的 ISO 檔
-開機 官網有說明最小的 RAM 必須要 2G，一開始沒注意我也是只開了 512，下面是記憶體不足時的反應。
-512 G - 無限重開 1024 G - boot into emergency shell 2048 G - OK 使用ISO開機之後，並不會把檔案裝進硬碟，在上面進行任何操作，重開機後都會消失。
-安裝到硬碟 這個步驟要使用 coreos-install 這個指令來安裝硬碟，
-當 ISO boot 的時候，該指令就已經內建在系統裡了。
-要特別注意的是你必須寫一個 ignition.json 檔案來作為安裝時的參數，
-這個檔案可以用來設定用戶、網路、儲存、服務等。。。
-必須在設定檔中給定一個 ssh 公鑰，以利後續登入（如果有登入需求的話）
-否則裝好之後是無法使用 ssh login in 的。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-28 15:20:25 +0800 CST'>May 28, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to Virtualbox 安裝 Coreos" href="https://blog.ooopiz.com/post/2019/05/virtualbox-install-coreos/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Fswatch Save My Times
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Fswatch 可以用來檢測資料夾與文件的變更 最近在用 vim 練習 golang，真的是 go run 到手累心也累，
-就到網路上搜看看有沒有可以監控檔案存檔事件的工具，
-於是找到了這款 Mac 可以使用的 Fswatch
-安裝 mac 上安裝就直接
-brew install fswatch
-腳本 因為我只要監控 go file 有沒有異動，
-如果有的話幫我 compilar，所以腳本中有限定 .go 檔。
-#!/bin/bash BASEDIR=$(dirname &#34;$0&#34;) fswatch &#34;$BASEDIR&#34; | while read file do filename=$(basename -- &#34;$file&#34;) extension=&#34;${filename##*.}&#34; filename=&#34;${filename%.*}&#34; if [ &#34;$extension&#34; = &#34;go&#34; ] then echo &#34;=============================================\n\n&#34; time go run ${file} fi done Demo Reference OS X使用fswatch&#43;rsync自动检测文件夹改动并同步 </p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-23 23:27:58 +0800 CST'>May 23, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to Fswatch Save My Times" href="https://blog.ooopiz.com/post/2019/05/fswatch-save-my-times/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">IPsec Lan to Lan Vigor-2925 and AWS-ec2
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 簡單說一下就是，我想讓我所在的網路可以訪問到 AWS subnet 的固定子網 IP，
-內網的工作同仁或者內部 Server 不用額外做 vpn 撥號或其他動作。
-其實 AWS 上面也有現成的服務可以租用（在 VPC 的設定中）
-一個月大概在台幣 1,000 左右 AWS VPN pricing。
-但基於我想自己架看看，另外也可以省點錢，就租了一台 EC2 來土炮了。
-目標就是使用 Vigor 2925 播出到 IPsec server 保持一個 Lan to Lan 的連線。
-公司端：
-設備：Vigor 2925 網段：192.168.0.0/24 AWS 端：
-網段：172.21.0.0/16 IPsec Server ： CentOS7, EIP libreSwan 簡介 libreSwan 是 IPsec 協議的開源實現，基於FreeSwan 專案。
-在 Centos7 版本後， 提供ipsec 服務包由libreswan替代了openswan
-安裝 libreswan $ yum install epel-release $ yum install libreswan 設定 ipsec ipsec 啟動時會載入 /etc/ipsec.conf
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-05-17 08:02:00 +0800 CST'>May 17, 2019</span></footer>
-  <a class="entry-link" aria-label="post link to IPsec Lan to Lan Vigor-2925 and AWS-ec2" href="https://blog.ooopiz.com/post/2019/05/vigor2925-ipsec-lantolan-aws-ec2/"></a>
+  <footer class="entry-footer"><span title='2015-07-25 08:13:01 +0800 CST'>July 25, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Laravel5.0 關閉CSRF全局驗證" href="https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://blog.ooopiz.com/post/page/2/">
+    <a class="prev" href="https://blog.ooopiz.com/post/page/9/">
       «&nbsp;Prev&nbsp;
-    </a>
-    <a class="next" href="https://blog.ooopiz.com/post/page/4/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

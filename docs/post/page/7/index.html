@@ -155,6 +155,44 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS7 Tomcat 增加 systemctl 控制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.增加啟動參數 在Tomcat的bin目錄下增加一個setenv.sh檔，catalina.sh啟動的時候會調用，同時可以在這個檔案設置Java內存
+範例如下:
+#add tomcat pid CATALINA_PID=&#34;$CATALINA_BASE/tomcat7.pid&#34; #add java opts JAVA_OPTS=&#34;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&#34; 2.增加 tomcat.service 在 /usr/lib/systemd/system 目錄下增加 tomcat7.service，
+內容的目錄必須是絕對路徑。
+vi /usr/lib/systemd/system/tomcat7.service
+PIDFile就指到tomcat所在的目錄
+Description=Tomcat After=syslog.target network.target remote-fs.target nss-lookup.target [Service] Type=forking PIDFile=/data/tomcat/tomcat7.pid ExecStart=/data/tomcat/bin/startup.sh ExecReload=/bin/kill -s HUP $MAINPID ExecStop=/bin/kill -s QUIT $MAINPID PrivateTmp=true [Install] WantedBy=multi-user.target [unit]設定服務的描述 [service]設定服務的啟動，停止等 [install]設定使用用戶 systemctl 命令 查看全部服務 systemctl list-unit-files --type service
+查看服務 systemctl status name.service
+啟動服務 systemctl start name.service
+停止服務 systemctl stop name.service
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-10-01 05:24:01 +0800 CST'>October 1, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS7 Tomcat 增加 systemctl 控制" href="https://blog.ooopiz.com/post/2015/10/centos7-systemctl-control/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CentOS6.5 Tomcat開機自動啟動
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.設定啟動腳本 在目錄 /etc/init.d 新增一個 tomcat 的腳本
+vi /etc/init.d/tomcat
+記得修改你的 JAVA_HOME, CATALINA_HOME 到你所在的目錄下
+#startup script for jakarta tomcat # # chkconfig: - 85 20 # description: Tomcat running # processname: tomcat7 # pidfile: /var/run/tomcat.pid # config:# Source function library. . /etc/rc.d/init.d/functions # Source networking configuration. . /etc/sysconfig/network # Check that networking is up. [ ${NETWORKING} = &#34;no&#34; ] &amp;&amp; exit 0# Set Tomcat environment. export JAVA_HOME=/usr/java/jdk1.8.0_25 export CATALINA_HOME=/usr/local/tomcat7 export CATALINA_OPTS=&#34;-Dbuild.compiler.emacs=true&#34; export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CATALINA_HOME/lib/servlet-api.jar export PATH=$JAVA_HOME/bin:$PATH [ -f /usr/local/tomcat7/bin/startup.sh ] || exit 0 [ -f /usr/local/tomcat7/bin/shutdown.sh ] || exit 0 export PATH=$PATH:/usr/bin:/usr/lib/bin # See how we were called. case &#34;$1&#34; in start) # Start daemon. echo -n &#34;Starting Tomcat: &#34; /usr/local/tomcat7/bin/startup.sh RETVAL=$? echo [ $RETVAL = 0 ] &amp;&amp; touch /var/lock/subsys/tomcat ;; stop) # Stop daemons. echo -n &#34;Shutting down Tomcat: &#34; /usr/local/tomcat7/bin/shutdown.sh RETVAL=$? echo [ $RETVAL = 0 ] &amp;&amp; rm -f /var/lock/subsys/tomcat ;; restart) $0 stop $0 start ;; condrestart) [ -e /var/lock/subsys/tomcat ] &amp;&amp; $0 restart ;; status) status tomcat ;; *) echo &#34;Usage: $0 {start|stop|restart|status}&#34; exit 1 esac exit 0 2.修改執行權限 chmod 755 /etc/init.d/tomcat
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-09-30 21:50:01 +0800 CST'>September 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CentOS6.5 Tomcat開機自動啟動" href="https://blog.ooopiz.com/post/2015/09/centos65-boot-tomcat-started-automatically/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">CentOS7 安裝Tomcat
     </h2>
   </header>
@@ -260,54 +298,6 @@ http_proxy = proxy.xxxxxx.com.tw:3128 use_proxy = on wait = 15 </p>
   </div>
   <footer class="entry-footer"><span title='2015-09-02 17:05:01 +0800 CST'>September 2, 2015</span></footer>
   <a class="entry-link" aria-label="post link to yum 和 wget 使用 proxy" href="https://blog.ooopiz.com/post/2015/09/wget-and-yum-with-proxy/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS6.5 流量監控工具(iftop)
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>官方網站
-安裝 rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm yum install iftop -y or
-wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm rpm -ivh epel-release-6-8.noarch.rpm yum install iftop -y 執行 iftop
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-09-02 16:56:01 +0800 CST'>September 2, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS6.5 流量監控工具(iftop)" href="https://blog.ooopiz.com/post/2015/09/centos-traffic-monitoring-tool-iftop/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">CentOS7 基礎設定
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 一、啟用網卡，停用NetworkManger 二、關閉SELinux 三、關閉UseDNS 四、調整時區 五、調整語系 六、修改Hostname 七、同步時間 八、停用firewalld，改用iptabless 九、更新一下 一、啟用網卡，停用NetworkManger 先進到網卡的目錄底下，將你的網卡設定為啟動的狀態(ONBOOT=yes)
-cd /etc/sysconfig/network-scripts
-每台電腦的網卡名稱不一定相同
-systemctl stop NetworkManager
-systemctl disable NetworkManager
-systemctl restart network
-二、關閉SELinux vi /etc/selinux/config
-這個設定reboot後才會生效
-三、關閉UseDNS 登入SSH需要等很久的話，可以從這個設定獲得改善
-vi /etc/ssh/sshd_config 將 UseDNS yes 改成 no
-systemctl restart sshd
-四、調整時區 rm /etc/localtime
-ln -s /usr/share/zoneinfo/Asia/Taipei /etc/localtime
-五、調整語系 檢查系統目前使用的語系
-localectl
-查看系統有哪些可用的語系
-localectl list-locales | grep zh
-如果你要設定語系的話
-localectl set-locale LANG=zh_TW.utf8
-六、修改Hostname 查看主機 hostname
-hostnamectl 設定 hostname
-hostnamectl set-hostname new_hostname 七、同步時間 安裝的packages yum install ntp ntpdate ntp-doc 設定開機就啟動NTP Daemon systemctl enable ntpd 系統時間與time.stdtime.gov.tw的NTP server做校時 ntpdate time.stdtime.gov.tw 啟動系統的NTP Daemon systemctl start ntpd 設定要校時的NTP server vi /etc/ntp.conf ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-09-01 03:07:01 +0800 CST'>September 1, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to CentOS7 基礎設定" href="https://blog.ooopiz.com/post/2015/09/centos7-basic-set/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

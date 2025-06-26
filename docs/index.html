@@ -154,6 +154,47 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">SSH CA Auth
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>告別密碼！使用 SSH CA 證書實現更安全、更方便的伺服器登入 您是否還在為管理多台伺服器上數不清的 authorized_keys 檔案而煩惱？或是擔心某位同仁的私鑰外洩，卻無法輕易地撤銷其存取權限？
+傳統的 SSH 公鑰認證雖然比密碼安全，但在大規模的環境中，金鑰管理本身就是一個挑戰。今天，我們要介紹一個更優雅、更安全的解決方案：SSH 憑證頒發機構 (Certificate Authority, CA)。
+透過建立自己的 CA，您可以集中管理所有伺服器的信任關係。伺服器不再需要知道每一個使用者的公鑰，它只需要信任您的 CA。接著，您可以為每一位使用者簽發有時效性的短期證書，大幅提升安全性與管理便利性。
+這篇文章將帶您一步步建立自己的 SSH CA，並使用它來簽發使用者證書，實現無痛、安全的伺服器登入。
+核心概念與角色分工 在開始之前，讓我們先理解整個流程中的三個主要角色以及它們各自掌管的檔案。
+角色 職責 相關檔案 憑證頒發機構 (CA) 簽署使用者公鑰，核發證書。是信任的根源。 ca_key (私鑰), ca_key.pub (公鑰) SSH 伺服器 (Server) 被登入的遠端主機。它不認識使用者，只信任 CA。 ca_key.pub (CA 的公鑰) SSH 客戶端 (Client) 發起連線的使用者。持有自己的私鑰和 CA 核發的證書。 id_ed25519 (私鑰), id_ed25519-cert.pub (證書) 簡單來說，Server 藉由擁有 CA 的公鑰來信任 CA。Client 藉由持有 CA 簽發的證書來向 Server 證明自己的身份。
+Step 1: 建立憑證頒發機構 (CA) 位置： 在您的管理工作站或一個安全的機器上 (此處即為 CA)。
+首先，我們需要產生一組專門用來當作 CA 的金鑰。這組金鑰是整個信任鏈的核心，請務必妥善保管 CA 的私鑰 (ca_key)。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-26 10:32:51 +0800 CST'>June 26, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to SSH CA Auth" href="https://blog.ooopiz.com/post/2025/06/sshd-ca-ai/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SSHD CA AUTH
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>產生一組金鑰 ssh-keygen -t rsa -b 4096 -f ca_key -C &#34;My SSH Certificate Authority&#34;
+會產生兩個檔案 ca_key ca_key.pub 公鑰分發到要被登錄的機器上 (sshd server) /etc/ssh/sshd_config
+TrustedUserCAKeys /etc/ssh/ca_key.pub systemctl restart sshd
+產生一組金鑰,做為客戶端的金鑰 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C &#34;user@example.com&#34;
+會產生兩個檔案 id_ed25519 id_ed25519.pub 用 ca 私鑰與 用戶公鑰簽發證書 ssh-keygen -s ca_key -I &#34;user@example.com-cert&#34; -n user1,user2 -V &#43;52w id_ed25519.pub
+-s ca_key: 指定用於簽署的 CA 私鑰。
+-I “user@example.com-cert”: 指定一個證書 ID，用於日誌記錄和審計。
+-n user1,user2: 指定此證書允許登錄的用戶名（如果未指定，則默認為金鑰的註釋部分）。這是 SSH 伺服器在驗證證書時會檢查的用戶名。
+-V &#43;52w: 設置證書的有效期，例如這裡設置為 52 週。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-06-26 10:12:51 +0800 CST'>June 26, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to SSHD CA AUTH" href="https://blog.ooopiz.com/post/2025/06/sshd-ca/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Nginx Upstream 嘗試請求，重試請求
     </h2>
   </header>
@@ -252,48 +293,6 @@ cd %dirpath% if %ERRORLEVEL% NEQ 0 exit %ERRORLEVEL% rsync --delete remote local
   </div>
   <footer class="entry-footer"><span title='2023-04-17 10:40:46 +0800 CST'>April 17, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Windows OS cd 指令，你應該注意的事 (device 切換)" href="https://blog.ooopiz.com/post/2023/04/windows-cd-command-notice/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Systemd Timer 執行秒級排程，可替代 crontab
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>crontab 每 30 秒執行 大家應該都有用過 crontab 的經驗吧？
-crontab 每次執行的最小單位就是分鐘，如果遇到秒級需求的任務排程。
-很常見到類似底下的 crontab 的設定。
-設定上相當方便，不過我們可以認識一下另一種 systemd timer 的作法。
-或是你可以想像一下，如果 5秒要執行一次，crontab 會長什麼樣子。
-* * * * * dosomething * * * * * sleep 30; dosomething systemd timer 特點 使用 timer 來執行 service，可以避免上一個任務還沒進行完，又開始一個新的任務。 systemd timer jobqueue.service / systemd service file 建立一個 jobqueue.service 設定檔，內容如下:
-[Unit] Description=Execute jobqueue [Service] Type=simple ExecStart=/bin/bash -c &#39;/usr/bin/date &gt;&gt; /tmp/date.log&#39; 建立完成後重載一下 systemctl daemon-reload
-接著當你執行 systemctl start jobqueue.service 時，就會執行一次 ExecStart 的命令
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-15 00:39:44 +0800 CST'>April 15, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Systemd Timer 執行秒級排程，可替代 crontab" href="https://blog.ooopiz.com/post/2023/04/systemd-timer-instead-of-crontab/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Grafana 備份工具 - grafana-backup-tool
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>説明 最近剛好要做 Grafana 的資料遷移，
-理論上遷移時將 grafana 的 sqlite 一起搬過去應該是沒問題，
-但牽涉到版本升級，有點不確定性。
-剛好看到一個不錯的工具 grafana-backup-tool，是透過 api 的方式進行備份還原，
-正好試用看看，平常備份也可以使用。
-情境 Grafana 資料遷移 - 域名為假設域名 原站 - http://grafana.example.com (version: 6.4.3) 新站 - http://new.grafana.example.com (version: 7.3.4) 步驟 一. 安裝 grafana-backup-tool 隨便找一台可以訪問到 Grafana site 的 Linux
-pip install grafana-backup
-二. 建立 API Token 在要備份 與 要還原的 Grafana 都建立 API KEY
-三. 設定檔 建立備份目標的設定檔 grafana.json (token 填入上方所建立的)
-{ &#34;grafana&#34;: { &#34;url&#34;: &#34;http://grafana.example.com&#34;, &#34;token&#34;: &#34;{YOUR_GRAFANA_TOKEN}&#34;, } } 建立還原目標的設定檔 grafana-new.json (token 填入上方所建立的)
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-04-01 01:02:25 +0800 CST'>April 1, 2021</span></footer>
-  <a class="entry-link" aria-label="post link to Grafana 備份工具 - grafana-backup-tool" href="https://blog.ooopiz.com/post/2021/04/try-grafana-backup-tool/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

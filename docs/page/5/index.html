@@ -141,6 +141,45 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Yum Zabbix server, agent
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
+php 使用模組
+yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
+開始安裝 YUM 安裝 Zabbix 及相關套件
+yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
+建立 zabbix 帳號及資料庫
+mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
+mysql&gt; GRANT ALL PRIVILEGES on zabbix.* to &#39;zabbix&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;zabbix&#39;;
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-27 02:13:01 +0800 CST'>October 27, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Yum Zabbix server, agent" href="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">bind make安裝搭配 dlz mysql
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
+–with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
+Bind官網 FTP站 二、安裝MySQL資料庫
+開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
+service iptables save
+service iptables restart
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to bind make安裝搭配 dlz mysql" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">CentOS yum 安裝 bind9
     </h2>
   </header>
@@ -243,33 +282,6 @@ nginx soft nofile 65536 nginx hard nofile 65536 * soft nofile 65536 * hard nofil
   </div>
   <footer class="entry-footer"><span title='2016-07-29 01:16:01 +0800 CST'>July 29, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 2016/07/27 使用ab壓測" href="https://blog.ooopiz.com/post/2016/07/ab-pressure-test/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Gradle 初探
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>如何用 gradle 建立專案 </p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-27 03:14:01 +0800 CST'>July 27, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to Gradle 初探" href="https://blog.ooopiz.com/post/2016/07/study-on-the-gradle/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">javascript 有沒有var的差別
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>有沒有var差很大啊，要注意
-Output is “7”
-$(document).ready(function () { x = 6; }); $(document).ready(function () { x = 7; }); $(document).ready(function () { alert(x); }); x is not defined
-$(document).ready(function () { var x = 6; }); $(document).ready(function () { var x = 7; }); $(document).ready(function () { alert(x); }); </p>
-  </div>
-  <footer class="entry-footer"><span title='2016-07-21 14:54:01 +0800 CST'>July 21, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to javascript 有沒有var的差別" href="https://blog.ooopiz.com/post/2016/07/differences-have-javascript-var/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -141,6 +141,38 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Android 程式流程
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>了解一個程式的流程是十分重要的一件事
+以下記載著一個 Android APP 的出生到死亡
+protected void onCreate(...) { openGarageDoor(); unlockCarAndGetIn(); closeCarDoorAndPutOnSeatBelt(); putKeyInIgnition(); } protected void onStart() { startEngine(); changeRadioStation(); switchOnLightsIfNeeded(); switchOnWipersIfNeeded(); } protected void onResume() { applyFootbrake(); releaseHandbrake(); putCarInGear(); drive(); } protected void onPause() { putCarInNeutral(); applyHandbrake(); } protected void onStop() { switchEveryThingOff(); turnOffEngine(); removeSeatBeltAndGetOutOfCar(); lockCar(); } protected void onDestroy() { enterOfficeBuilding(); } protected void onReachedGroceryStore(...) { Intent i = new Intent(ACTION_GET_GROCERIES, ..., this, GroceryStoreActivity.class); } protected void onRestart() { unlockCarAndGetIn(); closeDoorAndPutOnSeatBelt(); putKeyInIgnition(); } </p>
+  </div>
+  <footer class="entry-footer"><span title='2015-08-24 04:50:01 +0800 CST'>August 24, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Android 程式流程" href="https://blog.ooopiz.com/post/2015/08/android-program-flow/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">一台電腦兩個Git帳號使用SSH Key
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在設定檔中加入設定檔 Windows下的路徑C:\Users\Ricky.ssh
+Host ricky.org Hostname ricky.org Port 29418 User rickyhuang IdentityFile C:\Users\Ricky\.ssh\id_rsa Host peter.org Hostname peter.org Port 65095 User peter IdentityFile C:\Users\Ricky\.ssh\id_rsa_second pull 的時候是識別郵箱，所以不能使用 global 的 user.email
+取消 global git config --global --unset user.name
+git config --global --unset user.email
+設定每個項目repo自己的 user.email git config user.email &#34;xxxx@xx.com&#34; git config user.name &#34;ricky&#34;
+Woindows 下要生成 key 可以使用 git bash 裡面有內建的 ssh command 再輸入，即可生成ssh key ssh-keygen -t rsa
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-08-24 03:05:01 +0800 CST'>August 24, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to 一台電腦兩個Git帳號使用SSH Key" href="https://blog.ooopiz.com/post/2015/08/two-git-a-computer-account-using-ssh-key/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">CentOS6.5 安裝phpMyAdmin
     </h2>
   </header>
@@ -239,43 +271,12 @@ service network restart
   <footer class="entry-footer"><span title='2015-07-27 01:35:01 +0800 CST'>July 27, 2015</span></footer>
   <a class="entry-link" aria-label="post link to CentOS crontab" href="https://blog.ooopiz.com/post/2015/07/centos-crontab/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Laravel5.0 升級5.1
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. 修改composer.json &#34;laravel/framework&#34;: &#34;5.0.*&#34; 修改為 &#34;laravel/framework&#34;: &#34;5.1.*&#34;
-2. 在bootstrap目錄下建立一個目錄cache，並新增一個文件.gitignore，內容為: * !.gitignore 3. 修改bootstrap下的autoload.php $compiledPath = __DIR__.&#39;/../vendor/compiled.php&#39;;
-修改為
-$compiledPath = __DIR__.&#39;/cache/compiled.php&#39;;
-4. 執行 composer update composer update
-5. 確認目錄權限 安裝 Laravel 之後，你必須設定一些權限。
-storage 和 bootstrap/cache 目錄必須讓伺服器有寫入權限。
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2015-07-25 12:22:01 +0800 CST'>July 25, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Laravel5.0 升級5.1" href="https://blog.ooopiz.com/post/2015/07/laravel50-upgrade-51/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Laravel5.0 關閉CSRF全局驗證
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>修改Kernel.php 將global middleware的 &#39;App\Http\Middleware\VerifyCsrfToken&#39; 移動到route middleware &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;
-class Kernel extends HttpKernel { /** * The application&#39;s global HTTP middleware stack. * * @var array */ protected $middleware = [ &#39;Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode&#39;, &#39;Illuminate\Cookie\Middleware\EncryptCookies&#39;, &#39;Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse&#39;, &#39;Illuminate\Session\Middleware\StartSession&#39;, &#39;Illuminate\View\Middleware\ShareErrorsFromSession&#39;, ]; /** * The application&#39;s route middleware. * * @var array */ protected $routeMiddleware = [ &#39;auth&#39; =&gt; &#39;App\Http\Middleware\Authenticate&#39;, &#39;auth.basic&#39; =&gt; &#39;Illuminate\Auth\Middleware\AuthenticateWithBasicAuth&#39;, &#39;guest&#39; =&gt; &#39;App\Http\Middleware\RedirectIfAuthenticated&#39;, &#39;csrf&#39; =&gt; &#39;App\Http\Middleware\VerifyCsrfToken&#39;, ]; } 此種作法將會取消全局的驗證，如果要加上驗證機制必須在該route的地方 加上 &#39;middleware&#39; =&gt; &#39;csrf&#39;
-$router-&gt;group([&#39;middleware&#39; =&gt; &#39;csrf&#39;], function($router) { // Protected routes }) </p>
-  </div>
-  <footer class="entry-footer"><span title='2015-07-25 08:13:01 +0800 CST'>July 25, 2015</span></footer>
-  <a class="entry-link" aria-label="post link to Laravel5.0 關閉CSRF全局驗證" href="https://blog.ooopiz.com/post/2015/07/laravel5-0-close-the-crsf-global-validation/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://blog.ooopiz.com/page/8/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://blog.ooopiz.com/page/10/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

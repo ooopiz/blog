@@ -155,6 +155,45 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">關於 Docker volume create
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 某次我在看某個服務的安裝文件時，發現了 docker volume create 這個指令。
+原本我都是使用 -v 對應到我 host 機器的目錄
+ex :
+-v $(pwd)/nginx-cache:/var/cache/nginx
+後來很好奇 docker volume create 的用途還有存放路徑。
+於是就小小的研究了一下。
+docker volume create 一般的 Linux 在執行 docker volume create … 之後，
+可以在 /var/lib/docker/volumes 看到 docker 幫你建立 volume 名稱的資料夾。
+docker volume create In Mac 可是當你使用 Mac 執行過 docker volume create … 之後，
+並無法在 Mac 電腦中找到 /var/lib/docker/volumes 這個目錄。
+在 Mac 電腦 是無法直接訪問 /var/lib/docker/volumes 這個目錄，
+必須先 screen 到 docker 目錄下的 tty，
+進到 tty 之後就可以在 /var/lib/docker/volums 看到 create 的目錄名稱了。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-05-10 07:22:01 +0800 CST'>May 10, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to 關於 Docker volume create" href="https://blog.ooopiz.com/post/2019/05/docker-volume-create/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Gitlab-ce 版本升級與容器化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>升級目標 gitlab-ce:8.14.4 升級到 gitlab-ce:11.3.4 Omnibus 轉移到 Docker 容器（Dockerized） 步驟流程 一、備份 Omnibus 上的資料 二、準備 docker 環境 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與還原 四、版本逐步升級 一、備份 Omnibus 上的資料 $ gitlab-rake gitlab:backup:create
+二、準備 docker 環境 Install docker, docker-compose 檔案存放的根目錄我設定在 /srv/gitlab，因此先在母體主機建立三個資料夾後續給 docker 掛載。 /srv/gitlab/config /srv/gitlab/logs /srv/gitlab/data 三、啟動新環境（使用 gitlab-ce:8.14.4-ce.0 版本的 Image）與匯入 複製 omnibus 機器下的主機金鑰組到新環境 From omnibus (/etc/ssh/ssh_host_*) copy to /srv/gitlab/config/ 撰寫 docker-compose.yaml 如下 hostname 與 external_url 替換成自己的參數 web: image: &#39;gitlab/gitlab-ce:8.14.4-ce.0&#39; container_name: gitlab restart: always hostname: &#39;git.example.com&#39; environment: TZ: Asia/Taipei GITLAB_OMNIBUS_CONFIG: | external_url &#39;http://git.example.com&#39; # Add any other gitlab.rb configuration here, each on its own line ports: - &#39;22:22&#39; - &#39;80:80&#39; - &#39;443:443&#39; volumes: - &#39;/srv/gitlab/config:/etc/gitlab&#39; - &#39;/srv/gitlab/logs:/var/log/gitlab&#39; - &#39;/srv/gitlab/data:/var/opt/gitlab&#39; 使用上方的docker-compose 啟動 gitlab-ce $ docker-compose up -d
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-11-01 10:45:51 +0800 CST'>November 1, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to Gitlab-ce 版本升級與容器化" href="https://blog.ooopiz.com/post/2018/11/gitlab-version-update-and-dockerized/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">opensourcepos 安裝
     </h2>
   </header>
@@ -272,45 +311,6 @@ f = error_ppm平均值 * 65536
   </div>
   <footer class="entry-footer"><span title='2016-11-04 10:26:01 +0800 CST'>November 4, 2016</span></footer>
   <a class="entry-link" aria-label="post link to 利用 adjtimex 來修正 linux 時間偏差" href="https://blog.ooopiz.com/post/2016/11/use-the-adjtimex-to-fix-linux-time-deviations/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Yum Zabbix server, agent
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>安裝相應的 RPM 檔啟用 Zabbix Repository RHEL 7, CentOS 7 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/7/x86_64/zabbix-release-2.2-1.el7.noarch.rpm RHEL 6, CentOS 6 rpm -Uvh http://repo.zabbix.com/zabbix/2.2/rhel/6/x86_64/zabbix-release-2.2-1.el6.noarch.rpm zabbix-server 由於 Zabbix 是基於 PHP 及 MySQL 開發, 需要先安裝 LAMP 環境
-php 使用模組
-yum install php70w-bcmath php70w-mbstring php70w-mysql php70w-gd php70w-ldap php70w-pdo php70w-process php70w-pear php70w-xml php70w-xmlrpc
-開始安裝 YUM 安裝 Zabbix 及相關套件
-yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-java-gateway
-建立 zabbix 帳號及資料庫
-mysql&gt; CREATE SCHEMA zabbix DEFAULT CHARACTER SET utf8 ;
-mysql&gt; GRANT ALL PRIVILEGES on zabbix.* to &#39;zabbix&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;zabbix&#39;;
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-10-27 02:13:01 +0800 CST'>October 27, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to Yum Zabbix server, agent" href="https://blog.ooopiz.com/post/2016/10/yum-zabbix-server-agent/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">bind make安裝搭配 dlz mysql
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Bind-dlz 簡介 BIND從文本文件中獲取數據，這樣容易因為編輯錯誤出現問題。 BIND需要將數據載入到內存中，如果域或者記錄較多，會消耗大量的內存。 BIND啟動時解析Zone文件，對於一個記錄較多的DNS來說，會耽誤更多的時間。 如果最近修改一條記錄，那麼要重新載入或者重啟BIND才能生效，可能會影響客戶端查詢。 bind-dlz主要解決上述缺陷而誕生，在mysql存儲zone的記錄，比在文本中好管理的多。 DLZ算是bind的好朋友，用了DLZ後，這些zone記錄可以直接存到資料庫(mysql PostgreSQL等)並且是立即生效 Reference 智能DNS(Bind dlz)在企業中的應用 Bind 安裝 (MySQL篇) bind9 默認不支援 dlz 需要在編譯時加上 with (看你搭配什麼資料庫)
-–with-dlz-mysql –with-dlz-postgres 前置作業 一、到官網或FTP站下載安裝檔
-Bind官網 FTP站 二、安裝MySQL資料庫
-開始安裝 1. 防火牆設定(開啟 53 port) iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
--A INPUT -p udp -m state --state NEW -m udp --dport 53 -j ACCEPT
-service iptables save
-service iptables restart
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2016-10-17 15:46:01 +0800 CST'>October 17, 2016</span></footer>
-  <a class="entry-link" aria-label="post link to bind make安裝搭配 dlz mysql" href="https://blog.ooopiz.com/post/2016/10/bind-makeinstall-with-dlz-mysql/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

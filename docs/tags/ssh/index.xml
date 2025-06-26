@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ssh on 馬丁沒有派對</title>
+    <link>https://blog.ooopiz.com/tags/ssh/</link>
+    <description>Recent content in Ssh on 馬丁沒有派對</description>
+    <image>
+      <title>馬丁沒有派對</title>
+      <url>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.ooopiz.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.139.2</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Jun 2025 10:32:51 +0800</lastBuildDate>
+    <atom:link href="https://blog.ooopiz.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH CA Auth</title>
+      <link>https://blog.ooopiz.com/post/2025/06/sshd-ca-ai/</link>
+      <pubDate>Thu, 26 Jun 2025 10:32:51 +0800</pubDate>
+      <guid>https://blog.ooopiz.com/post/2025/06/sshd-ca-ai/</guid>
+      <description>&lt;h1 id=&#34;告別密碼使用-ssh-ca-證書實現更安全更方便的伺服器登入&#34;&gt;告別密碼！使用 SSH CA 證書實現更安全、更方便的伺服器登入&lt;/h1&gt;
+&lt;p&gt;您是否還在為管理多台伺服器上數不清的 &lt;code&gt;authorized_keys&lt;/code&gt; 檔案而煩惱？或是擔心某位同仁的私鑰外洩，卻無法輕易地撤銷其存取權限？&lt;/p&gt;
+&lt;p&gt;傳統的 SSH 公鑰認證雖然比密碼安全，但在大規模的環境中，金鑰管理本身就是一個挑戰。今天，我們要介紹一個更優雅、更安全的解決方案：&lt;strong&gt;SSH 憑證頒發機構 (Certificate Authority, CA)&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;透過建立自己的 CA，您可以集中管理所有伺服器的信任關係。伺服器不再需要知道每一個使用者的公鑰，它只需要信任您的 CA。接著，您可以為每一位使用者簽發有時效性的短期證書，大幅提升安全性與管理便利性。&lt;/p&gt;
+&lt;p&gt;這篇文章將帶您一步步建立自己的 SSH CA，並使用它來簽發使用者證書，實現無痛、安全的伺服器登入。&lt;/p&gt;
+&lt;h2 id=&#34;核心概念與角色分工&#34;&gt;核心概念與角色分工&lt;/h2&gt;
+&lt;p&gt;在開始之前，讓我們先理解整個流程中的三個主要角色以及它們各自掌管的檔案。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;角色&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;職責&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;相關檔案&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;憑證頒發機構 (CA)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;簽署使用者公鑰，核發證書。是信任的根源。&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;ca_key&lt;/code&gt; (私鑰), &lt;code&gt;ca_key.pub&lt;/code&gt; (公鑰)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;SSH 伺服器 (Server)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;被登入的遠端主機。它不認識使用者，只信任 CA。&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;ca_key.pub&lt;/code&gt; (CA 的公鑰)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;SSH 客戶端 (Client)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;發起連線的使用者。持有自己的私鑰和 CA 核發的證書。&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;id_ed25519&lt;/code&gt; (私鑰), &lt;code&gt;id_ed25519-cert.pub&lt;/code&gt; (證書)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;簡單來說，&lt;strong&gt;Server&lt;/strong&gt; 藉由擁有 &lt;strong&gt;CA 的公鑰&lt;/strong&gt;來信任 &lt;strong&gt;CA&lt;/strong&gt;。&lt;strong&gt;Client&lt;/strong&gt; 藉由持有 &lt;strong&gt;CA 簽發的證書&lt;/strong&gt;來向 &lt;strong&gt;Server&lt;/strong&gt; 證明自己的身份。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;step-1-建立憑證頒發機構-ca&#34;&gt;Step 1: 建立憑證頒發機構 (CA)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;位置：&lt;/strong&gt; 在您的管理工作站或一個安全的機器上 (此處即為 CA)。&lt;/p&gt;
+&lt;p&gt;首先，我們需要產生一組專門用來當作 CA 的金鑰。這組金鑰是整個信任鏈的核心，請務必妥善保管 CA 的私鑰 (&lt;code&gt;ca_key&lt;/code&gt;)。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSHD CA AUTH</title>
+      <link>https://blog.ooopiz.com/post/2025/06/sshd-ca/</link>
+      <pubDate>Thu, 26 Jun 2025 10:12:51 +0800</pubDate>
+      <guid>https://blog.ooopiz.com/post/2025/06/sshd-ca/</guid>
+      <description>&lt;h2 id=&#34;產生一組金鑰&#34;&gt;產生一組金鑰&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -f ca_key -C &amp;quot;My SSH Certificate Authority&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;會產生兩個檔案
+&lt;ul&gt;
+&lt;li&gt;ca_key&lt;/li&gt;
+&lt;li&gt;ca_key.pub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;公鑰分發到要被登錄的機器上-sshd-server&#34;&gt;公鑰分發到要被登錄的機器上 (sshd server)&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;TrustedUserCAKeys /etc/ssh/ca_key.pub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;systemctl restart sshd&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;產生一組金鑰做為客戶端的金鑰&#34;&gt;產生一組金鑰,做為客戶端的金鑰&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C &amp;quot;user@example.com&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;會產生兩個檔案
+&lt;ul&gt;
+&lt;li&gt;id_ed25519&lt;/li&gt;
+&lt;li&gt;id_ed25519.pub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;用-ca-私鑰與-用戶公鑰簽發證書&#34;&gt;用 ca 私鑰與 用戶公鑰簽發證書&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ssh-keygen -s ca_key -I &amp;quot;user@example.com-cert&amp;quot; -n user1,user2 -V +52w id_ed25519.pub&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;-s ca_key: 指定用於簽署的 CA 私鑰。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-I &amp;ldquo;&lt;a href=&#34;mailto:user@example.com-cert&#34; &gt;user@example.com-cert&lt;/a&gt;&amp;rdquo;: 指定一個證書 ID，用於日誌記錄和審計。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-n user1,user2: 指定此證書允許登錄的用戶名（如果未指定，則默認為金鑰的註釋部分）。這是 SSH 伺服器在驗證證書時會檢查的用戶名。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-V +52w: 設置證書的有效期，例如這裡設置為 52 週。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
